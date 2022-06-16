@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Data Type &#8212; 나만의 추천 시스템</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Index" href="2.1.2_Python_Basics.html" />
+    <link rel="prev" title="파이썬 데이터분석 기초" href="2.1.0_Python_Basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">나만의 추천 시스템</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    나만의 추천 시스템
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter1/1.1.0_SOP.html">
+   <strong>
+    책을 시작하면서
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter1/1.2.0_Data_Science.html">
+   데이터분석 환경의 변화
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 2
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="2.1.0_Python_Basics.html">
+   <strong>
+    파이썬 데이터분석 기초
+   </strong>
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data Type
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.2_Python_Basics.html">
+     Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.3_Python_Basics.html">
+     For Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.4_Python_Basics.html">
+     If Condition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.5_Python_Basics.html">
+     Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.2.0_Useful_Techniques.html">
+   <strong>
+    유용한 기능들
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/occam-KHS/GitBook.git/master?urlpath=tree/docs/chapter2/2.1.1_Python_Basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/occam-KHS/GitBook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/occam-KHS/GitBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter2/2.1.1_Python_Basics.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapter2/2.1.1_Python_Basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data Type
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string">
+   String
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list">
+   List
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#number">
+   Number
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#date">
+   Date
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionary">
+   Dictionary
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series">
+   Series
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframe">
+   DataFrame
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data Type</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data Type
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string">
+   String
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list">
+   List
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#number">
+   Number
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#date">
+   Date
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionary">
+   Dictionary
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series">
+   Series
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframe">
+   DataFrame
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="data-type">
+<h1>Data Type<a class="headerlink" href="#data-type" title="Permalink to this headline">#</a></h1>
+<p>먼저 데이터 타입에 대한 이해가 필요합니다. 주식 데이터 분석에서 활용할 데이터 타입은 숫자(Number),  문자열(String),  날짜(Date), 딕셔너리(Dictionary), 리스트(List), 시리즈(Series), 데이터프레임(DataFrame) 등이 있습니다. 각 타입의 형식은 아래와 같습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="mi">234</span>
+
+<span class="c1"># String </span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;string&#39;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;I am Tom&#39;</span>
+
+<span class="c1"># Date</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">d1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">yymmdd</span> <span class="o">=</span> <span class="s1">&#39;2021-01-03&#39;</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">yymmdd</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Dictionary</span>
+<span class="n">dic1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">13</span><span class="p">}</span>
+
+<span class="c1"># List</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+
+<span class="c1"># Series</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">ss1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="n">ss2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">ss1</span><span class="p">)</span>
+
+<span class="c1"># DataFrame</span>
+<span class="n">c_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">c_2</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="n">c_1</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="n">c_2</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string">
+<h1>String<a class="headerlink" href="#string" title="Permalink to this headline">#</a></h1>
+<p>문자열의 첫 글자부터 0, 1, 2 번째 문자 해당합니다. 예를 들어, ‘String’ 이란 문자열을 s1 이란 변수에서 저장한 경우, s1[0] 은 ‘s’ 에 해당하고, s1[1] 은 ‘t’ 에 해당합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># String </span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;string&#39;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;I am Tom&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s2</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>string
+I T
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="list">
+<h1>List<a class="headerlink" href="#list" title="Permalink to this headline">#</a></h1>
+<p>리스트는 여러 개의 원소를 대괄호 [] 에 넣은 형태입니다. 리스트도 문자열과 동일하게 0 부터 시작합니다.
+아래 l1 에서 0 번째 원소는 1 이고, l2 에서는 ‘a’ 입니다. 그리고 [start_point:end_point] 를 형식으로 원소의 일부만 가져올 수 있습니다. 단, [start_point:end_point] 에서 원소는 end_point 전까지 가져오는 사실만 유의하시면 됩니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+a
+[&#39;a&#39;, &#39;b&#39;]
+[&#39;b&#39;, &#39;c&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="number">
+<h1>Number<a class="headerlink" href="#number" title="Permalink to this headline">#</a></h1>
+<p>숫자형은 정수형, 소숫점형으로 나눌 수 있으나, 아래와 같이 곧바로 사칙연산이 가능합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="mi">234</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n1</span><span class="o">*</span><span class="n">n2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28782
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="date">
+<h1>Date<a class="headerlink" href="#date" title="Permalink to this headline">#</a></h1>
+<p>날짜형 데이터는 주식데이터 분석에 중요한 데이터형식입니다. 활용도가 아주 높습니다. 날짜 데이터를 활용하기 위해서는 먼저 datetime 패키지를 import 합니다. datetime 는 날짜 데이터를 다루기 위한 여러 메소드를 가지고 있습니다. 첫 번째 d1 변수는 년,월, 시 등의 숫자를 파이썬 날짜로 변형할 수 있게 해 줍니다. d2 변수는 문자열로 되어 있는 날짜를 파이썬 날짜로 변형하는 한 후 저장을 합니다. strptime 은 문자열을 파이썬 날짜로 변경해주는 메소드입니다. strptime 은 두 개의 인수가 필요한데요. 첫 번째는 날짜 형태의 문자열, 두번 째는 형식 포맷입니다. 문자열 날짜 포맷이 %Y-%m-%d 형태라는 것을 인수로 알려줍니다. d3 는 다른 날짜 형식으로 되어 있는 문자열을 파이썬 날짜로 변경하는 법을 보여줍니다. d4 는 반대로 파이썬 날짜를 다시 문자열로 변경하는 법을 보여주고 있습니다. 이 때 메소드는 strpftime 입니다. 마지막으로 timedelta 를 알아보겠습니다. timedelta 는 일정한 시간을 뒤로 이동한 결과를 반환합니다. 예를 들어 d1 에 hours=5 를 추가하면 2021년 1월 3일 0 시에서 2021년 1월 3일 5시로 변경됩니다. 아래 예시는 d1 에서 5 시간을 더 했을 때, 2 일 더했을 때 결과를 보여줍니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Date</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">d1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">yymmdd</span> <span class="o">=</span> <span class="s1">&#39;2021-01-03&#39;</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">yymmdd</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">time_point</span> <span class="o">=</span> <span class="s1">&#39;2021/01/03 19:15:32&#39;</span>
+<span class="n">d3</span> <span class="o">=</span>  <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time_point</span><span class="p">,</span> <span class="s1">&#39;%Y/%m/</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+
+<span class="n">d4</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">d3</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d3</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">d3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d4</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">d4</span><span class="p">))</span>    
+
+<span class="nb">print</span><span class="p">(</span><span class="n">d1</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d1</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-01-03 00:00:00
+2021-01-03 00:00:00
+2021-01-03 19:15:32 &lt;class &#39;datetime.datetime&#39;&gt;
+2021-01-03 &lt;class &#39;str&#39;&gt;
+2021-01-03 05:00:00
+2021-01-05 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dictionary">
+<h1>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">#</a></h1>
+<p>디셔너리는 key 와 value 가 있는 짝으로 있는 형태입니다. Key 를 이용하여 원하는 값을 찾을 수 있어서, 프로그램에서 참조 값을 저장해 둘 때 아주 유용합니다. value 대신에 List 나 DataFrame 등을 넣을 수 도 있습니다. 아래 예시에서는 dic1 에서 키값 ‘a’ 에 해당하는 값은 11 입니다. 새로운 key 와 value 를 넣어서 기존의 Dictionary 에 추가할 수 있습니다. 아래 두 번째 예시는 ‘d’라는 key 에 value 14 를 추가하는 방법입니다. Dictionary 가 너무 커서 어떤 key 값들이 있는 지 알고 싶을 때는 key() 메소드를 사용합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary</span>
+<span class="n">dic1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">13</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dic1</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
+
+<span class="n">dic1</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dic1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dic1</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+{&#39;a&#39;: 11, &#39;b&#39;: 12, &#39;c&#39;: 13, &#39;d&#39;: 14}
+dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="series">
+<h1>Series<a class="headerlink" href="#series" title="Permalink to this headline">#</a></h1>
+<p>Series 라는 데이터 타입을 이용하기 위해서는 Pandas 패키지를 이용합니다. Pandas 는 테이블 형태의 데이터를 다루는데 정말 강력한 패키지입니다. 먼저 ss1 이라는 리스트를 생성해 보겠습니다. ss1 이라는 리스트에 어떤 메소드를 사용할 수 있는 지 알기 위해서는 dir() 를 이용합니다.  dir() 를 하면 Built-in 함수 전체를 알 수 있습니다. append 부터 sort 까지 총 11 개의 함수가 나옵니다. 이 11 개 함수가 List 에서 쓸 수 있는 메소드입니다. 이번에는 ss1 를 Series 로 변경한 후, ss2 에 저장하겠습니다. 그리고 dir() 함수로 호출해 보겠습니다. 많은 메소스가 나열됩니다. 예를 들어 List 값의 평균을 알고 싶은데, List 는 평균을 구하는 메소드가 없습니다. 하지만 Series 에는 mean() 으로 평균값을 구할 수 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">ss1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="n">ss2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">ss1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">ss1</span><span class="p">))</span> <span class="c1"># &#39;append&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;count&#39;, &#39;extend&#39;, &#39;index&#39;, &#39;insert&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;reverse&#39;, &#39;sort&#39; 등 사용가능</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">ss2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="sd">&#39;&#39;&#39; ss1.mean() --&gt; 에러발생 &#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ss2</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># 평균값 13 반환</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__add__&#39;, &#39;__class__&#39;, &#39;__class_getitem__&#39;, &#39;__contains__&#39;, &#39;__delattr__&#39;, &#39;__delitem__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__iadd__&#39;, &#39;__imul__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__iter__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__lt__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__reversed__&#39;, &#39;__rmul__&#39;, &#39;__setattr__&#39;, &#39;__setitem__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;append&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;count&#39;, &#39;extend&#39;, &#39;index&#39;, &#39;insert&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;reverse&#39;, &#39;sort&#39;]
+
+
+[&#39;T&#39;, &#39;_AXIS_LEN&#39;, &#39;_AXIS_ORDERS&#39;, &#39;_AXIS_REVERSED&#39;, &#39;_AXIS_TO_AXIS_NUMBER&#39;, &#39;_HANDLED_TYPES&#39;, &#39;__abs__&#39;, &#39;__add__&#39;, &#39;__and__&#39;, &#39;__annotations__&#39;, &#39;__array__&#39;, &#39;__array_priority__&#39;, &#39;__array_ufunc__&#39;, &#39;__array_wrap__&#39;, &#39;__bool__&#39;, &#39;__class__&#39;, &#39;__contains__&#39;, &#39;__copy__&#39;, &#39;__deepcopy__&#39;, &#39;__delattr__&#39;, &#39;__delitem__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__divmod__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__finalize__&#39;, &#39;__float__&#39;, &#39;__floordiv__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattr__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__getstate__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__iadd__&#39;, &#39;__iand__&#39;, &#39;__ifloordiv__&#39;, &#39;__imod__&#39;, &#39;__imul__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__int__&#39;, &#39;__invert__&#39;, &#39;__ior__&#39;, &#39;__ipow__&#39;, &#39;__isub__&#39;, &#39;__iter__&#39;, &#39;__itruediv__&#39;, &#39;__ixor__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__long__&#39;, &#39;__lt__&#39;, &#39;__matmul__&#39;, &#39;__mod__&#39;, &#39;__module__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__neg__&#39;, &#39;__new__&#39;, &#39;__nonzero__&#39;, &#39;__or__&#39;, &#39;__pos__&#39;, &#39;__pow__&#39;, &#39;__radd__&#39;, &#39;__rand__&#39;, &#39;__rdivmod__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rfloordiv__&#39;, &#39;__rmatmul__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__ror__&#39;, &#39;__round__&#39;, &#39;__rpow__&#39;, &#39;__rsub__&#39;, &#39;__rtruediv__&#39;, &#39;__rxor__&#39;, &#39;__setattr__&#39;, &#39;__setitem__&#39;, &#39;__setstate__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__sub__&#39;, &#39;__subclasshook__&#39;, &#39;__truediv__&#39;, &#39;__weakref__&#39;, &#39;__xor__&#39;, &#39;_accessors&#39;, &#39;_accum_func&#39;, &#39;_add_numeric_operations&#39;, &#39;_agg_by_level&#39;, &#39;_agg_examples_doc&#39;, &#39;_agg_see_also_doc&#39;, &#39;_align_frame&#39;, &#39;_align_series&#39;, &#39;_arith_method&#39;, &#39;_as_manager&#39;, &#39;_attrs&#39;, &#39;_binop&#39;, &#39;_can_hold_na&#39;, &#39;_check_inplace_and_allows_duplicate_labels&#39;, &#39;_check_inplace_setting&#39;, &#39;_check_is_chained_assignment_possible&#39;, &#39;_check_label_or_level_ambiguity&#39;, &#39;_check_setitem_copy&#39;, &#39;_clear_item_cache&#39;, &#39;_clip_with_one_bound&#39;, &#39;_clip_with_scalar&#39;, &#39;_cmp_method&#39;, &#39;_consolidate&#39;, &#39;_consolidate_inplace&#39;, &#39;_construct_axes_dict&#39;, &#39;_construct_axes_from_arguments&#39;, &#39;_construct_result&#39;, &#39;_constructor&#39;, &#39;_constructor_expanddim&#39;, &#39;_convert&#39;, &#39;_convert_dtypes&#39;, &#39;_data&#39;, &#39;_dir_additions&#39;, &#39;_dir_deletions&#39;, &#39;_drop_axis&#39;, &#39;_drop_labels_or_levels&#39;, &#39;_duplicated&#39;, &#39;_find_valid_index&#39;, &#39;_flags&#39;, &#39;_from_mgr&#39;, &#39;_get_axis&#39;, &#39;_get_axis_name&#39;, &#39;_get_axis_number&#39;, &#39;_get_axis_resolvers&#39;, &#39;_get_block_manager_axis&#39;, &#39;_get_bool_data&#39;, &#39;_get_cacher&#39;, &#39;_get_cleaned_column_resolvers&#39;, &#39;_get_index_resolvers&#39;, &#39;_get_label_or_level_values&#39;, &#39;_get_numeric_data&#39;, &#39;_get_value&#39;, &#39;_get_values&#39;, &#39;_get_values_tuple&#39;, &#39;_get_with&#39;, &#39;_gotitem&#39;, &#39;_hidden_attrs&#39;, &#39;_index&#39;, &#39;_indexed_same&#39;, &#39;_info_axis&#39;, &#39;_info_axis_name&#39;, &#39;_info_axis_number&#39;, &#39;_init_dict&#39;, &#39;_init_mgr&#39;, &#39;_inplace_method&#39;, &#39;_internal_names&#39;, &#39;_internal_names_set&#39;, &#39;_is_cached&#39;, &#39;_is_copy&#39;, &#39;_is_label_or_level_reference&#39;, &#39;_is_label_reference&#39;, &#39;_is_level_reference&#39;, &#39;_is_mixed_type&#39;, &#39;_is_view&#39;, &#39;_item_cache&#39;, &#39;_ixs&#39;, &#39;_logical_func&#39;, &#39;_logical_method&#39;, &#39;_map_values&#39;, &#39;_maybe_update_cacher&#39;, &#39;_memory_usage&#39;, &#39;_metadata&#39;, &#39;_mgr&#39;, &#39;_min_count_stat_function&#39;, &#39;_name&#39;, &#39;_needs_reindex_multi&#39;, &#39;_protect_consolidate&#39;, &#39;_reduce&#39;, &#39;_reindex_axes&#39;, &#39;_reindex_indexer&#39;, &#39;_reindex_multi&#39;, &#39;_reindex_with_indexers&#39;, &#39;_replace_single&#39;, &#39;_repr_data_resource_&#39;, &#39;_repr_latex_&#39;, &#39;_reset_cache&#39;, &#39;_reset_cacher&#39;, &#39;_set_as_cached&#39;, &#39;_set_axis&#39;, &#39;_set_axis_name&#39;, &#39;_set_axis_nocheck&#39;, &#39;_set_is_copy&#39;, &#39;_set_labels&#39;, &#39;_set_name&#39;, &#39;_set_value&#39;, &#39;_set_values&#39;, &#39;_set_with&#39;, &#39;_set_with_engine&#39;, &#39;_slice&#39;, &#39;_stat_axis&#39;, &#39;_stat_axis_name&#39;, &#39;_stat_axis_number&#39;, &#39;_stat_function&#39;, &#39;_stat_function_ddof&#39;, &#39;_take_with_is_copy&#39;, &#39;_typ&#39;, &#39;_update_inplace&#39;, &#39;_validate_dtype&#39;, &#39;_values&#39;, &#39;_where&#39;, &#39;abs&#39;, &#39;add&#39;, &#39;add_prefix&#39;, &#39;add_suffix&#39;, &#39;agg&#39;, &#39;aggregate&#39;, &#39;align&#39;, &#39;all&#39;, &#39;any&#39;, &#39;append&#39;, &#39;apply&#39;, &#39;argmax&#39;, &#39;argmin&#39;, &#39;argsort&#39;, &#39;array&#39;, &#39;asfreq&#39;, &#39;asof&#39;, &#39;astype&#39;, &#39;at&#39;, &#39;at_time&#39;, &#39;attrs&#39;, &#39;autocorr&#39;, &#39;axes&#39;, &#39;backfill&#39;, &#39;between&#39;, &#39;between_time&#39;, &#39;bfill&#39;, &#39;bool&#39;, &#39;clip&#39;, &#39;combine&#39;, &#39;combine_first&#39;, &#39;compare&#39;, &#39;convert_dtypes&#39;, &#39;copy&#39;, &#39;corr&#39;, &#39;count&#39;, &#39;cov&#39;, &#39;cummax&#39;, &#39;cummin&#39;, &#39;cumprod&#39;, &#39;cumsum&#39;, &#39;describe&#39;, &#39;diff&#39;, &#39;div&#39;, &#39;divide&#39;, &#39;divmod&#39;, &#39;dot&#39;, &#39;drop&#39;, &#39;drop_duplicates&#39;, &#39;droplevel&#39;, &#39;dropna&#39;, &#39;dtype&#39;, &#39;dtypes&#39;, &#39;duplicated&#39;, &#39;empty&#39;, &#39;eq&#39;, &#39;equals&#39;, &#39;ewm&#39;, &#39;expanding&#39;, &#39;explode&#39;, &#39;factorize&#39;, &#39;ffill&#39;, &#39;fillna&#39;, &#39;filter&#39;, &#39;first&#39;, &#39;first_valid_index&#39;, &#39;flags&#39;, &#39;floordiv&#39;, &#39;ge&#39;, &#39;get&#39;, &#39;groupby&#39;, &#39;gt&#39;, &#39;hasnans&#39;, &#39;head&#39;, &#39;hist&#39;, &#39;iat&#39;, &#39;idxmax&#39;, &#39;idxmin&#39;, &#39;iloc&#39;, &#39;index&#39;, &#39;infer_objects&#39;, &#39;interpolate&#39;, &#39;is_monotonic&#39;, &#39;is_monotonic_decreasing&#39;, &#39;is_monotonic_increasing&#39;, &#39;is_unique&#39;, &#39;isin&#39;, &#39;isna&#39;, &#39;isnull&#39;, &#39;item&#39;, &#39;items&#39;, &#39;iteritems&#39;, &#39;keys&#39;, &#39;kurt&#39;, &#39;kurtosis&#39;, &#39;last&#39;, &#39;last_valid_index&#39;, &#39;le&#39;, &#39;loc&#39;, &#39;lt&#39;, &#39;mad&#39;, &#39;map&#39;, &#39;mask&#39;, &#39;max&#39;, &#39;mean&#39;, &#39;median&#39;, &#39;memory_usage&#39;, &#39;min&#39;, &#39;mod&#39;, &#39;mode&#39;, &#39;mul&#39;, &#39;multiply&#39;, &#39;name&#39;, &#39;nbytes&#39;, &#39;ndim&#39;, &#39;ne&#39;, &#39;nlargest&#39;, &#39;notna&#39;, &#39;notnull&#39;, &#39;nsmallest&#39;, &#39;nunique&#39;, &#39;pad&#39;, &#39;pct_change&#39;, &#39;pipe&#39;, &#39;plot&#39;, &#39;pop&#39;, &#39;pow&#39;, &#39;prod&#39;, &#39;product&#39;, &#39;quantile&#39;, &#39;radd&#39;, &#39;rank&#39;, &#39;ravel&#39;, &#39;rdiv&#39;, &#39;rdivmod&#39;, &#39;reindex&#39;, &#39;reindex_like&#39;, &#39;rename&#39;, &#39;rename_axis&#39;, &#39;reorder_levels&#39;, &#39;repeat&#39;, &#39;replace&#39;, &#39;resample&#39;, &#39;reset_index&#39;, &#39;rfloordiv&#39;, &#39;rmod&#39;, &#39;rmul&#39;, &#39;rolling&#39;, &#39;round&#39;, &#39;rpow&#39;, &#39;rsub&#39;, &#39;rtruediv&#39;, &#39;sample&#39;, &#39;searchsorted&#39;, &#39;sem&#39;, &#39;set_axis&#39;, &#39;set_flags&#39;, &#39;shape&#39;, &#39;shift&#39;, &#39;size&#39;, &#39;skew&#39;, &#39;slice_shift&#39;, &#39;sort_index&#39;, &#39;sort_values&#39;, &#39;squeeze&#39;, &#39;std&#39;, &#39;sub&#39;, &#39;subtract&#39;, &#39;sum&#39;, &#39;swapaxes&#39;, &#39;swaplevel&#39;, &#39;tail&#39;, &#39;take&#39;, &#39;to_clipboard&#39;, &#39;to_csv&#39;, &#39;to_dict&#39;, &#39;to_excel&#39;, &#39;to_frame&#39;, &#39;to_hdf&#39;, &#39;to_json&#39;, &#39;to_latex&#39;, &#39;to_list&#39;, &#39;to_markdown&#39;, &#39;to_numpy&#39;, &#39;to_period&#39;, &#39;to_pickle&#39;, &#39;to_sql&#39;, &#39;to_string&#39;, &#39;to_timestamp&#39;, &#39;to_xarray&#39;, &#39;transform&#39;, &#39;transpose&#39;, &#39;truediv&#39;, &#39;truncate&#39;, &#39;tz_convert&#39;, &#39;tz_localize&#39;, &#39;unique&#39;, &#39;unstack&#39;, &#39;update&#39;, &#39;value_counts&#39;, &#39;values&#39;, &#39;var&#39;, &#39;view&#39;, &#39;where&#39;, &#39;xs&#39;]
+
+
+13.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframe">
+<h1>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">#</a></h1>
+<p>DataFrame 은 Series의 확장으로, DataFrame 에서 한 개의 Series 는 하나의 Column 이 됩니다. DataFrame 은 여러 개 Column 이 모여 있는 테이블 형태의 데이터 형식입니다. 우선 Dictionary 로 DataFrame 을 만들어 보겠습니다. 두 개의 List - c1_list 와 c2_list 가 두 개의 key - ‘c1’, ‘c2’ 대응이 되는 Dictionary, dic_c12 를 생성합니다. 그 다음 pd.DataFrame(dic_c12) 와 같이 DataFrame 으로 데이터 타입을 변경합니다. 출력해보면 테이블 형태로 변경되었음을 알 수 있습니다. 그리고 이 DataFrame 을 df 라는 변수에 저장합니다. df 에서 한 컬럼만 자르면 다시 Series 로 변경됩니다. Series 보다 더 많은 메소드를 이용할 수 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="n">c2_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+
+<span class="n">dic_c12</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c1&#39;</span><span class="p">:</span> <span class="n">c1_list</span><span class="p">,</span> <span class="s1">&#39;c2&#39;</span><span class="p">:</span> <span class="n">c2_list</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic_c12</span><span class="p">))</span> <span class="c1"># DataFrame 으로 변경</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic_c12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;c1&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;c1&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   c1 c2
+0  11  a
+1  12  b
+2  13  c
+3  14  d
+4  15  e
+
+
+0    11
+1    12
+2    13
+3    14
+4    15
+Name: c1, dtype: int64 &lt;class &#39;pandas.core.series.Series&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="2.1.0_Python_Basics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><strong>파이썬 데이터분석 기초</strong></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2.1.2_Python_Basics.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Index</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By 신기하<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

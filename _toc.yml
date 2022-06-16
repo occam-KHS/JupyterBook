@@ -1,0 +1,18 @@
+format: jb-book
+root: intro
+parts:
+  - caption: chapter 1
+    chapters:
+    - file: chapter1/1.1.0_SOP
+    - file: chapter1/1.2.0_Data_Science
+    
+  - caption: chapter 2
+    chapters:
+    - file: chapter2/2.1.0_Python_Basics
+      sections:
+      - file: chapter2/2.1.1_Python_Basics
+      - file: chapter2/2.1.2_Python_Basics
+      - file: chapter2/2.1.3_Python_Basics
+      - file: chapter2/2.1.4_Python_Basics
+      - file: chapter2/2.1.5_Python_Basics
+    - file: chapter2/2.2.0_Useful_Techniques

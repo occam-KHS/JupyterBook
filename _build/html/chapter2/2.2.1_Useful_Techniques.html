@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>유용한 기능들 &#8212; 나만의 추천 시스템</title>
+    <title>Append &#8212; 나만의 추천 시스템</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Append" href="2.2.1_Useful_Techniques.html" />
-    <link rel="prev" title="Functions" href="2.1.5_Python_Basics.html" />
+    <link rel="next" title="Concat 과 Merge" href="2.2.2_Useful_Techniques.html" />
+    <link rel="prev" title="유용한 기능들" href="2.2.0_Useful_Techniques.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="2.2.0_Useful_Techniques.html">
    <strong>
     유용한 기능들
    </strong>
@@ -188,9 +188,9 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.2.1_Useful_Techniques.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Append
     </a>
    </li>
@@ -285,7 +285,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/occam-KHS/GitBook.git/master?urlpath=tree/docs/chapter2/2.2.0_Useful_Techniques.ipynb"
+        <a href="https://mybinder.org/v2/gh/occam-KHS/GitBook.git/master?urlpath=tree/docs/chapter2/2.2.1_Useful_Techniques.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -345,7 +345,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/occam-KHS/GitBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter2/2.2.0_Useful_Techniques.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/occam-KHS/GitBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter2/2.2.1_Useful_Techniques.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -373,7 +373,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/chapter2/2.2.0_Useful_Techniques.ipynb"
+        <a href="../_sources/chapter2/2.2.1_Useful_Techniques.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -422,7 +422,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>유용한 기능들</h1>
+                <h1>Append</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -434,10 +434,83 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="id1">
-<h1><strong>유용한 기능들</strong><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>이번 장에서는 유용한 데이터 핸들링 방법들을 배우겠습니다. 데이터 분석을 통해서 원하는 결과를 얻기 위해서는, 우선 분석이 가능한 형태의 데이터로 가공을 해야합니다.</p>
-<div class="toctree-wrapper compound">
+  <section id="append">
+<h1>Append<a class="headerlink" href="#append" title="Permalink to this headline">#</a></h1>
+<p>append 는 반복문에서 발생하는 값을 순차적으로 모으는데 유용합니다. 아래 예제는 반복문에서 추출된 원소에 두제곱한 값을 계속 v_list 리스트에 추가하는 코드입니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">aa</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">aa</span><span class="p">:</span>
+    <span class="n">v_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">v_list</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25]
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+아래는 DataFrame 의 'c1' 컬럼을 List로 만들어, 반복을 수행합니다. 'c1' 의 제곱 값을 r_list 에 담은 후, 결과 값을 원래 DataFrame 에 'c3' Column 으로 추가하는 코드입니다.<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">r_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">c1_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="n">c2_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;c1&#39;</span><span class="p">:</span> <span class="n">c1_list</span><span class="p">,</span> <span class="s1">&#39;c2&#39;</span><span class="p">:</span> <span class="n">c2_list</span><span class="p">})</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;c1&#39;</span><span class="p">]):</span> <span class="c1"># List 함수가 꼭 필요하지는 않음  df1[&#39;c1&#39;] =&gt; [11,12,13,14,15]</span>
+    <span class="n">r_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+<span class="n">df1</span><span class="p">[</span><span class="s1">&#39;c3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_list</span> <span class="c1"># r_list 갯수와 df1 갯수가 동일해야 함</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   c1 c2   c3
+0  11  a  121
+1  12  b  144
+2  13  c  169
+3  14  d  196
+4  15  e  225
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+아래와 같은 방식으로 처리를 해도 동일한 df1 가 생성됩니다.<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">c1_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="n">c2_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;c1&#39;</span><span class="p">:</span> <span class="n">c1_list</span><span class="p">,</span> <span class="s1">&#39;c2&#39;</span><span class="p">:</span> <span class="n">c2_list</span><span class="p">})</span>
+
+<span class="n">df1</span><span class="p">[</span><span class="s1">&#39;c3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="s1">&#39;c1&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   c1 c2   c3
+0  11  a  121
+1  12  b  144
+2  13  c  169
+3  14  d  196
+4  15  e  225
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -468,17 +541,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="2.1.5_Python_Basics.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="2.2.0_Useful_Techniques.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Functions</p>
+            <p class="prev-next-title"><strong>유용한 기능들</strong></p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2.2.1_Useful_Techniques.html" title="next page">
+    <a class='right-next' id="next-link" href="2.2.2_Useful_Techniques.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Append</p>
+        <p class="prev-next-title">Concat 과 Merge</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -16,3 +16,11 @@ parts:
       - file: chapter2/2.1.4_Python_Basics
       - file: chapter2/2.1.5_Python_Basics
     - file: chapter2/2.2.0_Useful_Techniques
+      sections:
+      - file: chapter2/2.2.1_Useful_Techniques
+      - file: chapter2/2.2.2_Useful_Techniques
+      - file: chapter2/2.2.3_Useful_Techniques
+      - file: chapter2/2.2.4_Useful_Techniques
+      - file: chapter2/2.2.5_Useful_Techniques
+      - file: chapter2/2.2.6_Useful_Techniques
+      - file: chapter2/2.2.7_Useful_Techniques

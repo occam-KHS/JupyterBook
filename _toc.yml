@@ -24,3 +24,20 @@ parts:
       - file: chapter2/2.2.5_Useful_Techniques
       - file: chapter2/2.2.6_Useful_Techniques
       - file: chapter2/2.2.7_Useful_Techniques
+    - file: chapter2/2.3.0_Visualization
+      sections:
+      - file: chapter2/2.3.1_Visualization
+      - file: chapter2/2.3.2_Visualization
+    - file: chapter2/2.4.0_Volatility_Breakout
+      sections:
+      - file: chapter2/2.4.1_Volatility_Breakout
+      - file: chapter2/2.4.2_Volatility_Breakout
+      - file: chapter2/2.4.3_Volatility_Breakout
+      - file: chapter2/2.4.4_Volatility_Breakout
+
+  - caption: chapter 3
+    chapters:
+    - file: chapter3/3.1.0_Use_Case
+      sections:
+      - file: chapter3/3.1.1_Use_Case
+      

@@ -14,11 +14,11 @@
 # $ W $: Weight, $ C $: Cost,  $ P $: Proportion
 # 
 # 
-# **Minimize** $ \sum\ $ $ [ W_i $\* $ C_i  \ ] $ (비용 목적함수) for $ vendor = i $
+# **Minimize** $ \sum\ $ $ [ W_i $ * $ C_i  \ ] $ (비용 목적함수) for $ vendor = i $
 # 
 # **(제약식)** 
 # 
-# $ [ W_i $\* $ C_i  \ ] $ $\ <= $ $∑ \ [ W_i ] \ x \ 0.05\% $ (물질 X 의 함유량 제약)      
+# $ [ W_i $\* $ C_i  \ ] $ $\ <= $ $∑ \ [ W_i ] \ * \ 0.05\% $ (물질 X 의 함유량 제약)      
 # $ \sum\ [ W_i ] $  =  (필요한 총 톤 수 제약)
 # 
 # 

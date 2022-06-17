@@ -44,3 +44,11 @@ parts:
       - file: chapter3/3.1.3_Use_Case
       - file: chapter3/3.1.4_Use_Case
       
+  - caption: chapter 4
+    chapters:
+    - file: chapter4/4.0.0_My_Strategy
+      sections:
+      - file: chapter4/4.1.0_My_Strategy
+      - file: chapter4/4.2.0_My_Strategy
+      - file: chapter4/4.3.0_My_Strategy
+      - file: chapter4/4.4.0_My_Strategy

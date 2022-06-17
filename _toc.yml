@@ -40,4 +40,5 @@ parts:
     - file: chapter3/3.1.0_Use_Case
       sections:
       - file: chapter3/3.1.1_Use_Case
+      - file: chapter3/3.1.2_Use_Case
       

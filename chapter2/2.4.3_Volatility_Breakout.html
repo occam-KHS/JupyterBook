@@ -303,6 +303,11 @@ const thebe_selector_output = ".output, .cell_output"
      보험사 사례
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/3.1.2_Use_Case.html">
+     신용카드사 사례
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -637,7 +642,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6161
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6158
 821
 </pre></div>
 </div>
@@ -699,14 +704,14 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_33804</span>\<span class="mf">586387817.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_56072</span>\<span class="mf">586387817.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]):</span>
 <span class="g g-Whitespace">     </span><span class="mi">21</span> 
 <span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">avg_r</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span> 
 <span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span> <span class="c1"># 최소한 50일 이상 거래일 존재해야 진행</span>
 
-<span class="nn">~\AppData\Local\Temp\ipykernel_33804\586387817.py</span> in <span class="ni">avg_r</span><span class="nt">(code, K)</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_56072\586387817.py</span> in <span class="ni">avg_r</span><span class="nt">(code, K)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">avg_r</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span>
@@ -770,32 +775,62 @@ title="Print to PDF"
 <span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2">                 method,</span>
 
 <span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">380</span><span class="s2">         # Trigger any extra validation we need to do.</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">382</span><span class="s2">             self._validate_conn(conn)</span>
-<span class="g g-Whitespace">    </span><span class="mi">383</span><span class="s2">         except (SocketTimeout, BaseSSLError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">384</span><span class="s2">             # Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span><span class="s2">                     # Python 3 (including for exceptions like SystemExit).</span>
+<span class="g g-Whitespace">    </span><span class="mi">444</span><span class="s2">                     # Otherwise it looks like a bug in the code.</span>
+<span class="ne">--&gt; </span><span class="mi">445</span><span class="s2">                     six.raise_from(e, None)</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span><span class="s2">         except (SocketTimeout, BaseSSLError, SocketError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">447</span><span class="s2">             self._raise_timeout(err=e, url=url, timeout_value=read_timeout)</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1008</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1009</span><span class="s2">         if not getattr(conn, &quot;sock&quot;, None):  # AppEngine might not have  `.sock`</span>
-<span class="ne">-&gt; </span><span class="mi">1010</span><span class="s2">             conn.connect()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1011</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span><span class="s2">         if not conn.is_verified:</span>
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\packages\six.py</span> in <span class="ni">raise_from</span><span class="nt">(value, from_value)</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span><span class="s2">             context.load_default_certs()</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">416</span><span class="s2">         self.sock = ssl_wrap_socket(</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span><span class="s2">             sock=conn,</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span><span class="s2">             keyfile=self.key_file,</span>
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">                 # Python 3</span>
+<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="s2">                 try:</span>
+<span class="ne">--&gt; </span><span class="mi">440</span><span class="s2">                     httplib_response = conn.getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2">                 except BaseException as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                     # Remove the TypeError from the exception chain in</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\util\ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span><span class="s2">     if ca_certs or ca_cert_dir or ca_cert_data:</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">402</span><span class="s2">             context.load_verify_locations(ca_certs, ca_cert_dir, ca_cert_data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span><span class="s2">         except (IOError, OSError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span><span class="s2">             raise SSLError(e)</span>
+<span class="nn">~\Anaconda3\lib\http\client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1369</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1370</span><span class="s2">             try:</span>
+<span class="ne">-&gt; </span><span class="mi">1371</span><span class="s2">                 response.begin()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1372</span><span class="s2">             except ConnectionError:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span><span class="s2">                 self.close()</span>
+
+<span class="nn">~\Anaconda3\lib\http\client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">         # read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span><span class="s2">         while True:</span>
+<span class="ne">--&gt; </span><span class="mi">319</span><span class="s2">             version, status, reason = self._read_status()</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="s2">             if status != CONTINUE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="s2">                 break</span>
+
+<span class="nn">~\Anaconda3\lib\http\client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span><span class="s2">     def _read_status(self):</span>
+<span class="ne">--&gt; </span><span class="mi">280</span><span class="s2">         line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span><span class="s2">             raise LineTooLong(&quot;status line&quot;)</span>
+
+<span class="nn">~\Anaconda3\lib\socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         while True:</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">704</span><span class="s2">                 return self._sock.recv_into(b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">             except timeout:</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">                 self._timeout_occurred = True</span>
+
+<span class="nn">~\Anaconda3\lib\ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1239</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
+<span class="g g-Whitespace">   </span><span class="mi">1240</span><span class="s2">                   self.__class__)</span>
+<span class="ne">-&gt; </span><span class="mi">1241</span><span class="s2">             return self.read(nbytes, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1242</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1243</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
+
+<span class="nn">~\Anaconda3\lib\ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1097</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2">             if buffer is not None:</span>
+<span class="ne">-&gt; </span><span class="mi">1099</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span><span class="s2">             else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1101</span><span class="s2">                 return self._sslobj.read(len)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

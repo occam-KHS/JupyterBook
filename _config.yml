@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: 나만의 추천 시스템
-author: 신기하
+author: KHS
 logo: logo.png
 
 # Force re-execution of notebooks on each build.

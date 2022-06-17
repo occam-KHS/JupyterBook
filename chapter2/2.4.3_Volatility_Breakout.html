@@ -709,14 +709,14 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_47684</span>\<span class="mf">586387817.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_57464</span>\<span class="mf">586387817.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]):</span>
 <span class="g g-Whitespace">     </span><span class="mi">21</span> 
 <span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">avg_r</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span> 
 <span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span> <span class="c1"># 최소한 50일 이상 거래일 존재해야 진행</span>
 
-<span class="nn">~\AppData\Local\Temp\ipykernel_47684\586387817.py</span> in <span class="ni">avg_r</span><span class="nt">(code, K)</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_57464\586387817.py</span> in <span class="ni">avg_r</span><span class="nt">(code, K)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">avg_r</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span>
@@ -731,46 +731,81 @@ title="Print to PDF"
 <span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="c1"># KRX-DELISTING</span>
 
 <span class="nn">~\Anaconda3\lib\site-packages\FinanceDataReader\naver\data.py</span> in <span class="ni">read</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="nb">str</span><span class="p">})</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="n">df</span><span class="o">.</span><span class="n">columns</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Open&#39;</span><span class="p">,</span> <span class="s1">&#39;High&#39;</span><span class="p">,</span> <span class="s1">&#39;Low&#39;</span><span class="p">,</span> <span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">24</span>         <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>         <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://fchart.stock.naver.com/sise.nhn?timeframe=day&amp;count=6000&amp;requestType=0&amp;symbol=&#39;</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
+<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">data_list</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;&lt;item data=</span><span class="se">\&quot;</span><span class="s1">(.*?)</span><span class="se">\&quot;</span><span class="s1"> /&gt;&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\tools\datetimes.py</span> in <span class="ni">to_datetime</span><span class="nt">(arg, errors, dayfirst, yearfirst, utc, format, exact, unit, infer_datetime_format, origin, cache)</span>
-<span class="g g-Whitespace">    </span><span class="mi">885</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">cache_array</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">886</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">887</span>             <span class="n">values</span> <span class="o">=</span> <span class="n">convert_listlike</span><span class="p">(</span><span class="n">arg</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">888</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">_constructor</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">889</span>     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="n">ABCDataFrame</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">MutableMapping</span><span class="p">)):</span>
+<span class="nn">~\Anaconda3\lib\site-packages\requests\api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">75</span><span class="s2">     return request(&#39;get&#39;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="s2"> </span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\tools\datetimes.py</span> in <span class="ni">_convert_listlike_datetimes</span><span class="nt">(arg, format, name, tz, unit, errors, infer_datetime_format, dayfirst, yearfirst, exact)</span>
-<span class="g g-Whitespace">    </span><span class="mi">391</span> 
-<span class="g g-Whitespace">    </span><span class="mi">392</span>     <span class="k">if</span> <span class="nb">format</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">393</span>         <span class="n">res</span> <span class="o">=</span> <span class="n">_to_datetime_with_format</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">394</span>             <span class="n">arg</span><span class="p">,</span> <span class="n">orig_arg</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">tz</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">exact</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">infer_datetime_format</span>
-<span class="g g-Whitespace">    </span><span class="mi">395</span>         <span class="p">)</span>
+<span class="nn">~\Anaconda3\lib\site-packages\requests\api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">61</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="s2"> </span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\tools\datetimes.py</span> in <span class="ni">_to_datetime_with_format</span><span class="nt">(arg, orig_arg, name, tz, fmt, exact, errors, infer_datetime_format)</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span>             <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">489</span>                 <span class="c1"># may return None without raising</span>
-<span class="ne">--&gt; </span><span class="mi">490</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">_attempt_YYYYMMDD</span><span class="p">(</span><span class="n">orig_arg</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">491</span>             <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="n">OutOfBoundsDatetime</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">492</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="nn">~\Anaconda3\lib\site-packages\requests\sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span><span class="s2">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">         return resp</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\tools\datetimes.py</span> in <span class="ni">_attempt_YYYYMMDD</span><span class="nt">(arg, errors)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1069</span>     <span class="c1"># try intlike / strings that are ints</span>
-<span class="g g-Whitespace">   </span><span class="mi">1070</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1071</span>         <span class="k">return</span> <span class="n">calc</span><span class="p">(</span><span class="n">arg</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1072</span>     <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">OverflowError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1073</span>         <span class="k">pass</span>
+<span class="nn">~\Anaconda3\lib\site-packages\requests\sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span><span class="s2">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">655</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\tools\datetimes.py</span> in <span class="ni">calc</span><span class="nt">(carg)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1054</span>         <span class="n">carg</span> <span class="o">=</span> <span class="n">carg</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1055</span>         <span class="n">parsed</span> <span class="o">=</span> <span class="n">parsing</span><span class="o">.</span><span class="n">try_parse_year_month_day</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">1056</span>             <span class="n">carg</span> <span class="o">/</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">carg</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">100</span><span class="p">,</span> <span class="n">carg</span> <span class="o">%</span> <span class="mi">100</span>
-<span class="g g-Whitespace">   </span><span class="mi">1057</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1058</span>         <span class="k">return</span> <span class="n">tslib</span><span class="o">.</span><span class="n">array_to_datetime</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nn">~\Anaconda3\lib\site-packages\requests\adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">             if not chunked:</span>
+<span class="ne">--&gt; </span><span class="mi">439</span><span class="s2">                 resp = conn.urlopen(</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span><span class="s2">                     method=request.method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2">                     url=url,</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">697</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">698</span><span class="s2">             # Make the request on the httplib connection object.</span>
+<span class="ne">--&gt; </span><span class="mi">699</span><span class="s2">             httplib_response = self._make_request(</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span><span class="s2">                 conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2">                 method,</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span><span class="s2">         # Trigger any extra validation we need to do.</span>
+<span class="g g-Whitespace">    </span><span class="mi">381</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">382</span><span class="s2">             self._validate_conn(conn)</span>
+<span class="g g-Whitespace">    </span><span class="mi">383</span><span class="s2">         except (SocketTimeout, BaseSSLError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span><span class="s2">             # Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1008</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1009</span><span class="s2">         if not getattr(conn, &quot;sock&quot;, None):  # AppEngine might not have  `.sock`</span>
+<span class="ne">-&gt; </span><span class="mi">1010</span><span class="s2">             conn.connect()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1011</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1012</span><span class="s2">         if not conn.is_verified:</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">414</span><span class="s2">             context.load_default_certs()</span>
+<span class="g g-Whitespace">    </span><span class="mi">415</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">416</span><span class="s2">         self.sock = ssl_wrap_socket(</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span><span class="s2">             sock=conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span><span class="s2">             keyfile=self.key_file,</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\util\ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span><span class="s2">     if ca_certs or ca_cert_dir or ca_cert_data:</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">402</span><span class="s2">             context.load_verify_locations(ca_certs, ca_cert_dir, ca_cert_data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span><span class="s2">         except (IOError, OSError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span><span class="s2">             raise SSLError(e)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

@@ -704,14 +704,14 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_56072</span>\<span class="mf">586387817.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_36872</span>\<span class="mf">586387817.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]):</span>
 <span class="g g-Whitespace">     </span><span class="mi">21</span> 
 <span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">avg_r</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span> 
 <span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span> <span class="c1"># 최소한 50일 이상 거래일 존재해야 진행</span>
 
-<span class="nn">~\AppData\Local\Temp\ipykernel_56072\586387817.py</span> in <span class="ni">avg_r</span><span class="nt">(code, K)</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_36872\586387817.py</span> in <span class="ni">avg_r</span><span class="nt">(code, K)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">avg_r</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span>
@@ -733,104 +733,88 @@ title="Print to PDF"
 <span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">data_list</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;&lt;item data=</span><span class="se">\&quot;</span><span class="s1">(.*?)</span><span class="se">\&quot;</span><span class="s1"> /&gt;&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
 
 <span class="nn">~\Anaconda3\lib\site-packages\requests\api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">75</span><span class="s2">     return request(&#39;get&#39;, url, params=params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="sd"> </span>
+<span class="ne">---&gt; </span><span class="mi">75</span><span class="sd">     return request(&#39;get&#39;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="sd"> </span>
 
 <span class="nn">~\Anaconda3\lib\site-packages\requests\api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2">     # cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2">     with sessions.Session() as session:</span>
-<span class="ne">---&gt; </span><span class="mi">61</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="sd">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="sd">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">61</span><span class="sd">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="sd"> </span>
 
 <span class="nn">~\Anaconda3\lib\site-packages\requests\sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span><span class="s2">         }</span>
-<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         send_kwargs.update(settings)</span>
-<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">         return resp</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span><span class="sd">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="sd">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">542</span><span class="sd">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="sd">         return resp</span>
 
 <span class="nn">~\Anaconda3\lib\site-packages\requests\sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span><span class="s2">         # Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">655</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">657</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+<span class="g g-Whitespace">    </span><span class="mi">695</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">696</span><span class="sd">         if not stream:</span>
+<span class="ne">--&gt; </span><span class="mi">697</span><span class="sd">             r.content</span>
+<span class="g g-Whitespace">    </span><span class="mi">698</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">699</span><span class="sd">         return r</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\requests\adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">437</span><span class="s2">         try:</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">             if not chunked:</span>
-<span class="ne">--&gt; </span><span class="mi">439</span><span class="s2">                 resp = conn.urlopen(</span>
-<span class="g g-Whitespace">    </span><span class="mi">440</span><span class="s2">                     method=request.method,</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2">                     url=url,</span>
+<span class="nn">~\Anaconda3\lib\site-packages\requests\models.py</span> in <span class="ni">content</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">834</span><span class="sd">                 self._content = None</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span><span class="sd">             else:</span>
+<span class="ne">--&gt; </span><span class="mi">836</span><span class="sd">                 self._content = b&#39;&#39;.join(self.iter_content(CONTENT_CHUNK_SIZE)) or b&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span><span class="sd">         self._content_consumed = True</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">698</span><span class="s2">             # Make the request on the httplib connection object.</span>
-<span class="ne">--&gt; </span><span class="mi">699</span><span class="s2">             httplib_response = self._make_request(</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span><span class="s2">                 conn,</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2">                 method,</span>
+<span class="nn">~\Anaconda3\lib\site-packages\requests\models.py</span> in <span class="ni">generate</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">756</span><span class="sd">             if hasattr(self.raw, &#39;stream&#39;):</span>
+<span class="g g-Whitespace">    </span><span class="mi">757</span><span class="sd">                 try:</span>
+<span class="ne">--&gt; </span><span class="mi">758</span><span class="sd">                     for chunk in self.raw.stream(chunk_size, decode_content=True):</span>
+<span class="g g-Whitespace">    </span><span class="mi">759</span><span class="sd">                         yield chunk</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span><span class="sd">                 except ProtocolError as e:</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span><span class="s2">                     # Python 3 (including for exceptions like SystemExit).</span>
-<span class="g g-Whitespace">    </span><span class="mi">444</span><span class="s2">                     # Otherwise it looks like a bug in the code.</span>
-<span class="ne">--&gt; </span><span class="mi">445</span><span class="s2">                     six.raise_from(e, None)</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span><span class="s2">         except (SocketTimeout, BaseSSLError, SocketError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span><span class="s2">             self._raise_timeout(err=e, url=url, timeout_value=read_timeout)</span>
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\response.py</span> in <span class="ni">stream</span><span class="nt">(self, amt, decode_content)</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunked</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">supports_chunked_reads</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">572</span>             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_chunked</span><span class="p">(</span><span class="n">amt</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>                 <span class="k">yield</span> <span class="n">line</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>         <span class="k">else</span><span class="p">:</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\packages\six.py</span> in <span class="ni">raise_from</span><span class="nt">(value, from_value)</span>
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\response.py</span> in <span class="ni">read_chunked</span><span class="nt">(self, amt, decode_content)</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span> 
+<span class="g g-Whitespace">    </span><span class="mi">763</span>             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">764</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_update_chunk_length</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">765</span>                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>                     <span class="k">break</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">                 # Python 3</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="s2">                 try:</span>
-<span class="ne">--&gt; </span><span class="mi">440</span><span class="s2">                     httplib_response = conn.getresponse()</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2">                 except BaseException as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                     # Remove the TypeError from the exception chain in</span>
-
-<span class="nn">~\Anaconda3\lib\http\client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1369</span><span class="s2">         try:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1370</span><span class="s2">             try:</span>
-<span class="ne">-&gt; </span><span class="mi">1371</span><span class="s2">                 response.begin()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1372</span><span class="s2">             except ConnectionError:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1373</span><span class="s2">                 self.close()</span>
-
-<span class="nn">~\Anaconda3\lib\http\client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">         # read until we get a non-100 response</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span><span class="s2">         while True:</span>
-<span class="ne">--&gt; </span><span class="mi">319</span><span class="s2">             version, status, reason = self._read_status()</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="s2">             if status != CONTINUE:</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="s2">                 break</span>
-
-<span class="nn">~\Anaconda3\lib\http\client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">279</span><span class="s2">     def _read_status(self):</span>
-<span class="ne">--&gt; </span><span class="mi">280</span><span class="s2">         line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span><span class="s2">             raise LineTooLong(&quot;status line&quot;)</span>
+<span class="nn">~\Anaconda3\lib\site-packages\urllib3\response.py</span> in <span class="ni">_update_chunk_length</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">692</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span>             <span class="k">return</span>
+<span class="ne">--&gt; </span><span class="mi">694</span>         <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">695</span>         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">696</span>         <span class="k">try</span><span class="p">:</span>
 
 <span class="nn">~\Anaconda3\lib\socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         while True:</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">             try:</span>
-<span class="ne">--&gt; </span><span class="mi">704</span><span class="s2">                 return self._sock.recv_into(b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">             except timeout:</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">                 self._timeout_occurred = True</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">704</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>             <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="nn">~\Anaconda3\lib\ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span><span class="s2">                   self.__class__)</span>
-<span class="ne">-&gt; </span><span class="mi">1241</span><span class="s2">             return self.read(nbytes, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1239</span>                   <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">   </span><span class="mi">1240</span>                   <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1241</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1242</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1243</span>             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 
 <span class="nn">~\Anaconda3\lib\ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span><span class="s2">         try:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2">             if buffer is not None:</span>
-<span class="ne">-&gt; </span><span class="mi">1099</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span><span class="s2">             else:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1101</span><span class="s2">                 return self._sslobj.read(len)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1097</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1098</span>             <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1099</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1101</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -1021,7 +1005,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By 신기하<br/>
+    By KHS<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

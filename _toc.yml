@@ -4,8 +4,8 @@ parts:
   - caption: chapter 1
     chapters:
     - file: chapter1/1.1.0_SOP
-    - file: chapter1/1.2.0_Data_Science
-    
+    - file: chapter1/1.2.0_Data_Science 
+
   - caption: chapter 2
     chapters:
     - file: chapter2/2.1.0_Python_Basics
@@ -27,13 +27,8 @@ parts:
     - file: chapter2/2.3.0_Visualization
       sections:
       - file: chapter2/2.3.1_Visualization
-      - file: chapter2/2.3.2_Visualization
-    - file: chapter2/2.4.0_Volatility_Breakout
-      sections:
-      - file: chapter2/2.4.1_Volatility_Breakout
-      - file: chapter2/2.4.2_Volatility_Breakout
-      - file: chapter2/2.4.3_Volatility_Breakout
-      - file: chapter2/2.4.4_Volatility_Breakout
+      - file: chapter2/2.3.2_Visualization      
+    - file: chapter2/2.4.1_Volatility_Breakout
 
   - caption: chapter 3
     chapters:
@@ -42,13 +37,19 @@ parts:
       - file: chapter3/3.1.1_Use_Case
       - file: chapter3/3.1.2_Use_Case
       - file: chapter3/3.1.3_Use_Case
-      - file: chapter3/3.1.4_Use_Case
+      - file: chapter3/3.1.4_Use_Case      
       
   - caption: chapter 4
     chapters:
-    - file: chapter4/4.0.0_My_Strategy
+    - file: chapter4/4.1.0_My_Strategy
+    - file: chapter4/4.2.0_My_Strategy
+    - file: chapter4/4.3.0_My_Strategy
+    - file: chapter4/4.4.0_Data_Collection
       sections:
-      - file: chapter4/4.1.0_My_Strategy
-      - file: chapter4/4.2.0_My_Strategy
-      - file: chapter4/4.3.0_My_Strategy
-      - file: chapter4/4.4.0_My_Strategy
+      - file: chapter4/4.4.1_Data_Collection
+      - file: chapter4/4.4.2_Data_Collection
+      - file: chapter4/4.4.3_Data_Collection
+      - file: chapter4/4.4.4_Data_Processing
+
+
+

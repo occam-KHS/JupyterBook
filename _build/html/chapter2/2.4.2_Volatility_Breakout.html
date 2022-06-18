@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>변동성 돌파전략 2 &#8212; 나만의 추천 시스템</title>
+    <title>K 값 &#8212; 나만의 추천 시스템</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="변동성 돌파전략 3" href="2.4.3_Volatility_Breakout.html" />
-    <link rel="prev" title="변동성 돌파전략 1" href="2.4.1_Volatility_Breakout.html" />
+    <link rel="next" title="종목 찾기" href="2.4.3_Volatility_Breakout.html" />
+    <link rel="prev" title="변동성 돌파전략 구현" href="2.4.1_Volatility_Breakout.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -250,34 +250,12 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="2.4.0_Volatility_Breakout.html">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.4.1_Volatility_Breakout.html">
    <strong>
     변동성 돌파전략 구현
    </strong>
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.4.1_Volatility_Breakout.html">
-     변동성 돌파전략 1
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     변동성 돌파전략 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.4.3_Volatility_Breakout.html">
-     변동성 돌파전략 3
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -292,8 +270,8 @@ const thebe_selector_output = ".output, .cell_output"
     데이터분석 활용사례
    </strong>
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -311,6 +289,62 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../chapter3/3.1.3_Use_Case.html">
      소매업 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/3.1.4_Use_Case.html">
+     제조업 사례 (난이도 상)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.1.0_My_Strategy.html">
+   <strong>
+    데이터분석으로 나만의 전략 만들기
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.2.0_My_Strategy.html">
+   정보 수집 및 전문가 인터뷰
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.3.0_My_Strategy.html">
+   가설 설정
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter4/4.4.0_My_Strategy.html">
+   데이터 수집 및 분석
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.1_Data_Collection.html">
+     FinanceDataReader 로 일봉 데이터 가져오기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.2_Data_Collection.html">
+     코스닥 인덱스 데이터
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.3_Data_Collection.html">
+     종목별 일봉 데이터와 코스피 지수 데이터와 결합
     </a>
    </li>
   </ul>
@@ -511,7 +545,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>변동성 돌파전략 2</h1>
+                <h1>K 값</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -523,8 +557,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="id1">
-<h1>변동성 돌파전략 2<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+  <section id="k">
+<h1>K 값<a class="headerlink" href="#k" title="Permalink to this headline">#</a></h1>
 <p>이전 단원에서 래리 윌리암스의 변동성 돌파전략을 파이썬으로 구현해봤습니다. K 값을 왜 0.5 로 했을까? 다른 K 는 어떨까 궁금해 집니다. 래리윌리암스는 K 값을 0.4 ~ 0.6 으로 추천했습니다. K 가 높아지면 매수 가격이 올라가므로 매수가격에 살 수 있는 기회가 적어지는 문제가 있습니다. K 가 낮아지면 쉽게 매수를 하므로 과연 변동성 돌파를 하고 있는지 의심이 듭니다. 이 번에는 삼성전자 K 값이 얼마일 때, 가장 좋은 결과가 나오는 지 알아보겠습니다. 삼성전자 2021년 일봉과 전 단원에서 만들어 놓은 함수를 가져옵니다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,6 +683,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Line space Test</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -670,21 +705,12 @@ title="Print to PDF"
 
     
 <span class="n">outcome</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="n">k_list</span><span class="p">,</span> <span class="s1">&#39;return&#39;</span><span class="p">:</span> <span class="n">r_list</span><span class="p">,</span> <span class="s1">&#39;worst&#39;</span><span class="p">:</span> <span class="n">w_list</span><span class="p">})</span>    
-<span class="nb">print</span><span class="p">(</span><span class="n">outcome</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_74072</span>\<span class="mf">1521610212.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Line space Test</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.         0.11111111 0.22222222 0.33333333 0.44444444 0.55555556
+ 0.66666667 0.77777778 0.88888889 1.        ]
 </pre></div>
 </div>
 </div>
@@ -803,13 +829,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">변동성 돌파전략 1</p>
+            <p class="prev-next-title"><strong>변동성 돌파전략 구현</strong></p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2.4.3_Volatility_Breakout.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">변동성 돌파전략 3</p>
+        <p class="prev-next-title">종목 찾기</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

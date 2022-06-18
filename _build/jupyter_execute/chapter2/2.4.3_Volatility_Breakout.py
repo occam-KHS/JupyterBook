@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ### 변동성 돌파전략 3
+# ### 종목 찾기
 # 이전 단원에서 최적의 K 를 찾아보았는데요. 이번에는 K 를 고정하고 최적의 종목을 찾아보겠습니다. 코스피로 한정해서 종목을 찾아보겠습니다. FinanceDataReaer 의 StockListing 메소드의 인수로 'KOSPI' 를 넣으면 코스피 모든 종목을 반환합니다.
 
 # In[1]:
@@ -81,7 +81,7 @@ print(f'총 프로세싱 시간 {time.time() - start_time}')
 
 # <br> 저장된 결과물 outcome 을 'return' 값의 내림차순으로 함 보겠습니다. 수익율이 좋은 종목 Top 3 는 '조일알미늄', '한전기술', '포스코스틸리온' 이였습니다. Top 10 에서 최대손실율을 동시에 고려하면, 2021년에는 '미원화학'이 좋아 보입니다. 미원화학을 2021년 초부터 변동성 돌파전략으로 매수 매도를 했으면 2021년 연말에는 원금의 2.9배가 되어 있었을 것입니다. 하지만, 지나간 일입니다. 이 책의 4장부터는 데이터 분석으로 미래를 예측하는 방법을 다룹니다.
 
-# In[5]:
+# In[12]:
 
 
 outcome.sort_values(by='return', ascending=False).head(10)
@@ -89,16 +89,10 @@ outcome.sort_values(by='return', ascending=False).head(10)
 
 # <br> 미원화학의 2021년 주가흐름을 함 보겠습니다. 2021년 3월에 급등이 있었습니다. 
 
-# In[6]:
+# In[13]:
 
 
 code = '134380' # 미원화학
 stock_data = fdr.DataReader(code, start='2021-01-03', end='2021-12-31') 
 stock_data['Close'].plot()
-
-
-# In[ ]:
-
-
-
 

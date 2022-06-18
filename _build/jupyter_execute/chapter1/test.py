@@ -3,7 +3,7 @@
 
 # # 코드를 보여주자
 
-# In[1]:
+# In[ ]:
 
 
 import FinanceDataReader as fdr
@@ -21,7 +21,7 @@ import pickle
 
 # <br> 이번에는 익절/손절라인을 결정할 수 있는 예측모델을 만들어 보겠습니다. 먼저 피쳐가 있는 데이터를 불러옵니다. 
 
-# In[2]:
+# In[163]:
 
 
 feature_all = pd.read_pickle('feature_all.pkl') 

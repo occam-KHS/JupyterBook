@@ -4,7 +4,7 @@
 # ### If Condition
 # 파이썬의 조건문 if ~ else 형식으로 다른 컴퓨터 언어와 다르지 않습니다. 단지 else if 부분은 줄여서 elif 로 씁니다. 아래 예제를 보시면 쉽게 이해가 되실 것으로 생각합니다.
 
-# In[1]:
+# In[27]:
 
 
 a = 3
@@ -15,7 +15,7 @@ else:
     print('a <= b')
 
 
-# In[2]:
+# In[28]:
 
 
 num_list = [1,2,3,4,5,6]
@@ -29,7 +29,7 @@ for i in num_list:
         print(i, 'The number is 3')
 
 
-# In[3]:
+# In[30]:
 
 
 for i in num_list:

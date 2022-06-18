@@ -48,7 +48,7 @@ stock_data.head()
 # <br>
 # 이제 5일 이동평균선이 20일 이동평균선보다 작았다가 커지는 지점을 찾으면 됩니다. DataFrame 의 필터링에 대하여는 아직 다루지 않았습니다. 설명을 드리면, df(DataFrame) 에서 원하는 row 를 가져오고 싶을 때는 df[조건] 처럼 대괄호 안에 조건을 넣어 주면 됩니다. 아래에서 stock_data['cross_flag'==1] 은 stock_data 에서 True 인 열과 False 인 열을 구분하는 역할을 합니다.  stock_data['cross_flag'].shift(1)==0 은 전 날의 cross_flag 값이 0 인 경우를 찾는 것인데요. 결국 전날은 cross_flag 값이 0, 당일은 cross_flag 값이 1 날을 찾는 조건이 됩니다. 최종 결과를 보시면 2021년은 3월 3일에 최초 골든크로스가 일어났습니다. 
 
-# In[5]:
+# In[6]:
 
 
 stock_data['cross_flag'] = (stock_data['5 day moving average'] > stock_data['20 day moving average']).astype(int) # True/False 결과 값을 1/0 으로 바꿔줌

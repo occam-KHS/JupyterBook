@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\client.py", line 622, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\util.py", line 85, in ensure_async
+    result = await obj
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\jupyter_client\asynchronous\channels.py", line 48, in get_msg
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\shinki\Anaconda3\lib\asyncio\base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\client.py", line 841, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\client.py", line 646, in _async_poll_for_reply
+    await self._async_handle_timeout(timeout, cell)
+  File "C:\Users\shinki\Anaconda3\lib\site-packages\nbclient\client.py", line 696, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+['price_data = pd.DataFrame()', '', "for code, name in zip(kosdaq_list['code'], kosdaq_list['name']):  # 코스닥 모든 종목에서 대하여 반복", "    daily_price = fdr.DataReader(code,  start='2021-01-03', end='2022-03-31') # 종목, 일봉, 데이터 갯수", "    daily_price['code'] = code"]
+...
+['    price_data = pd.concat([price_data, daily_price], axis=0)   ', '', "price_data.index.name = 'date'", 'price_data.columns= price_data.columns.str.lower() # 컬럼 이름 소문자로 변경', "price_data.to_pickle('stock_data_from_fdr.pkl')"]
+-------------------
+

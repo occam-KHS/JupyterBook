@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>변동성 돌파전략 3 &#8212; 나만의 추천 시스템</title>
+    <title>종목 찾기 &#8212; 나만의 추천 시스템</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="데이터분석 활용사례" href="../chapter3/3.1.0_Use_Case.html" />
-    <link rel="prev" title="변동성 돌파전략 2" href="2.4.2_Volatility_Breakout.html" />
+    <link rel="prev" title="K 값" href="2.4.2_Volatility_Breakout.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -250,34 +250,12 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="2.4.0_Volatility_Breakout.html">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.4.1_Volatility_Breakout.html">
    <strong>
     변동성 돌파전략 구현
    </strong>
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.4.1_Volatility_Breakout.html">
-     변동성 돌파전략 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.4.2_Volatility_Breakout.html">
-     변동성 돌파전략 2
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     변동성 돌파전략 3
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -292,8 +270,8 @@ const thebe_selector_output = ".output, .cell_output"
     데이터분석 활용사례
    </strong>
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -311,6 +289,62 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../chapter3/3.1.3_Use_Case.html">
      소매업 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/3.1.4_Use_Case.html">
+     제조업 사례 (난이도 상)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.1.0_My_Strategy.html">
+   <strong>
+    데이터분석으로 나만의 전략 만들기
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.2.0_My_Strategy.html">
+   정보 수집 및 전문가 인터뷰
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.3.0_My_Strategy.html">
+   가설 설정
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter4/4.4.0_My_Strategy.html">
+   데이터 수집 및 분석
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.1_Data_Collection.html">
+     FinanceDataReader 로 일봉 데이터 가져오기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.2_Data_Collection.html">
+     코스닥 인덱스 데이터
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.3_Data_Collection.html">
+     종목별 일봉 데이터와 코스피 지수 데이터와 결합
     </a>
    </li>
   </ul>
@@ -511,7 +545,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>변동성 돌파전략 3</h1>
+                <h1>종목 찾기</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -524,7 +558,7 @@ title="Print to PDF"
               <div>
                 
   <section id="id1">
-<h1>변동성 돌파전략 3<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>종목 찾기<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <p>이전 단원에서 최적의 K 를 찾아보았는데요. 이번에는 K 를 고정하고 최적의 종목을 찾아보겠습니다. 코스피로 한정해서 종목을 찾아보겠습니다. FinanceDataReaer 의 StockListing 메소드의 인수로 ‘KOSPI’ 를 넣으면 코스피 모든 종목을 반환합니다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,14 +744,14 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_81376</span>\<span class="mf">586387817.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_77216</span>\<span class="mf">586387817.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]):</span>
 <span class="g g-Whitespace">     </span><span class="mi">21</span> 
 <span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">avg_r</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span> 
 <span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span> <span class="c1"># 최소한 50일 이상 거래일 존재해야 진행</span>
 
-<span class="nn">~\AppData\Local\Temp\ipykernel_81376\586387817.py</span> in <span class="ni">avg_r</span><span class="nt">(code, K)</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_77216\586387817.py</span> in <span class="ni">avg_r</span><span class="nt">(code, K)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">avg_r</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span>
@@ -732,81 +766,67 @@ title="Print to PDF"
 <span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="c1"># KRX-DELISTING</span>
 
 <span class="nn">~\Anaconda3\lib\site-packages\FinanceDataReader\naver\data.py</span> in <span class="ni">read</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://fchart.stock.naver.com/sise.nhn?timeframe=day&amp;count=6000&amp;requestType=0&amp;symbol=&#39;</span>
-<span class="ne">---&gt; </span><span class="mi">16</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> 
-<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">data_list</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;&lt;item data=</span><span class="se">\&quot;</span><span class="s1">(.*?)</span><span class="se">\&quot;</span><span class="s1"> /&gt;&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>         <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">27</span>         <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Change&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> 
+<span class="g g-Whitespace">     </span><span class="mi">29</span>         <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;index&gt;=</span><span class="si">%r</span><span class="s1"> and index&lt;=</span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">))</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\requests\api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">75</span><span class="s2">     return request(&#39;get&#39;, url, params=params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="s2"> </span>
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\generic.py</span> in <span class="ni">pct_change</span><span class="nt">(self, periods, fill_method, limit, freq, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10157</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span>
+<span class="g g-Whitespace">  </span><span class="mi">10158</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">10159</span>             <span class="n">_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">fill_method</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10160</span>             <span class="k">assert</span> <span class="n">_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>  <span class="c1"># needed for mypy</span>
+<span class="g g-Whitespace">  </span><span class="mi">10161</span>             <span class="n">data</span> <span class="o">=</span> <span class="n">_data</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\requests\api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2">     # cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2">     with sessions.Session() as session:</span>
-<span class="ne">---&gt; </span><span class="mi">61</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="s2"> </span>
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\util\_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\requests\sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span><span class="s2">         }</span>
-<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         send_kwargs.update(settings)</span>
-<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">         return resp</span>
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\series.py</span> in <span class="ni">fillna</span><span class="nt">(self, value, method, axis, inplace, limit, downcast)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4814</span>         <span class="n">downcast</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4815</span>     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">4816</span>         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4817</span>             <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4818</span>             <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\requests\sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span><span class="s2">         # Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">655</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">657</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\generic.py</span> in <span class="ni">fillna</span><span class="nt">(self, value, method, axis, inplace, limit, downcast)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6332</span>                 <span class="k">return</span> <span class="n">result</span>
+<span class="g g-Whitespace">   </span><span class="mi">6333</span> 
+<span class="ne">-&gt; </span><span class="mi">6334</span>             <span class="n">new_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">6335</span>                 <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">6336</span>                 <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\requests\adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">437</span><span class="s2">         try:</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">             if not chunked:</span>
-<span class="ne">--&gt; </span><span class="mi">439</span><span class="s2">                 resp = conn.urlopen(</span>
-<span class="g g-Whitespace">    </span><span class="mi">440</span><span class="s2">                     method=request.method,</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2">                     url=url,</span>
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\internals\managers.py</span> in <span class="ni">interpolate</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span> 
+<span class="g g-Whitespace">    </span><span class="mi">376</span>     <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">377</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="s2">&quot;interpolate&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span> 
+<span class="g g-Whitespace">    </span><span class="mi">379</span>     <span class="k">def</span> <span class="nf">shift</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">periods</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">698</span><span class="s2">             # Make the request on the httplib connection object.</span>
-<span class="ne">--&gt; </span><span class="mi">699</span><span class="s2">             httplib_response = self._make_request(</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span><span class="s2">                 conn,</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2">                 method,</span>
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\internals\managers.py</span> in <span class="ni">apply</span><span class="nt">(self, f, align_keys, ignore_failures, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span>                     <span class="n">applied</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">327</span>                     <span class="n">applied</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">f</span><span class="p">)(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span>             <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>                 <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_failures</span><span class="p">:</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">380</span><span class="s2">         # Trigger any extra validation we need to do.</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">382</span><span class="s2">             self._validate_conn(conn)</span>
-<span class="g g-Whitespace">    </span><span class="mi">383</span><span class="s2">         except (SocketTimeout, BaseSSLError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">384</span><span class="s2">             # Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.</span>
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\internals\blocks.py</span> in <span class="ni">interpolate</span><span class="nt">(self, method, axis, index, inplace, limit, limit_direction, limit_area, fill_value, coerce, downcast, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1088</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_hold_na</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1089</span>             <span class="c1"># If there are no NAs, then interpolate is a no-op</span>
+<span class="ne">-&gt; </span><span class="mi">1090</span>             <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span> <span class="k">if</span> <span class="n">inplace</span> <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1091</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1092</span>         <span class="k">try</span><span class="p">:</span>
 
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1008</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1009</span><span class="s2">         if not getattr(conn, &quot;sock&quot;, None):  # AppEngine might not have  `.sock`</span>
-<span class="ne">-&gt; </span><span class="mi">1010</span><span class="s2">             conn.connect()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1011</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span><span class="s2">         if not conn.is_verified:</span>
-
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span><span class="s2">             context.load_default_certs()</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">416</span><span class="s2">         self.sock = ssl_wrap_socket(</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span><span class="s2">             sock=conn,</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span><span class="s2">             keyfile=self.key_file,</span>
-
-<span class="nn">~\Anaconda3\lib\site-packages\urllib3\util\ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span><span class="s2">     if ca_certs or ca_cert_dir or ca_cert_data:</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">402</span><span class="s2">             context.load_verify_locations(ca_certs, ca_cert_dir, ca_cert_data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span><span class="s2">         except (IOError, OSError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span><span class="s2">             raise SSLError(e)</span>
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\core\internals\blocks.py</span> in <span class="ni">copy</span><span class="nt">(self, deep)</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="k">if</span> <span class="n">deep</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">650</span>             <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_block_same_class</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">652</span> 
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -980,7 +1000,7 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">변동성 돌파전략 2</p>
+            <p class="prev-next-title">K 값</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../chapter3/3.1.0_Use_Case.html" title="next page">

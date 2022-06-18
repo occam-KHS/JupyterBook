@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>변동성 돌파전략 구현 &#8212; 나만의 추천 시스템</title>
+    <title>데이터 수집 및 분석 &#8212; 나만의 추천 시스템</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="변동성 돌파전략 1" href="2.4.1_Volatility_Breakout.html" />
-    <link rel="prev" title="Matplotlib" href="2.3.2_Visualization.html" />
+    <link rel="next" title="FinanceDataReader 로 일봉 데이터 가져오기" href="4.4.1_Data_Collection.html" />
+    <link rel="prev" title="가설 설정" href="4.3.0_My_Strategy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -137,9 +137,9 @@ const thebe_selector_output = ".output, .cell_output"
   chapter 2
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="2.1.0_Python_Basics.html">
+  <a class="reference internal" href="../chapter2/2.1.0_Python_Basics.html">
    <strong>
     파이썬 데이터분석 기초
    </strong>
@@ -151,34 +151,34 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.1.1_Python_Basics.html">
+    <a class="reference internal" href="../chapter2/2.1.1_Python_Basics.html">
      Data Type
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.1.2_Python_Basics.html">
+    <a class="reference internal" href="../chapter2/2.1.2_Python_Basics.html">
      Index
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.1.3_Python_Basics.html">
+    <a class="reference internal" href="../chapter2/2.1.3_Python_Basics.html">
      For Loop
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.1.4_Python_Basics.html">
+    <a class="reference internal" href="../chapter2/2.1.4_Python_Basics.html">
      If Condition
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.1.5_Python_Basics.html">
+    <a class="reference internal" href="../chapter2/2.1.5_Python_Basics.html">
      Functions
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="2.2.0_Useful_Techniques.html">
+  <a class="reference internal" href="../chapter2/2.2.0_Useful_Techniques.html">
    <strong>
     유용한 기능들
    </strong>
@@ -190,44 +190,44 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.2.1_Useful_Techniques.html">
+    <a class="reference internal" href="../chapter2/2.2.1_Useful_Techniques.html">
      Append
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.2.2_Useful_Techniques.html">
+    <a class="reference internal" href="../chapter2/2.2.2_Useful_Techniques.html">
      Concat 과 Merge
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.2.3_Useful_Techniques.html">
+    <a class="reference internal" href="../chapter2/2.2.3_Useful_Techniques.html">
      Groupby
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.2.4_Useful_Techniques.html">
+    <a class="reference internal" href="../chapter2/2.2.4_Useful_Techniques.html">
      Resample
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.2.5_Useful_Techniques.html">
+    <a class="reference internal" href="../chapter2/2.2.5_Useful_Techniques.html">
      Pickle
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.2.6_Useful_Techniques.html">
+    <a class="reference internal" href="../chapter2/2.2.6_Useful_Techniques.html">
      Shift
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.2.7_Useful_Techniques.html">
+    <a class="reference internal" href="../chapter2/2.2.7_Useful_Techniques.html">
      Rolling
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="2.3.0_Visualization.html">
+  <a class="reference internal" href="../chapter2/2.3.0_Visualization.html">
    <strong>
     시각화
    </strong>
@@ -239,45 +239,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.3.1_Visualization.html">
+    <a class="reference internal" href="../chapter2/2.3.1_Visualization.html">
      Pandas Plot
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2.3.2_Visualization.html">
+    <a class="reference internal" href="../chapter2/2.3.2_Visualization.html">
      Matplotlib
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter2/2.4.1_Volatility_Breakout.html">
    <strong>
     변동성 돌파전략 구현
    </strong>
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.4.1_Volatility_Breakout.html">
-     변동성 돌파전략 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.4.2_Volatility_Breakout.html">
-     변동성 돌파전략 2
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2.4.3_Volatility_Breakout.html">
-     변동성 돌파전략 3
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -292,8 +270,8 @@ const thebe_selector_output = ".output, .cell_output"
     데이터분석 활용사례
    </strong>
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -326,37 +304,52 @@ const thebe_selector_output = ".output, .cell_output"
   chapter 4
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../chapter4/4.0.0_My_Strategy.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.1.0_My_Strategy.html">
    <strong>
     데이터분석으로 나만의 전략 만들기
    </strong>
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.2.0_My_Strategy.html">
+   정보 수집 및 전문가 인터뷰
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.3.0_My_Strategy.html">
+   가설 설정
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   데이터 수집 및 분석
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter4/4.1.0_My_Strategy.html">
-     문제점 파악
+    <a class="reference internal" href="4.4.1_Data_Collection.html">
+     FinanceDataReader 로 일봉 데이터 가져오기
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter4/4.2.0_My_Strategy.html">
-     정보 수집 및 전문가 인터뷰
+    <a class="reference internal" href="4.4.2_Data_Collection.html">
+     코스닥 인덱스 데이터
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter4/4.3.0_My_Strategy.html">
-     가설 설정
+    <a class="reference internal" href="4.4.3_Data_Collection.html">
+     종목별 일봉 데이터와 코스피 지수 데이터와 결합
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter4/4.4.0_My_Strategy.html">
-     데이터 수집 및 분석
+    <a class="reference internal" href="4.4.4_Data_Processing.html">
+     가설 검증을 위한 데이터 처리
     </a>
    </li>
   </ul>
@@ -420,7 +413,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/chapter2/2.4.0_Volatility_Breakout.ipynb"
+        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/chapter4/4.4.0_Data_Collection.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -480,7 +473,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter2/2.4.0_Volatility_Breakout.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter4/4.4.0_Data_Collection.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -508,7 +501,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/chapter2/2.4.0_Volatility_Breakout.ipynb"
+        <a href="../_sources/chapter4/4.4.0_Data_Collection.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -557,7 +550,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>변동성 돌파전략 구현</h1>
+                <h1>데이터 수집 및 분석</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -570,8 +563,9 @@ title="Print to PDF"
               <div>
                 
   <section id="id1">
-<h1><strong>변동성 돌파전략 구현</strong><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>여기까지 배운 내용을 토대로 래리윌리암스의 변동성 돌파전략을 구현해보겠습니다.</p>
+<h1>데이터 수집 및 분석<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>이 부분이 데이터분석에서 가장 많은 시간이 필요한 부분입니다. 데이터를 수집해야하고 분석할 수 있는 모양으로 데이터 가공을 해야합니다. 다행이 일봉데이터는 데이터 크렌징은 필요없습니다. 하지만, 판다스 라이브러리를 이용하여 많은 가공이 필요합니다. 이 부분은 피쳐 엔지니어링이라고도 부릅니다.</p>
+<p>일봉 데이터 수집은 웹크롤링으로 수집할 수 도 있고, 파이썬 라이브러리로도 수집이 가능합니다. 일봉 데이터에는 시종고저 값과 거래량 값이 기본적으로 제공됩니다. 우리는 이렇게 5개의 데이터를 이용하여 위 가설을 검정 해 볼 것 입니다.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -589,7 +583,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapter2"
+            path: "./chapter4"
         },
         predefinedOutput: true
     }
@@ -603,17 +597,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="2.3.2_Visualization.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="4.3.0_My_Strategy.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Matplotlib</p>
+            <p class="prev-next-title">가설 설정</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2.4.1_Volatility_Breakout.html" title="next page">
+    <a class='right-next' id="next-link" href="4.4.1_Data_Collection.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">변동성 돌파전략 1</p>
+        <p class="prev-next-title">FinanceDataReader 로 일봉 데이터 가져오기</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

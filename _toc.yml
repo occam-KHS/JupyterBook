@@ -68,7 +68,21 @@ parts:
       - file: chapter5/5.2.2_Modeling_Library
       - file: chapter5/5.2.3_GAM
       - file: chapter5/5.2.4_LM_Assumptions
- 
 
+  - caption: chapter 6
+    chapters:
+    - file: chapter6/6.0.0_Effectiveness_Testing
+
+  - caption: chapter 7
+    chapters:
+    - file: chapter7/7.0.0_Algo_Trading
+
+  - caption: chapter 8
+    chapters:
+    - file: chapter8/8.0.0_Web_Application
+
+  - caption: chapter 9
+    chapters:
+    - file: chapter9/9.0.0_POC
 
 

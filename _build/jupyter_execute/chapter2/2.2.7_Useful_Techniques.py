@@ -41,7 +41,7 @@ stock_data.head(21)
 # In[4]:
 
 
-stock_data.dropna(inplace=True)
+stock_data.dropna(inplace=True) # NaN 이 있는 모든 row 제거
 stock_data.head()
 
 
@@ -52,7 +52,7 @@ stock_data.head()
 
 
 stock_data['cross_flag'] = (stock_data['5 day moving average'] > stock_data['20 day moving average']).astype(int) # True/False 결과 값을 1/0 으로 바꿔줌
-stock_data[(stock_data['cross_flag'].shift(1)==0) & (stock_data['cross_flag']==1)]
+stock_data[(stock_data['cross_flag'].shift(1)==0) & (stock_data['cross_flag']==1)] # 조건 - 전날에는 5일 이평선이 20일 이평선보다 작거나 같아는데, 당일은 5일 이평선이 20일 이평선 보다 커짐
 
 
 # In[ ]:

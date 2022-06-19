@@ -63,21 +63,9 @@ stock_data2.loc['2021-01-04':'2021-01-31']['Volume'].plot(kind='bar', figsize=(1
 
 # <br> 이제 주가 Line Chart 와 거래량 Bar Chat 를 한 Chart 에 그리고 싶은 욕구가 생깁니다. Pandas Plot 에서 가능은 한데 복잡합니다. 이 부분은 matplotlib 에서 하겠습니다.
 
-# In[ ]:
-
-
-
-
-
 # In[1]:
 
 
 import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
-
-
-# In[ ]:
-
-
-
 

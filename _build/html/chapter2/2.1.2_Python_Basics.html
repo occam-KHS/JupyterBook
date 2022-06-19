@@ -836,13 +836,13 @@ dtype: int64
 <p>Index 의 본연의 기능은 찾기입니다. ss3.loc[인덱스값] 를 이용하여 원하는 값을 찾을 수 있습니다. 인덱스 ‘c’ 에 해당하는 값은 13입니다. ss3.loc[‘c’] 를 하면 13이 출력됩니다. 만약, 인덱스 ‘a’ 와 ‘c’ 를 다 찾고 싶으면 [‘a’, ‘c’] 와 같이 List 로 넣어주면 됩니다. loc 를 하지 않아도 같은 결과를 얻으시겠지만, loc 를 넣으면 ‘a’,’c’ 를 column 이 아니라 index 에서 찾는다는 것을 명확하게 해 줍니다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ss3</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">ss3</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ss3</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">ss3</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ss3</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13 13
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11 13
 a    11
 c    13
 dtype: int64
@@ -898,7 +898,7 @@ Name: s3, dtype: object
 </section>
 <section id="id2">
 <h1>Index 생성 및 추출<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
-<p>set_index(column) 메소드로 기존의 column 을 index 로 만들 수 있습니다. set_index(‘c2’) 처리 후, df2 를 출력하시면 df1 의 ‘c2’ 컬럼이 index 로 되어 있음을 확인할 수 있습니다.
+<p>set_index 메소드로 기존의 column 을 index 로 만들 수 있습니다. set_index(‘c2’) 처리 후, df2 를 출력하시면 df1 의 ‘c2’ 컬럼이 index 로 되어 있음을 확인할 수 있습니다.
 이제 df2 의 index 값을 변경해 보겠습니다. 아래와 같이 DataFrame 의 Index를 호출하여 원하는 Index 로 교체도 가능합니다. 참고로 아래 df2 는 column 하나지만 현재 Series 가 아닌 DataFrame 입니다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -955,7 +955,7 @@ ss5  15 &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_38068</span>\<span class="mf">2078573242.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_3484</span>\<span class="mf">2078573242.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">c2_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span> <span class="c1"># 값에 중복이 있음</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;c1&#39;</span><span class="p">:</span> <span class="n">c1_list</span><span class="p">,</span> <span class="s1">&#39;c2&#39;</span><span class="p">:</span> <span class="n">c2_list</span><span class="p">})</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;c2&#39;</span><span class="p">,</span> <span class="n">verify_integrity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># index 중복여부를 체크</span>

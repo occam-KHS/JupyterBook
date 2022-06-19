@@ -788,7 +788,7 @@ Name: v1, dtype: float64
 </div>
 </div>
 <br>
-그룹별로 v1 의 평균, 최대값, 총합을 알아봅니다.<div class="cell docutils container">
+그룹별로 여러개의 통계값도 구할 수 있습니다. v1 의 평균, 최대값, 총합을 알아봅니다.<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;grp&#39;</span><span class="p">)[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">])</span>
 </pre></div>

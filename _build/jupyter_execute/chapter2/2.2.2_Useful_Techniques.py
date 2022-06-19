@@ -13,23 +13,23 @@
 
 import pandas as pd
 
-s1 = pd.Series([1,2,3,4,5], name='s1')
+s1 = pd.Series([1,2,3,4,5], name='s1') # 두 Series를 합친 후, 어느 Series 에서 알기위해 이름 지정
 s2 = pd.Series(['a','b','c','d','e'], name='s2')
 
-horizontal = pd.concat([s1, s2], axis=1) # axis=1 이면 인덱스 기준으로 합함. 즉. 좌-우로 합함
+horizontal = pd.concat([s1, s2], axis=1) # axis=1 이면 index (행) 기준으로 합함. 즉. 좌-우로 합함
 print(horizontal)
 
 print('\n')
-vertical = pd.concat([s1, s2], axis=0) # axis=0 이면 컬럼 기준으로 합함. 즉 위-아래로 합함
+vertical = pd.concat([s1, s2], axis=0) # axis=0 이면 column(열) 기준으로 합함. 즉 위-아래로 합함
 print(vertical)
 
 print('\n')
 vertical_1 = pd.concat([s1, s2], axis=1, join='outer') # axis=1 인덱스 기준으로 합함. 양쪽 Series 에 존재하는 모든 index 는 남김
 vertical_2 = pd.concat([s1, s2], axis=1, join='inner') # axis=1 인덱스 기준으로 합함. 양쪽 Series 에 동시에 존재하는 index 만 남김
-print(vertical_1.equals(vertical_2)) # 두개의 DataFrame 이 서로 동일한지 체크
+print(vertical_1.equals(vertical_2)) # 두개의 DataFrame 이 서로 동일한지 체크. 인덱스가 동일하므로 동일 결과가 됨.
 
 
-# <br> concat 에서 두 Series 의 index 가 다르면 원하는 결과가 안 나온다는 것의 유의합니다. 아래 예제에서 index 가 서로 다른 Series 를 합쳐보겠습니다. join='inner' 조건에서는 동일한 index 가 없으므로 결과가 없습니다. 단지 좌-우로 합치는 것이 목적이라면 기존의 index 를 제거하고 default index 인 숫자를 넣어주고 concat 하면 됩니다. 기존의 index 를 제거할 때는  reset_index(drop=True) 를 합니다.
+# <br> concat 에서 두 Series 의 index 가 다르경우, 원하는 결과가 안 나온다는 것의 유의합니다. 아래 예제에서 index 가 서로 다른 Series 를 합쳐보겠습니다. join='inner' 조건에서는 동일한 index 가 없으므로 concat 후 결과가 없습니다. 단지 좌-우로 합치는 것이 목적이라면 기존의 index 를 제거하고 default index 인 숫자를 넣어주고 concat 하면 됩니다. 기존의 index 를 제거할 때는  reset_index(drop=True) 를 합니다.
 
 # In[13]:
 
@@ -45,7 +45,7 @@ print(pd.concat([s3.reset_index(drop=True), s4.reset_index(drop=True)], axis=1, 
 
 # ### Merge
 # Index 가 동일하고, 단순한 병합일 때는 concat 를 쓰지만, 서로 다른 컬럼으로 병합을 할 때는 Merge 를 씁니다.
-# 만약 두 데이터셋이 있고, 고객번호로 서로 Merge 하려고 한다고 합시다. 그런데 한 데이터셋에는 고객번호가 cust_id 로 되어 있고, 다른 데이터셋에는 Cust_Number 로 되어 있으면 concat 를 활용하기 어렵습니다. 이 경우는 merge 를 쓰는 것이 편리합니다. 먼저 예제 DataFrame 을 생성합니다.
+# 만약 두 데이터셋이 있고, 고객번호로 서로 Merge 하려고 한다고 합시다. 그런데 한 데이터셋에는 고객번호가 cust_id 로 되어 있고, 다른 데이터셋에는 Cust_Number 로 되어 있으면 concat 를 활용하기 어렵습니다. 이 경우는 merge 를 쓰는 것이 편리합니다. merge 는 넣어야하는 인수가 concat 보다많아, 단순한 병합은 concat 으로 합니다. 먼저 예제 DataFrame 을 생성합니다.
 
 # In[2]:
 
@@ -77,13 +77,13 @@ print(df2.set_index('cust_number'))
 # 다음은 만들어진 index 를 이용하여 두 데이터셋을 병합(merge) 합니다. left_index=True, right_index=True 를 인수로 넣어, index 키로 병합한다는 것을 알려줍니다. 병합하는 방법은 how 인수로 알려줍니다. how='inner' 면 df1, df2 동시에 존재하는 index 만을 남기겠다는 인수입니다. 아래 예제에서 두 번째 방식으로도 가능하나, 제 생각에는 첫 번째가 직관적입니다.
 # 
 
-# In[91]:
+# In[4]:
 
 
 df1.set_index('cust_id').merge(df2.set_index('cust_number'), left_index=True, right_index=True, how='inner')
 
 
-# In[92]:
+# In[5]:
 
 
 pd.merge(left=df1.set_index('cust_id'), right=df2.set_index('cust_number'), left_index=True, right_index=True, how='inner')
@@ -92,7 +92,7 @@ pd.merge(left=df1.set_index('cust_id'), right=df2.set_index('cust_number'), left
 # <br>
 # Index 가 된 고객번호를 다시 DataFrame 으로 가져오고 싶으면, reset_index() 로 index 를 없앤 후, rename 메소드에서 원하는 이름으로 변경해주면 됩니다. 아래 예제와 같이 파이썬에서는 여러가지 데이터처리를 '.' (dot notation) 을 이용하여 한 줄에 처리할 수 있습니다. 
 
-# In[95]:
+# In[6]:
 
 
 df1.set_index('cust_id').merge(df2.set_index('cust_number'), left_index=True, right_index=True, how='inner').reset_index().rename(columns={'index':'cust_id'})

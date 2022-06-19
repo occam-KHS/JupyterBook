@@ -8,7 +8,7 @@
 # ### FinanceDataReader
 # FinanceDataReader 를 import 합니다. DataReader 함수에 종목코드, 시작일, 종료일을 인수로 넣어주면 아래와 같이 일봉데이터를 리턴합니다. 출력해보면 Date 가 index 로 되어 있음을 알 수 있습니다. 
 
-# In[1]:
+# In[4]:
 
 
 import FinanceDataReader as fdr
@@ -16,28 +16,28 @@ import FinanceDataReader as fdr
 code = '005930' # 삼성전자
 stock_data = fdr.DataReader(code, start='2021-01-03', end='2021-12-31') 
 
-stock_data.head() # head 메소드는 처음 5 row 만 출력합니다.
+stock_data.head().style.set_table_attributes('style="font-size: 12px"') # head 메소드는 처음 5 row 만 출력합니다.
 
 
 # <br>
 # 각 월별 종가의 평균, 최대값, 최소값을 알아봅니다. 월별로 요약하면 index 에는 월의 마지막 날짜가 되는 것을 유의하세요. head 메소드로 출력을 5 열로 제한합니다. pd.options 로 소숫점 이하는 보이지 않도록 합니다. 시간이 index 가 되어 있을 때 resample 이 가능합니다. 
 # 
 
-# In[2]:
+# In[5]:
 
 
 import pandas as pd
 pd.options.display.float_format = '{:,.0f}'.format
-stock_data.resample('M')['Close'].agg(['mean','max','min']).head() # 처음 5개만 출력
+stock_data.resample('M')['Close'].agg(['mean','max','min']).head().style.set_table_attributes('style="font-size: 12px"') # 처음 5개만 출력
 
 
 # 주별로 요약할 수 도 있습니다. 이번에는 resample('W') 라고 해 줍니다. Resample 이 정말 유용한 기능이라는 것을 직감하셨을 것으로 생각합니다. 역시 한 주(월요일 ~ 일요일)의 마지막날이 Index 로 들어가 있습니다. 디폴트는 일요일입니다.
 
-# In[3]:
+# In[6]:
 
 
 pd.options.display.float_format = '{:,.0f}'.format
-stock_data.resample('W')['Close'].agg(['mean','max','min']).head()
+stock_data.resample('W')['Close'].agg(['mean','max','min']).head().style.set_table_attributes('style="font-size: 12px"')
 
 
 # In[ ]:

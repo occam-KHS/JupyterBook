@@ -13,7 +13,7 @@ import pandas as pd
 code = '005930' # 삼성전자
 stock_data = fdr.DataReader(code, start='2021-01-03', end='2021-12-31') 
 
-stock_data.head()
+stock_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 
 # <br> Matplotlib 패키지를 import 합니다. 두번째 줄에 %matplotlib inline 같이 적어줍니다. 두번째 줄은 쥬피터노트북의 아웃풋 창에 Chart 를 볼 수 있게 해주는 기능을 합니다. 먼저 plt.figure 을 이용하여 chart 의 크기를 결정해줍니다. plt.plot() 를 해보면 박스만 있습니다. 이제 chart 를 추가하겠습니다.

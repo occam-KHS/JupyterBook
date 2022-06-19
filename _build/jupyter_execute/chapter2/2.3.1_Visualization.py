@@ -13,7 +13,7 @@ import pandas as pd
 code = '005930' # 삼성전자
 stock_data = fdr.DataReader(code, start='2021-01-03', end='2021-12-31') 
 
-stock_data.head()
+stock_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 
 # 먼저 종가를 Line Chart 로 그려봅니다. 2021년 주가흐름이 내리막입니다. 

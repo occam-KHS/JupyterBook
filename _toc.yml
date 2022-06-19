@@ -41,6 +41,7 @@ parts:
       
   - caption: chapter 4
     chapters:
+    - file: chapter4/4.0.0_My_Strategy
     - file: chapter4/4.1.0_My_Strategy
     - file: chapter4/4.2.0_My_Strategy
     - file: chapter4/4.3.0_My_Strategy
@@ -53,16 +54,21 @@ parts:
 
   - caption: chapter 5
     chapters:
-    - file: chapter4/5.1.0_Hypothesis
-    sections:
-      - file: chapter4/5.1.1_Hypothesis_1
-      - file: chapter4/5.1.2_Hypothesis_2
-      - file: chapter4/5.1.3_Hypothesis_3
-      - file: chapter4/5.1.4_Hypothesis_4
-      - file: chapter4/5.1.5_Hypothesis_5
-      - file: chapter4/5.1.6_Hypothesis_6
-
-
+    - file: chapter5/5.1.0_Hypothesis
+      sections:
+      - file: chapter5/5.1.1_Hypothesis_1
+      - file: chapter5/5.1.2_Hypothesis_2
+      - file: chapter5/5.1.3_Hypothesis_3
+      - file: chapter5/5.1.4_Hypothesis_4
+      - file: chapter5/5.1.5_Hypothesis_5
+      - file: chapter5/5.1.6_Hypothesis_6
+    - file: chapter5/5.2.0_Solution_Details
+      sections:
+      - file: chapter5/5.2.1_Feature_Engineering
+      - file: chapter5/5.2.2_Modeling_Library
+      - file: chapter5/5.2.3_GAM
+      - file: chapter5/5.2.4_LM_Assumptions
+ 
 
 
 

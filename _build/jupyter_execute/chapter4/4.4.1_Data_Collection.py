@@ -7,7 +7,7 @@
 import FinanceDataReader as fdr
 import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
-
+import os
 import FinanceDataReader as fdr 
 import pandas as pd
 import numpy as np
@@ -165,4 +165,22 @@ price_data.head()
 
 print(price_data['code'].nunique())
 print(price_data.groupby('code')['close'].count().agg(['min','max']))
+
+
+# In[1]:
+
+
+import os
+
+
+# In[2]:
+
+
+os.getcwd()
+
+
+# In[ ]:
+
+
+
 

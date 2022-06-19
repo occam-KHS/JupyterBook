@@ -629,8 +629,9 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.expand_frame_repr&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -641,136 +642,111 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">return_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;return_all.pkl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>  
+<span class="n">return_all</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">return_all</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">return_all</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">return_all</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_434cb_" style="font-size: 10px">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>change</th>
-      <th>code</th>
-      <th>name</th>
-      <th>kosdaq_return</th>
-      <th>return</th>
-      <th>win_market</th>
-    </tr>
     <tr>
-      <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >open</th>
+      <th class="col_heading level0 col1" >high</th>
+      <th class="col_heading level0 col2" >low</th>
+      <th class="col_heading level0 col3" >close</th>
+      <th class="col_heading level0 col4" >volume</th>
+      <th class="col_heading level0 col5" >change</th>
+      <th class="col_heading level0 col6" >code</th>
+      <th class="col_heading level0 col7" >name</th>
+      <th class="col_heading level0 col8" >kosdaq_return</th>
+      <th class="col_heading level0 col9" >return</th>
+      <th class="col_heading level0 col10" >win_market</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-01-05</th>
-      <td>2270</td>
-      <td>2285</td>
-      <td>2200</td>
-      <td>2250</td>
-      <td>410263</td>
-      <td>-0.004</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>1.008</td>
-      <td>0.996</td>
-      <td>0</td>
+      <th id="T_434cb_level0_row0" class="row_heading level0 row0" >2021-01-05</th>
+      <td id="T_434cb_row0_col0" class="data row0 col0" >2270</td>
+      <td id="T_434cb_row0_col1" class="data row0 col1" >2285</td>
+      <td id="T_434cb_row0_col2" class="data row0 col2" >2200</td>
+      <td id="T_434cb_row0_col3" class="data row0 col3" >2250</td>
+      <td id="T_434cb_row0_col4" class="data row0 col4" >410263</td>
+      <td id="T_434cb_row0_col5" class="data row0 col5" >-0.004425</td>
+      <td id="T_434cb_row0_col6" class="data row0 col6" >060310</td>
+      <td id="T_434cb_row0_col7" class="data row0 col7" >3S</td>
+      <td id="T_434cb_row0_col8" class="data row0 col8" >1.008326</td>
+      <td id="T_434cb_row0_col9" class="data row0 col9" >0.995575</td>
+      <td id="T_434cb_row0_col10" class="data row0 col10" >0</td>
     </tr>
     <tr>
-      <th>2021-01-06</th>
-      <td>2225</td>
-      <td>2310</td>
-      <td>2215</td>
-      <td>2290</td>
-      <td>570349</td>
-      <td>0.018</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.996</td>
-      <td>1.018</td>
-      <td>1</td>
+      <th id="T_434cb_level0_row1" class="row_heading level0 row1" >2021-01-06</th>
+      <td id="T_434cb_row1_col0" class="data row1 col0" >2225</td>
+      <td id="T_434cb_row1_col1" class="data row1 col1" >2310</td>
+      <td id="T_434cb_row1_col2" class="data row1 col2" >2215</td>
+      <td id="T_434cb_row1_col3" class="data row1 col3" >2290</td>
+      <td id="T_434cb_row1_col4" class="data row1 col4" >570349</td>
+      <td id="T_434cb_row1_col5" class="data row1 col5" >0.017778</td>
+      <td id="T_434cb_row1_col6" class="data row1 col6" >060310</td>
+      <td id="T_434cb_row1_col7" class="data row1 col7" >3S</td>
+      <td id="T_434cb_row1_col8" class="data row1 col8" >0.995567</td>
+      <td id="T_434cb_row1_col9" class="data row1 col9" >1.017778</td>
+      <td id="T_434cb_row1_col10" class="data row1 col10" >1</td>
     </tr>
     <tr>
-      <th>2021-01-07</th>
-      <td>2290</td>
-      <td>2340</td>
-      <td>2240</td>
-      <td>2290</td>
-      <td>519777</td>
-      <td>0.000</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>1.008</td>
-      <td>1.000</td>
-      <td>0</td>
+      <th id="T_434cb_level0_row2" class="row_heading level0 row2" >2021-01-07</th>
+      <td id="T_434cb_row2_col0" class="data row2 col0" >2290</td>
+      <td id="T_434cb_row2_col1" class="data row2 col1" >2340</td>
+      <td id="T_434cb_row2_col2" class="data row2 col2" >2240</td>
+      <td id="T_434cb_row2_col3" class="data row2 col3" >2290</td>
+      <td id="T_434cb_row2_col4" class="data row2 col4" >519777</td>
+      <td id="T_434cb_row2_col5" class="data row2 col5" >0.000000</td>
+      <td id="T_434cb_row2_col6" class="data row2 col6" >060310</td>
+      <td id="T_434cb_row2_col7" class="data row2 col7" >3S</td>
+      <td id="T_434cb_row2_col8" class="data row2 col8" >1.007612</td>
+      <td id="T_434cb_row2_col9" class="data row2 col9" >1.000000</td>
+      <td id="T_434cb_row2_col10" class="data row2 col10" >0</td>
     </tr>
     <tr>
-      <th>2021-01-08</th>
-      <td>2300</td>
-      <td>2315</td>
-      <td>2225</td>
-      <td>2245</td>
-      <td>462568</td>
-      <td>-0.020</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.999</td>
-      <td>0.980</td>
-      <td>0</td>
+      <th id="T_434cb_level0_row3" class="row_heading level0 row3" >2021-01-08</th>
+      <td id="T_434cb_row3_col0" class="data row3 col0" >2300</td>
+      <td id="T_434cb_row3_col1" class="data row3 col1" >2315</td>
+      <td id="T_434cb_row3_col2" class="data row3 col2" >2225</td>
+      <td id="T_434cb_row3_col3" class="data row3 col3" >2245</td>
+      <td id="T_434cb_row3_col4" class="data row3 col4" >462568</td>
+      <td id="T_434cb_row3_col5" class="data row3 col5" >-0.019651</td>
+      <td id="T_434cb_row3_col6" class="data row3 col6" >060310</td>
+      <td id="T_434cb_row3_col7" class="data row3 col7" >3S</td>
+      <td id="T_434cb_row3_col8" class="data row3 col8" >0.998918</td>
+      <td id="T_434cb_row3_col9" class="data row3 col9" >0.980349</td>
+      <td id="T_434cb_row3_col10" class="data row3 col10" >0</td>
     </tr>
     <tr>
-      <th>2021-01-11</th>
-      <td>2230</td>
-      <td>2275</td>
-      <td>2130</td>
-      <td>2175</td>
-      <td>409057</td>
-      <td>-0.031</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.989</td>
-      <td>0.969</td>
-      <td>0</td>
+      <th id="T_434cb_level0_row4" class="row_heading level0 row4" >2021-01-11</th>
+      <td id="T_434cb_row4_col0" class="data row4 col0" >2230</td>
+      <td id="T_434cb_row4_col1" class="data row4 col1" >2275</td>
+      <td id="T_434cb_row4_col2" class="data row4 col2" >2130</td>
+      <td id="T_434cb_row4_col3" class="data row4 col3" >2175</td>
+      <td id="T_434cb_row4_col4" class="data row4 col4" >409057</td>
+      <td id="T_434cb_row4_col5" class="data row4 col5" >-0.031180</td>
+      <td id="T_434cb_row4_col6" class="data row4 col6" >060310</td>
+      <td id="T_434cb_row4_col7" class="data row4 col7" >3S</td>
+      <td id="T_434cb_row4_col8" class="data row4 col8" >0.988702</td>
+      <td id="T_434cb_row4_col9" class="data row4 col9" >0.968820</td>
+      <td id="T_434cb_row4_col10" class="data row4 col10" >0</td>
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div></div>
 </div>
 <p><br>일주일(5영업일)을 수익율의 관찰 기간으로 하고, 관찰 기간 동안 주가 상승이 있으면 저희가 세운 가설들을 유의미한 가설로 판단하겠습니다. 여기서 주가 상승의 기준은  “종가 매수 일부터 다음 5 영업일 동안 최고 종가 수익율” 하겠습니다.</p>
 <p>첫 번째 종목 060310 에 대하여 처리를 먼저 해 보겠습니다. shift(-1) 은 다음 영업일의 종가 수익율을 참조하고, shift(-2) 은 그 다음의 영업일의 종가 수익율을 참조합니다. 따라서 매수 후 2 영업일 후, 종가 수익율은 shift(-1)*shift(-2) 로 계산됩니다. 이렇게 1 영업일, 2 영업일, 3 영업일, 4 영업일, 5 영업일 후 종가 수익율을 새로운 컬럼에 생성하고, 그 중에서 가장 큰 수익율을 고르면 됩니다. 생성된 컬럼 중 가장 큰 값은 max(axis=1) 로 찾습니다. 참고로 max() 에서는 axis=0 이 Default 라서 axis=1 로 정해주지 않으면 열에서 가장 큰 값을 찾게 됩니다. 이 부분을 유의해 주세요.</p>
@@ -801,272 +777,240 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_1c1ae_" style="font-size: 10px">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>change</th>
-      <th>code</th>
-      <th>name</th>
-      <th>kosdaq_return</th>
-      <th>return</th>
-      <th>win_market</th>
-      <th>close_r1</th>
-      <th>close_r2</th>
-      <th>close_r3</th>
-      <th>close_r4</th>
-      <th>close_r5</th>
-      <th>target</th>
-    </tr>
     <tr>
-      <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >open</th>
+      <th class="col_heading level0 col1" >high</th>
+      <th class="col_heading level0 col2" >low</th>
+      <th class="col_heading level0 col3" >close</th>
+      <th class="col_heading level0 col4" >volume</th>
+      <th class="col_heading level0 col5" >change</th>
+      <th class="col_heading level0 col6" >code</th>
+      <th class="col_heading level0 col7" >name</th>
+      <th class="col_heading level0 col8" >kosdaq_return</th>
+      <th class="col_heading level0 col9" >return</th>
+      <th class="col_heading level0 col10" >win_market</th>
+      <th class="col_heading level0 col11" >close_r1</th>
+      <th class="col_heading level0 col12" >close_r2</th>
+      <th class="col_heading level0 col13" >close_r3</th>
+      <th class="col_heading level0 col14" >close_r4</th>
+      <th class="col_heading level0 col15" >close_r5</th>
+      <th class="col_heading level0 col16" >target</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-01-05</th>
-      <td>2270</td>
-      <td>2285</td>
-      <td>2200</td>
-      <td>2250</td>
-      <td>410263</td>
-      <td>-0.004</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>1.008</td>
-      <td>0.996</td>
-      <td>0</td>
-      <td>1.018</td>
-      <td>1.018</td>
-      <td>0.998</td>
-      <td>0.967</td>
-      <td>0.971</td>
-      <td>1.018</td>
+      <th id="T_1c1ae_level0_row0" class="row_heading level0 row0" >2021-01-05</th>
+      <td id="T_1c1ae_row0_col0" class="data row0 col0" >2270</td>
+      <td id="T_1c1ae_row0_col1" class="data row0 col1" >2285</td>
+      <td id="T_1c1ae_row0_col2" class="data row0 col2" >2200</td>
+      <td id="T_1c1ae_row0_col3" class="data row0 col3" >2250</td>
+      <td id="T_1c1ae_row0_col4" class="data row0 col4" >410263</td>
+      <td id="T_1c1ae_row0_col5" class="data row0 col5" >-0.004425</td>
+      <td id="T_1c1ae_row0_col6" class="data row0 col6" >060310</td>
+      <td id="T_1c1ae_row0_col7" class="data row0 col7" >3S</td>
+      <td id="T_1c1ae_row0_col8" class="data row0 col8" >1.008326</td>
+      <td id="T_1c1ae_row0_col9" class="data row0 col9" >0.995575</td>
+      <td id="T_1c1ae_row0_col10" class="data row0 col10" >0</td>
+      <td id="T_1c1ae_row0_col11" class="data row0 col11" >1.017778</td>
+      <td id="T_1c1ae_row0_col12" class="data row0 col12" >1.017778</td>
+      <td id="T_1c1ae_row0_col13" class="data row0 col13" >0.997778</td>
+      <td id="T_1c1ae_row0_col14" class="data row0 col14" >0.966667</td>
+      <td id="T_1c1ae_row0_col15" class="data row0 col15" >0.971111</td>
+      <td id="T_1c1ae_row0_col16" class="data row0 col16" >1.017778</td>
     </tr>
     <tr>
-      <th>2021-01-06</th>
-      <td>2225</td>
-      <td>2310</td>
-      <td>2215</td>
-      <td>2290</td>
-      <td>570349</td>
-      <td>0.018</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.996</td>
-      <td>1.018</td>
-      <td>1</td>
-      <td>1.000</td>
-      <td>0.980</td>
-      <td>0.950</td>
-      <td>0.954</td>
-      <td>0.950</td>
-      <td>1.000</td>
+      <th id="T_1c1ae_level0_row1" class="row_heading level0 row1" >2021-01-06</th>
+      <td id="T_1c1ae_row1_col0" class="data row1 col0" >2225</td>
+      <td id="T_1c1ae_row1_col1" class="data row1 col1" >2310</td>
+      <td id="T_1c1ae_row1_col2" class="data row1 col2" >2215</td>
+      <td id="T_1c1ae_row1_col3" class="data row1 col3" >2290</td>
+      <td id="T_1c1ae_row1_col4" class="data row1 col4" >570349</td>
+      <td id="T_1c1ae_row1_col5" class="data row1 col5" >0.017778</td>
+      <td id="T_1c1ae_row1_col6" class="data row1 col6" >060310</td>
+      <td id="T_1c1ae_row1_col7" class="data row1 col7" >3S</td>
+      <td id="T_1c1ae_row1_col8" class="data row1 col8" >0.995567</td>
+      <td id="T_1c1ae_row1_col9" class="data row1 col9" >1.017778</td>
+      <td id="T_1c1ae_row1_col10" class="data row1 col10" >1</td>
+      <td id="T_1c1ae_row1_col11" class="data row1 col11" >1.000000</td>
+      <td id="T_1c1ae_row1_col12" class="data row1 col12" >0.980349</td>
+      <td id="T_1c1ae_row1_col13" class="data row1 col13" >0.949782</td>
+      <td id="T_1c1ae_row1_col14" class="data row1 col14" >0.954148</td>
+      <td id="T_1c1ae_row1_col15" class="data row1 col15" >0.949782</td>
+      <td id="T_1c1ae_row1_col16" class="data row1 col16" >1.000000</td>
     </tr>
     <tr>
-      <th>2021-01-07</th>
-      <td>2290</td>
-      <td>2340</td>
-      <td>2240</td>
-      <td>2290</td>
-      <td>519777</td>
-      <td>0.000</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>1.008</td>
-      <td>1.000</td>
-      <td>0</td>
-      <td>0.980</td>
-      <td>0.950</td>
-      <td>0.954</td>
-      <td>0.950</td>
-      <td>0.959</td>
-      <td>0.980</td>
+      <th id="T_1c1ae_level0_row2" class="row_heading level0 row2" >2021-01-07</th>
+      <td id="T_1c1ae_row2_col0" class="data row2 col0" >2290</td>
+      <td id="T_1c1ae_row2_col1" class="data row2 col1" >2340</td>
+      <td id="T_1c1ae_row2_col2" class="data row2 col2" >2240</td>
+      <td id="T_1c1ae_row2_col3" class="data row2 col3" >2290</td>
+      <td id="T_1c1ae_row2_col4" class="data row2 col4" >519777</td>
+      <td id="T_1c1ae_row2_col5" class="data row2 col5" >0.000000</td>
+      <td id="T_1c1ae_row2_col6" class="data row2 col6" >060310</td>
+      <td id="T_1c1ae_row2_col7" class="data row2 col7" >3S</td>
+      <td id="T_1c1ae_row2_col8" class="data row2 col8" >1.007612</td>
+      <td id="T_1c1ae_row2_col9" class="data row2 col9" >1.000000</td>
+      <td id="T_1c1ae_row2_col10" class="data row2 col10" >0</td>
+      <td id="T_1c1ae_row2_col11" class="data row2 col11" >0.980349</td>
+      <td id="T_1c1ae_row2_col12" class="data row2 col12" >0.949782</td>
+      <td id="T_1c1ae_row2_col13" class="data row2 col13" >0.954148</td>
+      <td id="T_1c1ae_row2_col14" class="data row2 col14" >0.949782</td>
+      <td id="T_1c1ae_row2_col15" class="data row2 col15" >0.958515</td>
+      <td id="T_1c1ae_row2_col16" class="data row2 col16" >0.980349</td>
     </tr>
     <tr>
-      <th>2021-01-08</th>
-      <td>2300</td>
-      <td>2315</td>
-      <td>2225</td>
-      <td>2245</td>
-      <td>462568</td>
-      <td>-0.020</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.999</td>
-      <td>0.980</td>
-      <td>0</td>
-      <td>0.969</td>
-      <td>0.973</td>
-      <td>0.969</td>
-      <td>0.978</td>
-      <td>0.973</td>
-      <td>0.978</td>
+      <th id="T_1c1ae_level0_row3" class="row_heading level0 row3" >2021-01-08</th>
+      <td id="T_1c1ae_row3_col0" class="data row3 col0" >2300</td>
+      <td id="T_1c1ae_row3_col1" class="data row3 col1" >2315</td>
+      <td id="T_1c1ae_row3_col2" class="data row3 col2" >2225</td>
+      <td id="T_1c1ae_row3_col3" class="data row3 col3" >2245</td>
+      <td id="T_1c1ae_row3_col4" class="data row3 col4" >462568</td>
+      <td id="T_1c1ae_row3_col5" class="data row3 col5" >-0.019651</td>
+      <td id="T_1c1ae_row3_col6" class="data row3 col6" >060310</td>
+      <td id="T_1c1ae_row3_col7" class="data row3 col7" >3S</td>
+      <td id="T_1c1ae_row3_col8" class="data row3 col8" >0.998918</td>
+      <td id="T_1c1ae_row3_col9" class="data row3 col9" >0.980349</td>
+      <td id="T_1c1ae_row3_col10" class="data row3 col10" >0</td>
+      <td id="T_1c1ae_row3_col11" class="data row3 col11" >0.968820</td>
+      <td id="T_1c1ae_row3_col12" class="data row3 col12" >0.973274</td>
+      <td id="T_1c1ae_row3_col13" class="data row3 col13" >0.968820</td>
+      <td id="T_1c1ae_row3_col14" class="data row3 col14" >0.977728</td>
+      <td id="T_1c1ae_row3_col15" class="data row3 col15" >0.973274</td>
+      <td id="T_1c1ae_row3_col16" class="data row3 col16" >0.977728</td>
     </tr>
     <tr>
-      <th>2021-01-11</th>
-      <td>2230</td>
-      <td>2275</td>
-      <td>2130</td>
-      <td>2175</td>
-      <td>409057</td>
-      <td>-0.031</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.989</td>
-      <td>0.969</td>
-      <td>0</td>
-      <td>1.005</td>
-      <td>1.000</td>
-      <td>1.009</td>
-      <td>1.005</td>
-      <td>1.002</td>
-      <td>1.009</td>
+      <th id="T_1c1ae_level0_row4" class="row_heading level0 row4" >2021-01-11</th>
+      <td id="T_1c1ae_row4_col0" class="data row4 col0" >2230</td>
+      <td id="T_1c1ae_row4_col1" class="data row4 col1" >2275</td>
+      <td id="T_1c1ae_row4_col2" class="data row4 col2" >2130</td>
+      <td id="T_1c1ae_row4_col3" class="data row4 col3" >2175</td>
+      <td id="T_1c1ae_row4_col4" class="data row4 col4" >409057</td>
+      <td id="T_1c1ae_row4_col5" class="data row4 col5" >-0.031180</td>
+      <td id="T_1c1ae_row4_col6" class="data row4 col6" >060310</td>
+      <td id="T_1c1ae_row4_col7" class="data row4 col7" >3S</td>
+      <td id="T_1c1ae_row4_col8" class="data row4 col8" >0.988702</td>
+      <td id="T_1c1ae_row4_col9" class="data row4 col9" >0.968820</td>
+      <td id="T_1c1ae_row4_col10" class="data row4 col10" >0</td>
+      <td id="T_1c1ae_row4_col11" class="data row4 col11" >1.004598</td>
+      <td id="T_1c1ae_row4_col12" class="data row4 col12" >1.000000</td>
+      <td id="T_1c1ae_row4_col13" class="data row4 col13" >1.009195</td>
+      <td id="T_1c1ae_row4_col14" class="data row4 col14" >1.004598</td>
+      <td id="T_1c1ae_row4_col15" class="data row4 col15" >1.002299</td>
+      <td id="T_1c1ae_row4_col16" class="data row4 col16" >1.009195</td>
     </tr>
     <tr>
-      <th>2021-01-12</th>
-      <td>2165</td>
-      <td>2225</td>
-      <td>2125</td>
-      <td>2185</td>
-      <td>244835</td>
-      <td>0.005</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.997</td>
-      <td>1.005</td>
-      <td>1</td>
-      <td>0.995</td>
-      <td>1.005</td>
-      <td>1.000</td>
-      <td>0.998</td>
-      <td>1.014</td>
-      <td>1.014</td>
+      <th id="T_1c1ae_level0_row5" class="row_heading level0 row5" >2021-01-12</th>
+      <td id="T_1c1ae_row5_col0" class="data row5 col0" >2165</td>
+      <td id="T_1c1ae_row5_col1" class="data row5 col1" >2225</td>
+      <td id="T_1c1ae_row5_col2" class="data row5 col2" >2125</td>
+      <td id="T_1c1ae_row5_col3" class="data row5 col3" >2185</td>
+      <td id="T_1c1ae_row5_col4" class="data row5 col4" >244835</td>
+      <td id="T_1c1ae_row5_col5" class="data row5 col5" >0.004598</td>
+      <td id="T_1c1ae_row5_col6" class="data row5 col6" >060310</td>
+      <td id="T_1c1ae_row5_col7" class="data row5 col7" >3S</td>
+      <td id="T_1c1ae_row5_col8" class="data row5 col8" >0.997020</td>
+      <td id="T_1c1ae_row5_col9" class="data row5 col9" >1.004598</td>
+      <td id="T_1c1ae_row5_col10" class="data row5 col10" >1</td>
+      <td id="T_1c1ae_row5_col11" class="data row5 col11" >0.995423</td>
+      <td id="T_1c1ae_row5_col12" class="data row5 col12" >1.004577</td>
+      <td id="T_1c1ae_row5_col13" class="data row5 col13" >1.000000</td>
+      <td id="T_1c1ae_row5_col14" class="data row5 col14" >0.997712</td>
+      <td id="T_1c1ae_row5_col15" class="data row5 col15" >1.013730</td>
+      <td id="T_1c1ae_row5_col16" class="data row5 col16" >1.013730</td>
     </tr>
     <tr>
-      <th>2021-01-13</th>
-      <td>2185</td>
-      <td>2210</td>
-      <td>2170</td>
-      <td>2175</td>
-      <td>127817</td>
-      <td>-0.005</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>1.006</td>
-      <td>0.995</td>
-      <td>0</td>
-      <td>1.009</td>
-      <td>1.005</td>
-      <td>1.002</td>
-      <td>1.018</td>
-      <td>1.023</td>
-      <td>1.023</td>
+      <th id="T_1c1ae_level0_row6" class="row_heading level0 row6" >2021-01-13</th>
+      <td id="T_1c1ae_row6_col0" class="data row6 col0" >2185</td>
+      <td id="T_1c1ae_row6_col1" class="data row6 col1" >2210</td>
+      <td id="T_1c1ae_row6_col2" class="data row6 col2" >2170</td>
+      <td id="T_1c1ae_row6_col3" class="data row6 col3" >2175</td>
+      <td id="T_1c1ae_row6_col4" class="data row6 col4" >127817</td>
+      <td id="T_1c1ae_row6_col5" class="data row6 col5" >-0.004577</td>
+      <td id="T_1c1ae_row6_col6" class="data row6 col6" >060310</td>
+      <td id="T_1c1ae_row6_col7" class="data row6 col7" >3S</td>
+      <td id="T_1c1ae_row6_col8" class="data row6 col8" >1.005556</td>
+      <td id="T_1c1ae_row6_col9" class="data row6 col9" >0.995423</td>
+      <td id="T_1c1ae_row6_col10" class="data row6 col10" >0</td>
+      <td id="T_1c1ae_row6_col11" class="data row6 col11" >1.009195</td>
+      <td id="T_1c1ae_row6_col12" class="data row6 col12" >1.004598</td>
+      <td id="T_1c1ae_row6_col13" class="data row6 col13" >1.002299</td>
+      <td id="T_1c1ae_row6_col14" class="data row6 col14" >1.018391</td>
+      <td id="T_1c1ae_row6_col15" class="data row6 col15" >1.022989</td>
+      <td id="T_1c1ae_row6_col16" class="data row6 col16" >1.022989</td>
     </tr>
     <tr>
-      <th>2021-01-14</th>
-      <td>2180</td>
-      <td>2205</td>
-      <td>2150</td>
-      <td>2195</td>
-      <td>174996</td>
-      <td>0.009</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>1.001</td>
-      <td>1.009</td>
-      <td>0</td>
-      <td>0.995</td>
-      <td>0.993</td>
-      <td>1.009</td>
-      <td>1.014</td>
-      <td>1.030</td>
-      <td>1.030</td>
+      <th id="T_1c1ae_level0_row7" class="row_heading level0 row7" >2021-01-14</th>
+      <td id="T_1c1ae_row7_col0" class="data row7 col0" >2180</td>
+      <td id="T_1c1ae_row7_col1" class="data row7 col1" >2205</td>
+      <td id="T_1c1ae_row7_col2" class="data row7 col2" >2150</td>
+      <td id="T_1c1ae_row7_col3" class="data row7 col3" >2195</td>
+      <td id="T_1c1ae_row7_col4" class="data row7 col4" >174996</td>
+      <td id="T_1c1ae_row7_col5" class="data row7 col5" >0.009195</td>
+      <td id="T_1c1ae_row7_col6" class="data row7 col6" >060310</td>
+      <td id="T_1c1ae_row7_col7" class="data row7 col7" >3S</td>
+      <td id="T_1c1ae_row7_col8" class="data row7 col8" >1.001185</td>
+      <td id="T_1c1ae_row7_col9" class="data row7 col9" >1.009195</td>
+      <td id="T_1c1ae_row7_col10" class="data row7 col10" >0</td>
+      <td id="T_1c1ae_row7_col11" class="data row7 col11" >0.995444</td>
+      <td id="T_1c1ae_row7_col12" class="data row7 col12" >0.993166</td>
+      <td id="T_1c1ae_row7_col13" class="data row7 col13" >1.009112</td>
+      <td id="T_1c1ae_row7_col14" class="data row7 col14" >1.013667</td>
+      <td id="T_1c1ae_row7_col15" class="data row7 col15" >1.029613</td>
+      <td id="T_1c1ae_row7_col16" class="data row7 col16" >1.029613</td>
     </tr>
     <tr>
-      <th>2021-01-15</th>
-      <td>2190</td>
-      <td>2265</td>
-      <td>2185</td>
-      <td>2185</td>
-      <td>345872</td>
-      <td>-0.005</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.984</td>
-      <td>0.995</td>
-      <td>0</td>
-      <td>0.998</td>
-      <td>1.014</td>
-      <td>1.018</td>
-      <td>1.034</td>
-      <td>1.032</td>
-      <td>1.034</td>
+      <th id="T_1c1ae_level0_row8" class="row_heading level0 row8" >2021-01-15</th>
+      <td id="T_1c1ae_row8_col0" class="data row8 col0" >2190</td>
+      <td id="T_1c1ae_row8_col1" class="data row8 col1" >2265</td>
+      <td id="T_1c1ae_row8_col2" class="data row8 col2" >2185</td>
+      <td id="T_1c1ae_row8_col3" class="data row8 col3" >2185</td>
+      <td id="T_1c1ae_row8_col4" class="data row8 col4" >345872</td>
+      <td id="T_1c1ae_row8_col5" class="data row8 col5" >-0.004556</td>
+      <td id="T_1c1ae_row8_col6" class="data row8 col6" >060310</td>
+      <td id="T_1c1ae_row8_col7" class="data row8 col7" >3S</td>
+      <td id="T_1c1ae_row8_col8" class="data row8 col8" >0.983831</td>
+      <td id="T_1c1ae_row8_col9" class="data row8 col9" >0.995444</td>
+      <td id="T_1c1ae_row8_col10" class="data row8 col10" >0</td>
+      <td id="T_1c1ae_row8_col11" class="data row8 col11" >0.997712</td>
+      <td id="T_1c1ae_row8_col12" class="data row8 col12" >1.013730</td>
+      <td id="T_1c1ae_row8_col13" class="data row8 col13" >1.018307</td>
+      <td id="T_1c1ae_row8_col14" class="data row8 col14" >1.034325</td>
+      <td id="T_1c1ae_row8_col15" class="data row8 col15" >1.032037</td>
+      <td id="T_1c1ae_row8_col16" class="data row8 col16" >1.034325</td>
     </tr>
     <tr>
-      <th>2021-01-18</th>
-      <td>2185</td>
-      <td>2220</td>
-      <td>2150</td>
-      <td>2180</td>
-      <td>251311</td>
-      <td>-0.002</td>
-      <td>060310</td>
-      <td>3S</td>
-      <td>0.980</td>
-      <td>0.998</td>
-      <td>0</td>
-      <td>1.016</td>
-      <td>1.021</td>
-      <td>1.037</td>
-      <td>1.034</td>
-      <td>1.053</td>
-      <td>1.053</td>
+      <th id="T_1c1ae_level0_row9" class="row_heading level0 row9" >2021-01-18</th>
+      <td id="T_1c1ae_row9_col0" class="data row9 col0" >2185</td>
+      <td id="T_1c1ae_row9_col1" class="data row9 col1" >2220</td>
+      <td id="T_1c1ae_row9_col2" class="data row9 col2" >2150</td>
+      <td id="T_1c1ae_row9_col3" class="data row9 col3" >2180</td>
+      <td id="T_1c1ae_row9_col4" class="data row9 col4" >251311</td>
+      <td id="T_1c1ae_row9_col5" class="data row9 col5" >-0.002288</td>
+      <td id="T_1c1ae_row9_col6" class="data row9 col6" >060310</td>
+      <td id="T_1c1ae_row9_col7" class="data row9 col7" >3S</td>
+      <td id="T_1c1ae_row9_col8" class="data row9 col8" >0.979501</td>
+      <td id="T_1c1ae_row9_col9" class="data row9 col9" >0.997712</td>
+      <td id="T_1c1ae_row9_col10" class="data row9 col10" >0</td>
+      <td id="T_1c1ae_row9_col11" class="data row9 col11" >1.016055</td>
+      <td id="T_1c1ae_row9_col12" class="data row9 col12" >1.020642</td>
+      <td id="T_1c1ae_row9_col13" class="data row9 col13" >1.036697</td>
+      <td id="T_1c1ae_row9_col14" class="data row9 col14" >1.034404</td>
+      <td id="T_1c1ae_row9_col15" class="data row9 col15" >1.052752</td>
+      <td id="T_1c1ae_row9_col16" class="data row9 col16" >1.052752</td>
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div></div>
 </div>
 <p><br>이제 모든 종목에 대하여 For loop 로 종가 매도시 수익율을 최대값을 생성합니다. ‘max_close’ 의 분포를 보니 평균은 1.033, 최소값 0.326, 최대값 3.703 입니다. 단, max_close 는 가설 검정으로 활용할 지표입니다. 매수 후, 몇 번 째 영업일이 최고 수익율인지 알 수 없기 때문에 기간 중 최고 수익율을 이용합니다.</p>
 <div class="cell docutils container">
@@ -1102,16 +1046,16 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count   429,142.000
-mean          1.033
-std           0.073
-min           0.326
-10%           0.982
-20%           0.995
-50%           1.016
-80%           1.059
-90%           1.097
-max           3.703
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count   427,721.00
+mean          1.03
+std           0.07
+min           0.33
+10%           0.98
+20%           0.99
+50%           1.02
+80%           1.06
+90%           1.10
+max           3.70
 Name: max_close, dtype: float64
 </pre></div>
 </div>
@@ -1156,202 +1100,219 @@ Name: max_close, dtype: float64
     <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;close_r1&#39;</span><span class="p">,</span><span class="s1">&#39;close_r2&#39;</span><span class="p">,</span><span class="s1">&#39;close_r3&#39;</span><span class="p">,</span><span class="s1">&#39;close_r4&#39;</span><span class="p">,</span><span class="s1">&#39;close_r5&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   
     <span class="n">data_all_5</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span> <span class="n">data_all_5</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">data_all_5</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;data_all_5.pkl&#39;</span><span class="p">)</span>    
-<span class="n">data_all_5</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>    
+<span class="n">data_all_5</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;data_all_5.pkl&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_all_5</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_20352_" style="font-size: 10px">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>change</th>
-      <th>code</th>
-      <th>name</th>
-      <th>kosdaq_return</th>
-      <th>return</th>
-      <th>...</th>
-      <th>low_r3</th>
-      <th>close_r3</th>
-      <th>high_r4</th>
-      <th>low_r4</th>
-      <th>close_r4</th>
-      <th>high_r5</th>
-      <th>low_r5</th>
-      <th>close_r5</th>
-      <th>max_high</th>
-      <th>ub_return</th>
-    </tr>
     <tr>
-      <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >open</th>
+      <th class="col_heading level0 col1" >high</th>
+      <th class="col_heading level0 col2" >low</th>
+      <th class="col_heading level0 col3" >close</th>
+      <th class="col_heading level0 col4" >volume</th>
+      <th class="col_heading level0 col5" >change</th>
+      <th class="col_heading level0 col6" >code</th>
+      <th class="col_heading level0 col7" >name</th>
+      <th class="col_heading level0 col8" >kosdaq_return</th>
+      <th class="col_heading level0 col9" >return</th>
+      <th class="col_heading level0 col10" >win_market</th>
+      <th class="col_heading level0 col11" >close_r1</th>
+      <th class="col_heading level0 col12" >close_r2</th>
+      <th class="col_heading level0 col13" >close_r3</th>
+      <th class="col_heading level0 col14" >close_r4</th>
+      <th class="col_heading level0 col15" >close_r5</th>
+      <th class="col_heading level0 col16" >max_close</th>
+      <th class="col_heading level0 col17" >high_r1</th>
+      <th class="col_heading level0 col18" >low_r1</th>
+      <th class="col_heading level0 col19" >high_r2</th>
+      <th class="col_heading level0 col20" >low_r2</th>
+      <th class="col_heading level0 col21" >high_r3</th>
+      <th class="col_heading level0 col22" >low_r3</th>
+      <th class="col_heading level0 col23" >high_r4</th>
+      <th class="col_heading level0 col24" >low_r4</th>
+      <th class="col_heading level0 col25" >high_r5</th>
+      <th class="col_heading level0 col26" >low_r5</th>
+      <th class="col_heading level0 col27" >max_high</th>
+      <th class="col_heading level0 col28" >ub_return</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-01-04</th>
-      <td>13000</td>
-      <td>13300</td>
-      <td>12750</td>
-      <td>13050</td>
-      <td>297172</td>
-      <td>0.020</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>0.996</td>
-      <td>1.004</td>
-      <td>1.015</td>
-      <td>0.981</td>
-      <td>0.992</td>
-      <td>1.000</td>
-      <td>0.954</td>
-      <td>1.000</td>
-      <td>0</td>
-      <td>1.000</td>
+      <th id="T_20352_level0_row0" class="row_heading level0 row0" >2021-01-05</th>
+      <td id="T_20352_row0_col0" class="data row0 col0" >13000</td>
+      <td id="T_20352_row0_col1" class="data row0 col1" >13050</td>
+      <td id="T_20352_row0_col2" class="data row0 col2" >12750</td>
+      <td id="T_20352_row0_col3" class="data row0 col3" >12900</td>
+      <td id="T_20352_row0_col4" class="data row0 col4" >190192</td>
+      <td id="T_20352_row0_col5" class="data row0 col5" >-0.011494</td>
+      <td id="T_20352_row0_col6" class="data row0 col6" >238490</td>
+      <td id="T_20352_row0_col7" class="data row0 col7" >힘스</td>
+      <td id="T_20352_row0_col8" class="data row0 col8" >1.008326</td>
+      <td id="T_20352_row0_col9" class="data row0 col9" >0.988506</td>
+      <td id="T_20352_row0_col10" class="data row0 col10" >0</td>
+      <td id="T_20352_row0_col11" class="data row0 col11" >1.015504</td>
+      <td id="T_20352_row0_col12" class="data row0 col12" >1.015504</td>
+      <td id="T_20352_row0_col13" class="data row0 col13" >1.003876</td>
+      <td id="T_20352_row0_col14" class="data row0 col14" >1.011628</td>
+      <td id="T_20352_row0_col15" class="data row0 col15" >1.038760</td>
+      <td id="T_20352_row0_col16" class="data row0 col16" >1.038760</td>
+      <td id="T_20352_row0_col17" class="data row0 col17" >1.031008</td>
+      <td id="T_20352_row0_col18" class="data row0 col18" >0.984496</td>
+      <td id="T_20352_row0_col19" class="data row0 col19" >1.034884</td>
+      <td id="T_20352_row0_col20" class="data row0 col20" >1.007752</td>
+      <td id="T_20352_row0_col21" class="data row0 col21" >1.027132</td>
+      <td id="T_20352_row0_col22" class="data row0 col22" >0.992248</td>
+      <td id="T_20352_row0_col23" class="data row0 col23" >1.011628</td>
+      <td id="T_20352_row0_col24" class="data row0 col24" >0.965116</td>
+      <td id="T_20352_row0_col25" class="data row0 col25" >1.081395</td>
+      <td id="T_20352_row0_col26" class="data row0 col26" >1.007752</td>
+      <td id="T_20352_row0_col27" class="data row0 col27" >1</td>
+      <td id="T_20352_row0_col28" class="data row0 col28" >1.060000</td>
     </tr>
     <tr>
-      <th>2021-01-05</th>
-      <td>13000</td>
-      <td>13050</td>
-      <td>12750</td>
-      <td>12900</td>
-      <td>190192</td>
-      <td>-0.011</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.008</td>
-      <td>0.989</td>
-      <td>...</td>
-      <td>0.992</td>
-      <td>1.004</td>
-      <td>1.012</td>
-      <td>0.965</td>
-      <td>1.012</td>
-      <td>1.081</td>
-      <td>1.008</td>
-      <td>1.039</td>
-      <td>1</td>
-      <td>1.060</td>
+      <th id="T_20352_level0_row1" class="row_heading level0 row1" >2021-01-06</th>
+      <td id="T_20352_row1_col0" class="data row1 col0" >13050</td>
+      <td id="T_20352_row1_col1" class="data row1 col1" >13300</td>
+      <td id="T_20352_row1_col2" class="data row1 col2" >12700</td>
+      <td id="T_20352_row1_col3" class="data row1 col3" >13100</td>
+      <td id="T_20352_row1_col4" class="data row1 col4" >287008</td>
+      <td id="T_20352_row1_col5" class="data row1 col5" >0.015504</td>
+      <td id="T_20352_row1_col6" class="data row1 col6" >238490</td>
+      <td id="T_20352_row1_col7" class="data row1 col7" >힘스</td>
+      <td id="T_20352_row1_col8" class="data row1 col8" >0.995567</td>
+      <td id="T_20352_row1_col9" class="data row1 col9" >1.015504</td>
+      <td id="T_20352_row1_col10" class="data row1 col10" >1</td>
+      <td id="T_20352_row1_col11" class="data row1 col11" >1.000000</td>
+      <td id="T_20352_row1_col12" class="data row1 col12" >0.988550</td>
+      <td id="T_20352_row1_col13" class="data row1 col13" >0.996183</td>
+      <td id="T_20352_row1_col14" class="data row1 col14" >1.022901</td>
+      <td id="T_20352_row1_col15" class="data row1 col15" >1.015267</td>
+      <td id="T_20352_row1_col16" class="data row1 col16" >1.022901</td>
+      <td id="T_20352_row1_col17" class="data row1 col17" >1.019084</td>
+      <td id="T_20352_row1_col18" class="data row1 col18" >0.992366</td>
+      <td id="T_20352_row1_col19" class="data row1 col19" >1.011450</td>
+      <td id="T_20352_row1_col20" class="data row1 col20" >0.977099</td>
+      <td id="T_20352_row1_col21" class="data row1 col21" >0.996183</td>
+      <td id="T_20352_row1_col22" class="data row1 col22" >0.950382</td>
+      <td id="T_20352_row1_col23" class="data row1 col23" >1.064885</td>
+      <td id="T_20352_row1_col24" class="data row1 col24" >0.992366</td>
+      <td id="T_20352_row1_col25" class="data row1 col25" >1.045802</td>
+      <td id="T_20352_row1_col26" class="data row1 col26" >1.003817</td>
+      <td id="T_20352_row1_col27" class="data row1 col27" >1</td>
+      <td id="T_20352_row1_col28" class="data row1 col28" >1.060000</td>
     </tr>
     <tr>
-      <th>2021-01-06</th>
-      <td>13050</td>
-      <td>13300</td>
-      <td>12700</td>
-      <td>13100</td>
-      <td>287008</td>
-      <td>0.016</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.996</td>
-      <td>1.016</td>
-      <td>...</td>
-      <td>0.950</td>
-      <td>0.996</td>
-      <td>1.065</td>
-      <td>0.992</td>
-      <td>1.023</td>
-      <td>1.046</td>
-      <td>1.004</td>
-      <td>1.015</td>
-      <td>1</td>
-      <td>1.060</td>
+      <th id="T_20352_level0_row2" class="row_heading level0 row2" >2021-01-07</th>
+      <td id="T_20352_row2_col0" class="data row2 col0" >13200</td>
+      <td id="T_20352_row2_col1" class="data row2 col1" >13350</td>
+      <td id="T_20352_row2_col2" class="data row2 col2" >13000</td>
+      <td id="T_20352_row2_col3" class="data row2 col3" >13100</td>
+      <td id="T_20352_row2_col4" class="data row2 col4" >203149</td>
+      <td id="T_20352_row2_col5" class="data row2 col5" >0.000000</td>
+      <td id="T_20352_row2_col6" class="data row2 col6" >238490</td>
+      <td id="T_20352_row2_col7" class="data row2 col7" >힘스</td>
+      <td id="T_20352_row2_col8" class="data row2 col8" >1.007612</td>
+      <td id="T_20352_row2_col9" class="data row2 col9" >1.000000</td>
+      <td id="T_20352_row2_col10" class="data row2 col10" >0</td>
+      <td id="T_20352_row2_col11" class="data row2 col11" >0.988550</td>
+      <td id="T_20352_row2_col12" class="data row2 col12" >0.996183</td>
+      <td id="T_20352_row2_col13" class="data row2 col13" >1.022901</td>
+      <td id="T_20352_row2_col14" class="data row2 col14" >1.015267</td>
+      <td id="T_20352_row2_col15" class="data row2 col15" >1.007634</td>
+      <td id="T_20352_row2_col16" class="data row2 col16" >1.022901</td>
+      <td id="T_20352_row2_col17" class="data row2 col17" >1.011450</td>
+      <td id="T_20352_row2_col18" class="data row2 col18" >0.977099</td>
+      <td id="T_20352_row2_col19" class="data row2 col19" >0.996183</td>
+      <td id="T_20352_row2_col20" class="data row2 col20" >0.950382</td>
+      <td id="T_20352_row2_col21" class="data row2 col21" >1.064885</td>
+      <td id="T_20352_row2_col22" class="data row2 col22" >0.992366</td>
+      <td id="T_20352_row2_col23" class="data row2 col23" >1.045802</td>
+      <td id="T_20352_row2_col24" class="data row2 col24" >1.003817</td>
+      <td id="T_20352_row2_col25" class="data row2 col25" >1.019084</td>
+      <td id="T_20352_row2_col26" class="data row2 col26" >1.000000</td>
+      <td id="T_20352_row2_col27" class="data row2 col27" >1</td>
+      <td id="T_20352_row2_col28" class="data row2 col28" >1.060000</td>
     </tr>
     <tr>
-      <th>2021-01-07</th>
-      <td>13200</td>
-      <td>13350</td>
-      <td>13000</td>
-      <td>13100</td>
-      <td>203149</td>
-      <td>0.000</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.008</td>
-      <td>1.000</td>
-      <td>...</td>
-      <td>0.992</td>
-      <td>1.023</td>
-      <td>1.046</td>
-      <td>1.004</td>
-      <td>1.015</td>
-      <td>1.019</td>
-      <td>1.000</td>
-      <td>1.008</td>
-      <td>1</td>
-      <td>1.060</td>
+      <th id="T_20352_level0_row3" class="row_heading level0 row3" >2021-01-08</th>
+      <td id="T_20352_row3_col0" class="data row3 col0" >13200</td>
+      <td id="T_20352_row3_col1" class="data row3 col1" >13250</td>
+      <td id="T_20352_row3_col2" class="data row3 col2" >12800</td>
+      <td id="T_20352_row3_col3" class="data row3 col3" >12950</td>
+      <td id="T_20352_row3_col4" class="data row3 col4" >209722</td>
+      <td id="T_20352_row3_col5" class="data row3 col5" >-0.011450</td>
+      <td id="T_20352_row3_col6" class="data row3 col6" >238490</td>
+      <td id="T_20352_row3_col7" class="data row3 col7" >힘스</td>
+      <td id="T_20352_row3_col8" class="data row3 col8" >0.998918</td>
+      <td id="T_20352_row3_col9" class="data row3 col9" >0.988550</td>
+      <td id="T_20352_row3_col10" class="data row3 col10" >0</td>
+      <td id="T_20352_row3_col11" class="data row3 col11" >1.007722</td>
+      <td id="T_20352_row3_col12" class="data row3 col12" >1.034749</td>
+      <td id="T_20352_row3_col13" class="data row3 col13" >1.027027</td>
+      <td id="T_20352_row3_col14" class="data row3 col14" >1.019305</td>
+      <td id="T_20352_row3_col15" class="data row3 col15" >1.027027</td>
+      <td id="T_20352_row3_col16" class="data row3 col16" >1.034749</td>
+      <td id="T_20352_row3_col17" class="data row3 col17" >1.007722</td>
+      <td id="T_20352_row3_col18" class="data row3 col18" >0.961390</td>
+      <td id="T_20352_row3_col19" class="data row3 col19" >1.077220</td>
+      <td id="T_20352_row3_col20" class="data row3 col20" >1.003861</td>
+      <td id="T_20352_row3_col21" class="data row3 col21" >1.057915</td>
+      <td id="T_20352_row3_col22" class="data row3 col22" >1.015444</td>
+      <td id="T_20352_row3_col23" class="data row3 col23" >1.030888</td>
+      <td id="T_20352_row3_col24" class="data row3 col24" >1.011583</td>
+      <td id="T_20352_row3_col25" class="data row3 col25" >1.073359</td>
+      <td id="T_20352_row3_col26" class="data row3 col26" >1.019305</td>
+      <td id="T_20352_row3_col27" class="data row3 col27" >1</td>
+      <td id="T_20352_row3_col28" class="data row3 col28" >1.060000</td>
     </tr>
     <tr>
-      <th>2021-01-08</th>
-      <td>13200</td>
-      <td>13250</td>
-      <td>12800</td>
-      <td>12950</td>
-      <td>209722</td>
-      <td>-0.011</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.999</td>
-      <td>0.989</td>
-      <td>...</td>
-      <td>1.015</td>
-      <td>1.027</td>
-      <td>1.031</td>
-      <td>1.012</td>
-      <td>1.019</td>
-      <td>1.073</td>
-      <td>1.019</td>
-      <td>1.027</td>
-      <td>1</td>
-      <td>1.060</td>
+      <th id="T_20352_level0_row4" class="row_heading level0 row4" >2021-01-11</th>
+      <td id="T_20352_row4_col0" class="data row4 col0" >12850</td>
+      <td id="T_20352_row4_col1" class="data row4 col1" >13050</td>
+      <td id="T_20352_row4_col2" class="data row4 col2" >12450</td>
+      <td id="T_20352_row4_col3" class="data row4 col3" >13050</td>
+      <td id="T_20352_row4_col4" class="data row4 col4" >365602</td>
+      <td id="T_20352_row4_col5" class="data row4 col5" >0.007722</td>
+      <td id="T_20352_row4_col6" class="data row4 col6" >238490</td>
+      <td id="T_20352_row4_col7" class="data row4 col7" >힘스</td>
+      <td id="T_20352_row4_col8" class="data row4 col8" >0.988702</td>
+      <td id="T_20352_row4_col9" class="data row4 col9" >1.007722</td>
+      <td id="T_20352_row4_col10" class="data row4 col10" >1</td>
+      <td id="T_20352_row4_col11" class="data row4 col11" >1.026820</td>
+      <td id="T_20352_row4_col12" class="data row4 col12" >1.019157</td>
+      <td id="T_20352_row4_col13" class="data row4 col13" >1.011494</td>
+      <td id="T_20352_row4_col14" class="data row4 col14" >1.019157</td>
+      <td id="T_20352_row4_col15" class="data row4 col15" >1.038314</td>
+      <td id="T_20352_row4_col16" class="data row4 col16" >1.038314</td>
+      <td id="T_20352_row4_col17" class="data row4 col17" >1.068966</td>
+      <td id="T_20352_row4_col18" class="data row4 col18" >0.996169</td>
+      <td id="T_20352_row4_col19" class="data row4 col19" >1.049808</td>
+      <td id="T_20352_row4_col20" class="data row4 col20" >1.007663</td>
+      <td id="T_20352_row4_col21" class="data row4 col21" >1.022989</td>
+      <td id="T_20352_row4_col22" class="data row4 col22" >1.003831</td>
+      <td id="T_20352_row4_col23" class="data row4 col23" >1.065134</td>
+      <td id="T_20352_row4_col24" class="data row4 col24" >1.011494</td>
+      <td id="T_20352_row4_col25" class="data row4 col25" >1.068966</td>
+      <td id="T_20352_row4_col26" class="data row4 col26" >0.996169</td>
+      <td id="T_20352_row4_col27" class="data row4 col27" >1</td>
+      <td id="T_20352_row4_col28" class="data row4 col28" >1.060000</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 34 columns</p>
-</div></div></div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1362,21 +1323,21 @@ Name: max_close, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count   422,037.000
-mean          1.002
-std           0.055
-min           0.291
-1%            0.843
-10%           0.931
-50%           1.002
-90%           1.060
-99%           1.060
-max           1.060
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count   420,616.00
+mean          1.00
+std           0.06
+min           0.29
+1%            0.84
+10%           0.93
+50%           1.00
+90%           1.06
+99%           1.06
+max           1.06
 Name: ub_return, dtype: float64
-               count  mean   std   min   25%   50%   75%   max
-max_high                                                      
-0        281,895.000 0.974 0.046 0.291 0.952 0.984 1.002 1.060
-1        140,142.000 1.060 0.000 1.060 1.060 1.060 1.060 1.060
+              count  mean  std  min  25%  50%  75%  max
+max_high                                               
+0        281,109.00  0.97 0.05 0.29 0.95 0.98 1.00 1.06
+1        139,507.00  1.06 0.00 1.06 1.06 1.06 1.06 1.06
 </pre></div>
 </div>
 </div>
@@ -1419,201 +1380,194 @@ max_high
     <span class="n">data_all_5</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span> <span class="n">data_all_5</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">data_all_5</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;data_all_5.pkl&#39;</span><span class="p">)</span>    
-<span class="n">data_all_5</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_all_5</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_f5933_" style="font-size: 10px">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>change</th>
-      <th>code</th>
-      <th>name</th>
-      <th>kosdaq_return</th>
-      <th>return</th>
-      <th>...</th>
-      <th>close_r5</th>
-      <th>max_close</th>
-      <th>high_r0</th>
-      <th>close_r0</th>
-      <th>open_r0</th>
-      <th>high_r1</th>
-      <th>open_r1</th>
-      <th>high_r2</th>
-      <th>open_r2</th>
-      <th>final_return</th>
-    </tr>
     <tr>
-      <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >open</th>
+      <th class="col_heading level0 col1" >high</th>
+      <th class="col_heading level0 col2" >low</th>
+      <th class="col_heading level0 col3" >close</th>
+      <th class="col_heading level0 col4" >volume</th>
+      <th class="col_heading level0 col5" >change</th>
+      <th class="col_heading level0 col6" >code</th>
+      <th class="col_heading level0 col7" >name</th>
+      <th class="col_heading level0 col8" >kosdaq_return</th>
+      <th class="col_heading level0 col9" >return</th>
+      <th class="col_heading level0 col10" >win_market</th>
+      <th class="col_heading level0 col11" >close_r1</th>
+      <th class="col_heading level0 col12" >close_r2</th>
+      <th class="col_heading level0 col13" >close_r3</th>
+      <th class="col_heading level0 col14" >close_r4</th>
+      <th class="col_heading level0 col15" >close_r5</th>
+      <th class="col_heading level0 col16" >max_close</th>
+      <th class="col_heading level0 col17" >high_r0</th>
+      <th class="col_heading level0 col18" >close_r0</th>
+      <th class="col_heading level0 col19" >open_r0</th>
+      <th class="col_heading level0 col20" >high_r1</th>
+      <th class="col_heading level0 col21" >open_r1</th>
+      <th class="col_heading level0 col22" >high_r2</th>
+      <th class="col_heading level0 col23" >open_r2</th>
+      <th class="col_heading level0 col24" >final_return</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-01-04</th>
-      <td>13000</td>
-      <td>13300</td>
-      <td>12750</td>
-      <td>13050</td>
-      <td>297172</td>
-      <td>0.020</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>1.000</td>
-      <td>1.004</td>
-      <td>1.019</td>
-      <td>1.000</td>
-      <td>0.996</td>
-      <td>1.000</td>
-      <td>0.996</td>
-      <td>1.019</td>
-      <td>1.000</td>
-      <td>1.004</td>
+      <th id="T_f5933_level0_row0" class="row_heading level0 row0" >2021-01-05</th>
+      <td id="T_f5933_row0_col0" class="data row0 col0" >13000</td>
+      <td id="T_f5933_row0_col1" class="data row0 col1" >13050</td>
+      <td id="T_f5933_row0_col2" class="data row0 col2" >12750</td>
+      <td id="T_f5933_row0_col3" class="data row0 col3" >12900</td>
+      <td id="T_f5933_row0_col4" class="data row0 col4" >190192</td>
+      <td id="T_f5933_row0_col5" class="data row0 col5" >-0.011494</td>
+      <td id="T_f5933_row0_col6" class="data row0 col6" >238490</td>
+      <td id="T_f5933_row0_col7" class="data row0 col7" >힘스</td>
+      <td id="T_f5933_row0_col8" class="data row0 col8" >1.008326</td>
+      <td id="T_f5933_row0_col9" class="data row0 col9" >0.988506</td>
+      <td id="T_f5933_row0_col10" class="data row0 col10" >0</td>
+      <td id="T_f5933_row0_col11" class="data row0 col11" >1.015504</td>
+      <td id="T_f5933_row0_col12" class="data row0 col12" >1.015504</td>
+      <td id="T_f5933_row0_col13" class="data row0 col13" >1.003876</td>
+      <td id="T_f5933_row0_col14" class="data row0 col14" >1.011628</td>
+      <td id="T_f5933_row0_col15" class="data row0 col15" >1.038760</td>
+      <td id="T_f5933_row0_col16" class="data row0 col16" >1.038760</td>
+      <td id="T_f5933_row0_col17" class="data row0 col17" >1.011628</td>
+      <td id="T_f5933_row0_col18" class="data row0 col18" >1.000000</td>
+      <td id="T_f5933_row0_col19" class="data row0 col19" >1.007752</td>
+      <td id="T_f5933_row0_col20" class="data row0 col20" >1.031008</td>
+      <td id="T_f5933_row0_col21" class="data row0 col21" >1.011628</td>
+      <td id="T_f5933_row0_col22" class="data row0 col22" >1.034884</td>
+      <td id="T_f5933_row0_col23" class="data row0 col23" >1.023256</td>
+      <td id="T_f5933_row0_col24" class="data row0 col24" >1.023256</td>
     </tr>
     <tr>
-      <th>2021-01-05</th>
-      <td>13000</td>
-      <td>13050</td>
-      <td>12750</td>
-      <td>12900</td>
-      <td>190192</td>
-      <td>-0.011</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.008</td>
-      <td>0.989</td>
-      <td>...</td>
-      <td>1.039</td>
-      <td>1.039</td>
-      <td>1.012</td>
-      <td>1.000</td>
-      <td>1.008</td>
-      <td>1.031</td>
-      <td>1.012</td>
-      <td>1.035</td>
-      <td>1.023</td>
-      <td>1.023</td>
+      <th id="T_f5933_level0_row1" class="row_heading level0 row1" >2021-01-06</th>
+      <td id="T_f5933_row1_col0" class="data row1 col0" >13050</td>
+      <td id="T_f5933_row1_col1" class="data row1 col1" >13300</td>
+      <td id="T_f5933_row1_col2" class="data row1 col2" >12700</td>
+      <td id="T_f5933_row1_col3" class="data row1 col3" >13100</td>
+      <td id="T_f5933_row1_col4" class="data row1 col4" >287008</td>
+      <td id="T_f5933_row1_col5" class="data row1 col5" >0.015504</td>
+      <td id="T_f5933_row1_col6" class="data row1 col6" >238490</td>
+      <td id="T_f5933_row1_col7" class="data row1 col7" >힘스</td>
+      <td id="T_f5933_row1_col8" class="data row1 col8" >0.995567</td>
+      <td id="T_f5933_row1_col9" class="data row1 col9" >1.015504</td>
+      <td id="T_f5933_row1_col10" class="data row1 col10" >1</td>
+      <td id="T_f5933_row1_col11" class="data row1 col11" >1.000000</td>
+      <td id="T_f5933_row1_col12" class="data row1 col12" >0.988550</td>
+      <td id="T_f5933_row1_col13" class="data row1 col13" >0.996183</td>
+      <td id="T_f5933_row1_col14" class="data row1 col14" >1.022901</td>
+      <td id="T_f5933_row1_col15" class="data row1 col15" >1.015267</td>
+      <td id="T_f5933_row1_col16" class="data row1 col16" >1.022901</td>
+      <td id="T_f5933_row1_col17" class="data row1 col17" >1.015267</td>
+      <td id="T_f5933_row1_col18" class="data row1 col18" >1.000000</td>
+      <td id="T_f5933_row1_col19" class="data row1 col19" >0.996183</td>
+      <td id="T_f5933_row1_col20" class="data row1 col20" >1.019084</td>
+      <td id="T_f5933_row1_col21" class="data row1 col21" >1.007634</td>
+      <td id="T_f5933_row1_col22" class="data row1 col22" >1.011450</td>
+      <td id="T_f5933_row1_col23" class="data row1 col23" >1.007634</td>
+      <td id="T_f5933_row1_col24" class="data row1 col24" >1.007634</td>
     </tr>
     <tr>
-      <th>2021-01-06</th>
-      <td>13050</td>
-      <td>13300</td>
-      <td>12700</td>
-      <td>13100</td>
-      <td>287008</td>
-      <td>0.016</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.996</td>
-      <td>1.016</td>
-      <td>...</td>
-      <td>1.015</td>
-      <td>1.023</td>
-      <td>1.015</td>
-      <td>1.000</td>
-      <td>0.996</td>
-      <td>1.019</td>
-      <td>1.008</td>
-      <td>1.011</td>
-      <td>1.008</td>
-      <td>1.008</td>
+      <th id="T_f5933_level0_row2" class="row_heading level0 row2" >2021-01-07</th>
+      <td id="T_f5933_row2_col0" class="data row2 col0" >13200</td>
+      <td id="T_f5933_row2_col1" class="data row2 col1" >13350</td>
+      <td id="T_f5933_row2_col2" class="data row2 col2" >13000</td>
+      <td id="T_f5933_row2_col3" class="data row2 col3" >13100</td>
+      <td id="T_f5933_row2_col4" class="data row2 col4" >203149</td>
+      <td id="T_f5933_row2_col5" class="data row2 col5" >0.000000</td>
+      <td id="T_f5933_row2_col6" class="data row2 col6" >238490</td>
+      <td id="T_f5933_row2_col7" class="data row2 col7" >힘스</td>
+      <td id="T_f5933_row2_col8" class="data row2 col8" >1.007612</td>
+      <td id="T_f5933_row2_col9" class="data row2 col9" >1.000000</td>
+      <td id="T_f5933_row2_col10" class="data row2 col10" >0</td>
+      <td id="T_f5933_row2_col11" class="data row2 col11" >0.988550</td>
+      <td id="T_f5933_row2_col12" class="data row2 col12" >0.996183</td>
+      <td id="T_f5933_row2_col13" class="data row2 col13" >1.022901</td>
+      <td id="T_f5933_row2_col14" class="data row2 col14" >1.015267</td>
+      <td id="T_f5933_row2_col15" class="data row2 col15" >1.007634</td>
+      <td id="T_f5933_row2_col16" class="data row2 col16" >1.022901</td>
+      <td id="T_f5933_row2_col17" class="data row2 col17" >1.019084</td>
+      <td id="T_f5933_row2_col18" class="data row2 col18" >1.000000</td>
+      <td id="T_f5933_row2_col19" class="data row2 col19" >1.007634</td>
+      <td id="T_f5933_row2_col20" class="data row2 col20" >1.011450</td>
+      <td id="T_f5933_row2_col21" class="data row2 col21" >1.007634</td>
+      <td id="T_f5933_row2_col22" class="data row2 col22" >0.996183</td>
+      <td id="T_f5933_row2_col23" class="data row2 col23" >0.980916</td>
+      <td id="T_f5933_row2_col24" class="data row2 col24" >0.996183</td>
     </tr>
     <tr>
-      <th>2021-01-07</th>
-      <td>13200</td>
-      <td>13350</td>
-      <td>13000</td>
-      <td>13100</td>
-      <td>203149</td>
-      <td>0.000</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.008</td>
-      <td>1.000</td>
-      <td>...</td>
-      <td>1.008</td>
-      <td>1.023</td>
-      <td>1.019</td>
-      <td>1.000</td>
-      <td>1.008</td>
-      <td>1.011</td>
-      <td>1.008</td>
-      <td>0.996</td>
-      <td>0.981</td>
-      <td>0.996</td>
+      <th id="T_f5933_level0_row3" class="row_heading level0 row3" >2021-01-08</th>
+      <td id="T_f5933_row3_col0" class="data row3 col0" >13200</td>
+      <td id="T_f5933_row3_col1" class="data row3 col1" >13250</td>
+      <td id="T_f5933_row3_col2" class="data row3 col2" >12800</td>
+      <td id="T_f5933_row3_col3" class="data row3 col3" >12950</td>
+      <td id="T_f5933_row3_col4" class="data row3 col4" >209722</td>
+      <td id="T_f5933_row3_col5" class="data row3 col5" >-0.011450</td>
+      <td id="T_f5933_row3_col6" class="data row3 col6" >238490</td>
+      <td id="T_f5933_row3_col7" class="data row3 col7" >힘스</td>
+      <td id="T_f5933_row3_col8" class="data row3 col8" >0.998918</td>
+      <td id="T_f5933_row3_col9" class="data row3 col9" >0.988550</td>
+      <td id="T_f5933_row3_col10" class="data row3 col10" >0</td>
+      <td id="T_f5933_row3_col11" class="data row3 col11" >1.007722</td>
+      <td id="T_f5933_row3_col12" class="data row3 col12" >1.034749</td>
+      <td id="T_f5933_row3_col13" class="data row3 col13" >1.027027</td>
+      <td id="T_f5933_row3_col14" class="data row3 col14" >1.019305</td>
+      <td id="T_f5933_row3_col15" class="data row3 col15" >1.027027</td>
+      <td id="T_f5933_row3_col16" class="data row3 col16" >1.034749</td>
+      <td id="T_f5933_row3_col17" class="data row3 col17" >1.023166</td>
+      <td id="T_f5933_row3_col18" class="data row3 col18" >1.000000</td>
+      <td id="T_f5933_row3_col19" class="data row3 col19" >1.019305</td>
+      <td id="T_f5933_row3_col20" class="data row3 col20" >1.007722</td>
+      <td id="T_f5933_row3_col21" class="data row3 col21" >0.992278</td>
+      <td id="T_f5933_row3_col22" class="data row3 col22" >1.077220</td>
+      <td id="T_f5933_row3_col23" class="data row3 col23" >1.023166</td>
+      <td id="T_f5933_row3_col24" class="data row3 col24" >1.034749</td>
     </tr>
     <tr>
-      <th>2021-01-08</th>
-      <td>13200</td>
-      <td>13250</td>
-      <td>12800</td>
-      <td>12950</td>
-      <td>209722</td>
-      <td>-0.011</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.999</td>
-      <td>0.989</td>
-      <td>...</td>
-      <td>1.027</td>
-      <td>1.035</td>
-      <td>1.023</td>
-      <td>1.000</td>
-      <td>1.019</td>
-      <td>1.008</td>
-      <td>0.992</td>
-      <td>1.077</td>
-      <td>1.023</td>
-      <td>1.035</td>
+      <th id="T_f5933_level0_row4" class="row_heading level0 row4" >2021-01-11</th>
+      <td id="T_f5933_row4_col0" class="data row4 col0" >12850</td>
+      <td id="T_f5933_row4_col1" class="data row4 col1" >13050</td>
+      <td id="T_f5933_row4_col2" class="data row4 col2" >12450</td>
+      <td id="T_f5933_row4_col3" class="data row4 col3" >13050</td>
+      <td id="T_f5933_row4_col4" class="data row4 col4" >365602</td>
+      <td id="T_f5933_row4_col5" class="data row4 col5" >0.007722</td>
+      <td id="T_f5933_row4_col6" class="data row4 col6" >238490</td>
+      <td id="T_f5933_row4_col7" class="data row4 col7" >힘스</td>
+      <td id="T_f5933_row4_col8" class="data row4 col8" >0.988702</td>
+      <td id="T_f5933_row4_col9" class="data row4 col9" >1.007722</td>
+      <td id="T_f5933_row4_col10" class="data row4 col10" >1</td>
+      <td id="T_f5933_row4_col11" class="data row4 col11" >1.026820</td>
+      <td id="T_f5933_row4_col12" class="data row4 col12" >1.019157</td>
+      <td id="T_f5933_row4_col13" class="data row4 col13" >1.011494</td>
+      <td id="T_f5933_row4_col14" class="data row4 col14" >1.019157</td>
+      <td id="T_f5933_row4_col15" class="data row4 col15" >1.038314</td>
+      <td id="T_f5933_row4_col16" class="data row4 col16" >1.038314</td>
+      <td id="T_f5933_row4_col17" class="data row4 col17" >1.000000</td>
+      <td id="T_f5933_row4_col18" class="data row4 col18" >1.000000</td>
+      <td id="T_f5933_row4_col19" class="data row4 col19" >0.984674</td>
+      <td id="T_f5933_row4_col20" class="data row4 col20" >1.068966</td>
+      <td id="T_f5933_row4_col21" class="data row4 col21" >1.015326</td>
+      <td id="T_f5933_row4_col22" class="data row4 col22" >1.049808</td>
+      <td id="T_f5933_row4_col23" class="data row4 col23" >1.042146</td>
+      <td id="T_f5933_row4_col24" class="data row4 col24" >1.042146</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 25 columns</p>
-</div></div></div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1623,16 +1577,16 @@ max_high
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count   426,300.000
-mean          1.001
-std           0.048
-min           0.000
-1%            0.892
-10%           0.955
-50%           1.000
-90%           1.045
-99%           1.146
-max           1.690
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count   424,879.00
+mean          1.00
+std           0.05
+min           0.00
+1%            0.89
+10%           0.96
+50%           1.00
+90%           1.04
+99%           1.15
+max           1.69
 Name: final_return, dtype: float64
 </pre></div>
 </div>
@@ -1678,201 +1632,206 @@ Name: final_return, dtype: float64
     <span class="n">data_all_6</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span> <span class="n">data_all_6</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">data_all_6</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;data_all_6.pkl&#39;</span><span class="p">)</span>    
-<span class="n">data_all_6</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>    
+<span class="n">data_all_6</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_68dbb_" style="font-size: 10px">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>change</th>
-      <th>code</th>
-      <th>name</th>
-      <th>kosdaq_return</th>
-      <th>return</th>
-      <th>...</th>
-      <th>high_r1</th>
-      <th>low_r1</th>
-      <th>high_r2</th>
-      <th>low_r2</th>
-      <th>high_r3</th>
-      <th>low_r3</th>
-      <th>high_r4</th>
-      <th>low_r4</th>
-      <th>high_r5</th>
-      <th>low_r5</th>
-    </tr>
     <tr>
-      <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >open</th>
+      <th class="col_heading level0 col1" >high</th>
+      <th class="col_heading level0 col2" >low</th>
+      <th class="col_heading level0 col3" >close</th>
+      <th class="col_heading level0 col4" >volume</th>
+      <th class="col_heading level0 col5" >change</th>
+      <th class="col_heading level0 col6" >code</th>
+      <th class="col_heading level0 col7" >name</th>
+      <th class="col_heading level0 col8" >kosdaq_return</th>
+      <th class="col_heading level0 col9" >return</th>
+      <th class="col_heading level0 col10" >win_market</th>
+      <th class="col_heading level0 col11" >close_r1</th>
+      <th class="col_heading level0 col12" >close_r2</th>
+      <th class="col_heading level0 col13" >close_r3</th>
+      <th class="col_heading level0 col14" >close_r4</th>
+      <th class="col_heading level0 col15" >close_r5</th>
+      <th class="col_heading level0 col16" >max_close</th>
+      <th class="col_heading level0 col17" >win_market_sum</th>
+      <th class="col_heading level0 col18" >high_r1</th>
+      <th class="col_heading level0 col19" >low_r1</th>
+      <th class="col_heading level0 col20" >high_r2</th>
+      <th class="col_heading level0 col21" >low_r2</th>
+      <th class="col_heading level0 col22" >high_r3</th>
+      <th class="col_heading level0 col23" >low_r3</th>
+      <th class="col_heading level0 col24" >high_r4</th>
+      <th class="col_heading level0 col25" >low_r4</th>
+      <th class="col_heading level0 col26" >high_r5</th>
+      <th class="col_heading level0 col27" >low_r5</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-03-31</th>
-      <td>13350</td>
-      <td>13350</td>
-      <td>13100</td>
-      <td>13100</td>
-      <td>103171</td>
-      <td>-0.01504</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.99803</td>
-      <td>0.98496</td>
-      <td>...</td>
-      <td>1.04198</td>
-      <td>1.00000</td>
-      <td>1.04198</td>
-      <td>1.01527</td>
-      <td>1.05344</td>
-      <td>1.02290</td>
-      <td>1.06107</td>
-      <td>1.03053</td>
-      <td>1.06489</td>
-      <td>1.03053</td>
+      <th id="T_68dbb_level0_row0" class="row_heading level0 row0" >2021-04-01</th>
+      <td id="T_68dbb_row0_col0" class="data row0 col0" >13100</td>
+      <td id="T_68dbb_row0_col1" class="data row0 col1" >13650</td>
+      <td id="T_68dbb_row0_col2" class="data row0 col2" >13100</td>
+      <td id="T_68dbb_row0_col3" class="data row0 col3" >13400</td>
+      <td id="T_68dbb_row0_col4" class="data row0 col4" >194185</td>
+      <td id="T_68dbb_row0_col5" class="data row0 col5" >0.022901</td>
+      <td id="T_68dbb_row0_col6" class="data row0 col6" >238490</td>
+      <td id="T_68dbb_row0_col7" class="data row0 col7" >힘스</td>
+      <td id="T_68dbb_row0_col8" class="data row0 col8" >1.010051</td>
+      <td id="T_68dbb_row0_col9" class="data row0 col9" >1.022901</td>
+      <td id="T_68dbb_row0_col10" class="data row0 col10" >0</td>
+      <td id="T_68dbb_row0_col11" class="data row0 col11" >1.007463</td>
+      <td id="T_68dbb_row0_col12" class="data row0 col12" >1.022388</td>
+      <td id="T_68dbb_row0_col13" class="data row0 col13" >1.018657</td>
+      <td id="T_68dbb_row0_col14" class="data row0 col14" >1.041045</td>
+      <td id="T_68dbb_row0_col15" class="data row0 col15" >1.026119</td>
+      <td id="T_68dbb_row0_col16" class="data row0 col16" >1.041045</td>
+      <td id="T_68dbb_row0_col17" class="data row0 col17" >9.000000</td>
+      <td id="T_68dbb_row0_col18" class="data row0 col18" >1.018657</td>
+      <td id="T_68dbb_row0_col19" class="data row0 col19" >0.992537</td>
+      <td id="T_68dbb_row0_col20" class="data row0 col20" >1.029851</td>
+      <td id="T_68dbb_row0_col21" class="data row0 col21" >1.000000</td>
+      <td id="T_68dbb_row0_col22" class="data row0 col22" >1.037313</td>
+      <td id="T_68dbb_row0_col23" class="data row0 col23" >1.007463</td>
+      <td id="T_68dbb_row0_col24" class="data row0 col24" >1.041045</td>
+      <td id="T_68dbb_row0_col25" class="data row0 col25" >1.007463</td>
+      <td id="T_68dbb_row0_col26" class="data row0 col26" >1.048507</td>
+      <td id="T_68dbb_row0_col27" class="data row0 col27" >1.026119</td>
     </tr>
     <tr>
-      <th>2021-04-01</th>
-      <td>13100</td>
-      <td>13650</td>
-      <td>13100</td>
-      <td>13400</td>
-      <td>194185</td>
-      <td>0.02290</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.01005</td>
-      <td>1.02290</td>
-      <td>...</td>
-      <td>1.01866</td>
-      <td>0.99254</td>
-      <td>1.02985</td>
-      <td>1.00000</td>
-      <td>1.03731</td>
-      <td>1.00746</td>
-      <td>1.04104</td>
-      <td>1.00746</td>
-      <td>1.04851</td>
-      <td>1.02612</td>
+      <th id="T_68dbb_level0_row1" class="row_heading level0 row1" >2021-04-02</th>
+      <td id="T_68dbb_row1_col0" class="data row1 col0" >13500</td>
+      <td id="T_68dbb_row1_col1" class="data row1 col1" >13650</td>
+      <td id="T_68dbb_row1_col2" class="data row1 col2" >13300</td>
+      <td id="T_68dbb_row1_col3" class="data row1 col3" >13500</td>
+      <td id="T_68dbb_row1_col4" class="data row1 col4" >136673</td>
+      <td id="T_68dbb_row1_col5" class="data row1 col5" >0.007463</td>
+      <td id="T_68dbb_row1_col6" class="data row1 col6" >238490</td>
+      <td id="T_68dbb_row1_col7" class="data row1 col7" >힘스</td>
+      <td id="T_68dbb_row1_col8" class="data row1 col8" >1.004463</td>
+      <td id="T_68dbb_row1_col9" class="data row1 col9" >1.007463</td>
+      <td id="T_68dbb_row1_col10" class="data row1 col10" >0</td>
+      <td id="T_68dbb_row1_col11" class="data row1 col11" >1.014815</td>
+      <td id="T_68dbb_row1_col12" class="data row1 col12" >1.011111</td>
+      <td id="T_68dbb_row1_col13" class="data row1 col13" >1.033333</td>
+      <td id="T_68dbb_row1_col14" class="data row1 col14" >1.018519</td>
+      <td id="T_68dbb_row1_col15" class="data row1 col15" >1.022222</td>
+      <td id="T_68dbb_row1_col16" class="data row1 col16" >1.033333</td>
+      <td id="T_68dbb_row1_col17" class="data row1 col17" >9.000000</td>
+      <td id="T_68dbb_row1_col18" class="data row1 col18" >1.022222</td>
+      <td id="T_68dbb_row1_col19" class="data row1 col19" >0.992593</td>
+      <td id="T_68dbb_row1_col20" class="data row1 col20" >1.029630</td>
+      <td id="T_68dbb_row1_col21" class="data row1 col21" >1.000000</td>
+      <td id="T_68dbb_row1_col22" class="data row1 col22" >1.033333</td>
+      <td id="T_68dbb_row1_col23" class="data row1 col23" >1.000000</td>
+      <td id="T_68dbb_row1_col24" class="data row1 col24" >1.040741</td>
+      <td id="T_68dbb_row1_col25" class="data row1 col25" >1.018519</td>
+      <td id="T_68dbb_row1_col26" class="data row1 col26" >1.029630</td>
+      <td id="T_68dbb_row1_col27" class="data row1 col27" >1.014815</td>
     </tr>
     <tr>
-      <th>2021-04-02</th>
-      <td>13500</td>
-      <td>13650</td>
-      <td>13300</td>
-      <td>13500</td>
-      <td>136673</td>
-      <td>0.00746</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.00446</td>
-      <td>1.00746</td>
-      <td>...</td>
-      <td>1.02222</td>
-      <td>0.99259</td>
-      <td>1.02963</td>
-      <td>1.00000</td>
-      <td>1.03333</td>
-      <td>1.00000</td>
-      <td>1.04074</td>
-      <td>1.01852</td>
-      <td>1.02963</td>
-      <td>1.01481</td>
+      <th id="T_68dbb_level0_row2" class="row_heading level0 row2" >2021-04-05</th>
+      <td id="T_68dbb_row2_col0" class="data row2 col0" >13600</td>
+      <td id="T_68dbb_row2_col1" class="data row2 col1" >13800</td>
+      <td id="T_68dbb_row2_col2" class="data row2 col2" >13400</td>
+      <td id="T_68dbb_row2_col3" class="data row2 col3" >13700</td>
+      <td id="T_68dbb_row2_col4" class="data row2 col4" >219062</td>
+      <td id="T_68dbb_row2_col5" class="data row2 col5" >0.014815</td>
+      <td id="T_68dbb_row2_col6" class="data row2 col6" >238490</td>
+      <td id="T_68dbb_row2_col7" class="data row2 col7" >힘스</td>
+      <td id="T_68dbb_row2_col8" class="data row2 col8" >0.999670</td>
+      <td id="T_68dbb_row2_col9" class="data row2 col9" >1.014815</td>
+      <td id="T_68dbb_row2_col10" class="data row2 col10" >1</td>
+      <td id="T_68dbb_row2_col11" class="data row2 col11" >0.996350</td>
+      <td id="T_68dbb_row2_col12" class="data row2 col12" >1.018248</td>
+      <td id="T_68dbb_row2_col13" class="data row2 col13" >1.003650</td>
+      <td id="T_68dbb_row2_col14" class="data row2 col14" >1.007299</td>
+      <td id="T_68dbb_row2_col15" class="data row2 col15" >0.992701</td>
+      <td id="T_68dbb_row2_col16" class="data row2 col16" >1.018248</td>
+      <td id="T_68dbb_row2_col17" class="data row2 col17" >9.000000</td>
+      <td id="T_68dbb_row2_col18" class="data row2 col18" >1.014599</td>
+      <td id="T_68dbb_row2_col19" class="data row2 col19" >0.985401</td>
+      <td id="T_68dbb_row2_col20" class="data row2 col20" >1.018248</td>
+      <td id="T_68dbb_row2_col21" class="data row2 col21" >0.985401</td>
+      <td id="T_68dbb_row2_col22" class="data row2 col22" >1.025547</td>
+      <td id="T_68dbb_row2_col23" class="data row2 col23" >1.003650</td>
+      <td id="T_68dbb_row2_col24" class="data row2 col24" >1.014599</td>
+      <td id="T_68dbb_row2_col25" class="data row2 col25" >1.000000</td>
+      <td id="T_68dbb_row2_col26" class="data row2 col26" >1.010949</td>
+      <td id="T_68dbb_row2_col27" class="data row2 col27" >0.989051</td>
     </tr>
     <tr>
-      <th>2021-04-05</th>
-      <td>13600</td>
-      <td>13800</td>
-      <td>13400</td>
-      <td>13700</td>
-      <td>219062</td>
-      <td>0.01481</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.99967</td>
-      <td>1.01481</td>
-      <td>...</td>
-      <td>1.01460</td>
-      <td>0.98540</td>
-      <td>1.01825</td>
-      <td>0.98540</td>
-      <td>1.02555</td>
-      <td>1.00365</td>
-      <td>1.01460</td>
-      <td>1.00000</td>
-      <td>1.01095</td>
-      <td>0.98905</td>
+      <th id="T_68dbb_level0_row3" class="row_heading level0 row3" >2021-04-06</th>
+      <td id="T_68dbb_row3_col0" class="data row3 col0" >13800</td>
+      <td id="T_68dbb_row3_col1" class="data row3 col1" >13900</td>
+      <td id="T_68dbb_row3_col2" class="data row3 col2" >13500</td>
+      <td id="T_68dbb_row3_col3" class="data row3 col3" >13650</td>
+      <td id="T_68dbb_row3_col4" class="data row3 col4" >135914</td>
+      <td id="T_68dbb_row3_col5" class="data row3 col5" >-0.003650</td>
+      <td id="T_68dbb_row3_col6" class="data row3 col6" >238490</td>
+      <td id="T_68dbb_row3_col7" class="data row3 col7" >힘스</td>
+      <td id="T_68dbb_row3_col8" class="data row3 col8" >0.998824</td>
+      <td id="T_68dbb_row3_col9" class="data row3 col9" >0.996350</td>
+      <td id="T_68dbb_row3_col10" class="data row3 col10" >0</td>
+      <td id="T_68dbb_row3_col11" class="data row3 col11" >1.021978</td>
+      <td id="T_68dbb_row3_col12" class="data row3 col12" >1.007326</td>
+      <td id="T_68dbb_row3_col13" class="data row3 col13" >1.010989</td>
+      <td id="T_68dbb_row3_col14" class="data row3 col14" >0.996337</td>
+      <td id="T_68dbb_row3_col15" class="data row3 col15" >1.003663</td>
+      <td id="T_68dbb_row3_col16" class="data row3 col16" >1.021978</td>
+      <td id="T_68dbb_row3_col17" class="data row3 col17" >9.000000</td>
+      <td id="T_68dbb_row3_col18" class="data row3 col18" >1.021978</td>
+      <td id="T_68dbb_row3_col19" class="data row3 col19" >0.989011</td>
+      <td id="T_68dbb_row3_col20" class="data row3 col20" >1.029304</td>
+      <td id="T_68dbb_row3_col21" class="data row3 col21" >1.007326</td>
+      <td id="T_68dbb_row3_col22" class="data row3 col22" >1.018315</td>
+      <td id="T_68dbb_row3_col23" class="data row3 col23" >1.003663</td>
+      <td id="T_68dbb_row3_col24" class="data row3 col24" >1.014652</td>
+      <td id="T_68dbb_row3_col25" class="data row3 col25" >0.992674</td>
+      <td id="T_68dbb_row3_col26" class="data row3 col26" >1.007326</td>
+      <td id="T_68dbb_row3_col27" class="data row3 col27" >0.996337</td>
     </tr>
     <tr>
-      <th>2021-04-06</th>
-      <td>13800</td>
-      <td>13900</td>
-      <td>13500</td>
-      <td>13650</td>
-      <td>135914</td>
-      <td>-0.00365</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.99882</td>
-      <td>0.99635</td>
-      <td>...</td>
-      <td>1.02198</td>
-      <td>0.98901</td>
-      <td>1.02930</td>
-      <td>1.00733</td>
-      <td>1.01832</td>
-      <td>1.00366</td>
-      <td>1.01465</td>
-      <td>0.99267</td>
-      <td>1.00733</td>
-      <td>0.99634</td>
+      <th id="T_68dbb_level0_row4" class="row_heading level0 row4" >2021-04-07</th>
+      <td id="T_68dbb_row4_col0" class="data row4 col0" >13700</td>
+      <td id="T_68dbb_row4_col1" class="data row4 col1" >13950</td>
+      <td id="T_68dbb_row4_col2" class="data row4 col2" >13500</td>
+      <td id="T_68dbb_row4_col3" class="data row4 col3" >13950</td>
+      <td id="T_68dbb_row4_col4" class="data row4 col4" >195408</td>
+      <td id="T_68dbb_row4_col5" class="data row4 col5" >0.021978</td>
+      <td id="T_68dbb_row4_col6" class="data row4 col6" >238490</td>
+      <td id="T_68dbb_row4_col7" class="data row4 col7" >힘스</td>
+      <td id="T_68dbb_row4_col8" class="data row4 col8" >1.004739</td>
+      <td id="T_68dbb_row4_col9" class="data row4 col9" >1.021978</td>
+      <td id="T_68dbb_row4_col10" class="data row4 col10" >0</td>
+      <td id="T_68dbb_row4_col11" class="data row4 col11" >0.985663</td>
+      <td id="T_68dbb_row4_col12" class="data row4 col12" >0.989247</td>
+      <td id="T_68dbb_row4_col13" class="data row4 col13" >0.974910</td>
+      <td id="T_68dbb_row4_col14" class="data row4 col14" >0.982079</td>
+      <td id="T_68dbb_row4_col15" class="data row4 col15" >1.017921</td>
+      <td id="T_68dbb_row4_col16" class="data row4 col16" >1.017921</td>
+      <td id="T_68dbb_row4_col17" class="data row4 col17" >9.000000</td>
+      <td id="T_68dbb_row4_col18" class="data row4 col18" >1.007168</td>
+      <td id="T_68dbb_row4_col19" class="data row4 col19" >0.985663</td>
+      <td id="T_68dbb_row4_col20" class="data row4 col20" >0.996416</td>
+      <td id="T_68dbb_row4_col21" class="data row4 col21" >0.982079</td>
+      <td id="T_68dbb_row4_col22" class="data row4 col22" >0.992832</td>
+      <td id="T_68dbb_row4_col23" class="data row4 col23" >0.971326</td>
+      <td id="T_68dbb_row4_col24" class="data row4 col24" >0.985663</td>
+      <td id="T_68dbb_row4_col25" class="data row4 col25" >0.974910</td>
+      <td id="T_68dbb_row4_col26" class="data row4 col26" >1.021505</td>
+      <td id="T_68dbb_row4_col27" class="data row4 col27" >0.971326</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 28 columns</p>
-</div></div></div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1884,14 +1843,14 @@ Name: final_return, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>win_market_sum
-(-0.001, 4.0]   1.02213
-(4.0, 5.0]      1.03136
-(5.0, 6.0]      1.03094
-(6.0, 7.0]      1.03165
-(7.0, 8.0]      1.03202
-(8.0, 9.0]      1.03370
-(9.0, 11.0]     1.03646
-(11.0, 22.0]    1.03989
+(-0.001, 4.0]   1.02
+(4.0, 5.0]      1.03
+(5.0, 6.0]      1.03
+(6.0, 7.0]      1.03
+(7.0, 8.0]      1.03
+(8.0, 9.0]      1.03
+(9.0, 11.0]     1.04
+(11.0, 22.0]    1.04
 Name: max_close, dtype: float64
 </pre></div>
 </div>
@@ -1907,7 +1866,7 @@ Name: max_close, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;win_market_sum&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/4.4.4_Data_Processing_23_1.png" src="../_images/4.4.4_Data_Processing_23_1.png" />
+<img alt="../_images/4.4.4_Data_Processing_25_1.png" src="../_images/4.4.4_Data_Processing_25_1.png" />
 </div>
 </div>
 <p><br> <strong>매수 전략 2 - 섹터 평균 수익율보다 더 높은 수익율을 보인 종목을 매수</strong><br />
@@ -1939,186 +1898,152 @@ kosdaq_list 에 있는 종목별 섹터 정보를 이용하겠습니다. 우선,
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_all_6</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;data_all_6.pkl&#39;</span><span class="p">)</span> 
-<span class="n">data_all_6</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">data_all_6</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_a2504_" style="font-size: 10px">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>volume</th>
-      <th>change</th>
-      <th>code</th>
-      <th>name</th>
-      <th>kosdaq_return</th>
-      <th>return</th>
-      <th>win_market</th>
-      <th>close_r1</th>
-      <th>close_r2</th>
-      <th>close_r3</th>
-      <th>close_r4</th>
-      <th>close_r5</th>
-      <th>max_close</th>
-      <th>return_mean</th>
-      <th>sector</th>
-    </tr>
     <tr>
-      <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >open</th>
+      <th class="col_heading level0 col1" >high</th>
+      <th class="col_heading level0 col2" >low</th>
+      <th class="col_heading level0 col3" >close</th>
+      <th class="col_heading level0 col4" >volume</th>
+      <th class="col_heading level0 col5" >change</th>
+      <th class="col_heading level0 col6" >code</th>
+      <th class="col_heading level0 col7" >name</th>
+      <th class="col_heading level0 col8" >kosdaq_return</th>
+      <th class="col_heading level0 col9" >return</th>
+      <th class="col_heading level0 col10" >win_market</th>
+      <th class="col_heading level0 col11" >close_r1</th>
+      <th class="col_heading level0 col12" >close_r2</th>
+      <th class="col_heading level0 col13" >close_r3</th>
+      <th class="col_heading level0 col14" >close_r4</th>
+      <th class="col_heading level0 col15" >close_r5</th>
+      <th class="col_heading level0 col16" >max_close</th>
+      <th class="col_heading level0 col17" >return_mean</th>
+      <th class="col_heading level0 col18" >sector</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-04-01</th>
-      <td>13100</td>
-      <td>13650</td>
-      <td>13100</td>
-      <td>13400</td>
-      <td>194185</td>
-      <td>0.02290</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.01005</td>
-      <td>1.02290</td>
-      <td>0</td>
-      <td>1.00746</td>
-      <td>1.02239</td>
-      <td>1.01866</td>
-      <td>1.04104</td>
-      <td>1.02612</td>
-      <td>1.04104</td>
-      <td>1.00075</td>
-      <td>특수 목적용 기계 제조업</td>
+      <th id="T_a2504_level0_row0" class="row_heading level0 row0" >2021-04-01</th>
+      <td id="T_a2504_row0_col0" class="data row0 col0" >13100</td>
+      <td id="T_a2504_row0_col1" class="data row0 col1" >13650</td>
+      <td id="T_a2504_row0_col2" class="data row0 col2" >13100</td>
+      <td id="T_a2504_row0_col3" class="data row0 col3" >13400</td>
+      <td id="T_a2504_row0_col4" class="data row0 col4" >194185</td>
+      <td id="T_a2504_row0_col5" class="data row0 col5" >0.022901</td>
+      <td id="T_a2504_row0_col6" class="data row0 col6" >238490</td>
+      <td id="T_a2504_row0_col7" class="data row0 col7" >힘스</td>
+      <td id="T_a2504_row0_col8" class="data row0 col8" >1.010051</td>
+      <td id="T_a2504_row0_col9" class="data row0 col9" >1.022901</td>
+      <td id="T_a2504_row0_col10" class="data row0 col10" >0</td>
+      <td id="T_a2504_row0_col11" class="data row0 col11" >1.007463</td>
+      <td id="T_a2504_row0_col12" class="data row0 col12" >1.022388</td>
+      <td id="T_a2504_row0_col13" class="data row0 col13" >1.018657</td>
+      <td id="T_a2504_row0_col14" class="data row0 col14" >1.041045</td>
+      <td id="T_a2504_row0_col15" class="data row0 col15" >1.026119</td>
+      <td id="T_a2504_row0_col16" class="data row0 col16" >1.041045</td>
+      <td id="T_a2504_row0_col17" class="data row0 col17" >1.000755</td>
+      <td id="T_a2504_row0_col18" class="data row0 col18" >특수 목적용 기계 제조업</td>
     </tr>
     <tr>
-      <th>2021-04-02</th>
-      <td>13500</td>
-      <td>13650</td>
-      <td>13300</td>
-      <td>13500</td>
-      <td>136673</td>
-      <td>0.00746</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.00446</td>
-      <td>1.00746</td>
-      <td>0</td>
-      <td>1.01481</td>
-      <td>1.01111</td>
-      <td>1.03333</td>
-      <td>1.01852</td>
-      <td>1.02222</td>
-      <td>1.03333</td>
-      <td>1.00107</td>
-      <td>특수 목적용 기계 제조업</td>
+      <th id="T_a2504_level0_row1" class="row_heading level0 row1" >2021-04-02</th>
+      <td id="T_a2504_row1_col0" class="data row1 col0" >13500</td>
+      <td id="T_a2504_row1_col1" class="data row1 col1" >13650</td>
+      <td id="T_a2504_row1_col2" class="data row1 col2" >13300</td>
+      <td id="T_a2504_row1_col3" class="data row1 col3" >13500</td>
+      <td id="T_a2504_row1_col4" class="data row1 col4" >136673</td>
+      <td id="T_a2504_row1_col5" class="data row1 col5" >0.007463</td>
+      <td id="T_a2504_row1_col6" class="data row1 col6" >238490</td>
+      <td id="T_a2504_row1_col7" class="data row1 col7" >힘스</td>
+      <td id="T_a2504_row1_col8" class="data row1 col8" >1.004463</td>
+      <td id="T_a2504_row1_col9" class="data row1 col9" >1.007463</td>
+      <td id="T_a2504_row1_col10" class="data row1 col10" >0</td>
+      <td id="T_a2504_row1_col11" class="data row1 col11" >1.014815</td>
+      <td id="T_a2504_row1_col12" class="data row1 col12" >1.011111</td>
+      <td id="T_a2504_row1_col13" class="data row1 col13" >1.033333</td>
+      <td id="T_a2504_row1_col14" class="data row1 col14" >1.018519</td>
+      <td id="T_a2504_row1_col15" class="data row1 col15" >1.022222</td>
+      <td id="T_a2504_row1_col16" class="data row1 col16" >1.033333</td>
+      <td id="T_a2504_row1_col17" class="data row1 col17" >1.001071</td>
+      <td id="T_a2504_row1_col18" class="data row1 col18" >특수 목적용 기계 제조업</td>
     </tr>
     <tr>
-      <th>2021-04-05</th>
-      <td>13600</td>
-      <td>13800</td>
-      <td>13400</td>
-      <td>13700</td>
-      <td>219062</td>
-      <td>0.01481</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.99967</td>
-      <td>1.01481</td>
-      <td>1</td>
-      <td>0.99635</td>
-      <td>1.01825</td>
-      <td>1.00365</td>
-      <td>1.00730</td>
-      <td>0.99270</td>
-      <td>1.01825</td>
-      <td>1.00106</td>
-      <td>특수 목적용 기계 제조업</td>
+      <th id="T_a2504_level0_row2" class="row_heading level0 row2" >2021-04-05</th>
+      <td id="T_a2504_row2_col0" class="data row2 col0" >13600</td>
+      <td id="T_a2504_row2_col1" class="data row2 col1" >13800</td>
+      <td id="T_a2504_row2_col2" class="data row2 col2" >13400</td>
+      <td id="T_a2504_row2_col3" class="data row2 col3" >13700</td>
+      <td id="T_a2504_row2_col4" class="data row2 col4" >219062</td>
+      <td id="T_a2504_row2_col5" class="data row2 col5" >0.014815</td>
+      <td id="T_a2504_row2_col6" class="data row2 col6" >238490</td>
+      <td id="T_a2504_row2_col7" class="data row2 col7" >힘스</td>
+      <td id="T_a2504_row2_col8" class="data row2 col8" >0.999670</td>
+      <td id="T_a2504_row2_col9" class="data row2 col9" >1.014815</td>
+      <td id="T_a2504_row2_col10" class="data row2 col10" >1</td>
+      <td id="T_a2504_row2_col11" class="data row2 col11" >0.996350</td>
+      <td id="T_a2504_row2_col12" class="data row2 col12" >1.018248</td>
+      <td id="T_a2504_row2_col13" class="data row2 col13" >1.003650</td>
+      <td id="T_a2504_row2_col14" class="data row2 col14" >1.007299</td>
+      <td id="T_a2504_row2_col15" class="data row2 col15" >0.992701</td>
+      <td id="T_a2504_row2_col16" class="data row2 col16" >1.018248</td>
+      <td id="T_a2504_row2_col17" class="data row2 col17" >1.001059</td>
+      <td id="T_a2504_row2_col18" class="data row2 col18" >특수 목적용 기계 제조업</td>
     </tr>
     <tr>
-      <th>2021-04-06</th>
-      <td>13800</td>
-      <td>13900</td>
-      <td>13500</td>
-      <td>13650</td>
-      <td>135914</td>
-      <td>-0.00365</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>0.99882</td>
-      <td>0.99635</td>
-      <td>0</td>
-      <td>1.02198</td>
-      <td>1.00733</td>
-      <td>1.01099</td>
-      <td>0.99634</td>
-      <td>1.00366</td>
-      <td>1.02198</td>
-      <td>1.00100</td>
-      <td>특수 목적용 기계 제조업</td>
+      <th id="T_a2504_level0_row3" class="row_heading level0 row3" >2021-04-06</th>
+      <td id="T_a2504_row3_col0" class="data row3 col0" >13800</td>
+      <td id="T_a2504_row3_col1" class="data row3 col1" >13900</td>
+      <td id="T_a2504_row3_col2" class="data row3 col2" >13500</td>
+      <td id="T_a2504_row3_col3" class="data row3 col3" >13650</td>
+      <td id="T_a2504_row3_col4" class="data row3 col4" >135914</td>
+      <td id="T_a2504_row3_col5" class="data row3 col5" >-0.003650</td>
+      <td id="T_a2504_row3_col6" class="data row3 col6" >238490</td>
+      <td id="T_a2504_row3_col7" class="data row3 col7" >힘스</td>
+      <td id="T_a2504_row3_col8" class="data row3 col8" >0.998824</td>
+      <td id="T_a2504_row3_col9" class="data row3 col9" >0.996350</td>
+      <td id="T_a2504_row3_col10" class="data row3 col10" >0</td>
+      <td id="T_a2504_row3_col11" class="data row3 col11" >1.021978</td>
+      <td id="T_a2504_row3_col12" class="data row3 col12" >1.007326</td>
+      <td id="T_a2504_row3_col13" class="data row3 col13" >1.010989</td>
+      <td id="T_a2504_row3_col14" class="data row3 col14" >0.996337</td>
+      <td id="T_a2504_row3_col15" class="data row3 col15" >1.003663</td>
+      <td id="T_a2504_row3_col16" class="data row3 col16" >1.021978</td>
+      <td id="T_a2504_row3_col17" class="data row3 col17" >1.000998</td>
+      <td id="T_a2504_row3_col18" class="data row3 col18" >특수 목적용 기계 제조업</td>
     </tr>
     <tr>
-      <th>2021-04-07</th>
-      <td>13700</td>
-      <td>13950</td>
-      <td>13500</td>
-      <td>13950</td>
-      <td>195408</td>
-      <td>0.02198</td>
-      <td>238490</td>
-      <td>힘스</td>
-      <td>1.00474</td>
-      <td>1.02198</td>
-      <td>0</td>
-      <td>0.98566</td>
-      <td>0.98925</td>
-      <td>0.97491</td>
-      <td>0.98208</td>
-      <td>1.01792</td>
-      <td>1.01792</td>
-      <td>1.00156</td>
-      <td>특수 목적용 기계 제조업</td>
+      <th id="T_a2504_level0_row4" class="row_heading level0 row4" >2021-04-07</th>
+      <td id="T_a2504_row4_col0" class="data row4 col0" >13700</td>
+      <td id="T_a2504_row4_col1" class="data row4 col1" >13950</td>
+      <td id="T_a2504_row4_col2" class="data row4 col2" >13500</td>
+      <td id="T_a2504_row4_col3" class="data row4 col3" >13950</td>
+      <td id="T_a2504_row4_col4" class="data row4 col4" >195408</td>
+      <td id="T_a2504_row4_col5" class="data row4 col5" >0.021978</td>
+      <td id="T_a2504_row4_col6" class="data row4 col6" >238490</td>
+      <td id="T_a2504_row4_col7" class="data row4 col7" >힘스</td>
+      <td id="T_a2504_row4_col8" class="data row4 col8" >1.004739</td>
+      <td id="T_a2504_row4_col9" class="data row4 col9" >1.021978</td>
+      <td id="T_a2504_row4_col10" class="data row4 col10" >0</td>
+      <td id="T_a2504_row4_col11" class="data row4 col11" >0.985663</td>
+      <td id="T_a2504_row4_col12" class="data row4 col12" >0.989247</td>
+      <td id="T_a2504_row4_col13" class="data row4 col13" >0.974910</td>
+      <td id="T_a2504_row4_col14" class="data row4 col14" >0.982079</td>
+      <td id="T_a2504_row4_col15" class="data row4 col15" >1.017921</td>
+      <td id="T_a2504_row4_col16" class="data row4 col16" >1.017921</td>
+      <td id="T_a2504_row4_col17" class="data row4 col17" >1.001556</td>
+      <td id="T_a2504_row4_col18" class="data row4 col18" >특수 목적용 기계 제조업</td>
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div></div>
 </div>
 <p>최근 60 일 평균수익율 정보를 섹터 별, 일 별로 요약한 값을 추가합니다. 이때 apply 대신 Transform 함수가 이용되었습니다. apply 는 그룹의 숫자 만큼 행을 리턴하나, transform 은 그룹핑 하기 전의 행 수 를 리턴합니다. 그 값을 ‘return over sector’ 라는 변수에 저장합니다.</p>
 <div class="cell docutils container">
@@ -2165,7 +2090,7 @@ return over sector
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;return over sector&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/4.4.4_Data_Processing_31_1.png" src="../_images/4.4.4_Data_Processing_31_1.png" />
+<img alt="../_images/4.4.4_Data_Processing_33_1.png" src="../_images/4.4.4_Data_Processing_33_1.png" />
 </div>
 </div>
 <p>한 섹터에 최소 10 개 이상의 종목이 있어야 섹터의 평균 수익율이 의미가 있을 것 같습니다. 10개 이상의 종목이 있는 섹터만을 매수 대상으로 해서 다시 수익율을 계산해봅니다. 같은 결과를 얻었습니다. 섹터의 평균 수익율보다 아주 낮거나 높은 종목의 수익율의 상승이 높았습니다.</p>
@@ -2197,7 +2122,7 @@ return over sector
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;return over sector&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/4.4.4_Data_Processing_33_2.png" src="../_images/4.4.4_Data_Processing_33_2.png" />
+<img alt="../_images/4.4.4_Data_Processing_35_2.png" src="../_images/4.4.4_Data_Processing_35_2.png" />
 </div>
 </div>
 </section>

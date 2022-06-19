@@ -51,5 +51,18 @@ parts:
       - file: chapter4/4.4.3_Data_Collection
       - file: chapter4/4.4.4_Data_Processing
 
+  - caption: chapter 5
+    chapters:
+    - file: chapter4/5.1.0_Hypothesis
+    sections:
+      - file: chapter4/5.1.1_Hypothesis_1
+      - file: chapter4/5.1.2_Hypothesis_2
+      - file: chapter4/5.1.3_Hypothesis_3
+      - file: chapter4/5.1.4_Hypothesis_4
+      - file: chapter4/5.1.5_Hypothesis_5
+      - file: chapter4/5.1.6_Hypothesis_6
+
+
+
 
 

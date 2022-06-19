@@ -1,15 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ### 해결책 테스트    
-# 
-# 오늘 날짜만 입력하면 내일 매수할 종목이 추천되도록 함수를 구현합니다. 임의 날짜를 넣어서 테스트 해 봅니다. 이 책에서는 2022년 4월 1일, 2022년 4월 18일,  2022년 5월 2일, 2022년 5월 9일, 2022년 5월 25일,  2022년 6월 2일에 대하여 종목 선정 및 결과 수익률을 테스트 해 보았습니다.  모델을 개발하는데 사용한 날짜는 모델 검증 용도로 적절하지 않습니다. 왜냐하면 개발에서 사용한 데이터는 모델이 좋은 성과가 나오도록 최적화되어 있기 때문입니다.  참고로 모델 개발은 2021년 1월 4일부터 2022년 3월 24일까지 데이터가 사용되었습니다. 
-# 
-# 이제 종목을 추천하는 프로세스를 완성했습니다. 장 마감 후 종목 추천을 받아 익일 증권사 API  를 이용해서 자동매매를 구현하고 한 달 동안의 수익이 어떤지 검증해 보겠습니다. 홈트레이딩 시스템에도 자동매매가 가능합니다. 책에서 구현할 자동매매는 홈트레이딩 감시 매매 설정으로도 충분히 가능합니다. 
-# 
-# 실전에서는 HTS 에서 제공하는 예약 매수기능과 매도 감시기능을 이용하는 것리 편리합니다. HTS 를 활용하여 자동으로 매수 매도가 가능합니다. 
-# 
-
 # In[1]:
 
 
@@ -23,12 +14,87 @@ import pickle
 import glob
 
 
-# <br> 추전 종목을 만드는 여러 개의 프로세스를 하나의 함수로 만들었습니다. 
+# ### 익절/손절 라인
+
+# <br> 이번에는 익절/손절라인을 결정할 수 있는 예측모델을 만들어 보겠습니다. 먼저 피쳐가 있는 데이터를 불러옵니다. 
 
 # In[2]:
 
 
-def select_stocks(today_dt):
+feature_all = pd.read_pickle('feature_all.pkl') 
+feature_all['target'] = np.where(feature_all['max_close']>= 1.05, 1, 0)
+target = feature_all['target'].mean()
+print(f'% of target:{target: 5.1%}')
+
+
+# <br> 날짜와 종목을 인덱스로 설정합니다. 데이터에 예측모델을 적용하고 매수 대상 종목을 select_top 이라는 DataFrame 에 저장합니다. 
+
+# In[4]:
+
+
+mdl_all = feature_all.set_index([feature_all.index,'code'])
+
+with open("gam.pkl", "rb") as file:
+    gam = pickle.load(file) 
+
+feature_list = ['price_z','volume_z','num_high/close','num_win_market','pct_win_market','return over sector']
+X = mdl_all[feature_list]
+y = mdl_all['target']
+
+yhat = gam.predict_proba(X.to_numpy())
+yhat = pd.Series(yhat, name='yhat', index=y.index)
+
+mdl_all['yhat'] = yhat
+
+tops = mdl_all[mdl_all['yhat'] > 0.3].copy()
+
+tops['return_rank']  = pd.qcut(tops['return'], q=3, labels=range(3)) # 종가 수익률
+tops['price_rank']  = pd.qcut(tops['price_z'], q=3, labels=range(3)) # 가격 변동성
+
+select_tops = tops[(tops['return_rank']==2) & (tops['price_rank']==0)]
+
+
+# <br> 최저 기대 수익율과 피쳐와의 상관계수를 조사합니다. 예상하지 못햇던 사실은 5 영업일 동안 최저 기대 수익률은 종목보다는 지수 수익률과 더 상관관계가 높습니다. 
+
+# In[5]:
+
+
+select_tops[['return','kosdaq_return','min_close']].corr()
+
+
+# <br> 'kosdaq_return' 에 따른 최저 기대 수익률의 평균을 구해봅니다. 그래프를 보니 'kosdaq_return'(코스닥 지수 수익률)이 1.01 이하에서는 'kosdaq_return' 과 최저 기대수익률과 양의 상관관계가 높은 것으로 나타납니다. 
+
+# In[6]:
+
+
+ranks = pd.qcut(select_tops['kosdaq_return'], q=5)
+print(select_tops.groupby(ranks)['min_close'].mean())
+select_tops.groupby(ranks)['min_close'].mean().plot()
+
+
+# <br> 'kosdaq_return' 값에 따라 아래와 같이 익절/손절 라인을 변동할 수 있도록 합니다. 아래 함수는 익절 수익률과 손절 수익률을 딕셔너리로 반환합니다.
+
+# In[7]:
+
+
+def profit_loss_cut(x):
+    
+    if x <= 1.00: # 익절 손절 범위 축소
+        return 1.04, 0.98 
+    
+    elif x <= 1.02: 
+        return 1.05, 0.97
+    
+    else: # 익절/손절범위 확대
+        return 1.06, 0.96
+
+
+# <br> 종목, 매수가 익절/손절라인 반환하는 함수를 만듭니다.
+
+# In[8]:
+
+
+def select_stocks_sell(today_dt):
     
     today = datetime.datetime.strptime(today_dt, '%Y-%m-%d')
     start_dt = today - datetime.timedelta(days=100) # 100 일전 데이터 부터 시작 - 피쳐 엔지니어링은 최소 60 개의 일봉이 필요함
@@ -135,6 +201,12 @@ def select_stocks(today_dt):
    
     select_tops = tops[(tops['return_rank']==2) & (tops['price_rank']==0)][['name','return_rank','price_rank','yhat','return', 'kosdaq_return','close']]     
     
+    #  코스닥 지수에 따라 익절/손절 라인 변경    
+    cuts = select_tops['kosdaq_return'].apply(profit_loss_cut)
+    
+    select_tops['profit_cut'] = [c[0] for c in cuts]
+    select_tops['loss_cut']   = [c[1] for c in cuts]    
+    
     if len(select_tops) > 1: # 최소한 2개 종목 - 추천 리스크 분산        
         return select_tops    
     
@@ -142,121 +214,35 @@ def select_stocks(today_dt):
         return None
 
 
-# <br> 수익률 검정하는 프로세스를 하나의 함수로 구현합니다.
-
-# In[3]:
+# In[9]:
 
 
-def outcome_tops(select_tops, today_dt, end_dt):   
-
-    outcome_data = pd.DataFrame()
-
-    for code in list(select_tops.index):  # 스코어가 생성된 모든 종목에서 대하여 반복
-        daily_price = fdr.DataReader(code,  start = today_dt, end = end_dt) # 종목, 일봉, 데이터 갯수
-        daily_price['code'] = code  
-
-        daily_price['close_r1'] = daily_price['Close'].shift(-1)/daily_price['Close']   
-        daily_price['close_r2'] = daily_price['Close'].shift(-2)/daily_price['Close']  
-        daily_price['close_r3'] = daily_price['Close'].shift(-3)/daily_price['Close']   
-        daily_price['close_r4'] = daily_price['Close'].shift(-4)/daily_price['Close']   
-        daily_price['close_r5'] = daily_price['Close'].shift(-5)/daily_price['Close']   
-
-        daily_price['max_close'] = daily_price[['close_r1','close_r2','close_r3','close_r4','close_r5']].max(axis=1)
-        daily_price['mean_close'] = daily_price[['close_r1','close_r2','close_r3','close_r4','close_r5']].mean(axis=1)
-        daily_price['min_close'] = daily_price[['close_r1','close_r2','close_r3','close_r4','close_r5']].min(axis=1)
-
-        daily_price['buy_price'] = daily_price['Close']
-        daily_price['buy_low'] = daily_price['Low'].shift(-1) 
-        daily_price['buy_high'] = daily_price['High'].shift(-1)
-
-        daily_price['buy'] = np.where((daily_price['buy_price'].between(daily_price['buy_low'], daily_price['buy_high'])), 1, 0) 
-
-        outcome_data = pd.concat([outcome_data, daily_price], axis=0)
-
-    outcome = outcome_data.loc[today_dt][['code','buy','buy_price','buy_low','buy_high','max_close','mean_close','min_close']].set_index('code')
-    select_outcome = select_tops.merge(outcome, left_index=True, right_index=True, how='inner')
-
-    return select_outcome[['name','buy','buy_price', 'buy_low','buy_high','yhat','max_close','mean_close','min_close']]
+results = select_stocks_sell('2022-06-13')
 
 
-# <br> **2022년 4월 1일 - 종목 선정 및 수익률 테스트**   
-# 상당이 고무적입니다. CJ 프레시웨이를 제외한 모든 종목이 익절이 가능합니다. 단 CSA 코스믹은 전일 종가로 당일 매수가 불가능합니다. 2022년 4월 2일 갭상승으로 시작을 했습니다.
-
-# In[4]:
+# In[13]:
 
 
-select_tops = select_stocks('2022-04-01')
-
-if select_tops is not None:
-    results = outcome_tops(select_tops, '2022-04-01', '2022-04-08') # 5 영업일
-results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px"')
+results.head().style.set_table_attributes('style="font-size: 12px"')
 
 
-# <br> **2022년 4월 18일 - 종목 선정 및 수익률 테스트**    
-# 4 월 18일은 추천 종목이 없습니다.
+# In[11]:
+
+
+select_dict = {}
+for code in list(results.index):
+    s = results.loc[code]
+    select_dict[code] = [s['name'], s['close'], s['profit_cut'], s['loss_cut']]    
+
+
+# In[12]:
+
+
+select_dict
+
 
 # In[ ]:
 
 
-select_tops = select_stocks('2022-04-18')
 
-if select_tops is not None:
-    results = outcome_tops(select_tops, '2022-04-18', '2022-04-25') # 5 영업일
-results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px"')
-
-
-# <br> **2022년 5월 2일 - 종목 선정 및 수익률 테스트**    
-# 미래생명자원은 매수 후, 주가가 하락하는 것으로 나왔습니다. 다행이 급락 종목은 아니여서 손절로 대응하는 것이 좋을 것으로 판단됩니다.
-
-# In[6]:
-
-
-select_tops = select_stocks('2022-05-02')
-
-if select_tops is not None:
-    results = outcome_tops(select_tops, '2022-05-02', '2022-05-10') # 5 영업일 (5월 5일 어린이날)
-    
-results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px"')
-
-
-# <br> **2022년 5월 9일 - 종목 선정 및 수익률 테스트**    
-# 'buy' 가 0 인 종목은 갭상이나 갭하락으로 전일 종가에 매수할 기회가 없는 종목을 의미합니다. 'buy' 가 1 인 종목만 보겠습니다. 이상네크웍스와 코맥스는 수익을 내기 어려웠을 것으로 판단됩니다.
-
-# In[7]:
-
-
-select_tops = select_stocks('2022-05-09')
-
-if select_tops is not None:
-    results = outcome_tops(select_tops, '2022-05-09', '2022-05-16') # 5 영업일 (5월 5일 어린이날)
-    
-results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px"')
-
-
-# <br> **2022년 5월 25일 - 종목 선정 및 수익률 테스트**   
-# SBI핀테크솔류션즈는 전일 종가로 당일 매수가 불가능합니다. 장이 좋을 때는 전일 종가보다 몇 호가 높게 매수하여 매수할 수 있는 종목을 늘리는 것도 고려할 만 합니다. 지더블유바이텍과 아이에스이커머스도 5영업일이내 익절이 가능할 것으로 보입니다.
-
-# In[8]:
-
-
-select_tops = select_stocks('2022-05-25')
-
-if select_tops is not None:
-    results = outcome_tops(select_tops, '2022-05-25', '2022-06-02') # 5 영업일 (6월 1일 지방선거)          
-    
-results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px"')
-
-
-# <br> **2022년 6월 2일 - 종목 선정 및 수익률 테스트**   
-# 모든 종목이 익절이 가능할 것으로 보입니다.
-
-# In[9]:
-
-
-select_tops = select_stocks('2022-06-02')
-
-if select_tops is not None:
-    results = outcome_tops(select_tops, '2022-06-02', '2022-06-10') # 5 영업일 (6월 6일 현충일)
-    
-results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px"')
 

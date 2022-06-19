@@ -72,6 +72,10 @@ parts:
   - caption: chapter 6
     chapters:
     - file: chapter6/6.0.0_Effectiveness_Testing
+      sections:
+      - file: chapter6/6.1.1_Stock_Selection
+      - file: chapter6/6.1.2_Stock_Selection_Function
+    - file: chapter6/6.2.1_Profit_Loss_Sell
 
   - caption: chapter 7
     chapters:

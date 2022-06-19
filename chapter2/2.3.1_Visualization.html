@@ -751,7 +751,7 @@ title="Print to PDF"
 <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;005930&#39;</span> <span class="c1"># 삼성전자</span>
 <span class="n">stock_data</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span> 
 
-<span class="n">stock_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">stock_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 12px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

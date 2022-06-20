@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[7]:
 
 
 import FinanceDataReader as fdr
@@ -20,14 +20,14 @@ pd.options.display.float_format = '{:,.3f}'.format
 # 
 # 
 
-# In[2]:
+# In[8]:
 
 
 mdl_data = pd.read_pickle('mdl_data.pkl')
-mdl_data.head().style.set_table_attributes('style="font-size: 10px"')
+mdl_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 
-# In[3]:
+# In[9]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -52,7 +52,7 @@ data_h3.to_pickle('data_h3.pkl')
 
 # <br> 윗 꼬리가 긴 양봉이 많이 발생할 수 록 수익율에 좋은 영향을 주는 것으로 분석이 되었습니다.
 
-# In[4]:
+# In[10]:
 
 
 data_h3 = pd.read_pickle('data_h3.pkl')
@@ -62,7 +62,7 @@ data_h3.groupby('num_high/close')['max_close'].mean().plot()
 
 # <br> 윗 꼬리가 긴 양봉도 궁금하지만, 장대양봉은 어떨지도 궁금합니다. 이렇게 가설을 검증하는 과정에서 새로운 가설을 테스트하기도 합니다. 장대양봉이 과거 60일 동안 몇 번 발생했는지 카운트해보고, 장대양봉의 갯 수와 수익율 사이에 상관성이 있는 지 함 보겠습니다.
 
-# In[5]:
+# In[11]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -88,7 +88,7 @@ data_h3.to_pickle('data_h3.pkl')
 
 # <br> 과거 60일 동안 장대양봉이 2 번 발생한 경우 상당히 좋은 수익율을 보여주고 있습니다.
 
-# In[6]:
+# In[12]:
 
 
 data_h3 = pd.read_pickle('data_h3.pkl')

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import FinanceDataReader as fdr
@@ -17,7 +17,7 @@ pd.options.display.float_format = '{:,.3f}'.format
 # 
 # 가설 검정에서 만들었던 모든 피쳐(변수)를 정리해 보겠습니다. 이제 예측 모델링을 위한 데이터가 준비되었습니다.
 
-# In[4]:
+# In[2]:
 
 
 mdl_data = pd.read_pickle('mdl_data.pkl')
@@ -27,7 +27,7 @@ print(mdl_data.index.min(), mdl_data.index.max())
 
 # <br> 가설검정에서 만들었던 모든 피쳐를 정리합니다. 단, *"5일 이동평균선이 종가보다 위에 있다"* 는 유의미하지 않았으므로 제외입니다.
 
-# In[5]:
+# In[3]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -92,11 +92,11 @@ feature_all.to_pickle('feature_all.pkl')
 
 # <br> 이제 모델링을 위한 데이터 준비가 끝났습니다. 간단한 프로파일을 뽑아봅니다. 평균과 표준편차 값을 보고, 피처들이 제대로 생성되었는 지 확인합니다. 그리고 price_z 와 volum_z 는 같이 분석했을 때 유의미했다는 사실을 기억하면 좋겠습니다.
 
-# In[3]:
+# In[4]:
 
 
 feature_all = pd.read_pickle('feature_all.pkl') 
-feature_all.describe(percentiles=[0.05, 0.1, 0.9, 0.95]).style.set_table_attributes('style="font-size: 10px"')
+feature_all.describe(percentiles=[0.05, 0.1, 0.9, 0.95]).style.set_table_attributes('style="font-size: 12px"')
 
 
 # In[ ]:

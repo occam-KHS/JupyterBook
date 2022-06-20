@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[5]:
 
 
 import FinanceDataReader as fdr
@@ -16,14 +16,14 @@ pd.options.display.float_format = '{:,.3f}'.format
 # 
 # 양봉이면서 거래량이 갑자기 증가하는 날을 카운트하고, 수익율과의 상관관계를 보겠습니다.
 
-# In[2]:
+# In[6]:
 
 
 mdl_data = pd.read_pickle('mdl_data.pkl')
-mdl_data.head().style.set_table_attributes('style="font-size: 10px"')
+mdl_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 
-# In[3]:
+# In[7]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -50,7 +50,7 @@ data_h4.to_pickle('data_h4.pkl')
 
 # <br> 거래량이 갑자기 많아지고 양봉인 날을 카운트하고 그 갯 수에 따라 수익율의 변화를 봤습니다. 전체적으로 거래량이 갑자기 증가하는 날이 많을 수 록 수익율이 증가하는 패턴을 보여줍니다. 결과의 마지막 num_z 가 15일인 경우는 수익율이 급강하했는데요. 실제로 너무 많으면 수익율이 안 좋은 것인지 여부는 해당 레코드 수(47개)가 많지 않아 신뢰하기 어렵습니다.  
 
-# In[4]:
+# In[8]:
 
 
 data_h4 = pd.read_pickle('data_h4.pkl') 

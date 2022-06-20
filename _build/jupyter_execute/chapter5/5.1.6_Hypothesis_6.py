@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[6]:
 
 
 import FinanceDataReader as fdr
@@ -15,16 +15,16 @@ pd.options.display.float_format = '{:,.3f}'.format
 
 # ### 동종업계 평균 수익률보다 더 좋은 수익률을 보여준다.     
 
-# In[2]:
+# In[7]:
 
 
 mdl_data = pd.read_pickle('mdl_data.pkl')
-mdl_data.head().style.set_table_attributes('style="font-size: 10px"')
+mdl_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 
 # <br> 우선 과거 60일 평균 수익율 값을 return_mean 에 저장합니다. 그리고 종목에 sector 정보를 추가합니다.
 
-# In[3]:
+# In[8]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -53,7 +53,7 @@ data_h6.to_pickle('data_h6.pkl')
 
 # <br> 종목이 몇 개 없는 섹터는 평균의 의미가 없으므로 섹터에 종목이 최소한 10 개 이상이 있는 섹터만 보겠습니다. 
 
-# In[4]:
+# In[9]:
 
 
 data_h6 = pd.read_pickle('data_h6.pkl')  
@@ -63,7 +63,7 @@ data_h6x = data_h6[data_h6['sector'].isin(sector_count[sector_count>=10].index)]
 
 # <br> 섹터 평균 수익율 대비 종목 수익율이 아주 낮거나, 높은 경우에 미래 수익률이 높게 나왔습니다. 종목 수익률이 섹터 평균 수익률과 비슷한 경우는 예상 수익율이 낮게 나타나고 있습니다.
 
-# In[5]:
+# In[10]:
 
 
 data_h6x['sector_return'] = data_h6x.groupby(['sector', data_h6x.index])['return'].transform(lambda x: x.mean())

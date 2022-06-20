@@ -18,14 +18,14 @@ pd.options.display.float_format = '{:,.3f}'.format
 # ### 5일 이동 평균선이 오늘 종가보다 위에 위치해 있다.    
 # rolling(5) 을 이용하여 이동평균선을 만듭니다. 그리고 당일의 종가보다 크면, 1 아니면 0 인 변수 'flag' 을 생성합니다. 이 가설은 검증이 쉬운 것 같습니다.
 
-# In[3]:
+# In[2]:
 
 
 mdl_data = pd.read_pickle('mdl_data.pkl')
-mdl_data.head().style.set_table_attributes('style="font-size: 10px"')
+mdl_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 
-# In[4]:
+# In[3]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -50,16 +50,16 @@ data_h2.to_pickle('data_h2.pkl')
 
 # <br> 'flag' 가 0 인 경우와 1 인 경우를 비교해보니 이 가설은 데이터가 강하게 뒷받침하지 못하고 있습니다. 
 
-# In[5]:
+# In[4]:
 
 
 data_h2 = pd.read_pickle('data_h2.pkl')
-data_h2.groupby('flag')['max_close'].describe()
+data_h2.groupby('flag')['max_close'].describe().style.set_table_attributes('style="font-size: 12px"')
 
 
 #  T-Test 를 해보겠습니다. T-Test 는 두 집단의 평균이 서로 유의미하게 다른 지 확인하는 검정입니다. 귀무가설이 "두 집단의 평균이 같다" 이기 때문에,  p -value 가 유의수준(0.01) 보다 작으면 귀무가설을 기각합니다. 결과를 보니 P-Value 가 유의수준(0.01) 보다 큽니다. 따라서 귀무가설을 기각할 수 없습니다. 즉, flag 가 0 인 집단과 1 인 집단간의 차가 유의미하지 않은 것으로 판단됩니다. 왜 각 집단에서 샘플을 200 개만 뽑아서 테스트를 하는 지 궁금한 독자도 있으실 것 같습니다. 통계 검정은 샘플의 수가 많아지면 p value 가 작게 나오는 경향이 있습니다. 그렇게 되면 유의미하게 차이가 없는데도, 서로 다르다고 통계 결과가 나오게됩니다. 
 
-# In[6]:
+# In[5]:
 
 
 from scipy import stats
@@ -71,7 +71,7 @@ stats.ttest_ind(a, b, equal_var=False)
 
 # <br> 위 가설은 비교적 증명하기가 쉬웠습니다. 이번에는 5일선과 20일 이동평균선이 만나는 골든크로스에서 매수를 하면 어떤지 보겠습니다. 골든 크로스에서 매수한다고 더 좋은 수익율을 보장하지 않는 것 같습니다.
 
-# In[7]:
+# In[6]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -93,11 +93,11 @@ for code in kosdaq_list['code']:
 data_h2.to_pickle('data_h2.pkl')  
 
 
-# In[8]:
+# In[7]:
 
 
 data_h2 = pd.read_pickle('data_h2.pkl')
-data_h2.groupby('g_cross')['max_close'].describe()
+data_h2.groupby('g_cross')['max_close'].describe().style.set_table_attributes('style="font-size: 12px"')
 
 
 # In[ ]:

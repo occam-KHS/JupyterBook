@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[1]:
 
 
 import FinanceDataReader as fdr
@@ -26,7 +26,7 @@ pd.options.display.float_format = '{:,.3f}'.format
 # Pandas 에서 제공하는 plot 를 이용하여 2021년 부터 코스닥 지수 시계열 데이터를 그려보았습니다. 
 # 
 
-# In[11]:
+# In[2]:
 
 
 kosdaq_index = fdr.DataReader('KQ11', '2021') # 데이터 호출
@@ -43,7 +43,7 @@ plt.title('KOSDAQ Index')
 
 # 일별 수익율 그래프도 함 그려보겠습니다. 2021년 3월부터 2021년 8월까지는 수익율의 변동성이 비교적 적어보입니다.
 
-# In[18]:
+# In[3]:
 
 
 # 차트 생성
@@ -53,11 +53,11 @@ plt.title('KOSDAQ Index Daily Return')
 
 # 저장된 Pickle 파일을 읽어서 첫 5 행 출력해 봅니다.
 
-# In[17]:
+# In[5]:
 
 
 kosdaq_index = pd.read_pickle('kosdaq_index.pkl') 
-kosdaq_index.head()
+kosdaq_index.head().style.set_table_attributes('style="font-size: 12px"')
 
 
 # In[ ]:

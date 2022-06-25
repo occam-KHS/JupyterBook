@@ -750,8 +750,8 @@ title="Print to PDF"
 <span class="math notranslate nohighlight">\( W \)</span>: Weight, <span class="math notranslate nohighlight">\( C \)</span>: Cost,  <span class="math notranslate nohighlight">\( P \)</span>: Proportion</p>
 <p><strong>Minimize</strong> <span class="math notranslate nohighlight">\( \sum\ \)</span> <span class="math notranslate nohighlight">\( [ W_i \)</span> * <span class="math notranslate nohighlight">\( C_i  \ ] \)</span> (비용 목적함수) for <span class="math notranslate nohighlight">\( vendor = i \)</span></p>
 <p><strong>(제약식)</strong></p>
-<p><span class="math notranslate nohighlight">\( [ W_i \)</span>* <span class="math notranslate nohighlight">\( C_i  \ ] \)</span> <span class="math notranslate nohighlight">\(\ &lt;= \)</span> <span class="math notranslate nohighlight">\(∑ \ [ W_i ] \ * \ 0.05\% \)</span> (물질 X 의 함유량 제약)<br />
-<span class="math notranslate nohighlight">\( \sum\ [ W_i ] \)</span>  =  (필요한 총 톤 수 제약)</p>
+<p><span class="math notranslate nohighlight">\( [ W_i \)</span>* <span class="math notranslate nohighlight">\( P_i  \ ] \)</span> <span class="math notranslate nohighlight">\(\ &lt;= \)</span> <span class="math notranslate nohighlight">\(∑ \ W_i \ * \ 0.05\% \)</span> (물질 X 의 함유량 제약)<br />
+<span class="math notranslate nohighlight">\( \sum\ W_i \)</span>  =  (필요한 총 톤 수 제약)</p>
 <p>이제 여과장은 각 업체의 물질 X 함유량 P 만 알면 위 선형계획법을 활용하여 최소비용으로 Alloy 를 생산하는 업체별 Scrap 투입량  W 를 알아낼 수 있습니다. 파이썬에서 선형계획법(Linear Programming) 은 PuLp 라이브러리에서 구현할 수 있습니다..</p>
 <p>문제는 어떻게  함유량 P1 ~ P10 를 알아내는냐입니다. 사실 이 문제를 푸는 방법은 여러가지가 있습니다. 여과장은 최소자승법으로 문제를 풀었는데요. 어떻게 풀었는지 함 보겠습니다.  만약 우리가 P1 ~ P10 을 알고 있다면 각 배치별 물질 X 의 총량은 아래와 같이 추정할 수 있을 것입니다. 그렇다면 추정치 함유량과 실제 함유량의 차이가 최소가 되는 P1 ~ P10 을 찾는 것입니다.</p>
 <img src="..\_images\함유량X.png" width="400" height="100"></section>

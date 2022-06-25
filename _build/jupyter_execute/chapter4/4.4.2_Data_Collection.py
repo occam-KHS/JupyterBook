@@ -53,7 +53,7 @@ plt.title('KOSDAQ Index Daily Return')
 
 # 저장된 Pickle 파일을 읽어서 첫 5 행 출력해 봅니다.
 
-# In[5]:
+# In[4]:
 
 
 kosdaq_index = pd.read_pickle('kosdaq_index.pkl') 

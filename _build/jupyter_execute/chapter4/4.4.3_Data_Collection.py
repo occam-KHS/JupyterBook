@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+# In[3]:
 
 
 import FinanceDataReader as fdr
@@ -15,12 +15,12 @@ pd.options.display.float_format = '{:,.3f}'.format
 # ### 종목별 일봉 데이터와 코스피 지수 데이터와 결합   
 # 앞에서 저장한 종목 리스트, 코스닥 종목별 주가 데이터와 지수 데이터를 읽습니다. 인덱스(날짜) 의 최소값과 최대값을 확인해 봅니다.
 
-# In[5]:
+# In[4]:
 
 
-price_data = pd.read_pickle('stock_data_from_fdr.pkl')
-kosdaq_index = pd.read_pickle('kosdaq_index.pkl')
-kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
+price_data = pd.read_pickle('stock_data_from_fdr.pkl') # 주가 정보
+kosdaq_index = pd.read_pickle('kosdaq_index.pkl') # 지수 정보
+kosdaq_list = pd.read_pickle('kosdaq_list.pkl') # 종목 정보
 
 print(price_data.index.min(), price_data.index.max())
 print(kosdaq_index.index.min(), kosdaq_index.index.max())
@@ -30,7 +30,7 @@ print(kosdaq_index.index.min(), kosdaq_index.index.max())
 # 
 # price_data 를 기준으로 kosdaq_index 데이터의 지수 수익율을 추가합니다. price_data 에 날짜를 Index 로 left merge 를 하면 주가지수 정보를 추가할 수 있습니다.
 
-# In[6]:
+# In[5]:
 
 
 merged = price_data.merge(kosdaq_index['kosdaq_return'], left_index=True, right_index=True, how='left')
@@ -44,7 +44,7 @@ merged.head().style.set_table_attributes('style="font-size: 12px"')
 # ```
 # 이 메소드는 np.where(조건, 조건이 참일 때 값, 조건이 거짓일 때 값)와 같이 처리를 합니다. 
 
-# In[7]:
+# In[6]:
 
 
 return_all = pd.DataFrame()
@@ -63,7 +63,7 @@ return_all.to_pickle('return_all.pkl')
 
 # <br> 값이 잘 들어갔는 지 head 메소드로 첫 번째 행 5 개를 출력해 봅니다.
 
-# In[8]:
+# In[7]:
 
 
 return_all = pd.read_pickle('return_all.pkl')  
@@ -72,7 +72,7 @@ return_all.head().style.set_table_attributes('style="font-size: 12px"')
 
 # 가설 검정 시 자세히 다루겠지만, win_market 의 비율과 종목별 수익율과의 관계를 간단하게 조사하겠습니다. 이번에 scatter plot 를 함 그려보겠습니다. Scatter plot 에는 x 축의 값과 y 축의 값을 인수로 넣어주면 됩니다. 그래프를 보니 두 값 사이에 상관성이 높아 보입니다. 
 
-# In[9]:
+# In[8]:
 
 
 plt.figure(figsize=(10,6))

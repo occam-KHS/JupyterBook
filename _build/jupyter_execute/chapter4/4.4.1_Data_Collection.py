@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[3]:
 
 
 import FinanceDataReader as fdr
@@ -21,7 +21,7 @@ pd.options.display.float_format = '{:,.3f}'.format
 # 가설 분석과 수익율 예측 모델링은 변동성이 큰 코스닥 종목만을 대상으로 하겠습니다. 
 # 가설검정을 위하여 과거 수 개월치의 일봉데이터가 필요합니다. 우선 데이터를 종목별로 가져오기 위해서 FinanceDataReader 의 Stocklisting 메소드에서 코스닥의 종목 코드와 정보를 불러옵니다.
 
-# In[13]:
+# In[4]:
 
 
 kosdaq_df = fdr.StockListing('KOSDAQ')
@@ -31,14 +31,14 @@ kosdaq_df.head().style.set_table_attributes('style="font-size: 12px"')
 # <br> 섹터가 정의되지 않은 종목과 2021년 1월 1일 이후 상장된 종목은 제외하겠습니다. 종 1422 개의 종목이 있습니다. 독자분이 책을 보시는 시점에는 종목 수가 바뀌어 있을 것입니다.    
 # kosdaq_df 에서 필요한 컬럼 'Symbol' 과 'Name' 두 개만 kosdaq_list 에 저장합니다. 그리고 종목코드 'Symbol' 과 'Name' 을 각 각 'code' 외 'name' 으로 바꿔줍니다. 그리고 나중을 위해서 결과물을 pickle 파일로 저장도 합니다.
 
-# In[3]:
+# In[5]:
 
 
 print(kosdaq_df['Symbol'].nunique())
 
-c1 = (kosdaq_df['ListingDate']>'2021-01-01')
-c2 = (kosdaq_df['Sector'].isnull())
-print(kosdaq_df[~c1 & ~c2]['Symbol'].nunique())
+c1 = (kosdaq_df['ListingDate']>'2021-01-01') # 2021년 1월 1일 이후 상장된 종목
+c2 = (kosdaq_df['Sector'].isnull()) # 섹터 값이 비어있음
+print(kosdaq_df[~c1 & ~c2]['Symbol'].nunique())  # c1 이 아니고 c2 가 아닌 종목의 갯 수
 
 kosdaq_list = kosdaq_df[~c1 & ~c2][['Symbol','Name','Sector']].rename(columns={'Symbol':'code','Name':'name','Sector':'sector'})
 kosdaq_list.to_pickle('kosdaq_list.pkl')
@@ -53,7 +53,7 @@ kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
 kosdaq_list['sector'].nunique()
 
 
-# <br> For Loop 에서 kosdaq_list 의 종목을 하나씩 불러서 DataReader 로 2021년 1월 3일부터 2022년 3월 31일까지 일봉데이터를 수집합니다. 
+# <br> For Loop 에서 kosdaq_list 의 종목코드와 종목이름을 하나씩 불러서 DataReader 로 2021년 1월 3일부터 2022년 3월 31일까지 일봉데이터를 수집합니다. 
 
 # In[5]:
 
@@ -80,7 +80,7 @@ price_data = pd.read_pickle('stock_data_from_fdr.pkl')
 price_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 
-# <br> 몇 개의 종목이 있고, 각 종목별 일봉의 갯 수 가 몇 개인지 확인해 보겠습니다. 종목 수는 1422 개, 307 개의 일봉이 있습니다.
+# <br> 몇 개의 종목이 있고, 각 종목별 일봉의 갯 수 가 몇 개인지 확인해 보겠습니다. 종목 수는 1417 개, 307 개의 일봉이 있습니다.
 
 # In[7]:
 
@@ -165,10 +165,4 @@ price_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 print(price_data['code'].nunique())
 print(price_data.groupby('code')['close'].count().agg(['min','max']))
-
-
-# In[ ]:
-
-
-
 

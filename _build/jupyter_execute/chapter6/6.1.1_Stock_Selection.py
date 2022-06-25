@@ -7,7 +7,7 @@
 # 오늘이 2022년 4월 1일라고 가정하고 어떤 종목들이 추천되는 지 보겠습니다. 4월1일 장 마감 후 프로그램을 돌려 추천 종목을 받고, 익일(4월 2일) 날 4월 1일의 종가에 매수를 하는 전략입니다.
 # 
 
-# In[1]:
+# In[2]:
 
 
 import FinanceDataReader as fdr
@@ -24,7 +24,7 @@ pd.options.display.float_format = '{:,.3f}'.format
 
 # <br> 오늘이 2022년 4월 1일라고 가정하고 어떤 종목들이 추천되는 지 보겠습니다. 먼저 오늘 기준으로 100 일전 날짜를 timedelta 를 이용해 찾습니다. 
 
-# In[2]:
+# In[3]:
 
 
 import datetime
@@ -36,7 +36,7 @@ print(start_dt, today_dt)
 
 # <br> 위 코드에서 찾은 시작일부터 오늘까지 종목별로 일봉을 가져와서 데이터셋을 구성합니다. 총 67 개의 일봉이 있습니다.
 
-# In[3]:
+# In[4]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -57,7 +57,7 @@ print(price_data.index.nunique())
 
 # <br> 주가지수 데이터를 가져오고, 일봉데이터에 추가합니다. 그리고 결과물을 merge 라는 이름으로 저장합니다.
 
-# In[4]:
+# In[5]:
 
 
 kosdaq_index = fdr.DataReader('KQ11', start = start_dt, end = today_dt) # 데이터 호출
@@ -69,7 +69,7 @@ kosdaq_index['kosdaq_return'] = kosdaq_index['close']/kosdaq_index['close'].shif
 merged = price_data.merge(kosdaq_index['kosdaq_return'], left_index=True, right_index=True, how='left')
 
 
-# In[5]:
+# In[7]:
 
 
 merged.to_pickle('merged.pkl')
@@ -77,7 +77,7 @@ merged.to_pickle('merged.pkl')
 
 # <br> 주가 지수 수익률과 종목별 수익율을 비교한 결과를 win_market 이라는 변수에 담습니다. 
 
-# In[6]:
+# In[8]:
 
 
 merged = pd.read_pickle('merged.pkl')
@@ -98,7 +98,7 @@ return_all.dropna(inplace=True)
 
 # <br> 데이터가 잘 생성되었는 지 확인해 봅니다.
 
-# In[17]:
+# In[9]:
 
 
 return_all.head().style.set_table_attributes('style="font-size: 12px"')
@@ -106,7 +106,7 @@ return_all.head().style.set_table_attributes('style="font-size: 12px"')
 
 # <br>  모델에 입력할 변수를 생성합니다.
 
-# In[7]:
+# In[10]:
 
 
 model_inputs = pd.DataFrame()
@@ -161,7 +161,7 @@ model_inputs.to_pickle('model_inputs.pkl')
 
 # <br> 모델에 입력할 변수를 생성하고 X 에 담습니다.
 
-# In[18]:
+# In[11]:
 
 
 # 최종 피처만으로 구성
@@ -174,7 +174,7 @@ X.head().style.set_table_attributes('style="font-size: 12px"')
 
 # <br> 저장한 GAM 모델을 불러 읽고, 입력변수를 넣어 예측값을 생성합니다. 입력변수의 순서는 모델에 사용한 입력변수와 동일해야 합니다. X 라는 데이터 프레임에 예측값 yhat 이 추가되었습니다.
 
-# In[19]:
+# In[12]:
 
 
 import pickle
@@ -188,26 +188,24 @@ X.head().style.set_table_attributes('style="font-size: 12px"')
 
 # <br> 어떤 종목이 높은 스코어를 받았는지 궁금합니다. 스코어의 내림차순 정렬한 후 종목을 확인해 봅니다. 
 
-# In[20]:
+# In[13]:
 
 
 X.sort_values(by='yhat', ascending=False).head(5).style.set_table_attributes('style="font-size: 12px"')
 
 
-# <br> 그리고 필터링을 적용해서 최종 종목을 선정합니다. 최종적으로 6 개의 종목이 선정되었습니다. 우리는 4월 1일 이후에 주가 흐름을 알고 있습니다. 4월 2일이후 데이터를 추가하여 선택된 종목들이 유의미한지 점검해 보겠습니다.
+# <br> 그리고 필터링을 적용해서 최종 종목을 선정합니다. 최종적으로 5 개의 종목이 선정되었습니다. 우리는 4월 1일 이후에 주가 흐름을 알고 있습니다. 4월 2일이후 데이터를 추가하여 선택된 종목들이 유의미한지 점검해 보겠습니다.
 
-# In[21]:
+# In[15]:
 
 
 tops = X[X['yhat'] >= 0.3].copy() # 스코어 0.3 이상 종목만 
 print(len(tops))
-tops['return_rank']  = pd.qcut(tops['return'], q=3, labels=range(3)) # 종가 수익률
-tops['price_rank']  = pd.qcut(tops['price_z'], q=3, labels=range(3)) # 가격 변동성
-select_tops = tops[ (tops['return_rank']==2) & (tops['price_rank']==0)][['name','return_rank','price_rank','yhat']]
+select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)][['name','return','price_z','yhat','return']]          
 select_tops.style.set_table_attributes('style="font-size: 12px"')
 
 
-# In[14]:
+# In[16]:
 
 
 outcome_data = pd.DataFrame()
@@ -242,7 +240,7 @@ for code in list(select_tops.index):  # 스코어가 생성된 모든 종목에�
 
 # <br> 최종 선정된 종목 데이터에 결과 데이터를 병합합니다. 두 데이터셋의 인덱스는 종목이어야 병합이 가능합니다. 5% 익절할 확률은 83.3% 로 높게 나왔습니다. 최저 수익률의 평균은 .98 로 리스크도 비교적 낮은 것으로 보입니다. 2022년 4월 1일 매수한 종목은 수익권으로 예상이 됩니다. 물론 모든 날짜에 대하여 동일한 결과가 나오지는 않습니다. 
 
-# In[15]:
+# In[17]:
 
 
 outcome = outcome_data.loc[today_dt][['code','buy','buy_price','buy_low','buy_high','max_close','mean_close','min_close','target']].set_index('code')
@@ -250,16 +248,30 @@ select_outcome = tops.merge(outcome, left_index=True, right_index=True, how='inn
 select_outcome[['yhat','buy','target','max_close','mean_close','min_close']].mean()
 
 
-# <br> buy 는 4월 1일 종가에 4월 2일 매수할 수 있는 기회가 있는 지를 알려주는 Flag 입니다. 한일단조나 CSA 코스믹은 4월 1일 종가에 살 수 있는 기회가 없습니다.
+# <br> buy 는 4월 1일 종가에 4월 2일 매수할 수 있는 기회가 있는 지를 알려주는 Flag 입니다. CSA 코스믹은 4월 1일 종가에 살 수 있는 기회가 없습니다.
 
-# In[22]:
+# In[18]:
 
 
 select_outcome[['name','buy','buy_price', 'buy_low','buy_high','yhat','max_close','mean_close','min_close']].style.set_table_attributes('style="font-size: 12px"')
 
 
-# 
-# 2022년 4월 1일 추천받은 종목 중, CSA 코스믹과 에디슨 INNO 의 일봉 차트를 보겠습니다. CSA 코스믹은 전일 종가로 당일 매수가 불가능합니다. 2022년 4월 2일 갭상승으로 시작을 했습니다.  에디슨 INNO 는 4월 2일 매수 후 익절할 기회를 제공하고 있습니다.
+# 2022년 4월 1일 추천받은 종목들의 일봉 차트를 보겠습니다. CSA 코스믹은 전일 종가로 당일 매수가 불가능합니다. 2022년 4월 2일 갭상승으로 시작을 했습니다.  에디슨 INNO 는 4월 2일 매수 후 익절할 기회를 제공하고 있습니다.
+
+# <br> **한일단조**           
+# <img src="../_images/Hanil.PNG" width="500" height="400"></img>
+
+# <br>**장원테크**            
+# <img src="../_images/JangWon.PNG" width="500" height="400"></img>
+
+# <br>**에디슨INNO**             
+# <img src="../_images/Eddison.PNG" width="500" height="400"></img>
+
+# <br>**서진오토모티브**             
+# <img src="../_images/SeoJin.PNG" width="500" height="400"></img>
+
+# <br>**CSA 코스믹**           
+# <img src="../_images/CSA.PNG" width="500" height="400"></img>
 
 # In[ ]:
 

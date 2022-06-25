@@ -18,7 +18,7 @@ import glob
 
 # <br> 이번에는 익절/손절라인을 결정할 수 있는 예측모델을 만들어 보겠습니다. 먼저 피쳐가 있는 데이터를 불러옵니다. 
 
-# In[2]:
+# In[7]:
 
 
 feature_all = pd.read_pickle('feature_all.pkl') 
@@ -29,7 +29,7 @@ print(f'% of target:{target: 5.1%}')
 
 # <br> 날짜와 종목을 인덱스로 설정합니다. 데이터에 예측모델을 적용하고 매수 대상 종목을 select_top 이라는 DataFrame 에 저장합니다. 
 
-# In[4]:
+# In[8]:
 
 
 mdl_all = feature_all.set_index([feature_all.index,'code'])
@@ -48,23 +48,20 @@ mdl_all['yhat'] = yhat
 
 tops = mdl_all[mdl_all['yhat'] > 0.3].copy()
 
-tops['return_rank']  = pd.qcut(tops['return'], q=3, labels=range(3)) # 종가 수익률
-tops['price_rank']  = pd.qcut(tops['price_z'], q=3, labels=range(3)) # 가격 변동성
-
-select_tops = tops[(tops['return_rank']==2) & (tops['price_rank']==0)]
+select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)]
 
 
 # <br> 최저 기대 수익율과 피쳐와의 상관계수를 조사합니다. 예상하지 못햇던 사실은 5 영업일 동안 최저 기대 수익률은 종목보다는 지수 수익률과 더 상관관계가 높습니다. 
 
-# In[5]:
+# In[9]:
 
 
 select_tops[['return','kosdaq_return','min_close']].corr()
 
 
-# <br> 'kosdaq_return' 에 따른 최저 기대 수익률의 평균을 구해봅니다. 그래프를 보니 'kosdaq_return'(코스닥 지수 수익률)이 1.01 이하에서는 'kosdaq_return' 과 최저 기대수익률과 양의 상관관계가 높은 것으로 나타납니다. 
+# <br> 'kosdaq_return' 에 따른 최저 기대 수익률의 평균을 구해봅니다. 그래프를 보니 'kosdaq_return'(코스닥 지수 수익률)이 최저 기대수익률과 양의 상관관계가 높은 것으로 나타납니다. 
 
-# In[6]:
+# In[10]:
 
 
 ranks = pd.qcut(select_tops['kosdaq_return'], q=5)
@@ -74,7 +71,7 @@ select_tops.groupby(ranks)['min_close'].mean().plot()
 
 # <br> 'kosdaq_return' 값에 따라 아래와 같이 익절/손절 라인을 변동할 수 있도록 합니다. 아래 함수는 익절 수익률과 손절 수익률을 딕셔너리로 반환합니다.
 
-# In[7]:
+# In[11]:
 
 
 def profit_loss_cut(x):
@@ -91,7 +88,7 @@ def profit_loss_cut(x):
 
 # <br> 종목, 매수가 익절/손절라인 반환하는 함수를 만듭니다.
 
-# In[8]:
+# In[15]:
 
 
 def select_stocks_sell(today_dt):
@@ -194,12 +191,9 @@ def select_stocks_sell(today_dt):
     X['yhat'] = yhat
 
     tops = X[X['yhat'] >= 0.3].sort_values(by='yhat', ascending=False) # 스코어 0.3 이상 종목만 
-    print(len(tops))
-    
-    tops['return_rank']  = pd.qcut(tops['return'], q=3, labels=range(3)) # 종가 수익률
-    tops['price_rank']  = pd.qcut(tops['price_z'], q=3, labels=range(3)) # 가격 변동성
-   
-    select_tops = tops[(tops['return_rank']==2) & (tops['price_rank']==0)][['name','return_rank','price_rank','yhat','return', 'kosdaq_return','close']]     
+    print(len(tops))    
+  
+    select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)][['name','return','price_z','yhat','return', 'kosdaq_return','close']]       
     
     #  코스닥 지수에 따라 익절/손절 라인 변경    
     cuts = select_tops['kosdaq_return'].apply(profit_loss_cut)
@@ -214,19 +208,21 @@ def select_stocks_sell(today_dt):
         return None
 
 
-# In[9]:
+# <br> 6월 13일 추천종목을 리스트를 추출합니다.
+
+# In[16]:
 
 
 results = select_stocks_sell('2022-06-13')
 
 
-# In[13]:
+# In[17]:
 
 
-results.head().style.set_table_attributes('style="font-size: 12px"')
+results.head(5).style.set_table_attributes('style="font-size: 12px"')
 
 
-# In[11]:
+# In[18]:
 
 
 select_dict = {}
@@ -235,7 +231,7 @@ for code in list(results.index):
     select_dict[code] = [s['name'], s['close'], s['profit_cut'], s['loss_cut']]    
 
 
-# In[12]:
+# In[19]:
 
 
 select_dict

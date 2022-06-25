@@ -3,14 +3,14 @@
 
 # ### 해결책 테스트    
 # 
-# 오늘 날짜만 입력하면 내일 매수할 종목이 추천되도록 함수를 구현합니다. 임의 날짜를 넣어서 테스트 해 봅니다. 이 책에서는 2022년 4월 1일, 2022년 4월 18일,  2022년 5월 2일, 2022년 5월 9일, 2022년 5월 25일,  2022년 6월 2일에 대하여 종목 선정 및 결과 수익률을 테스트 해 보았습니다.  모델을 개발하는데 사용한 날짜는 모델 검증 용도로 적절하지 않습니다. 왜냐하면 개발에서 사용한 데이터는 모델이 좋은 성과가 나오도록 최적화되어 있기 때문입니다.  참고로 모델 개발은 2021년 1월 4일부터 2022년 3월 24일까지 데이터가 사용되었습니다. 
+# 오늘 날짜만 입력하면 내일 매수할 종목이 추천되도록 함수를 구현합니다. 임의 날짜를 넣어서 테스트 해 봅니다. 이 책에서는 2022년 4월 1일, 2022년 4월 18일,  2022년 5월 2일, 2022년 5월 9일, 2022년 5월 25일,  2022년 6월 2일, 6월 16일에 대하여 종목 선정 및 결과 수익률을 테스트 해 보았습니다.  모델을 개발하는데 사용한 날짜는 모델 검증 용도로 적절하지 않습니다. 왜냐하면 개발에서 사용한 데이터는 모델이 좋은 성과가 나오도록 최적화되어 있기 때문입니다.  참고로 모델 개발은 2021년 1월 4일부터 2022년 3월 24일까지 데이터가 사용되었습니다. 
 # 
 # 이제 종목을 추천하는 프로세스를 완성했습니다. 장 마감 후 종목 추천을 받아 익일 증권사 API  를 이용해서 자동매매를 구현하고 한 달 동안의 수익이 어떤지 검증해 보겠습니다. 홈트레이딩 시스템에도 자동매매가 가능합니다. 책에서 구현할 자동매매는 홈트레이딩 감시 매매 설정으로도 충분히 가능합니다. 
 # 
 # 실전에서는 HTS 에서 제공하는 예약 매수기능과 매도 감시기능을 이용하는 것리 편리합니다. HTS 를 활용하여 자동으로 매수 매도가 가능합니다. 
 # 
 
-# In[1]:
+# In[53]:
 
 
 import FinanceDataReader as fdr
@@ -25,7 +25,7 @@ import glob
 
 # <br> 추전 종목을 만드는 여러 개의 프로세스를 하나의 함수로 만들었습니다. 
 
-# In[2]:
+# In[54]:
 
 
 def select_stocks(today_dt):
@@ -128,13 +128,10 @@ def select_stocks(today_dt):
     X['yhat'] = yhat
 
     tops = X[X['yhat'] >= 0.3].sort_values(by='yhat', ascending=False) # 스코어 0.3 이상 종목만 
-    print(len(tops))
-    
-    tops['return_rank']  = pd.qcut(tops['return'], q=3, labels=range(3)) # 종가 수익률
-    tops['price_rank']  = pd.qcut(tops['price_z'], q=3, labels=range(3)) # 가격 변동성
-   
-    select_tops = tops[(tops['return_rank']==2) & (tops['price_rank']==0)][['name','return_rank','price_rank','yhat','return', 'kosdaq_return','close']]     
-    
+    print(len(tops))    
+     
+    select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)][['name','return','price_z','yhat','return', 'kosdaq_return','close']]     
+      
     if len(select_tops) > 1: # 최소한 2개 종목 - 추천 리스크 분산        
         return select_tops    
     
@@ -144,7 +141,7 @@ def select_stocks(today_dt):
 
 # <br> 수익률 검정하는 프로세스를 하나의 함수로 구현합니다.
 
-# In[3]:
+# In[55]:
 
 
 def outcome_tops(select_tops, today_dt, end_dt):   
@@ -180,9 +177,9 @@ def outcome_tops(select_tops, today_dt, end_dt):
 
 
 # <br> **2022년 4월 1일 - 종목 선정 및 수익률 테스트**   
-# 상당이 고무적입니다. CJ 프레시웨이를 제외한 모든 종목이 익절이 가능합니다. 단 CSA 코스믹은 전일 종가로 당일 매수가 불가능합니다. 2022년 4월 2일 갭상승으로 시작을 했습니다.
+# 상당이 고무적입니다. 모든 종목이 익절이 가능합니다. 단 CSA 코스믹은 전일 종가로 당일 매수가 불가능합니다. 2022년 4월 2일 갭상승으로 시작을 했습니다.
 
-# In[4]:
+# In[26]:
 
 
 select_tops = select_stocks('2022-04-01')
@@ -193,9 +190,9 @@ results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px
 
 
 # <br> **2022년 4월 18일 - 종목 선정 및 수익률 테스트**    
-# 4 월 18일은 추천 종목이 없습니다.
+# 4 월 18일은 인성정보는 수익권, 웨이버스는 손절로 대응이 필요합니다. 
 
-# In[ ]:
+# In[27]:
 
 
 select_tops = select_stocks('2022-04-18')
@@ -208,7 +205,7 @@ results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px
 # <br> **2022년 5월 2일 - 종목 선정 및 수익률 테스트**    
 # 미래생명자원은 매수 후, 주가가 하락하는 것으로 나왔습니다. 다행이 급락 종목은 아니여서 손절로 대응하는 것이 좋을 것으로 판단됩니다.
 
-# In[6]:
+# In[29]:
 
 
 select_tops = select_stocks('2022-05-02')
@@ -220,9 +217,9 @@ results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px
 
 
 # <br> **2022년 5월 9일 - 종목 선정 및 수익률 테스트**    
-# 'buy' 가 0 인 종목은 갭상이나 갭하락으로 전일 종가에 매수할 기회가 없는 종목을 의미합니다. 'buy' 가 1 인 종목만 보겠습니다. 이상네크웍스와 코맥스는 수익을 내기 어려웠을 것으로 판단됩니다.
+# 5월 9일은 추천종목이 없습니다.
 
-# In[7]:
+# In[ ]:
 
 
 select_tops = select_stocks('2022-05-09')
@@ -234,9 +231,9 @@ results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px
 
 
 # <br> **2022년 5월 25일 - 종목 선정 및 수익률 테스트**   
-# SBI핀테크솔류션즈는 전일 종가로 당일 매수가 불가능합니다. 장이 좋을 때는 전일 종가보다 몇 호가 높게 매수하여 매수할 수 있는 종목을 늘리는 것도 고려할 만 합니다. 지더블유바이텍과 아이에스이커머스도 5영업일이내 익절이 가능할 것으로 보입니다.
+# 지더블유바이텍과 아이에스이커머스는 5영업일이내 익절이 가능할 것으로 보입니다. 조이시티와 상지카일룸은 대응이 필요합니다.
 
-# In[8]:
+# In[34]:
 
 
 select_tops = select_stocks('2022-05-25')
@@ -248,9 +245,9 @@ results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px
 
 
 # <br> **2022년 6월 2일 - 종목 선정 및 수익률 테스트**   
-# 모든 종목이 익절이 가능할 것으로 보입니다.
+# 토탈소프트를 제외한 모든 종목이 익절이 가능할 것으로 보입니다.
 
-# In[9]:
+# In[35]:
 
 
 select_tops = select_stocks('2022-06-02')
@@ -259,4 +256,35 @@ if select_tops is not None:
     results = outcome_tops(select_tops, '2022-06-02', '2022-06-10') # 5 영업일 (6월 6일 현충일)
     
 results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px"')
+
+
+# <br> **2022년 6월 16일 - 종목 선정 및 수익률 테스트**   
+# 2022년 6월 16일 추천종목은 20 종목이 넘습니다. 종목은 모델 스코어가 높은 5 종목만 선택하도록 하겠습니다. 한탑, 에이에프더블류, 베셀이 매수가 가능했습니다. 익절 가능할 것으로 예상됩니다.
+
+# In[49]:
+
+
+select_tops = select_stocks('2022-06-16')
+
+if select_tops is not None:
+    results = outcome_tops(select_tops, '2022-06-16', '2022-06-23') # 5 영업일 (6월 6일 현충일)
+    
+results.sort_values(by=['buy','yhat'], ascending=False).head(5).style.set_table_attributes('style="font-size: 12px"')
+
+
+# In[57]:
+
+
+select_tops = select_stocks('2022-06-13')
+
+if select_tops is not None:
+    results = outcome_tops(select_tops, '2022-06-13', '2022-06-20') # 5 영업일 (6월 6일 현충일)
+    
+results.sort_values(by=['buy','yhat'], ascending=False).head(5).style.set_table_attributes('style="font-size: 12px"')
+
+
+# In[ ]:
+
+
+
 

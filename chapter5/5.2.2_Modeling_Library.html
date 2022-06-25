@@ -835,21 +835,16 @@ title="Print to PDF"
 <span class="n">feature_all</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">feature_all</span><span class="p">[</span><span class="s1">&#39;max_close&#39;</span><span class="p">]</span><span class="o">&gt;=</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">target</span> <span class="o">=</span> <span class="n">feature_all</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;% of target:</span><span class="si">{</span><span class="n">target</span><span class="si">:</span><span class="s1"> 5.1%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">mdl_all</span> <span class="o">=</span> <span class="n">feature_all</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="n">feature_all</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">])</span>
+
+<span class="n">train</span> <span class="o">=</span> <span class="n">mdl_all</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">124</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">mdl_all</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">mdl_all</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>% of target: 24.3%
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mdl_all</span> <span class="o">=</span> <span class="n">feature_all</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="n">feature_all</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">])</span>
-
-<span class="n">train</span> <span class="o">=</span> <span class="n">mdl_all</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">124</span><span class="p">)</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">mdl_all</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">mdl_all</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -860,8 +855,8 @@ title="Print to PDF"
 <p>아래 코드는 Statsmodels 라이브러리에 대한 이해가 목적입니다. Statsmodels 는 전통적인 통계모델을 구현하는데 주로 활용하는데요. 통계모델의 장점은 변수의 해석이 가능하다는 것입니다. 아래 코드는 랜덤해게 뽑은 5천개의 샘플로 모델을 만들고, 나머지 데이터로 모델 성능을 테스트하는 과정입니다. 모델 개발은 여기서부터 시작입니다.  결과를 보면 P Value(P&gt;|z|) 가 0.01(유의수준) 보다 큰 변수가 많은데요. P Value(P&gt;|z|) 가 유의수준보다 크다는 이야기는 coefficient 가 0 일 가능성이 높다는 말이고, Coefficient 가 0 이라는 말은 예측에 도움을 안 준다는 말입니다. 이런 변수들은 적절한 변형을 통하여 유의미하게 만들거나 제거해야 합니다. 가장 대표적인 방법이 Binning 입니다. 이 절은 라이브러리를 소개하는 것이 목적이라, 모델 완성을 위한 나머지 과정은 생략하도록 하겠습니다. 제가 통계모델의 장점으로 해석을 언급했는데요. 아직 모델이 완성되지 않았지만, 변수 ‘volume_z’ 를 해석해 보도록 하겠습니다. ‘volume_z’ 는 과거 20일대비 당일 거래량이 얼마나 많은 지를 의미하는 변수입니다. ‘volume_z’ 가 1 증가하면 log(odds) 는 그 변수의 계수 0.1765 만큼 증가하게 됩니다. 즉, odds 는 exp(0.1765) 증가하게 됩니다. 풀어서 이야기하면, 전일 20일 대비 당일 거래량 표준화 값 z 가  1 증가할 때마다, 5% 로 익절할 odds(=p/1-p)는 exp(0.1765) 증가한다고 말할 수 있습니다.</p>
 <p>모델을 완성하기까지 필요한 나머지 절차는 아래와 같습니다.</p>
 <ol class="simple">
-<li><p>각 설명변수와 타겟변수와 관계를 분석합니다 (변수가 상호작용 여부 체크)</p></li>
-<li><p>선형적인 관계가 없는 변수는 binning 등을 통해 문제를 해결합니다.</p></li>
+<li><p>각 설명변수와 타겟변수와 관계를 분석합니다 (변수간에 상호작용 강한 지 체크)</p></li>
+<li><p>선형적인 관계가 없는 변수는 binning 등을 통해 문제를 해결합니다. 혹은 제곱근, 제곱, 로그 등의 변형으로 선형적으로 만들 수 도 있습니다.</p></li>
 <li><p>다중 공선성이 의심되는 변수는 제거하거나 새로운 변수로 대체합니다. (다중 공선성이 높은 모델은 변수의 해석이 부정확함)</p></li>
 <li><p>테스트 데이터셋과 예측성능을 비교합니다 (오버피팅 여부 확인).</p></li>
 <li><p>변수를 해석하고 예측값을 만듭니다.</p></li>
@@ -892,29 +887,29 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
-         Current function value: 0.553318
+         Current function value: 0.549822
          Iterations 6
                            Logit Regression Results                           
 ==============================================================================
 Dep. Variable:                 target   No. Observations:                10000
 Model:                          Logit   Df Residuals:                     9991
 Method:                           MLE   Df Model:                            8
-Date:                Mon, 13 Jun 2022   Pseudo R-squ.:                0.009004
-Time:                        07:53:17   Log-Likelihood:                -5533.2
-converged:                       True   LL-Null:                       -5583.5
-Covariance Type:            nonrobust   LLR p-value:                 3.295e-18
+Date:                Sun, 26 Jun 2022   Pseudo R-squ.:                 0.01089
+Time:                        05:30:08   Log-Likelihood:                -5498.2
+converged:                       True   LL-Null:                       -5558.7
+Covariance Type:            nonrobust   LLR p-value:                 2.047e-22
 ======================================================================================
                          coef    std err          z      P&gt;|z|      [0.025      0.975]
 --------------------------------------------------------------------------------------
-const                -13.9964      6.882     -2.034      0.042     -27.485      -0.508
-price_z               -0.0764      0.020     -3.738      0.000      -0.116      -0.036
-volume_z               0.1528      0.023      6.597      0.000       0.107       0.198
-num_high/close         0.1225      0.059      2.084      0.037       0.007       0.238
-num_long               0.2777      0.154      1.800      0.072      -0.025       0.580
-num_z&gt;1.96             0.0285      0.013      2.204      0.028       0.003       0.054
-num_win_market         0.0223      0.009      2.411      0.016       0.004       0.040
-pct_win_market        14.4430      6.874      2.101      0.036       0.970      27.915
-return over sector    -1.8277      0.812     -2.252      0.024      -3.418      -0.237
+const                -24.3868      6.812     -3.580      0.000     -37.739     -11.035
+price_z               -0.1266      0.021     -6.156      0.000      -0.167      -0.086
+volume_z               0.1491      0.024      6.255      0.000       0.102       0.196
+num_high/close         0.1396      0.058      2.411      0.016       0.026       0.253
+num_long              -0.1293      0.172     -0.752      0.452      -0.466       0.208
+num_z&gt;1.96             0.0257      0.013      1.982      0.047       0.000       0.051
+num_win_market         0.0251      0.009      2.722      0.006       0.007       0.043
+pct_win_market        23.8495      6.797      3.509      0.000      10.527      37.172
+return over sector    -0.8839      0.835     -1.058      0.290      -2.521       0.753
 ======================================================================================
 </pre></div>
 </div>
@@ -937,37 +932,37 @@ return over sector    -1.8277      0.812     -2.252      0.024      -3.418      
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                count  mean
 yhat                       
-(0.159, 0.204]   1000 0.182
-(0.204, 0.214]   1000 0.215
-(0.214, 0.223]   1000 0.251
-(0.223, 0.23]    1000 0.195
-(0.23, 0.239]    1000 0.245
-(0.239, 0.247]   1000 0.238
-(0.247, 0.257]   1000 0.228
-(0.257, 0.271]   1000 0.274
-(0.271, 0.296]   1000 0.284
-(0.296, 0.58]    1000 0.352
-                count  mean
-yhat                       
-(0.144, 0.203]  32019 0.178
-(0.203, 0.214]  32019 0.202
-(0.214, 0.223]  32018 0.213
-(0.223, 0.231]  32019 0.222
-(0.231, 0.239]  32018 0.227
-(0.239, 0.247]  32019 0.239
-(0.247, 0.258]  32018 0.252
-(0.258, 0.272]  32019 0.263
-(0.272, 0.296]  32018 0.293
-(0.296, 0.688]  32019 0.337
+(0.138, 0.192]   1000 0.204
+(0.192, 0.206]   1000 0.173
+(0.206, 0.218]   1000 0.236
+(0.218, 0.227]   1000 0.225
+(0.227, 0.237]   1000 0.208
+(0.237, 0.248]   1000 0.228
+(0.248, 0.259]   1000 0.240
+(0.259, 0.275]   1000 0.266
+(0.275, 0.302]   1000 0.303
+(0.302, 0.637]   1000 0.359
+                              count  mean
+yhat                                     
+(0.11699999999999999, 0.192]  31931 0.195
+(0.192, 0.205]                31931 0.198
+(0.205, 0.216]                31930 0.212
+(0.216, 0.226]                31931 0.221
+(0.226, 0.236]                31931 0.225
+(0.236, 0.247]                31930 0.230
+(0.247, 0.259]                31931 0.248
+(0.259, 0.275]                31930 0.260
+(0.275, 0.302]                31931 0.292
+(0.302, 0.728]                31931 0.349
 </pre></div>
 </div>
-<img alt="../_images/5.2.2_Modeling_Library_8_1.png" src="../_images/5.2.2_Modeling_Library_8_1.png" />
+<img alt="../_images/5.2.2_Modeling_Library_7_1.png" src="../_images/5.2.2_Modeling_Library_7_1.png" />
 </div>
 </div>
 </section>
 <section id="sk-learn-logistic-regression">
 <h1>SK-Learn - Logistic Regression<a class="headerlink" href="#sk-learn-logistic-regression" title="Permalink to this headline">#</a></h1>
-<p>Scikit-Learn 에서도 Logistic Regression 을 지원합니다. 하지만 계수를 추정하는 방식이 Statsmodels 과는 다른데요. Scikit-Learn Logistic Regression 은 loss 함수를 만들고, 과대적합을 해결하기 위해 penalty term (L1/L2) 도 추가합니다. 이런 방식으로 Penalty Term 이 있는 Loss 함수를 최소화하는 방식을 계수를 찾을 때는 입력 피처의 스케일이 동일해야 의미가 있습니다. 아래 코드에서 입력 피쳐를 Scaling 하는 부분이 반드시 들어가야 합니다. 아래 Test 데이터의 결과가 Train 데이터보다 모델성능이 많이 떨어지는 데요. 즉 overfitting(과대적합)된 상황입니다.</p>
+<p>Scikit-Learn 에서도 Logistic Regression 을 지원합니다. 하지만 계수를 추정하는 방식이 Statsmodels 과는 다른데요. Scikit-Learn Logistic Regression 은 loss 함수를 만들고, 과대적합을 해결하기 위해 penalty term (L1/L2) 도 추가합니다. 이런 방식으로 Penalty Term 이 있는 Loss 함수를 최소화하는 방식을 계수를 찾을 때는 입력 피처의 스케일이 동일해야 의미가 있습니다. 아래 코드에서 입력 피쳐를 Scaling 하는 부분이 반드시 들어가야 합니다. 아래 Test 데이터의 결과가 Train 데이터보다 모델성능의 차이가 크지는 않습니다. 즉 overfitting(과대적합)이 심하지는 않아 보입니다.</p>
 <p>SK-Learn 으로 만드는 모델은 절차가 아래와 같습니다.</p>
 <ol class="simple">
 <li><p>입력 피처 스케일링 (Loss 함수 + Penalty Term 로 훈련하는 모델만 해당)</p></li>
@@ -994,7 +989,7 @@ yhat
 <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
-<span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 정해진 하이퍼파라미터를 가진 객체를 생성</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 정해진 하이퍼파라미터를 가진 객체를 생성, C 값은 다중 공선성을 제거하기 위한 페널티의 가중치이며 디폴트는 L2(Ridge) 페널티</span>
 <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
 <span class="n">yhat</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
@@ -1006,8 +1001,8 @@ yhat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.0688501   0.14416558  0.13212602  0.30913545  0.03966044  0.02995417
-   0.30028913 -1.09230966]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.10997133  0.14023527  0.15290205 -0.03634754  0.04334864  0.03748485
+   0.51234537 -0.51150234]]
 </pre></div>
 </div>
 </div>
@@ -1023,37 +1018,37 @@ yhat
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                count  mean
 yhat                       
-(0.159, 0.204]   1000 0.182
-(0.204, 0.214]   1000 0.215
-(0.214, 0.223]   1000 0.251
-(0.223, 0.23]    1000 0.195
-(0.23, 0.239]    1000 0.245
-(0.239, 0.247]   1000 0.238
-(0.247, 0.257]   1000 0.228
-(0.257, 0.271]   1000 0.274
-(0.271, 0.296]   1000 0.284
-(0.296, 0.58]    1000 0.352
+(0.142, 0.194]   1000 0.175
+(0.194, 0.208]   1000 0.201
+(0.208, 0.219]   1000 0.224
+(0.219, 0.228]   1000 0.236
+(0.228, 0.238]   1000 0.217
+(0.238, 0.248]   1000 0.234
+(0.248, 0.26]    1000 0.270
+(0.26, 0.275]    1000 0.249
+(0.275, 0.3]     1000 0.294
+(0.3, 0.632]     1000 0.342
                 count  mean
 yhat                       
-(0.144, 0.203]  32019 0.178
-(0.203, 0.214]  32019 0.202
-(0.214, 0.223]  32018 0.213
-(0.223, 0.231]  32019 0.222
-(0.231, 0.239]  32018 0.227
-(0.239, 0.247]  32019 0.239
-(0.247, 0.258]  32018 0.252
-(0.258, 0.272]  32019 0.263
-(0.272, 0.296]  32018 0.293
-(0.296, 0.688]  32019 0.337
+(0.126, 0.194]  31931 0.187
+(0.194, 0.207]  31931 0.207
+(0.207, 0.218]  31930 0.217
+(0.218, 0.228]  31931 0.218
+(0.228, 0.237]  31931 0.226
+(0.237, 0.247]  31930 0.235
+(0.247, 0.259]  31931 0.254
+(0.259, 0.274]  31930 0.258
+(0.274, 0.299]  31931 0.289
+(0.299, 0.652]  31931 0.338
 </pre></div>
 </div>
-<img alt="../_images/5.2.2_Modeling_Library_11_1.png" src="../_images/5.2.2_Modeling_Library_11_1.png" />
+<img alt="../_images/5.2.2_Modeling_Library_10_1.png" src="../_images/5.2.2_Modeling_Library_10_1.png" />
 </div>
 </div>
 </section>
 <section id="sk-learn-random-forerst">
 <h1>SK-learn - Random Forerst<a class="headerlink" href="#sk-learn-random-forerst" title="Permalink to this headline">#</a></h1>
-<p>Random Forest 는 Scikit-Learn 에서 인기있는 모델인데요. Decision-Tree(의사결정나무)의 문제점을 보완하고자 나온 개념입니다. 모델을 훈련시키기 위한 loss 함수와 Penalty term 이 없기 때문에 피쳐 스케일링이 불필요해서 쉽게 모델을 만들어 볼 수 있습니다.
+<p>Random Forest 는 Scikit-Learn 에서 인기있는 모델인데요. Decision-Tree(의사결정나무)의 문제점을 보완하고자 나온 개념입니다. 모델을 훈련시키기 위한 loss 함수와 Penalty term 이 없기 때문에 피쳐 스케일링이 불필요해서 쉽게 모델을 만들어 볼 수 있습니다. 보통 모델의 최소성능을 파악하기 위해 먼저 만들어보는 모델입니다.
 sklearn 의 ensemble(앙상블) 모델군에서 RandomForestClassifier 을 불러옵니다. 그 다음 정해진 하이퍼파라미터(hyperparameter)를 가진 객체를 하나 생성합니다. 여기서 어떤 하이퍼파라미터로 객체를 생성하는가에 따라 모델의 성능이 결정되므로, 하이퍼파라미터 튜닝이라 절차가 필요합니다. 보통 최적의 하이퍼파라미터는 Grid Search 로 찾습니다. 그리고 fit 를 이용해서 데이터를 적용하면 됩니다. 예측값 생성은 predict 함수나 predict_proba 함수로 할 수 있는데요. predict 함수는 0/1 값을 리턴하고, predict_proba 함수는 ‘0 일 확률’/’1 일 확률’을 리턴합니다. 각 피처의 중요도를 그래프로 파악해보겠습니다. 이전 모델들에 비해 예측성능이 좋습니다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1086,7 +1081,7 @@ sklearn 의 ensemble(앙상블) 모델군에서 RandomForestClassifier 을 불�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5.2.2_Modeling_Library_13_0.png" src="../_images/5.2.2_Modeling_Library_13_0.png" />
+<img alt="../_images/5.2.2_Modeling_Library_12_0.png" src="../_images/5.2.2_Modeling_Library_12_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1100,31 +1095,31 @@ sklearn 의 ensemble(앙상블) 모델군에서 RandomForestClassifier 을 불�
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                count  mean
 yhat                       
-(0.167, 0.204]   1000 0.122
-(0.204, 0.211]   1000 0.177
-(0.211, 0.219]   1000 0.183
-(0.219, 0.228]   1000 0.202
-(0.228, 0.237]   1001 0.219
-(0.237, 0.247]    999 0.232
-(0.247, 0.259]   1000 0.273
-(0.259, 0.276]   1000 0.292
-(0.276, 0.306]   1000 0.316
-(0.306, 0.469]   1000 0.448
+(0.167, 0.203]   1000 0.131
+(0.203, 0.212]   1000 0.152
+(0.212, 0.218]   1000 0.182
+(0.218, 0.226]   1000 0.209
+(0.226, 0.233]   1000 0.221
+(0.233, 0.242]   1000 0.241
+(0.242, 0.255]   1000 0.263
+(0.255, 0.274]   1000 0.295
+(0.274, 0.304]   1000 0.313
+(0.304, 0.469]   1000 0.435
                 count  mean
 yhat                       
-(0.165, 0.204]  32022 0.155
-(0.204, 0.21]   32020 0.176
-(0.21, 0.218]   32014 0.192
-(0.218, 0.228]  32019 0.208
-(0.228, 0.236]  32019 0.219
-(0.236, 0.246]  32018 0.237
-(0.246, 0.259]  32018 0.261
-(0.259, 0.277]  32019 0.289
-(0.277, 0.307]  32018 0.319
-(0.307, 0.474]  32019 0.368
+(0.164, 0.203]  31932 0.155
+(0.203, 0.212]  31930 0.180
+(0.212, 0.218]  31930 0.187
+(0.218, 0.225]  31931 0.204
+(0.225, 0.233]  31931 0.225
+(0.233, 0.241]  31931 0.238
+(0.241, 0.254]  31930 0.268
+(0.254, 0.274]  31930 0.287
+(0.274, 0.304]  31931 0.308
+(0.304, 0.487]  31931 0.378
 </pre></div>
 </div>
-<img alt="../_images/5.2.2_Modeling_Library_14_1.png" src="../_images/5.2.2_Modeling_Library_14_1.png" />
+<img alt="../_images/5.2.2_Modeling_Library_13_1.png" src="../_images/5.2.2_Modeling_Library_13_1.png" />
 </div>
 </div>
 </section>

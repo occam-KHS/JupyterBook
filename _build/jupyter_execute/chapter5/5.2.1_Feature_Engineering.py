@@ -15,17 +15,17 @@ pd.options.display.float_format = '{:,.3f}'.format
 
 # ### 피처 엔지니어링      
 # 
-# 가설 검정에서 만들었던 모든 피쳐(변수)를 정리해 보겠습니다. 이제 예측 모델링을 위한 데이터가 준비되었습니다.
+# 가설 검정에서 만들었던 모든 피쳐(변수)를 정리해 보겠습니다. 이제 예측 모델링을 위한 데이터가 준비되었습니다. 예측모델링에 활용한 데이터의 기간은 2021년 1월 5일부터 2022년 3월 24일까지입니다.
 
 # In[2]:
 
 
-mdl_data = pd.read_pickle('mdl_data.pkl')
+mdl_data = pd.read_pickle('mdl_data.pkl') # 수익률 결과값이 있는 데이터
 mdl_data.head()
 print(mdl_data.index.min(), mdl_data.index.max())
 
 
-# <br> 가설검정에서 만들었던 모든 피쳐를 정리합니다. 단, *"5일 이동평균선이 종가보다 위에 있다"* 는 유의미하지 않았으므로 제외입니다.
+# <br> 가설검정에서 만들었던 모든 피쳐를 정리합니다. 단, *"5일 이동평균선이 종가보다 위에 있다"* 는 유의미하지 않았으므로 제외입니다. 결과를 feature_all 이라는 데이터프레임에 저장합니다.
 
 # In[3]:
 
@@ -48,7 +48,7 @@ for code, sector in zip(kosdaq_list['code'], kosdaq_list['sector']):
     data['volume_z'] = (data['volume'] - data['volume_mean'])/data['volume_std']      
     
     
-    # 위꼬리가 긴 양봉이 자주발생한다.
+    # 위꼬리가 긴 양봉이 자주 발생한다.
     data['positive_candle'] = (data['close'] > data['open']).astype(int) # 양봉
     data['high/close'] = (data['positive_candle']==1)*(data['high']/data['close'] > 1.1).astype(int) # 양봉이면서 고가가 종가보다 높게 위치
     data['num_high/close'] =  data['high/close'].rolling(20).sum()
@@ -79,6 +79,7 @@ for code, sector in zip(kosdaq_list['code'], kosdaq_list['sector']):
     data = data[(data['price_std']!=0) & (data['volume_std']!=0)] 
     
     feature_all = pd.concat([data, feature_all], axis=0)
+    
 
 feature_all['sector_return'] = feature_all.groupby(['sector', feature_all.index])['return'].transform(lambda x: x.mean()) # 섹터의 평균 수익율 계산
 feature_all['return over sector'] = (feature_all['return']/feature_all['sector_return']) # 섹터 평균 수익률 대비 종목 수익률 계산
@@ -96,7 +97,7 @@ feature_all.to_pickle('feature_all.pkl')
 
 
 feature_all = pd.read_pickle('feature_all.pkl') 
-feature_all.describe(percentiles=[0.05, 0.1, 0.9, 0.95]).style.set_table_attributes('style="font-size: 12px"')
+feature_all.describe(percentiles=[0.05, 0.1, 0.9, 0.95]).style.set_table_attributes('style="font-size: 12px"').format(precision=3)
 
 
 # In[ ]:

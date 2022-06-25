@@ -17,7 +17,7 @@ pd.options.display.float_format = '{:,.3f}'.format
 
 # ### 종목 선정 모델 개발     
 # 
-# 선형모델에 대한 중요한 가정과 설명은 다음 절에서 추가로 설명드리겠으나,  수익률에 따라 단조 증가나 감소의 형태를 보이지 않는 피쳐(설명변수)는 변형을 해야 선형모형에서 더 유의미하게 사용될 수 있습니다.  주로 Binning (오름차순으로 정렬 후, 여러개 구간으로 분리) 을 통하여 이런 비선형적인 관계를 선형적으로 변경합니다.  우리는 앞서 수익율과 피쳐사이에 선형적인 관계를 가지지 않는 가설(예: 섹터의 평균 수익률 대비 종목 수익률)들 이 있었습니다. 이런 피처들에 대하여 Binning 없이 적합할 수 있는 모델이 일반화가법모형(Generalized Additive Model) 입니다. 또한 가설 검정에서는 5 영업일 동안의 최대 수익률을 예측변수로 이용했으나, 모델의 overfitting (과대적합) 문제를 최소화하기 위하여, 예측값을 이진값(0/1)으로 치환한 후, 로지스틱 일반화가법모형(Logistic Generalized Additive Model) 을 구현합니다. 로지스틱 회귀모형은 log(odds) = a0 + a1*x1 + a2*x2 … 으로 표현할 수 있는데요. 여기서 X 를 여러개의 spline 로 함수로 만든 후, 다시 합하여 X 와 Log(odds) 의  비선형적관계를 표현할 수 있도록 한 것이  Logistic GAM 입니다.  이 모델의 구현은 Statsmodels 에서 가능합니다만, pyGAM 패키지는 자동으로 하이퍼파라미터를 찾는 기능이 있어 편리합니다. GAM 을 선택한 다른 이유는 피처사이에 상호작용이 크지 않을 것이라는 가정이 있습니다. 무엇보다도 좋은 점은 모델이 왜 이 종목을 선택했는지에 대한 해석이 가능합니다. 향후, 모델의 예측력이 저하되는 경우 어떤 피처가 원인인지도 파악이 가능합니다. 
+# 선형모델에 대한 중요한 가정과 설명은 다음 절에서 추가로 설명드리겠으나,  수익률에 따라 단조 증가나 감소의 형태를 보이지 않는 피쳐(설명변수)는 변형을 해야 선형모형에서 더 유의미하게 사용될 수 있습니다.  주로 Binning (오름차순으로 정렬 후, 여러개 구간으로 분리) 을 통하여 이런 비선형적인 관계를 선형적으로 변경합니다. 2차 함수나 로그함수 등을 이용해 선형적으로 변경할 수 도 있습니다. 우리는 앞서 수익율과 피쳐사이에 선형적인 관계를 가지지 않는 가설(예: 섹터의 평균 수익률 대비 종목 수익률)들 이 있었습니다. 이런 피처들에 대하여 Binning 없이 적합할 수 있는 모델이 일반화가법모형(Generalized Additive Model) 입니다. 또한 가설 검정에서는 5 영업일 동안의 최대 수익률을 예측변수로 이용했으나, 모델의 overfitting (과대적합) 문제를 최소화하기 위하여, 예측값을 이진값(0/1)으로 치환한 후, 로지스틱 일반화가법모형(Logistic Generalized Additive Model) 을 구현합니다. 로지스틱 회귀모형은 $log(odds) = a0 + a1*x1 + a2*x2 …$  으로 표현할 수 있는데요. 여기서 X 를 여러개의 spline 로 함수로 만든 후, 다시 합하여 X 와 $log(odds)$ 의  비선형적관계를 표현할 수 있도록 한 것이  Logistic GAM 입니다.  이 모델의 구현은 Statsmodels 에서 가능합니다만, pyGAM 패키지는 자동으로 하이퍼파라미터를 찾는 기능이 있어 편리합니다. GAM 을 선택한 다른 이유는 피처사이에 상호작용이 크지 않을 것이라는 가정이 있습니다. 무엇보다도 좋은 점은 모델이 왜 이 종목을 선택했는지에 대한 해석이 가능합니다. 향후, 모델의 예측력이 저하되는 경우 어떤 피처가 원인인지도 파악이 가능합니다. 
 # 
 # 단순히, 스코어가 높은 모든 종목을 매수하는 것이 아니라,  오늘의 종가 수익률과 주가를 고려하여 기본적인 필터링을 합니다. 분석결과 종가 수익률은 높고, 최근 20일 대비 가격이 낮은 종목을 매수하면 리스크가 적은 것으로 판단됩니다.
 
@@ -118,21 +118,21 @@ with open("gam.pkl", "wb") as file:
     pickle.dump(gam, file)    
 
 
-# In[5]:
+# In[31]:
 
 
 with open("gam.pkl", "rb") as file:
     gam = pickle.load(file) 
 
 
-# In[6]:
+# In[32]:
 
 
 print(gam.get_params())
 print(gam.coef_.shape)
 
 
-# In[7]:
+# In[33]:
 
 
 for i in range(6):
@@ -141,7 +141,7 @@ for i in range(6):
 
 # <br> 간단하게 십분위수 분석을 하고, 성능을 평가합니다. 안정적인 모델을 만들었습니다. 이론적으로는 마지막 Decile(제 10 십분위 수)에서 랜덤하게 종목을 골라 동일한 금액으로 매수를 한다면, 5 영업일이내 5% 익절할 확률이 37% 가 됩니다.  100% 만족스럽지는 않지만, 생성된 GAM 모델을 이용하여 종목 추천을 받도록 하겠습니다.
 
-# In[9]:
+# In[34]:
 
 
 feature_list = ['price_z','volume_z','num_high/close','num_win_market','pct_win_market','return over sector']
@@ -157,7 +157,7 @@ yhat_test = gam.predict_proba(X_test.to_numpy())
 yhat_test = pd.Series(yhat_test, name='yhat', index=y_test.index)
 
 
-# In[10]:
+# In[35]:
 
 
 def perf(y, yhat): # Decile 분석 함수
@@ -173,7 +173,7 @@ perf(y_test, yhat_test)
 # ### Basic Filtering
 # 단순히 스코어가 높다고 무조건 매수했다가 큰 낙폭으로 손해를 볼 수도 있기 때문에 기본적인 필터링이 필요합니다. 오늘 종가 수익률과 가격 변동성으로 기본적인 필터를 만들어 보겠습니다.
 
-# In[11]:
+# In[36]:
 
 
 test['yhat'] = yhat_test
@@ -181,9 +181,9 @@ test['yhat_rank'] = pd.qcut(test['yhat'], q=10)
 test.groupby('yhat_rank')['target'].mean()
 
 
-# <br> 종목선정은 상위 스코어 구간에서 할 것이므로 상위 구간에서만 보겠습니다. 
+# <br> 종목선정은 상위 스코어 구간에서 할 것이므로 상위 구간에서 대하여 수익률 및 표준화 가격 구간으로 분리해서 미래 수익률을 보겠습니다. 표준화된 가격이 낮고 당일 수익율이 높은 경우 미래 수익률이 높을 것으로 예상됩니다.
 
-# In[26]:
+# In[37]:
 
 
 tops = test[test['yhat'] > 0.3].copy()
@@ -195,11 +195,13 @@ tops.groupby(['return_rank','price_rank'])['target'].mean().unstack().style.set_
 
 # <br> 참고로 groupby 로 데이터를 요약하는 방법은 직관적이나, 각 행과 열의 총계는 보여주지 않는다는 단점이 있습니다. 총계가 보고 싶을 때는 pivot_table 에서 'margins=True' 를 인수로 넣어주면 총계를 볼 수 있습니다.
 
-# In[27]:
+# In[38]:
 
 
 pd.pivot_table(data = tops, index = 'return_rank', columns = 'price_rank', values = 'target', aggfunc='mean', margins=True).style.set_table_attributes('style="font-size: 12px"')
 
+
+# <br> 최저 수익률(리스크)도 조사합니다. 당일 수익률 높고, 표준화 된 주가가 낮은 좌하단 부분의 리스크가 낮습니다.
 
 # In[28]:
 
@@ -207,7 +209,7 @@ pd.pivot_table(data = tops, index = 'return_rank', columns = 'price_rank', value
 pd.pivot_table(data = tops, index = 'return_rank', columns = 'price_rank', values = 'min_close', aggfunc='mean', margins=True).style.set_table_attributes('style="font-size: 12px"')
 
 
-# <br> 위 결과를 종합하면 종가 수익률은 높고, 최근 20일 대비 가격이 낮은 종목을 매수하면 리스크가 적을 것으로 판단됩니다. 'return' 은 1.03 보다 크고, 'price_z' 는 0 보다 작은 종목만을 고르겠습니다.
+# <br> 위 결과를 종합하면 당일 종가 수익률은 높고, 최근 20일 대비 가격이 낮은 종목을 매수하면 리스크가 적을 것으로 판단됩니다. 'return' 은 1.03 보다 크고, 'price_z' 는 0 보다 작은 종목만을 고르겠습니다.
 
 # In[30]:
 

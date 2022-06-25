@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[20]:
 
 
 import FinanceDataReader as fdr
@@ -16,9 +16,9 @@ import glob
 
 # ### **익절/손절 라인**    
 
-# <br> 이번에는 익절/손절라인을 결정할 수 있는 예측모델을 만들어 보겠습니다. 먼저 피쳐가 있는 데이터를 불러옵니다. 
+# <br> 이번에는 익절/손절라인을 결정할 수 있는 모델을 만들어 보겠습니다. 먼저 피쳐가 있는 데이터를 불러옵니다. 
 
-# In[7]:
+# In[21]:
 
 
 feature_all = pd.read_pickle('feature_all.pkl') 
@@ -29,7 +29,7 @@ print(f'% of target:{target: 5.1%}')
 
 # <br> 날짜와 종목을 인덱스로 설정합니다. 데이터에 예측모델을 적용하고 매수 대상 종목을 select_top 이라는 DataFrame 에 저장합니다. 
 
-# In[8]:
+# In[23]:
 
 
 mdl_all = feature_all.set_index([feature_all.index,'code'])
@@ -49,19 +49,20 @@ mdl_all['yhat'] = yhat
 tops = mdl_all[mdl_all['yhat'] > 0.3].copy()
 
 select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)]
+print(len(select_tops))
 
 
 # <br> 최저 기대 수익율과 피쳐와의 상관계수를 조사합니다. 예상하지 못햇던 사실은 5 영업일 동안 최저 기대 수익률은 종목보다는 지수 수익률과 더 상관관계가 높습니다. 
 
-# In[9]:
+# In[25]:
 
 
-select_tops[['return','kosdaq_return','min_close']].corr()
+select_tops[['return','kosdaq_return','min_close']].corr()['min_close']
 
 
 # <br> 'kosdaq_return' 에 따른 최저 기대 수익률의 평균을 구해봅니다. 그래프를 보니 'kosdaq_return'(코스닥 지수 수익률)이 최저 기대수익률과 양의 상관관계가 높은 것으로 나타납니다. 
 
-# In[10]:
+# In[26]:
 
 
 ranks = pd.qcut(select_tops['kosdaq_return'], q=5)
@@ -69,9 +70,9 @@ print(select_tops.groupby(ranks)['min_close'].mean())
 select_tops.groupby(ranks)['min_close'].mean().plot()
 
 
-# <br> 'kosdaq_return' 값에 따라 아래와 같이 익절/손절 라인을 변동할 수 있도록 합니다. 아래 함수는 익절 수익률과 손절 수익률을 딕셔너리로 반환합니다.
+# <br> 'kosdaq_return' 값에 따라 아래와 같이 익절/손절 라인을 변동할 수 있도록 합니다. 기본적인 아이디어는 장이 좋을 때는 익절/손절 범위를 늘리고, 안 좋은 날은 익절/손절 범위를 좁히는 것입니다. 아래 함수는 익절 수익률과 손절 수익률을 딕셔너리로 반환합니다.
 
-# In[11]:
+# In[27]:
 
 
 def profit_loss_cut(x):
@@ -86,9 +87,9 @@ def profit_loss_cut(x):
         return 1.06, 0.96
 
 
-# <br> 종목, 매수가 익절/손절라인 반환하는 함수를 만듭니다.
+# <br> 종목 선정 및 익절/손절라인 반환하는 전체 프로세스를 함수를 만듭니다.
 
-# In[15]:
+# In[28]:
 
 
 def select_stocks_sell(today_dt):
@@ -208,30 +209,36 @@ def select_stocks_sell(today_dt):
         return None
 
 
-# <br> 6월 13일 추천종목을 리스트를 추출합니다.
+# <br> 6월 16일 추천종목을 리스트를 추출합니다.
 
-# In[16]:
-
-
-results = select_stocks_sell('2022-06-13')
+# In[37]:
 
 
-# In[17]:
+results = select_stocks_sell('2022-06-16')
+results.style.set_table_attributes('style="font-size: 12px"').format(precision=3)
 
 
-results.head(5).style.set_table_attributes('style="font-size: 12px"')
+# <br> 예측 스코어가 높은 상위 5 개 종목만 선택합니다.
+
+# In[43]:
 
 
-# In[18]:
+results2 = results.head(5).style.set_table_attributes('style="font-size: 12px"').format(precision=3)
+results2
+
+
+# <br> 선택된 종목에 익절/손절 라인 값을 딕셔너리로 반환합니다.
+
+# In[40]:
 
 
 select_dict = {}
-for code in list(results.index):
+for code in list(results2.index):
     s = results.loc[code]
     select_dict[code] = [s['name'], s['close'], s['profit_cut'], s['loss_cut']]    
 
 
-# In[19]:
+# In[41]:
 
 
 select_dict

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[1]:
 
 
 import FinanceDataReader as fdr
@@ -20,14 +20,14 @@ pd.options.display.float_format = '{:,.3f}'.format
 # 
 # 
 
-# In[8]:
+# In[2]:
 
 
 mdl_data = pd.read_pickle('mdl_data.pkl')
 mdl_data.head().style.set_table_attributes('style="font-size: 12px"')
 
 
-# In[9]:
+# In[3]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -39,7 +39,7 @@ for code in kosdaq_list['code']:
     data = mdl_data[mdl_data['code']==code].sort_index().copy()
     
     data['positive_candle'] = (data['close'] > data['open']).astype(int) # 양봉
-    data['high/close'] = (data['positive_candle']==1)*(data['high']/data['close'] > 1.1).astype(int) # 양봉이면서 고가가 종가보다 높게 위치
+    data['high/close'] = (data['positive_candle']==1)*(data['high']/data['close'] > 1.1).astype(int) # 양봉이면서 고가가 종가보다 높게 위치 10% 이상 높은 경우
     data['num_high/close'] =  data['high/close'].rolling(20).sum()
        
     data['max_close']  = data[['close_r1','close_r2','close_r3','close_r4','close_r5']].max(axis=1) # 5 영업일 종가 수익율 중 최고 값
@@ -52,17 +52,17 @@ data_h3.to_pickle('data_h3.pkl')
 
 # <br> 윗 꼬리가 긴 양봉이 많이 발생할 수 록 수익율에 좋은 영향을 주는 것으로 분석이 되었습니다.
 
-# In[10]:
+# In[8]:
 
 
 data_h3 = pd.read_pickle('data_h3.pkl')
 print(data_h3.groupby('num_high/close')['max_close'].agg(['count','mean']))
-data_h3.groupby('num_high/close')['max_close'].mean().plot()
+data_h3.groupby('num_high/close')['max_close'].mean().plot(kind='bar', ylim=(0.9,1.2)) # 막대그래프로 표현
 
 
 # <br> 윗 꼬리가 긴 양봉도 궁금하지만, 장대양봉은 어떨지도 궁금합니다. 이렇게 가설을 검증하는 과정에서 새로운 가설을 테스트하기도 합니다. 장대양봉이 과거 60일 동안 몇 번 발생했는지 카운트해보고, 장대양봉의 갯 수와 수익율 사이에 상관성이 있는 지 함 보겠습니다.
 
-# In[11]:
+# In[9]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -86,14 +86,14 @@ for code in kosdaq_list['code']:
 data_h3.to_pickle('data_h3.pkl')  
 
 
-# <br> 과거 60일 동안 장대양봉이 2 번 발생한 경우 상당히 좋은 수익율을 보여주고 있습니다.
+# <br> 과거 60일 동안 장대양봉이 2 번 발생한 경우 좋은 수익율을 보여주고 있습니다.
 
-# In[12]:
+# In[11]:
 
 
 data_h3 = pd.read_pickle('data_h3.pkl')
 print(data_h3.groupby('num_long')['max_close'].agg(['count','mean']))
-data_h3.groupby('num_long')['max_close'].mean().plot()
+data_h3.groupby('num_long')['max_close'].mean().plot(kind='bar', ylim=(0.9,1.1))
 
 
 # In[ ]:

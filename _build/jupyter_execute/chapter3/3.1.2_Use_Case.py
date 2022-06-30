@@ -26,16 +26,17 @@
 # 
 # $ \ln(odds) $ 를 $ _X $ 의 선형조합 $ (b_0 + b_1 \cdot x_1 + b_2 \cdot x_2 + b_3 \cdot x_3 + b_4  \cdot x_4) $  의 형태로 설명하는 모델입니다.  
 # 
-# $ (카스트로씨 \ odds) \ 는 \ (전체 \ odds) * (연령\ odds\ ratio) * (성별\ odds\ ratio) * (거주지\ odds\ ratio) * (직장\ odds\ ratio) $ 로 추정할 수 있다고 사례에서 설명드렸습니다.    
+# $ (카스트로씨 \ odds) \ 는 \ (전체 \ odds) * (연령\ odds\ ratio) * (성별\ odds\ ratio) * (거주지\ odds\ ratio) * (직장\ odds\ ratio) $     
+# 로 추정할 수 있다고 사례에서 설명드렸습니다.    
 # 
-# 양변에 Log 를 씌우면,
+# 양변에 $log$ 를 씌우면,
 # 
-# $ \ln(카스트로씨\ odds) = \ln(전체\ odds)  + \ln(연령\ odds\ ratio) + \ln(성별\ odds\ ratio) + \ln(거주지\ odds\ ratio) + \ln(직장\ odds\ ratio) + \ln(직장\ odds\ ratio) $     
+# $ \ln(카스트로씨\ odds) = \ln(전체\ odds)  + \ln(연령\ odds\ ratio) + \ln(성별\ odds\ ratio)$    
+#                      $ + \ln(거주지\ odds\ ratio) + \ln(직장\ odds\ ratio) + \ln(직장\ odds\ ratio) $     
 # 
 # 따라서,       
 # 
-# $ \ln(전체\ odds)\ 는 \ b_0 $,  $ \ln(연령\ odds\ ratio)\ 는\ (b_1 \cdot x_1) $ 에 해당한다는 것을 알 수 있습니다. 
-# 
+# $ \ln(전체\ odds)\ 는 \ b_0 $,  $ \ln(연령\ odds\ ratio)\ 는\ (b_1 \cdot x_1) $ 에 해당한다는 것을 알 수 있습니다.        
 # $ x_1 $ 이 (0,1) 의 바이너리 값이라면 $ b_1 $ 은 해당 연령의 $ odds\ ratio $ 에 $ log $ 를 한 값임을 알 수 있습니다. 
 # 
 # <br>

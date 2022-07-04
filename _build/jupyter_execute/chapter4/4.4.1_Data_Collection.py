@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# ### 일봉 데이터 가져오기
+
+# ### FinanceDataReader 로 일봉 데이터 가져오기
+# 가설 분석과 수익율 예측 모델링은 변동성이 큰 코스닥 종목만을 대상으로 하겠습니다. 
+# 가설검정을 위하여 과거 수 개월치의 일봉데이터가 필요합니다. 우선 데이터를 종목별로 가져오기 위해서 FinanceDataReader 의 Stocklisting 메소드에서 코스닥의 종목 코드와 정보를 불러옵니다.
+
+# In[ ]:
 
 
 import FinanceDataReader as fdr
@@ -16,10 +22,6 @@ import bs4
 
 pd.options.display.float_format = '{:,.3f}'.format
 
-
-# ### FinanceDataReader 로 일봉 데이터 가져오기
-# 가설 분석과 수익율 예측 모델링은 변동성이 큰 코스닥 종목만을 대상으로 하겠습니다. 
-# 가설검정을 위하여 과거 수 개월치의 일봉데이터가 필요합니다. 우선 데이터를 종목별로 가져오기 위해서 FinanceDataReader 의 Stocklisting 메소드에서 코스닥의 종목 코드와 정보를 불러옵니다.
 
 # In[10]:
 
@@ -92,7 +94,7 @@ print(price_data.groupby('code')['close'].count().agg(['min','max']))
 # <br>
 
 # <br></br>
-# ### 네이버 증권 웹크롤링으로 일봉 가져오기
+# ### 네이버 증권 웹크롤링으로 일봉 데이터 가져오기
 # 이 번에는 네이버 증권 차트 _(네이버 차트 예시 필요)_ 에서 데이터를 가져오는 방법도 시도해 보겠습니다. 웹 크롤링은 코드가 복잡합니다. 첫 번째 방법인 FinanceDataReader 로 추출하는 방법을 추천드립니다.   
 # 다시 pickle 파일을 읽습니다. make_price_data 함수는 '종목', '추출단위', '데이터 건수' 를 인자로 네이버증권에서 데이터를 가져오는 함수입니다. 인자는 작은 따옴표에 넣어야 합니다. 셀트리온 헬스케어(091990) 의 일봉 데이터를 최근 300 일 가져오고 싶다면  make_price_data('091990', 'day', '300') 와 같이 호출합니다. 이 함수를 for 문을 이용해 모든 코스닥 종목에서 대하여 호출하고, 각 결과를 price_data 라는 데이터프레임에 담습니다. 
 # for 문을 돌리고 결과를 concat 함수로 연속으로 저장하는 방법은 자주 활용되는 기법입니다. 

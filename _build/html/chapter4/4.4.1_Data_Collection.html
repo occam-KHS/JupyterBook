@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>FinanceDataReader 로 일봉 데이터 가져오기 &#8212; 나만의 추천 시스템</title>
+    <title>일봉 데이터 가져오기 &#8212; 나만의 추천 시스템</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -347,7 +347,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     FinanceDataReader 로 일봉 데이터 가져오기
+     일봉 데이터 가져오기
     </a>
    </li>
    <li class="toctree-l2">
@@ -740,12 +740,17 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
+   일봉 데이터 가져오기
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#financedatareader">
    FinanceDataReader 로 일봉 데이터 가져오기
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   네이버 증권 웹크롤링으로 일봉 가져오기
+  <a class="reference internal nav-link" href="#id2">
+   네이버 증권 웹크롤링으로 일봉 데이터 가져오기
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -762,7 +767,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>FinanceDataReader 로 일봉 데이터 가져오기</h1>
+                <h1>일봉 데이터 가져오기</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -774,12 +779,17 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
+   일봉 데이터 가져오기
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#financedatareader">
    FinanceDataReader 로 일봉 데이터 가져오기
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   네이버 증권 웹크롤링으로 일봉 가져오기
+  <a class="reference internal nav-link" href="#id2">
+   네이버 증권 웹크롤링으로 일봉 데이터 가져오기
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -797,7 +807,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell docutils container">
+  <section id="id1">
+<h1>일봉 데이터 가져오기<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="financedatareader">
+<h1>FinanceDataReader 로 일봉 데이터 가져오기<a class="headerlink" href="#financedatareader" title="Permalink to this headline">#</a></h1>
+<p>가설 분석과 수익율 예측 모델링은 변동성이 큰 코스닥 종목만을 대상으로 하겠습니다.
+가설검정을 위하여 과거 수 개월치의 일봉데이터가 필요합니다. 우선 데이터를 종목별로 가져오기 위해서 FinanceDataReader 의 Stocklisting 메소드에서 코스닥의 종목 코드와 정보를 불러옵니다.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -814,10 +831,6 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="financedatareader">
-<h1>FinanceDataReader 로 일봉 데이터 가져오기<a class="headerlink" href="#financedatareader" title="Permalink to this headline">#</a></h1>
-<p>가설 분석과 수익율 예측 모델링은 변동성이 큰 코스닥 종목만을 대상으로 하겠습니다.
-가설검정을 위하여 과거 수 개월치의 일봉데이터가 필요합니다. 우선 데이터를 종목별로 가져오기 위해서 FinanceDataReader 의 Stocklisting 메소드에서 코스닥의 종목 코드와 정보를 불러옵니다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kosdaq_df</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">StockListing</span><span class="p">(</span><span class="s1">&#39;KOSDAQ&#39;</span><span class="p">)</span>
@@ -1083,8 +1096,8 @@ Name: close, dtype: int64
 </div>
 <br><p><br></br></p>
 </section>
-<section id="id1">
-<h1>네이버 증권 웹크롤링으로 일봉 가져오기<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h1>네이버 증권 웹크롤링으로 일봉 데이터 가져오기<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
 <p>이 번에는 네이버 증권 차트 <em>(네이버 차트 예시 필요)</em> 에서 데이터를 가져오는 방법도 시도해 보겠습니다. 웹 크롤링은 코드가 복잡합니다. 첫 번째 방법인 FinanceDataReader 로 추출하는 방법을 추천드립니다.<br />
 다시 pickle 파일을 읽습니다. make_price_data 함수는 ‘종목’, ‘추출단위’, ‘데이터 건수’ 를 인자로 네이버증권에서 데이터를 가져오는 함수입니다. 인자는 작은 따옴표에 넣어야 합니다. 셀트리온 헬스케어(091990) 의 일봉 데이터를 최근 300 일 가져오고 싶다면  make_price_data(‘091990’, ‘day’, ‘300’) 와 같이 호출합니다. 이 함수를 for 문을 이용해 모든 코스닥 종목에서 대하여 호출하고, 각 결과를 price_data 라는 데이터프레임에 담습니다.
 for 문을 돌리고 결과를 concat 함수로 연속으로 저장하는 방법은 자주 활용되는 기법입니다.</p>

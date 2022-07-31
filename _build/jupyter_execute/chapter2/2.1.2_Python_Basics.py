@@ -62,7 +62,7 @@ c2_list = ['a','b','c','d','e']
 df1 = pd.DataFrame({'c1': c1_list, 'c2': c2_list})
 print(df1)        
 
-df2 = df1.set_index('c2') # c1 를 index 로 변경
+df2 = df1.set_index('c2') # c2 를 index 로 변경
 print(df2)
 
 print('\n')

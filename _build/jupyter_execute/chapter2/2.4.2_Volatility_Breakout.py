@@ -1,135 +1,110 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ### K 값
-# 이전 단원에서 래리 윌리암스의 변동성 돌파전략을 파이썬으로 구현해봤습니다. K 값을 왜 0.5 로 했을까? 다른 K 는 어떨까 궁금해 집니다. 래리윌리암스는 K 값을 0.4 ~ 0.6 으로 추천했습니다. K 가 높아지면 매수 가격이 올라가므로 매수가격에 살 수 있는 기회가 적어지는 문제가 있습니다. K 가 낮아지면 쉽게 매수를 하므로 과연 변동성 돌파를 하고 있는지 의심이 듭니다. 이 번에는 삼성전자 K 값이 얼마일 때, 가장 좋은 결과가 나오는 지 알아보겠습니다. 삼성전자 2021년 일봉과 전 단원에서 만들어 놓은 함수를 가져옵니다.
+# ### 변동성 돌파전략 2
+# 
+# 외부 데이터를 이용하여 윌리암스의 변동성 돌파전략을 개선해보겠습니다.
 
-# In[1]:
-
-
-import FinanceDataReader as fdr 
-
-code = '005930' # 삼성전자
-stock_data = fdr.DataReader(code, start='2021-01-03', end='2021-12-31') 
-stock_data.head()
-
-
-# In[2]:
-
-
-
-def avg_r(code, K):
-    stock = fdr.DataReader(code,  start='2021-01-03', end='2021-12-31')    
-    stock['v'] = (stock['High'].shift(1) - stock['Low'].shift(1))*K
-    stock['buy_price'] = stock['Open'] + stock['v']
-    stock['buy'] = ( stock['High']  > stock['buy_price']).astype(int)
-    stock['return'] = stock['Open'].shift(-1)/stock['buy_price']
-    return stock[stock['buy']==1]['return'].mean(), stock[stock['buy']==1]['return'].min()
-
-a, b = avg_r('005930', 0.5)
-
-print(f' 평균 수익율: {(a-1):5.2%} 최대 손실: {(1-b):5.2%}')
-
-
-# <br> 이제 K 를 조금씩 올려가면서 평균 수익율이 최대가 되는 지점을 알아보겠습니다. K 늘 조금씩 증가시켜가면서 For Loop 를 이용하면 좋을 것 같습니다. 그리고 각 K 에서 평균수익율과 최대손실을 list 에 담습니다.
-# 테스트 할 K 는 numpy 에서 제공하는 linspace(시작 값, 종료 값) 를 이용합니다. linspace 는 num(인수 중 하나) 을 지정하지 않으면 50개의 등 간격 구간으로 된 list 를 반환합니다.
-
-# In[3]:
-
-
-# Line space Test
-import numpy as np
-print(np.linspace(start=0, stop=1, num=10))
-
-print('\n')
-import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
-import numpy as np
-import pandas as pd
-
-k_list = []
-r_list = []
-w_list = []
-
-for k in list(np.linspace(0.2, 0.8)): # 0.2 ~ 0.8 까지 50 구간 list 
-    r, w = avg_r('005930', k)
-
-    k_list.append(k)       
-    r_list.append(r)
-    w_list.append(w)
-
-    
-outcome = pd.DataFrame({'k': k_list, 'return': r_list, 'worst': w_list})    
-
-
-# <br>위 50 개 결과를 Pandas Plot 그려보겠습니다. 파란색 라인이 평균 기대 수익율이고 빨간색 라인이 최대 손실입니다. 둘 다 값이 높아야 좋은 전략일 것 입니다. 그래프를 보시면 K = 0.4 보다는 k = 0.6 이 더 좋은 선택으로 판단됩니다. 기대 수익율이 제일 높은 K 는 0.67 입니다.
-
-# In[4]:
-
-
-plt.figure(figsize=(10,4))
-ax = outcome.set_index('k')['return'].plot(color='blue')
-ax2 = ax.twinx()
-ax2 = outcome.set_index('k')['worst'].plot(color='red', style='--')
-plt.title('Avergage Return vs. The Worst Return')
-ax.legend(loc=1)
-ax2.legend(loc=2)
-ax.set_ylabel('Avg. Return')
-ax2.set_ylabel('The Worst Return')
-plt.show()
-
-
-# <br> 이번에는 위 라인을 rolling 을 이용하여 부드럽게 해 보겠습니다. 
-
-# In[5]:
-
-
-plt.figure(figsize=(10,4))
-ax = outcome.set_index('k')['return'].rolling(3).mean().plot(color='blue')
-ax2 = ax.twinx()
-ax2 = outcome.set_index('k')['worst'].rolling(3).mean().plot(color='red', style='--')
-plt.title('Avergage Return vs. The Worst Return')
-ax.legend(loc=1)
-ax2.legend(loc=2)
-ax.set_ylabel('Avg. Return')
-ax2.set_ylabel('The Worst Return')
-plt.show()
-
-
-# 2021년 데이터에서는 K 가 0.4 근처보다는 0.6 근처가 더 좋은 전략으로 관찰되었습니다. 과연 2022년도 그럴지 궁금합니다. 2022년 1분기 데이터를 이용해 보겠습니다. 다른 결과가 나왔습니다. K= 0.5 가 더 좋은 것 같습니다. 과거에 좋은 K 가 현재에도 좋은 K 가 아닌 것 같습니다. 단순이 과거 K 를 이용하는 것이 좋은 방법이 아니라는 것을 알았습니다.
+# ### 주가지수 데이터로 전략 개선
+# 변동성 돌파전략은 시장이 좋을 때 활용하면 효과가 더 좋을 것 같습니다. 아무래도 상승장에서는 전일의 변동성을 돌파할 올라갈 확률이 높지 않을까요? 코스피 주가지수 데이터를 불러와서, 전일 코스피 주가지수의 수익율(종가 기준) 2%이상 발생한 경우만 매수를  하면 어떤 결과가 나오는 지 테스트 해 보겠습니다. 매수일을 기준으로 2% 수익률이상으로 하면 더 좋을 것 같으나, 매수일의 종가 기준 수익율은 알 수 가 없기 때문에 전일을 기준으로 합니다. 먼저 지수데이터를 가져와서 종가 수익율을 계산합니다.
 
 # In[6]:
 
 
-def avg_r(code, K):
-    stock = fdr.DataReader(code,  start='2022-01-03', end='2022-03-31')    # 2022년 1분기 데이터
-    stock['v'] = (stock['High'].shift(1) - stock['Low'].shift(1))*K
-    stock['buy_price'] = stock['Open'] + stock['v']
-    stock['buy'] = ( stock['High']  > stock['buy_price']).astype(int)
-    stock['return'] = stock['Open'].shift(-1)/stock['buy_price']
-    return stock[stock['buy']==1]['return'].mean(), stock[stock['buy']==1]['return'].min()
+import FinanceDataReader as fdr 
+import pandas as pd
 
-k_list = []
-r_list = []
-w_list = []
+kospi_index = fdr.DataReader('KS11',  start='2021-01-03', end='2021-12-31') 
+kospi_index['kospi_return'] = kospi_index['Close']/kospi_index['Close'].shift(1)
+kospi_index.to_pickle('kospi_index.pkl')
 
-for k in list(np.linspace(0.2, 0.8)): # 0.2 ~ 0.8 까지 50 구간 list 
-    r, w = avg_r('005930', k)
 
-    k_list.append(k)       
-    r_list.append(r)
-    w_list.append(w)
+# 지수 데이터를 이용하면, 조건이 추가되므로 매수할 기회가 적어집니다. 지수데이터를 이용함으로써 예상수익율(일)이 0.3% 에서 1.6% 으로 올라갔습니다. 예상 최저수익율도 올라가서 리스크를 상당히 줄일 수 가 있습니다. 단, 매수 횟 수가 낮아 누적 수익율도 낮아졌습니다. 
+
+# In[21]:
+
+
+kospi_index = pd.read_pickle('kospi_index.pkl')
+kospi_list = pd.read_pickle('kospi_list.pkl')
+
+
+def avg_return(code, K, deci):
     
-outcome = pd.DataFrame({'k': k_list, 'return': r_list, 'worst': w_list})   
+    stock = fdr.DataReader(code, start='2021-01-03', end='2021-12-31')       
+    stock_data = stock.merge(kospi_index['kospi_return'], left_index=True, right_index=True, how='inner')
+    stock_data['v'] = (stock_data['High'].shift(1) - stock_data['Low'].shift(1))*K
+    stock_data['buy_price'] = stock_data['Open'] + stock_data['v']
+    stock_data.dropna(inplace=True) # shift함수 이용으로 생긴 빈 셀 제거
+    
+    if deci == 1: # 지수 데이터를 이용한 경우
+        stock_data['buy'] = (stock_data['High'] > stock_data['buy_price'])*(stock_data['Low'] < stock_data['buy_price'])*(stock_data['kospi_return'].shift(1) > 1.02).astype(int)
+        
+    else: # 지수 데이터를 이용하지 않은 경우 
+        stock_data['buy'] = (stock_data['High'] > stock_data['buy_price'])*(stock_data['Low'] < stock_data['buy_price']).astype(int)
+        
+    stock_data['return'] = stock_data['Open'].shift(-1)/stock_data['buy_price']
+    
+    n = len(stock_data[stock_data['buy']==1])
+    r = stock_data[stock_data['buy']==1]['return'].mean()
+    w = stock_data[stock_data['buy']==1]['return'].min()
+    c = stock_data[stock_data['buy']==1]['return'].prod()
+    return n, r, w, c
 
-plt.figure(figsize=(10,4))
-ax = outcome.set_index('k')['return'].rolling(3).mean().plot(color='blue')
-ax2 = ax.twinx()
-ax2 = outcome.set_index('k')['worst'].rolling(3).mean().plot(color='red', style='--')
-plt.title('Avergage Return vs. The Worst Return')
-ax.legend(loc=1)
-ax2.legend(loc=2)
-ax.set_ylabel('Avg. Return')
-ax2.set_ylabel('The Worst Return')
-plt.show()
+
+print('------------- 지수 데이터를 이용하지 않은 경우 ---------------')
+symbol_list = []
+name_list = []
+obs_list = []
+return_list = []
+worst_list = []
+cumul_list = []
+
+for code, name in zip(kospi_list['code'],  kospi_list['name']):
+    n, r, w, c = avg_return(code, 0.5, 0)
+    
+    if (r > 0) and (n > 0):  # 수익율 값이 존재하고, 최소한 한번 이상 거래일 존재해야 진행
+        symbol_list.append(code)
+        name_list.append(name)
+        obs_list.append(n)  # 매수 횟 수
+        return_list.append(r)    
+        worst_list.append(w)
+        cumul_list.append(c)
+        
+    else:
+        continue
+    
+outcome_0 = pd.DataFrame({'symbol': symbol_list, 'name': name_list, 'num_obs': obs_list, 'return': return_list, 'worst': worst_list, 'cumul': cumul_list})
+print(outcome_0[['num_obs','return','worst','cumul']].describe())
+
+print('\n')
+print('------------- 지수 데이터를 이용한 경우 ---------------')
+symbol_list = []
+name_list = []
+obs_list = []
+return_list = []
+worst_list = []
+cumul_list = []
+
+for code, name in zip(kospi_list['code'][:50],  kospi_list['name'][:50]):
+    n, r, w, c = avg_return(code, 0.5, 1)    
+   
+    if (r > 0) and (n > 0) :  # 수익율 값이 존재하고, 최소한 한번 이상 거래일 존재해야 진행
+        symbol_list.append(code)
+        name_list.append(name)
+        obs_list.append(n) # 매수 횟 수
+        return_list.append(r)    
+        worst_list.append(w)
+        cumul_list.append(c)
+        
+    else:
+        continue
+    
+outcome_1 = pd.DataFrame({'symbol': symbol_list, 'name': name_list,  'num_obs': obs_list, 'return': return_list, 'worst': worst_list, 'cumul': cumul_list})  
+print(outcome_1[['num_obs','return','worst','cumul']].describe())
+
+
+# In[ ]:
+
+
+
 

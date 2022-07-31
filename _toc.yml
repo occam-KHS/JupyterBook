@@ -82,8 +82,9 @@ parts:
 
   - caption: chapter 7
     chapters:
-    - file: chapter7/7.1.0_Algo_Trading
+    - file: chapter7/7.0.0_Algo_Trading
       sections:
+      - file: chapter7/7.1.0_Algo_trading
       - file: chapter7/7.2.0_env_setting
       - file: chapter7/7.3.0_API_explain
       - file: chapter7/7.4.0_login

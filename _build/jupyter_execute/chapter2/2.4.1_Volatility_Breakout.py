@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ### **변동성 돌파전략 구현**     
-# 
-# 여기까지 배운 내용을 토대로 래리윌리암스의 변동성 돌파전략을 구현해보겠습니다.
-
-# ### 변동성 돌파전략 
+# ### 변동성 돌파전략 1
 # 변동성 돌파전략은 래리 윌리암스가 개발한 전략인데요. 이 전략으로 윌리암스는 주식투자 대회에서 많은 상을 받았다고 하네요. 심지어 딸에게 이 전략을 전수해 주었다고 합니다. 전략은 아주 간단합니다. '전날 고가와 저가의 차'에 상수 K (0.4 ~ 0.6) 를 곱하여 변동성 값 V 를 만듭니다. 그리고 당일 장이 시작하면 시가에 이 변동성 값 V 를 더한 값을 매수 가격으로 설정합니다. 장 중에 매수 가격을 돌파하면 무조건 매수합니다. 그리고 다음날 장 시작할 때 전량 매도하는 전략입니다. 다음 링크는 변동성 돌파전략에 관련하여 참고할만한 블로그 입니다. https://blog.naver.com/niolpa/222436997945 다시 삼성전자 일봉을 가져옵니다.
 
 # In[1]:
@@ -55,7 +51,7 @@ def avg_return(code, K):
     stock = fdr.DataReader(code,  start='2021-01-03', end='2021-12-31')    
     stock['v'] = (stock['High'].shift(1) - stock['Low'].shift(1))*K
     stock['buy_price'] = stock['Open'] + stock['v']
-    stock['buy'] = (stock_data['High'] > stock_data['buy_price'])*(stock_data['Low'] < stock_data['buy_price']).astype(int)
+    stock['buy'] = (stock['High'] > stock['buy_price'])*(stock['Low'] < stock['buy_price']).astype(int)
     stock['return'] = stock['Open'].shift(-1)/stock['buy_price']
     return stock[stock['buy']==1]['return'].mean(), stock[stock['buy']==1]['return'].min()
 
@@ -91,7 +87,7 @@ def avg_return(code, K):
     stock = fdr.DataReader(code,  start='2021-01-03', end='2021-12-31')    
     stock['v'] = (stock['High'].shift(1) - stock['Low'].shift(1))*K
     stock['buy_price'] = stock['Open'] + stock['v']
-    stock['buy'] = (stock_data['High'] > stock_data['buy_price'])*(stock_data['Low'] < stock_data['buy_price']).astype(int)
+    stock['buy'] = (stock['High'] > stock['buy_price'])*(stock['Low'] < stock['buy_price']).astype(int)
     stock['return'] = stock['Open'].shift(-1)/stock['buy_price']
     return stock[stock['buy']==1]['return'].mean(), stock[stock['buy']==1]['return'].min(), stock[stock['buy']==1]['return'].prod()
 

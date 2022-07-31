@@ -28,7 +28,10 @@ parts:
       sections:
       - file: chapter2/2.3.1_Visualization
       - file: chapter2/2.3.2_Visualization      
-    - file: chapter2/2.4.1_Volatility_Breakout
+    - file: chapter2/2.4.0_Volatility_Breakout
+      sections:
+      - file: chapter2/2.4.1_Volatility_Breakout
+      - file: chapter2/2.4.2_Volatility_Breakout
 
   - caption: chapter 3
     chapters:
@@ -79,7 +82,14 @@ parts:
 
   - caption: chapter 7
     chapters:
-    - file: chapter7/7.0.0_Algo_Trading
+    - file: chapter7/7.1.0_Algo_Trading
+      sections:
+      - file: chapter7/7.2.0_env_setting
+      - file: chapter7/7.3.0_API_explain
+      - file: chapter7/7.4.0_login
+      - file: chapter7/7.5.0_accnt
+      - file: chapter7/7.6.0_xr
+      - file: chapter7/7.7.0_ord
 
   - caption: chapter 8
     chapters:

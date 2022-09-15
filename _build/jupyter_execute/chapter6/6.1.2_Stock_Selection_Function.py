@@ -10,7 +10,7 @@
 # 실전에서는 HTS 에서 제공하는 예약 매수기능과 매도 감시기능을 이용하는 것리 편리합니다. HTS 를 활용하여 자동으로 매수 매도가 가능합니다. 
 # 
 
-# In[58]:
+# In[4]:
 
 
 import FinanceDataReader as fdr
@@ -25,7 +25,7 @@ import glob
 
 # <br> 추전 종목을 만드는 여러 개의 프로세스를 하나의 함수로 만들었습니다. 
 
-# In[59]:
+# In[7]:
 
 
 def select_stocks(today_dt):

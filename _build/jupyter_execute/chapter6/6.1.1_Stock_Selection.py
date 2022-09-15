@@ -7,7 +7,7 @@
 # 오늘이 2022년 4월 1일라고 가정하고 어떤 종목들이 추천되는 지 보겠습니다. 4월1일 장 마감 후 프로그램을 돌려 추천 종목을 받고, 익일(4월 2일) 날 4월 1일의 종가에 매수를 하는 전략입니다.
 # 
 
-# In[20]:
+# In[1]:
 
 
 import FinanceDataReader as fdr
@@ -24,7 +24,7 @@ pd.options.display.float_format = '{:,.3f}'.format
 
 # <br> 오늘이 2022년 4월 1일라고 가정하고 어떤 종목들이 추천되는 지 보겠습니다. 먼저 오늘 기준으로 100 일전 날짜를 timedelta 를 이용해 찾습니다. 
 
-# In[21]:
+# In[2]:
 
 
 import datetime

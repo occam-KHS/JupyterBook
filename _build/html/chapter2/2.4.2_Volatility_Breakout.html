@@ -865,12 +865,36 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<br>
+지수 데이터는 위에서서 같이 FinanceDataReader 로 획득이 가능하지만, 야후 파이낸스 라이브러리를 이용하여 다운로드도 가능합니다. 아나콘다 Prompt 에서 pip install yfinance 라고 적어서 설치할 수 도 있고, 쥬피터 노트북상에서는 !pip install yfinance 로 설치할 수 있습니다. 주피터 노트북 설치 코드에는 앞에 느낌표가 있는 것을 유의하세요. 저는 아나콘다 prompt 에서 설치를 선호합니다. 아나콘다 Prompt 에서는 설치 과정을 보여주기 때문에, 설치가 안 되면 어떤 문제가 있는 지도 알 수 있습니다.
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>(주피터노트북 상에 설치할 경우) !pip install yfinance
+그리고 yfinance 를 yf 이름으로 import 합니다.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">kospi_index</span> <span class="o">=</span>  <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;^KS11&#39;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span> <span class="c1"># 코스피</span>
+<span class="n">kosdaq_index</span> <span class="o">=</span>  <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;^KQ11&#39;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span> <span class="c1"># 코스닥 </span>
+
+<span class="n">kospi_index</span><span class="p">[</span><span class="s1">&#39;kospi_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kospi_index</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">kospi_index</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[*********************100%***********************]  1 of 1 completed
+[*********************100%***********************]  1 of 1 completed
+</pre></div>
+</div>
+</div>
+</div>
 <p>지수 데이터를 이용하면, 조건이 추가되므로 매수할 기회가 적어집니다. 지수데이터를 이용함으로써 예상수익율(일)이 0.3% 에서 1.6% 으로 올라갔습니다. 예상 최저수익율도 올라가서 리스크를 상당히 줄일 수 가 있습니다. 단, 매수 횟 수가 낮아 누적 수익율도 낮아졌습니다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kospi_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;kospi_index.pkl&#39;</span><span class="p">)</span>
 <span class="n">kospi_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;kospi_list.pkl&#39;</span><span class="p">)</span>
-
 
 <span class="k">def</span> <span class="nf">avg_return</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">deci</span><span class="p">):</span>
     
@@ -952,10 +976,10 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------- 지수 데이터를 이용하지 않은 경우 ---------------
           num_obs      return       worst       cumul
 count  813.000000  813.000000  813.000000  813.000000
-mean    92.398524    1.003090    0.901086    1.327235
-std     15.477971    0.004127    0.143681    0.538553
+mean    92.386224    1.003091    0.901078    1.327297
+std     15.505709    0.004126    0.143677    0.538506
 min      2.000000    0.972844    0.000000    0.000000
-25%     88.000000    1.000790    0.898420    1.043979
+25%     88.000000    1.000793    0.898420    1.044780
 50%     94.000000    1.002838    0.931694    1.255082
 75%    101.000000    1.005134    0.953390    1.514587
 max    127.000000    1.017648    1.000000    5.318219
@@ -964,8 +988,8 @@ max    127.000000    1.017648    1.000000    5.318219
 ------------- 지수 데이터를 이용한 경우 ---------------
          num_obs     return      worst      cumul
 count  49.000000  49.000000  49.000000  49.000000
-mean    2.632653   1.016589   0.999325   1.040317
-std     0.950743   0.019532   0.023266   0.044871
+mean    2.632653   1.016587   0.999324   1.040313
+std     0.950743   0.019533   0.023267   0.044875
 min     1.000000   0.975929   0.930901   0.927857
 25%     2.000000   1.005605   0.984810   1.015540
 50%     3.000000   1.011357   1.000000   1.029940

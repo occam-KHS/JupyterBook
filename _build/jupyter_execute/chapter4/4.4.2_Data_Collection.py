@@ -59,9 +59,3 @@ plt.title('KOSDAQ Index Daily Return')
 kosdaq_index = pd.read_pickle('kosdaq_index.pkl') 
 kosdaq_index.head().style.set_table_attributes('style="font-size: 12px"').format(precision=3)
 
-
-# In[ ]:
-
-
-
-

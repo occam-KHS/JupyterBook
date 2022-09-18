@@ -36,7 +36,7 @@ print(start_dt, today_dt)
 
 # <br> 위 코드에서 찾은 시작일부터 오늘까지 종목별로 일봉을 가져와서 데이터셋을 구성합니다. 총 67 개의 일봉이 있습니다. 입력 피처를 생성하기 위해서는 최소한 60일의 데이터가 필요합니다.
 
-# In[22]:
+# In[3]:
 
 
 kosdaq_list = pd.read_pickle('kosdaq_list.pkl')
@@ -55,29 +55,41 @@ price_data.columns= price_data.columns.str.lower() # 컬럼 이름 소문자로 
 print(price_data.index.nunique())
 
 
-# <br> 주가지수 데이터를 가져오고, 일봉데이터에 추가합니다. 그리고 결과물을 merge 라는 이름으로 저장합니다.
+# <br> 주가지수 데이터를 가져오고, 일봉데이터에 추가합니다. 그리고 결과물을 merge 라는 이름으로 저장합니다. FinanceDataReader 에서 지수데이터가 수집이 안 될 경우, 야후 파이낸스를 이용할 수 도 있습니다.
 
-# In[23]:
+# In[ ]:
 
 
-kosdaq_index = fdr.DataReader('KQ11', start = start_dt, end = today_dt) # 데이터 호출
+kosdaq_index = fdr.DataReader('KQ11', start = start_dt) # 데이터 호출
 kosdaq_index.columns = ['close','open','high','low','volume','change'] # 컬럼명 변경
 kosdaq_index.index.name='date' # 인덱스 이름 생성
 kosdaq_index.sort_index(inplace=True) # 인덱스(날짜) 로 정렬 
 kosdaq_index['kosdaq_return'] = kosdaq_index['close']/kosdaq_index['close'].shift(1) # 수익율 : 전 날 종가대비 당일 종가
 
 merged = price_data.merge(kosdaq_index['kosdaq_return'], left_index=True, right_index=True, how='left')
+merged.to_pickle('merged.pkl')
 
 
-# In[24]:
+# 야후 파이낸스에서 지수 데이터 수집은 아래와 같이 할 수 있습니다. 
+
+# In[6]:
 
 
+import yfinance as yf
+
+kosdaq_index =  yf.download('^KQ11', start = start_dt) # 데이터 호출
+kosdaq_index.columns = ['open','high','low','close','adj_close','volume'] # 컬럼명 변경
+kosdaq_index.index.name='date' # 인덱스 이름 생성
+kosdaq_index.sort_index(inplace=True) # 인덱스(날짜) 로 정렬 
+kosdaq_index['kosdaq_return'] = kosdaq_index['close']/kosdaq_index['close'].shift(1) # 수익율 : 전 날 종가대비 당일 종가
+
+merged = price_data.merge(kosdaq_index['kosdaq_return'], left_index=True, right_index=True, how='left')
 merged.to_pickle('merged.pkl')
 
 
 # <br> 주가 지수 수익률과 종목별 수익율을 비교한 결과를 win_market 이라는 변수에 담습니다. 
 
-# In[25]:
+# In[7]:
 
 
 merged = pd.read_pickle('merged.pkl')
@@ -98,7 +110,7 @@ return_all.dropna(inplace=True)
 
 # <br> 데이터가 잘 생성되었는 지 확인해 봅니다.
 
-# In[26]:
+# In[8]:
 
 
 return_all.head().style.set_table_attributes('style="font-size: 12px"').format(precision=3)
@@ -106,7 +118,7 @@ return_all.head().style.set_table_attributes('style="font-size: 12px"').format(p
 
 # <br>  모델에 입력할 변수를 생성합니다.
 
-# In[27]:
+# In[9]:
 
 
 model_inputs = pd.DataFrame()
@@ -161,7 +173,7 @@ model_inputs.to_pickle('model_inputs.pkl')
 
 # <br> 모델에 입력할 변수를 생성하고 X 에 담습니다.
 
-# In[29]:
+# In[10]:
 
 
 # 최종 피처만으로 구성
@@ -174,7 +186,7 @@ X.head().style.set_table_attributes('style="font-size: 12px"').format(precision=
 
 # <br> 저장한 GAM 모델을 불러 읽고, 입력변수를 넣어 예측값을 생성합니다. 입력변수의 순서는 모델에 사용한 입력변수와 동일해야 합니다. X 라는 데이터 프레임에 예측값 yhat 이 추가되었습니다.
 
-# In[30]:
+# In[11]:
 
 
 import pickle
@@ -188,7 +200,7 @@ X.head().style.set_table_attributes('style="font-size: 12px"').format(precision=
 
 # <br> 어떤 종목이 높은 스코어를 받았는지 궁금합니다. 스코어의 내림차순 정렬한 후 종목을 확인해 봅니다. 
 
-# In[31]:
+# In[12]:
 
 
 X.sort_values(by='yhat', ascending=False).head(5).style.set_table_attributes('style="font-size: 12px"').format(precision=3)
@@ -196,7 +208,7 @@ X.sort_values(by='yhat', ascending=False).head(5).style.set_table_attributes('st
 
 # <br> 그리고 필터링을 적용해서 최종 종목을 선정합니다. 최종적으로 5 개의 종목이 선정되었습니다. 우리는 4월 1일 이후에 주가 흐름을 알고 있습니다. 4월 2일이후 데이터를 추가하여 선택된 종목들이 유의미한지 점검해 보겠습니다.
 
-# In[36]:
+# In[13]:
 
 
 tops = X[X['yhat'] >= 0.3].copy() # 스코어 0.3 이상 종목만 

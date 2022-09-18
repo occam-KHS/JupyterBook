@@ -10,10 +10,11 @@
 # 실전에서는 HTS 에서 제공하는 예약 매수기능과 매도 감시기능을 이용하는 것리 편리합니다. HTS 를 활용하여 자동으로 매수 매도가 가능합니다. 
 # 
 
-# In[4]:
+# In[1]:
 
 
 import FinanceDataReader as fdr
+import yfinance as yf
 import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 import pandas as pd
@@ -25,7 +26,7 @@ import glob
 
 # <br> 추전 종목을 만드는 여러 개의 프로세스를 하나의 함수로 만들었습니다. 
 
-# In[7]:
+# In[56]:
 
 
 def select_stocks(today_dt):
@@ -48,8 +49,12 @@ def select_stocks(today_dt):
     price_data.index.name = 'date'
     price_data.columns= price_data.columns.str.lower() # 컬럼 이름 소문자로 변경
 
-    kosdaq_index = fdr.DataReader('KQ11', start = start_dt, end = today_dt) # 데이터 호출
-    kosdaq_index.columns = ['close','open','high','low','volume','change'] # 컬럼명 변경
+    # DataReder 코스닥 인덱스 조회 실패시, 야후파이낸스로 추출    
+    # kosdaq_index = fdr.DataReader('KQ11', start = start_dt, end = today_dt) # 데이터 호출
+    # kosdaq_index.columns = ['close','open','high','low','volume','change'] # 컬럼명 변경
+    
+    kosdaq_index =  yf.download('^KQ11', start = start_dt)
+    kosdaq_index.columns = ['open','high','low','close','adj_close','volume'] # 컬럼명 변경
     kosdaq_index.index.name='date' # 인덱스 이름 생성
     kosdaq_index.sort_index(inplace=True) # 인덱스(날짜) 로 정렬 
     kosdaq_index['kosdaq_return'] = kosdaq_index['close']/kosdaq_index['close'].shift(1) # 수익율 : 전 날 종가대비 당일 종가
@@ -141,7 +146,7 @@ def select_stocks(today_dt):
 
 # <br> 수익률 검정하는 프로세스도 하나의 함수로 구현합니다.
 
-# In[55]:
+# In[59]:
 
 
 def outcome_tops(select_tops, today_dt, end_dt):   

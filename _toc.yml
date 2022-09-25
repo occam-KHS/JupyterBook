@@ -83,8 +83,8 @@ parts:
 
   - caption: chapter 7
     chapters:
-    - file: chapter7/7.0.0_Algo_trading
-      sections:
+    - file: chapter7/7.0.0_Algo_Intro
+      sections:      
       - file: chapter7/7.2.0_env_setting
       - file: chapter7/7.2.1_create_accnt_hanguk
       - file: chapter7/7.2.2_connect_hanguk

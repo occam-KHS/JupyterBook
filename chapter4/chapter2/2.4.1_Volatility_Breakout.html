@@ -1,0 +1,1507 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>변동성 돌파전략 1 &#8212; 나만의 추천 시스템</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">나만의 추천 시스템</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    나만의 추천 시스템
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter1/1.1.0_SOP.html">
+   <strong>
+    책을 시작하면서
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter1/1.2.0_Data_Science.html">
+   데이터분석 환경의 변화
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter3/3.1.0_Use_Case.html">
+   <strong>
+    데이터분석 활용사례
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.1_Use_Case.html">
+     보험사 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.2_Use_Case.html">
+     신용카드사 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.3_Use_Case.html">
+     소매업 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.4_Use_Case.html">
+     제조업 사례 (난이도 상)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.0.0_My_Strategy.html">
+   <strong>
+    데이터분석으로 나만의 전략 만들기
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.1.0_My_Strategy.html">
+   <strong>
+    문제점 파악
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.2.0_My_Strategy.html">
+   <strong>
+    정보 수집 및 전문가 인터뷰
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.3.0_My_Strategy.html">
+   <strong>
+    가설 설정
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4.4.0_Data_Collection.html">
+   <strong>
+    데이터 수집 및 분석
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4.4.1_Data_Collection.html">
+     일봉 데이터 가져오기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4.4.2_Data_Collection.html">
+     코스닥 인덱스 데이터
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4.4.3_Data_Collection.html">
+     종목별 일봉 데이터와 코스피 지수 데이터와 결합
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4.4.4_Data_Processing.html">
+     가설 검증을 위한 데이터 처리
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter5/5.1.0_Hypothesis.html">
+   <strong>
+    가설 검정
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.1_Hypothesis_1.html">
+     가격 변동성이 크고 거래량이 몰린 종목이 주가가 상승한다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.2_Hypothesis_2.html">
+     5일 이동 평균선이 오늘 종가보다 위에 위치해 있다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.3_Hypothesis_3.html">
+     위 꼬리가 긴 양봉이 자주 발생한다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.4_Hypothesis_4.html">
+     거래량이 종종 터지며, 매집의 흔적을 보인다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.5_Hypothesis_5.html">
+     주가지수보다 더 좋은 수익율을 자주 보여준다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.6_Hypothesis_6.html">
+     동종업계 평균 수익률보다 더 좋은 수익률을 보여준다.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter5/5.2.0_Solution_Details.html">
+   <strong>
+    해결책 개발
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.1_Feature_Engineering.html">
+     피처 엔지니어링
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.2_Modeling_Library.html">
+     모델링 라이브러리 소개
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.3_GAM.html">
+     종목 선정 모델 개발
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.4_LM_Assumptions.html">
+     선형모델 가정에 대한 이해
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter6/6.0.0_Effectiveness_Testing.html">
+   <strong>
+    해결책의 효과 측정
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.1_Stock_Selection.html">
+     종목 추천 프로세스
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.2_Stock_Selection_Function.html">
+     해결책 테스트
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.3_Save_Stocks.html">
+     <strong>
+      추천 종목을 파일로 저장
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter7/7.0.0_Algo_trading.html">
+   자동매매를 해보자
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter7/7.2.0_env_setting.html">
+     개발환경
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter7/7.2.1_create_accnt_hanguk.html">
+     한국투자증권
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter7/7.2.2_connect_hanguk.html">
+     서비스 연결
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter7/7.2.3_functions_hanguk.html">
+     주요 함수 정의
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter7/7.2.4_main_hanguk.html">
+     자동매매 로직 이해하기
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter8/8.0.0_Web_Application.html">
+   <strong>
+    WebApp을 만들어보자
+   </strong>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter9/9.0.0_POC.html">
+   <strong>
+    계좌인증
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/chapter4/chapter2/2.4.1_Volatility_Breakout.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/occam-KHS/JupyterBook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter4/chapter2/2.4.1_Volatility_Breakout.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapter4/chapter2/2.4.1_Volatility_Breakout.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   변동성 돌파전략 1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k">
+   K 값 찾기
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   종목 찾기
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>변동성 돌파전략 1</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   변동성 돌파전략 1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k">
+   K 값 찾기
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   종목 찾기
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="id1">
+<h1>변동성 돌파전략 1<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>변동성 돌파전략은 래리 윌리암스가 개발한 전략인데요. 이 전략으로 윌리암스는 주식투자 대회에서 많은 상을 받았다고 하네요. 심지어 딸에게 이 전략을 전수해 주었다고 합니다. 전략은 아주 간단합니다. ‘전날 고가와 저가의 차’에 상수 K (0.4 ~ 0.6) 를 곱하여 변동성 값 V 를 만듭니다. 그리고 당일 장이 시작하면 시가에 이 변동성 값 V 를 더한 값을 매수 가격으로 설정합니다. 장 중에 매수 가격을 돌파하면 무조건 매수합니다. 그리고 다음날 장 시작할 때 전량 매도하는 전략입니다. 다음 링크는 변동성 돌파전략에 관련하여 참고할만한 블로그 입니다. <a class="reference external" href="https://blog.naver.com/niolpa/222436997945">https://blog.naver.com/niolpa/222436997945</a> 다시 삼성전자 일봉을 가져옵니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span> 
+
+<span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;005930&#39;</span> <span class="c1"># 삼성전자</span>
+<span class="n">stock_data</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span> 
+<span class="n">stock_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 12px&quot;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_38ddf_" style="font-size: 12px">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >Open</th>
+      <th class="col_heading level0 col1" >High</th>
+      <th class="col_heading level0 col2" >Low</th>
+      <th class="col_heading level0 col3" >Close</th>
+      <th class="col_heading level0 col4" >Volume</th>
+      <th class="col_heading level0 col5" >Change</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >Date</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
+      <th class="blank col2" >&nbsp;</th>
+      <th class="blank col3" >&nbsp;</th>
+      <th class="blank col4" >&nbsp;</th>
+      <th class="blank col5" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_38ddf_level0_row0" class="row_heading level0 row0" >2021-01-04 00:00:00</th>
+      <td id="T_38ddf_row0_col0" class="data row0 col0" >81000</td>
+      <td id="T_38ddf_row0_col1" class="data row0 col1" >84400</td>
+      <td id="T_38ddf_row0_col2" class="data row0 col2" >80200</td>
+      <td id="T_38ddf_row0_col3" class="data row0 col3" >83000</td>
+      <td id="T_38ddf_row0_col4" class="data row0 col4" >38655276</td>
+      <td id="T_38ddf_row0_col5" class="data row0 col5" >0.024691</td>
+    </tr>
+    <tr>
+      <th id="T_38ddf_level0_row1" class="row_heading level0 row1" >2021-01-05 00:00:00</th>
+      <td id="T_38ddf_row1_col0" class="data row1 col0" >81600</td>
+      <td id="T_38ddf_row1_col1" class="data row1 col1" >83900</td>
+      <td id="T_38ddf_row1_col2" class="data row1 col2" >81600</td>
+      <td id="T_38ddf_row1_col3" class="data row1 col3" >83900</td>
+      <td id="T_38ddf_row1_col4" class="data row1 col4" >35335669</td>
+      <td id="T_38ddf_row1_col5" class="data row1 col5" >0.010843</td>
+    </tr>
+    <tr>
+      <th id="T_38ddf_level0_row2" class="row_heading level0 row2" >2021-01-06 00:00:00</th>
+      <td id="T_38ddf_row2_col0" class="data row2 col0" >83300</td>
+      <td id="T_38ddf_row2_col1" class="data row2 col1" >84500</td>
+      <td id="T_38ddf_row2_col2" class="data row2 col2" >82100</td>
+      <td id="T_38ddf_row2_col3" class="data row2 col3" >82200</td>
+      <td id="T_38ddf_row2_col4" class="data row2 col4" >42089013</td>
+      <td id="T_38ddf_row2_col5" class="data row2 col5" >-0.020262</td>
+    </tr>
+    <tr>
+      <th id="T_38ddf_level0_row3" class="row_heading level0 row3" >2021-01-07 00:00:00</th>
+      <td id="T_38ddf_row3_col0" class="data row3 col0" >82800</td>
+      <td id="T_38ddf_row3_col1" class="data row3 col1" >84200</td>
+      <td id="T_38ddf_row3_col2" class="data row3 col2" >82700</td>
+      <td id="T_38ddf_row3_col3" class="data row3 col3" >82900</td>
+      <td id="T_38ddf_row3_col4" class="data row3 col4" >32644642</td>
+      <td id="T_38ddf_row3_col5" class="data row3 col5" >0.008516</td>
+    </tr>
+    <tr>
+      <th id="T_38ddf_level0_row4" class="row_heading level0 row4" >2021-01-08 00:00:00</th>
+      <td id="T_38ddf_row4_col0" class="data row4 col0" >83300</td>
+      <td id="T_38ddf_row4_col1" class="data row4 col1" >90000</td>
+      <td id="T_38ddf_row4_col2" class="data row4 col2" >83000</td>
+      <td id="T_38ddf_row4_col3" class="data row4 col3" >88800</td>
+      <td id="T_38ddf_row4_col4" class="data row4 col4" >59013307</td>
+      <td id="T_38ddf_row4_col5" class="data row4 col5" >0.071170</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><br> K = 0.5 라고 하고 전날의 고가와 저가를 이용하여 변동성 값 V 를 구합니다. 그리고 시가를 더하여 매수가격을 만듭니다. shift(1) 은 바로 위에 있는 row 를 참조하게 됩니다. 따라서 전날 데이터가 됩니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">K</span>  <span class="c1"># 전날 고가에서 저가를 뺀 값에 K 를 곱함</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>  <span class="c1"># 변동성 값 V 에 당일 시가를 더하여 매수가를 만듦</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 만약 buy_price 가 당일 고가와 저가 사이의 값이라면 매수할 기회가 있었을 것입니다. 매수 여부를 ‘buy’ 라는 컬럼에 저장합니다. 그리고 수익율 ‘return’ 을 생성합니다. 수익율은 다음날 시가를 매수가격로 나눈 값이 됩니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># 매수 기회 있으면 1 아니면 0</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span> <span class="c1"># 다음 날 시가를 이용하여 수익율 계산</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 이제 ‘buy’ = 1 인 날의 평균 수익율을 구해봅니다. 0.2% 기대수익율(일) 을 얻을 수 있는 전략입니다. 여기서 기대 수익율이란 매수를 한 날 중 랜덤한 어떤 날의 기대 수익율입니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;buy&#39;</span><span class="p">)[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>buy
+0    0.985780
+1    1.002018
+Name: return, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 다른 종목도 테스트할 수 있게 이 전략을 함수로 만들어 봅니다. 리턴은 평균수익율(일) 과 최대 손실율(일)로 하겠습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 위 내용을 모아서 함수로 만듦</span>
+<span class="k">def</span> <span class="nf">avg_return</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span>    
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">K</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># 참고로 아래와 같이 f-string 이용하여 출력을 이쁘게 할 수 있습니다.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 평균 수익율: </span><span class="si">{</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 최대 손실: </span><span class="si">{</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.002018419449279 0.9574350469872858
+ 평균 수익율: 0.20% 최대 손실: -4.26%
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 다른 종목의 결과값도 함 보겠습니다. 네이버(035420)와 현대차(005380)를 함 볼까요? 삼성전자보다 더 안 좋은 결과가 나왔습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;035420&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;네이버 평균 수익율: </span><span class="si">{</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 최대 손실: </span><span class="si">{</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;005380&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현대차 평균 수익율: </span><span class="si">{</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 최대 손실: </span><span class="si">{</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9902550213520191 0.9214501510574018
+네이버 평균 수익율: -0.97% 최대 손실: -7.85%
+
+
+0.9940220644638738 0.9295499021526419
+현대차 평균 수익율: -0.60% 최대 손실: -7.05%
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 이번에는 누적 수익율도 궁금합니다. 즉, 2021년 1월 3일 100 원을 투자하면 2021년 12월 31일 얼마가 되어 있을까요? 함수의 리턴 값에 누적 수익율을 추가합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">avg_return</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span>    
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">K</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="c1"># 참고로 아래와 같이 f-string 이용하여 출력을 이쁘게 할 수 있습니다.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 평균 수익율: </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 최대 손실: </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 누적수익율: </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.002018419449279 0.9574350469872858 1.1843972916348044
+ 평균 수익율: 100.20% 최대 손실: 95.74% 누적수익율: 118.44%
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 네이버의 누적 수익율은 58.2%, 현대차의 누적 수익율은 38.7% 입니다. 즉 2021년 초에 각 각 100 원을 투자했다면 연말에 네이버는 40원, 현대차는 56원이 되어 있습니다. 실제 장에서는 원하는 가격에 매수 매도를 할 수 없으므로 실전 수익율은 아니겠지만 예상 수익율을 추정해 볼 수 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;035420&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;네이버 평균 수익율: </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 최대 손실: </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 누적수익율: </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;005380&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현대차 평균 수익율: </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 최대 손실: </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 누적수익율: </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>네이버 평균 수익율: 99.03% 최대 손실: 92.15% 누적수익율: 40.87%
+현대차 평균 수익율: 99.40% 최대 손실: 92.95% 누적수익율: 56.69%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="k">
+<h1>K 값 찾기<a class="headerlink" href="#k" title="Permalink to this headline">#</a></h1>
+<p>이전 단원에서 래리 윌리암스의 변동성 돌파전략을 파이썬으로 구현해봤습니다. K 값을 왜 0.5 로 했을까? 다른 K 는 어떨까 궁금해 집니다. 래리윌리암스는 K 값을 0.4 ~ 0.6 으로 추천했습니다. K 가 높아지면 매수 가격이 올라가므로 매수가격에 살 수 있는 기회가 적어지는 문제가 있습니다. K 가 낮아지면 쉽게 매수를 하므로 과연 변동성 돌파를 하고 있는지 의심이 듭니다. 이 번에는 삼성전자 K 값이 얼마일 때, 가장 좋은 결과가 나오는 지 알아보겠습니다. 삼성전자 2021년 일봉과 전 단원에서 만들어 놓은 함수를 가져옵니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span> 
+
+<span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;005930&#39;</span> <span class="c1"># 삼성전자</span>
+<span class="n">stock_data</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span> 
+<span class="n">stock_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 12px&quot;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_7e6ec_" style="font-size: 12px">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >Open</th>
+      <th class="col_heading level0 col1" >High</th>
+      <th class="col_heading level0 col2" >Low</th>
+      <th class="col_heading level0 col3" >Close</th>
+      <th class="col_heading level0 col4" >Volume</th>
+      <th class="col_heading level0 col5" >Change</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >Date</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
+      <th class="blank col2" >&nbsp;</th>
+      <th class="blank col3" >&nbsp;</th>
+      <th class="blank col4" >&nbsp;</th>
+      <th class="blank col5" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_7e6ec_level0_row0" class="row_heading level0 row0" >2021-01-04 00:00:00</th>
+      <td id="T_7e6ec_row0_col0" class="data row0 col0" >81000</td>
+      <td id="T_7e6ec_row0_col1" class="data row0 col1" >84400</td>
+      <td id="T_7e6ec_row0_col2" class="data row0 col2" >80200</td>
+      <td id="T_7e6ec_row0_col3" class="data row0 col3" >83000</td>
+      <td id="T_7e6ec_row0_col4" class="data row0 col4" >38655276</td>
+      <td id="T_7e6ec_row0_col5" class="data row0 col5" >0.024691</td>
+    </tr>
+    <tr>
+      <th id="T_7e6ec_level0_row1" class="row_heading level0 row1" >2021-01-05 00:00:00</th>
+      <td id="T_7e6ec_row1_col0" class="data row1 col0" >81600</td>
+      <td id="T_7e6ec_row1_col1" class="data row1 col1" >83900</td>
+      <td id="T_7e6ec_row1_col2" class="data row1 col2" >81600</td>
+      <td id="T_7e6ec_row1_col3" class="data row1 col3" >83900</td>
+      <td id="T_7e6ec_row1_col4" class="data row1 col4" >35335669</td>
+      <td id="T_7e6ec_row1_col5" class="data row1 col5" >0.010843</td>
+    </tr>
+    <tr>
+      <th id="T_7e6ec_level0_row2" class="row_heading level0 row2" >2021-01-06 00:00:00</th>
+      <td id="T_7e6ec_row2_col0" class="data row2 col0" >83300</td>
+      <td id="T_7e6ec_row2_col1" class="data row2 col1" >84500</td>
+      <td id="T_7e6ec_row2_col2" class="data row2 col2" >82100</td>
+      <td id="T_7e6ec_row2_col3" class="data row2 col3" >82200</td>
+      <td id="T_7e6ec_row2_col4" class="data row2 col4" >42089013</td>
+      <td id="T_7e6ec_row2_col5" class="data row2 col5" >-0.020262</td>
+    </tr>
+    <tr>
+      <th id="T_7e6ec_level0_row3" class="row_heading level0 row3" >2021-01-07 00:00:00</th>
+      <td id="T_7e6ec_row3_col0" class="data row3 col0" >82800</td>
+      <td id="T_7e6ec_row3_col1" class="data row3 col1" >84200</td>
+      <td id="T_7e6ec_row3_col2" class="data row3 col2" >82700</td>
+      <td id="T_7e6ec_row3_col3" class="data row3 col3" >82900</td>
+      <td id="T_7e6ec_row3_col4" class="data row3 col4" >32644642</td>
+      <td id="T_7e6ec_row3_col5" class="data row3 col5" >0.008516</td>
+    </tr>
+    <tr>
+      <th id="T_7e6ec_level0_row4" class="row_heading level0 row4" >2021-01-08 00:00:00</th>
+      <td id="T_7e6ec_row4_col0" class="data row4 col0" >83300</td>
+      <td id="T_7e6ec_row4_col1" class="data row4 col1" >90000</td>
+      <td id="T_7e6ec_row4_col2" class="data row4 col2" >83000</td>
+      <td id="T_7e6ec_row4_col3" class="data row4 col3" >88800</td>
+      <td id="T_7e6ec_row4_col4" class="data row4 col4" >59013307</td>
+      <td id="T_7e6ec_row4_col5" class="data row4 col5" >0.071170</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">avg_return</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span>    
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">K</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 평균 수익율: </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1"> 최대 손실: </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s1">5.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 평균 수익율: 100.20% 최대 손실: 95.74%
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 이제 K 를 조금씩 올려가면서 평균 수익율이 최대가 되는 지점을 알아보겠습니다. K 늘 조금씩 증가시켜가면서 For Loop 를 이용하면 좋을 것 같습니다. 그리고 각 K 에서 평균수익율과 최대손실을 list 에 담습니다.
+테스트 할 K 는 numpy 에서 제공하는 linspace(시작 값, 종료 값) 를 이용합니다. linspace 는 num(인수 중 하나) 을 지정하지 않으면 50개의 등 간격 구간으로 된 list 를 반환합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Line space Test</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">k_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">r_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">w_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)):</span> <span class="c1"># 0.2 ~ 0.8 까지 50 구간 list </span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="n">k_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>       
+    <span class="n">r_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">w_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+    
+<span class="n">outcome</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="n">k_list</span><span class="p">,</span> <span class="s1">&#39;return&#39;</span><span class="p">:</span> <span class="n">r_list</span><span class="p">,</span> <span class="s1">&#39;worst&#39;</span><span class="p">:</span> <span class="n">w_list</span><span class="p">})</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.         0.11111111 0.22222222 0.33333333 0.44444444 0.55555556
+ 0.66666667 0.77777778 0.88888889 1.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p><br>위 50 개 결과를 Pandas Plot 그려보겠습니다. 파란색 라인이 평균 기대 수익율이고 빨간색 라인이 최대 손실입니다. 둘 다 값이 높아야 좋은 전략일 것 입니다. 그래프를 보시면 K = 0.4 보다는 k = 0.6 이 더 좋은 선택으로 판단됩니다. 기대 수익율이 제일 높은 K 는 0.67 입니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">outcome</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">outcome</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)[</span><span class="s1">&#39;worst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Avergage Return vs. The Worst Return&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Avg. Return&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;The Worst Return&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2.4.1_Volatility_Breakout_22_0.png" src="../../_images/2.4.1_Volatility_Breakout_22_0.png" />
+</div>
+</div>
+<p><br> 이번에는 위 라인을 rolling 을 이용하여 부드럽게 해 보겠습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">outcome</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">outcome</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)[</span><span class="s1">&#39;worst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Avergage Return vs. The Worst Return&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Avg. Return&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;The Worst Return&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2.4.1_Volatility_Breakout_24_0.png" src="../../_images/2.4.1_Volatility_Breakout_24_0.png" />
+</div>
+</div>
+<p>2021년 데이터에서는 K 가 0.4 근처보다는 0.6 근처가 더 좋은 전략으로 관찰되었습니다. 과연 2022년도 그럴지 궁금합니다. 2022년 1분기 데이터를 이용해 보겠습니다. 다른 결과가 나왔습니다. K= 0.5 가 더 좋은 것 같습니다. 과거에 좋은 K 가 현재에도 좋은 K 가 아닌 것 같습니다. 단순이 과거 K 를 이용하는 것이 좋은 방법이 아니라는 것을 알았습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">avg_return</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2022-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2022-03-31&#39;</span><span class="p">)</span>    <span class="c1"># 2022년 1분기 데이터</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">K</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="n">k_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">r_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">w_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)):</span> <span class="c1"># 0.2 ~ 0.8 까지 50 구간 list </span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">avg_return</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="n">k_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>       
+    <span class="n">r_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">w_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    
+<span class="n">outcome</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="n">k_list</span><span class="p">,</span> <span class="s1">&#39;return&#39;</span><span class="p">:</span> <span class="n">r_list</span><span class="p">,</span> <span class="s1">&#39;worst&#39;</span><span class="p">:</span> <span class="n">w_list</span><span class="p">})</span>   
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">outcome</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">outcome</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)[</span><span class="s1">&#39;worst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Avergage Return vs. The Worst Return&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Avg. Return&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;The Worst Return&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2.4.1_Volatility_Breakout_26_0.png" src="../../_images/2.4.1_Volatility_Breakout_26_0.png" />
+</div>
+</div>
+</section>
+<section id="id2">
+<h1>종목 찾기<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
+<p>이전 단원에서 최적의 K 를 찾아보았는데요. 이번에는 K 를 고정하고 최적의 종목을 찾아보겠습니다. 코스피로 한정해서 종목을 찾아보겠습니다. FinanceDataReaer 의 StockListing 메소드의 인수로 ‘KOSPI’ 를 넣으면 코스피 모든 종목을 반환합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">kospi_df</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">StockListing</span><span class="p">(</span><span class="s1">&#39;KOSPI&#39;</span><span class="p">)</span>
+<span class="n">kospi_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 12px&quot;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_8998e_" style="font-size: 12px">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >Symbol</th>
+      <th class="col_heading level0 col1" >Market</th>
+      <th class="col_heading level0 col2" >Name</th>
+      <th class="col_heading level0 col3" >Sector</th>
+      <th class="col_heading level0 col4" >Industry</th>
+      <th class="col_heading level0 col5" >ListingDate</th>
+      <th class="col_heading level0 col6" >SettleMonth</th>
+      <th class="col_heading level0 col7" >Representative</th>
+      <th class="col_heading level0 col8" >HomePage</th>
+      <th class="col_heading level0 col9" >Region</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_8998e_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_8998e_row0_col0" class="data row0 col0" >095570</td>
+      <td id="T_8998e_row0_col1" class="data row0 col1" >KOSPI</td>
+      <td id="T_8998e_row0_col2" class="data row0 col2" >AJ네트웍스</td>
+      <td id="T_8998e_row0_col3" class="data row0 col3" >산업용 기계 및 장비 임대업</td>
+      <td id="T_8998e_row0_col4" class="data row0 col4" >렌탈(파렛트, OA장비, 건설장비)</td>
+      <td id="T_8998e_row0_col5" class="data row0 col5" >2015-08-21 00:00:00</td>
+      <td id="T_8998e_row0_col6" class="data row0 col6" >12월</td>
+      <td id="T_8998e_row0_col7" class="data row0 col7" >박대현, 손삼달</td>
+      <td id="T_8998e_row0_col8" class="data row0 col8" >http://www.ajnet.co.kr</td>
+      <td id="T_8998e_row0_col9" class="data row0 col9" >서울특별시</td>
+    </tr>
+    <tr>
+      <th id="T_8998e_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_8998e_row1_col0" class="data row1 col0" >006840</td>
+      <td id="T_8998e_row1_col1" class="data row1 col1" >KOSPI</td>
+      <td id="T_8998e_row1_col2" class="data row1 col2" >AK홀딩스</td>
+      <td id="T_8998e_row1_col3" class="data row1 col3" >기타 금융업</td>
+      <td id="T_8998e_row1_col4" class="data row1 col4" >지주사업</td>
+      <td id="T_8998e_row1_col5" class="data row1 col5" >1999-08-11 00:00:00</td>
+      <td id="T_8998e_row1_col6" class="data row1 col6" >12월</td>
+      <td id="T_8998e_row1_col7" class="data row1 col7" >채형석, 이석주(각자 대표이사)</td>
+      <td id="T_8998e_row1_col8" class="data row1 col8" >http://www.aekyunggroup.co.kr</td>
+      <td id="T_8998e_row1_col9" class="data row1 col9" >서울특별시</td>
+    </tr>
+    <tr>
+      <th id="T_8998e_level0_row2" class="row_heading level0 row2" >6</th>
+      <td id="T_8998e_row2_col0" class="data row2 col0" >152100</td>
+      <td id="T_8998e_row2_col1" class="data row2 col1" >KOSPI</td>
+      <td id="T_8998e_row2_col2" class="data row2 col2" >ARIRANG 200</td>
+      <td id="T_8998e_row2_col3" class="data row2 col3" >nan</td>
+      <td id="T_8998e_row2_col4" class="data row2 col4" >nan</td>
+      <td id="T_8998e_row2_col5" class="data row2 col5" >NaT</td>
+      <td id="T_8998e_row2_col6" class="data row2 col6" >nan</td>
+      <td id="T_8998e_row2_col7" class="data row2 col7" >nan</td>
+      <td id="T_8998e_row2_col8" class="data row2 col8" >nan</td>
+      <td id="T_8998e_row2_col9" class="data row2 col9" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_8998e_level0_row3" class="row_heading level0 row3" >7</th>
+      <td id="T_8998e_row3_col0" class="data row3 col0" >295820</td>
+      <td id="T_8998e_row3_col1" class="data row3 col1" >KOSPI</td>
+      <td id="T_8998e_row3_col2" class="data row3 col2" >ARIRANG 200동일가중</td>
+      <td id="T_8998e_row3_col3" class="data row3 col3" >nan</td>
+      <td id="T_8998e_row3_col4" class="data row3 col4" >nan</td>
+      <td id="T_8998e_row3_col5" class="data row3 col5" >NaT</td>
+      <td id="T_8998e_row3_col6" class="data row3 col6" >nan</td>
+      <td id="T_8998e_row3_col7" class="data row3 col7" >nan</td>
+      <td id="T_8998e_row3_col8" class="data row3 col8" >nan</td>
+      <td id="T_8998e_row3_col9" class="data row3 col9" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_8998e_level0_row4" class="row_heading level0 row4" >8</th>
+      <td id="T_8998e_row4_col0" class="data row4 col0" >253150</td>
+      <td id="T_8998e_row4_col1" class="data row4 col1" >KOSPI</td>
+      <td id="T_8998e_row4_col2" class="data row4 col2" >ARIRANG 200선물레버리지</td>
+      <td id="T_8998e_row4_col3" class="data row4 col3" >nan</td>
+      <td id="T_8998e_row4_col4" class="data row4 col4" >nan</td>
+      <td id="T_8998e_row4_col5" class="data row4 col5" >NaT</td>
+      <td id="T_8998e_row4_col6" class="data row4 col6" >nan</td>
+      <td id="T_8998e_row4_col7" class="data row4 col7" >nan</td>
+      <td id="T_8998e_row4_col8" class="data row4 col8" >nan</td>
+      <td id="T_8998e_row4_col9" class="data row4 col9" >nan</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><br> nunique() 은 유니크한 종목 수를 세는 메소드입니다. 6,361 개의 종목이 있습니다. Sector 가 비어있는 종목의 경우는 일반적인 회사의 종목이 아닌 것인 것으로 보입니다. Sector 가 비어있는 종목은 제외하겠습니다. 이제 820 개의 종목만 남았습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">kospi_df</span><span class="p">[</span><span class="s1">&#39;Symbol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kospi_df</span><span class="p">[</span><span class="o">~</span><span class="n">kospi_df</span><span class="p">[</span><span class="s1">&#39;Sector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()][</span><span class="s1">&#39;Symbol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6151
+821
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> kospi_df 에서 필요한 컬럼 ‘Symbol’ 과 ‘Name’ 두 개만 kospi_list DataFrame 에 저장합니다. 그리고 종목코드 ‘Symbol’ 과 ‘Name’ 을 각 각 ‘code’ 외 ‘name’ 으로 바꿔줍니다. 그리고 나중을 위해서 결과물을 pickle 파일로 저장도 합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kospi_list</span> <span class="o">=</span> <span class="n">kospi_df</span><span class="p">[</span><span class="o">~</span><span class="n">kospi_df</span><span class="p">[</span><span class="s1">&#39;Sector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()][[</span><span class="s1">&#39;Symbol&#39;</span><span class="p">,</span><span class="s1">&#39;Name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Symbol&#39;</span><span class="p">:</span><span class="s1">&#39;code&#39;</span><span class="p">,</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span><span class="s1">&#39;name&#39;</span><span class="p">})</span>
+<span class="n">kospi_list</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;kospi_list.pkl&#39;</span><span class="p">)</span>
+<span class="n">kospi_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;kospi_list.pkl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 이제 변동성 돌파 전략의 수익율을 계산하는 함수를 불러옵니다. 일단 K 는 0.5 로 고정합니다. 모든 코스피 종목을 For-Loop 하면서 가장 수익율이 좋은 종목을 찾으면 됩니다. Loop 를 돌 때마다 종목이름, 종목코드, 평균수익율, 최대손실, 누적수익율을 list 에 저장합니다. 마지막으로 모든 list 를 모아서 하나의 DataFrame 으로 저장합니다. 800 개가 넘는 종목을 Loop 로 하나 씩 하니 시간이 많이 걸립니다. time 모듈을 이용해 총 데이터 처리시간도 측정해 봅니다. 2021년 변동성 돌파전략으로 매수할 수 있는 날이 50일 미만 경우는 무시하도록 if 문을 만들었습니다. 최종 결과를 pickle 로 저장합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="k">def</span> <span class="nf">avg_r2</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="n">stock</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span>    
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">K</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy_price&#39;</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span>
+
+<span class="n">code_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">name_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">return_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">worst_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cumul_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">kospi_list</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]):</span>
+
+    <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">avg_r2</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span> <span class="c1"># 최소한 50일 이상 거래일 존재해야 진행</span>
+
+        <span class="n">code_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+        <span class="n">name_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">return_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="n">worst_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">cumul_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+<span class="n">outcome</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">code_list</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name_list</span><span class="p">,</span> <span class="s1">&#39;return&#39;</span><span class="p">:</span> <span class="n">return_list</span><span class="p">,</span> <span class="s1">&#39;worst&#39;</span><span class="p">:</span> <span class="n">worst_list</span><span class="p">,</span> <span class="s1">&#39;cumul&#39;</span><span class="p">:</span> <span class="n">cumul_list</span><span class="p">})</span>    
+<span class="n">outcome</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;outcome.pkl&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;총 프로세싱 시간 </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>총 프로세싱 시간 125.55444192886353
+</pre></div>
+</div>
+</div>
+</div>
+<p><br> 저장된 결과물 outcome 을 ‘return’ 값의 내림차순으로 함 보겠습니다. 수익율이 좋은 종목 Top 3 는 ‘조일알미늄’, ‘한전기술’, ‘포스코스틸리온’ 이였습니다. Top 10 에서 최대손실율을 동시에 고려하면, 2021년에는 ‘미원화학’이 좋아 보입니다. 미원화학을 2021년 초부터 변동성 돌파전략으로 매수 매도를 했으면 2021년 연말에는 원금의 2.9배가 되어 있었을 것입니다. 하지만, 지나간 일입니다. 이 책의 4장부터는 데이터 분석으로 미래를 예측하는 방법을 다룹니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outcome</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;return&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 12px&quot;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_7602d_" style="font-size: 12px">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >code</th>
+      <th class="col_heading level0 col1" >name</th>
+      <th class="col_heading level0 col2" >return</th>
+      <th class="col_heading level0 col3" >worst</th>
+      <th class="col_heading level0 col4" >cumul</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_7602d_level0_row0" class="row_heading level0 row0" >570</th>
+      <td id="T_7602d_row0_col0" class="data row0 col0" >018470</td>
+      <td id="T_7602d_row0_col1" class="data row0 col1" >조일알미늄</td>
+      <td id="T_7602d_row0_col2" class="data row0 col2" >1.017648</td>
+      <td id="T_7602d_row0_col3" class="data row0 col3" >0.907132</td>
+      <td id="T_7602d_row0_col4" class="data row0 col4" >4.549524</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row1" class="row_heading level0 row1" >722</th>
+      <td id="T_7602d_row1_col0" class="data row1 col0" >052690</td>
+      <td id="T_7602d_row1_col1" class="data row1 col1" >한전기술</td>
+      <td id="T_7602d_row1_col2" class="data row1 col2" >1.017243</td>
+      <td id="T_7602d_row1_col3" class="data row1 col3" >0.932258</td>
+      <td id="T_7602d_row1_col4" class="data row1 col4" >5.318219</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row2" class="row_heading level0 row2" >645</th>
+      <td id="T_7602d_row2_col0" class="data row2 col0" >058430</td>
+      <td id="T_7602d_row2_col1" class="data row2 col1" >포스코스틸리온</td>
+      <td id="T_7602d_row2_col2" class="data row2 col2" >1.016921</td>
+      <td id="T_7602d_row2_col3" class="data row2 col3" >0.868904</td>
+      <td id="T_7602d_row2_col4" class="data row2 col4" >3.838723</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row3" class="row_heading level0 row3" >275</th>
+      <td id="T_7602d_row3_col0" class="data row3 col0" >092200</td>
+      <td id="T_7602d_row3_col1" class="data row3 col1" >디아이씨</td>
+      <td id="T_7602d_row3_col2" class="data row3 col2" >1.016628</td>
+      <td id="T_7602d_row3_col3" class="data row3 col3" >0.896846</td>
+      <td id="T_7602d_row3_col4" class="data row3 col4" >3.478830</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row4" class="row_heading level0 row4" >546</th>
+      <td id="T_7602d_row4_col0" class="data row4 col0" >008500</td>
+      <td id="T_7602d_row4_col1" class="data row4 col1" >일정실업</td>
+      <td id="T_7602d_row4_col2" class="data row4 col2" >1.016182</td>
+      <td id="T_7602d_row4_col3" class="data row4 col3" >0.928633</td>
+      <td id="T_7602d_row4_col4" class="data row4 col4" >4.006988</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row5" class="row_heading level0 row5" >318</th>
+      <td id="T_7602d_row5_col0" class="data row5 col0" >134380</td>
+      <td id="T_7602d_row5_col1" class="data row5 col1" >미원화학</td>
+      <td id="T_7602d_row5_col2" class="data row5 col2" >1.015959</td>
+      <td id="T_7602d_row5_col3" class="data row5 col3" >0.966864</td>
+      <td id="T_7602d_row5_col4" class="data row5 col4" >2.918914</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row6" class="row_heading level0 row6" >667</th>
+      <td id="T_7602d_row6_col0" class="data row6 col0" >004090</td>
+      <td id="T_7602d_row6_col1" class="data row6 col1" >한국석유</td>
+      <td id="T_7602d_row6_col2" class="data row6 col2" >1.015428</td>
+      <td id="T_7602d_row6_col3" class="data row6 col3" >0.914433</td>
+      <td id="T_7602d_row6_col4" class="data row6 col4" >2.984814</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row7" class="row_heading level0 row7" >773</th>
+      <td id="T_7602d_row7_col0" class="data row7 col0" >010690</td>
+      <td id="T_7602d_row7_col1" class="data row7 col1" >화신</td>
+      <td id="T_7602d_row7_col2" class="data row7 col2" >1.014677</td>
+      <td id="T_7602d_row7_col3" class="data row7 col3" >0.921250</td>
+      <td id="T_7602d_row7_col4" class="data row7 col4" >3.405889</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row8" class="row_heading level0 row8" >226</th>
+      <td id="T_7602d_row8_col0" class="data row8 col0" >001440</td>
+      <td id="T_7602d_row8_col1" class="data row8 col1" >대한전선</td>
+      <td id="T_7602d_row8_col2" class="data row8 col2" >1.014668</td>
+      <td id="T_7602d_row8_col3" class="data row8 col3" >0.706109</td>
+      <td id="T_7602d_row8_col4" class="data row8 col4" >3.403380</td>
+    </tr>
+    <tr>
+      <th id="T_7602d_level0_row9" class="row_heading level0 row9" >594</th>
+      <td id="T_7602d_row9_col0" class="data row9 col0" >001620</td>
+      <td id="T_7602d_row9_col1" class="data row9 col1" >케이비아이동국실업</td>
+      <td id="T_7602d_row9_col2" class="data row9 col2" >1.014626</td>
+      <td id="T_7602d_row9_col3" class="data row9 col3" >0.932897</td>
+      <td id="T_7602d_row9_col4" class="data row9 col4" >3.121872</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><br> 미원화학의 2021년 주가흐름을 함 보겠습니다. 2021년 3월에 급등이 있었습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;134380&#39;</span> <span class="c1"># 미원화학</span>
+<span class="n">stock_data</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">)</span> 
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/2.4.1_Volatility_Breakout_38_1.png" src="../../_images/2.4.1_Volatility_Breakout_38_1.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter4\chapter2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By KHS<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

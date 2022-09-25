@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>이베스트투자증권 &#8212; 나만의 추천 시스템</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">나만의 추천 시스템</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    나만의 추천 시스템
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter1/1.1.0_SOP.html">
+   <strong>
+    책을 시작하면서
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter1/1.2.0_Data_Science.html">
+   데이터분석 환경의 변화
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter3/3.1.0_Use_Case.html">
+   <strong>
+    데이터분석 활용사례
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.1_Use_Case.html">
+     보험사 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.2_Use_Case.html">
+     신용카드사 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.3_Use_Case.html">
+     소매업 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.4_Use_Case.html">
+     제조업 사례 (난이도 상)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter4/4.0.0_My_Strategy.html">
+   <strong>
+    데이터분석으로 나만의 전략 만들기
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter4/4.1.0_My_Strategy.html">
+   <strong>
+    문제점 파악
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter4/4.2.0_My_Strategy.html">
+   <strong>
+    정보 수집 및 전문가 인터뷰
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter4/4.3.0_My_Strategy.html">
+   <strong>
+    가설 설정
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter4/4.4.0_Data_Collection.html">
+   <strong>
+    데이터 수집 및 분석
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter4/4.4.1_Data_Collection.html">
+     일봉 데이터 가져오기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter4/4.4.2_Data_Collection.html">
+     코스닥 인덱스 데이터
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter4/4.4.3_Data_Collection.html">
+     종목별 일봉 데이터와 코스피 지수 데이터와 결합
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter4/4.4.4_Data_Processing.html">
+     가설 검증을 위한 데이터 처리
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter5/5.1.0_Hypothesis.html">
+   <strong>
+    가설 검정
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.1_Hypothesis_1.html">
+     가격 변동성이 크고 거래량이 몰린 종목이 주가가 상승한다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.2_Hypothesis_2.html">
+     5일 이동 평균선이 오늘 종가보다 위에 위치해 있다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.3_Hypothesis_3.html">
+     위 꼬리가 긴 양봉이 자주 발생한다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.4_Hypothesis_4.html">
+     거래량이 종종 터지며, 매집의 흔적을 보인다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.5_Hypothesis_5.html">
+     주가지수보다 더 좋은 수익율을 자주 보여준다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.6_Hypothesis_6.html">
+     동종업계 평균 수익률보다 더 좋은 수익률을 보여준다.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter5/5.2.0_Solution_Details.html">
+   <strong>
+    해결책 개발
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.1_Feature_Engineering.html">
+     피처 엔지니어링
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.2_Modeling_Library.html">
+     모델링 라이브러리 소개
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.3_GAM.html">
+     종목 선정 모델 개발
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.4_LM_Assumptions.html">
+     선형모델 가정에 대한 이해
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter6/6.0.0_Effectiveness_Testing.html">
+   <strong>
+    해결책의 효과 측정
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.1_Stock_Selection.html">
+     종목 추천 프로세스
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.2_Stock_Selection_Function.html">
+     해결책 테스트
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.3_Save_Stocks.html">
+     <strong>
+      추천 종목을 파일로 저장
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../7.0.0_Algo_trading.html">
+   자동매매를 해보자
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.0_env_setting.html">
+     개발환경
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.1_create_accnt_hanguk.html">
+     한국투자증권
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.2_connect_hanguk.html">
+     서비스 연결
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.3_functions_hanguk.html">
+     주요 함수 정의
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.4_main_hanguk.html">
+     자동매매 로직 이해하기
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter8/8.0.0_Web_Application.html">
+   <strong>
+    WebApp을 만들어보자
+   </strong>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter9/9.0.0_POC.html">
+   <strong>
+    계좌인증
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/occam-KHS/JupyterBook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter7/Old/7.3.0_create_accnt_ebest.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapter7/Old/7.3.0_create_accnt_ebest.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   계좌개설
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xingapi">
+   xingAPI 패키지 설치
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#devcenter-res">
+   DevCenter 에서 Res 파일 다운로드 받기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id15">
+   모의투자 서비스 가입하기
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>이베스트투자증권</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   계좌개설
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xingapi">
+   xingAPI 패키지 설치
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#devcenter-res">
+   DevCenter 에서 Res 파일 다운로드 받기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id15">
+   모의투자 서비스 가입하기
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>이베스트투자증권<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h2>계좌개설<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>모바일 앱 스토에서 Fig 1에서 보이는 이베스트 온(eBEST ON) 애플리케이션을 설치합니다. 앱 설치 완료 후, 비대면 계좌 개설을 진행합니다. 신분증 촬영과 간단한 인증 절차를 밟으면 어렵지 않게 계좌 개설을 완료할 수 있습니다.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="chapter7/Old/images/ebeston.png"><img alt="chapter7/Old/images/ebeston.png" src="chapter7/Old/images/ebeston.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">이베스트 온(eBest ON) 애플리케이션 설치</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="xingapi">
+<h2>xingAPI 패키지 설치<a class="headerlink" href="#xingapi" title="Permalink to this headline">#</a></h2>
+<p>이어서 Window PC에 xingAPI 패키지를 설치해야 합니다. 이베스트투자증권 홈페이지 (<a class="reference external" href="http://www.ebestsec.co.kr">http://www.ebestsec.co.kr</a>)로 이동한 후, ID 등록을 진행합니다. ID 등록을 마치면 로그인을 한 상태에서 웹 페이지 하단에 있는 [매매시스템] → [API] 메뉴를 클릭합니다.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="chapter7/Old/images/xingAPI_1.png"><img alt="chapter7/Old/images/xingAPI_1.png" src="chapter7/Old/images/xingAPI_1.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">[매매시스템] → [API] 클릭</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>[API] 메뉴 클릭 후, Fig 3에서 보이는 xingAPI 패키지 PC 버전을 다운로드합니다.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="chapter7/Old/images/xingAPI_2.png"><img alt="chapter7/Old/images/xingAPI_2.png" src="chapter7/Old/images/xingAPI_2.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">xingAPI 패키지 PC 버전 설치</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>다운로드한 설치 파일을 더블 클릭해서 설치를 시작합니다.
+Fig 4 와 같이 설치 마법사 화면이 나타나면 [다음] 버튼을 클릭하여 설치를 시작합니다.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="chapter7/Old/images/xingAPI_3.png"><img alt="chapter7/Old/images/xingAPI_3.png" src="chapter7/Old/images/xingAPI_3.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">설치 마법사 화면 [다음] 클릭</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>다음으로 기본 설치 경로를 수정하지 말고 [다음] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="chapter7/Old/images/xingAPI_4.png"><img alt="chapter7/Old/images/xingAPI_4.png" src="chapter7/Old/images/xingAPI_4.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">경로 수정하지 않고 [다음] 클릭</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>설치가 완료되면 Fig 6 과 같은 화면이 나타납니다. [완료] 버튼을 눌러 설치 과정을
+종료합니다.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="chapter7/Old/images/xingAPI_5.png"><img alt="chapter7/Old/images/xingAPI_5.png" src="chapter7/Old/images/xingAPI_5.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">xingAPI 패키지 설치 [완료] 클릭</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>마지막으로 Fig 7 과 같이  [매매시스템] → [API] → [사용등록/해지] 버튼을 눌러서 인증서 로그인을 진행 합니다.</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="chapter7/Old/images/xingAPI_6.png"><img alt="chapter7/Old/images/xingAPI_6.png" src="chapter7/Old/images/xingAPI_6.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">[매매시스템] → [API] → [사용등록/해지] 클릭</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>인증서 로그인을 마치면 Fig 8과 같이 약관에 동의하여 [사용등록] 버튼을 누릅니다.</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="chapter7/Old/images/xingAPI_7.png"><img alt="chapter7/Old/images/xingAPI_7.png" src="chapter7/Old/images/xingAPI_7.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">약관 동의 체크 및 [사용등록] 클릭</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Fig 9와 같이 화면이 나오면 사용자 등록이 완료됩니다.</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="chapter7/Old/images/xingAPI_8.png"><img alt="chapter7/Old/images/xingAPI_8.png" src="chapter7/Old/images/xingAPI_8.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">사용등록 완료 페이지</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="devcenter-res">
+<h2>DevCenter 에서 Res 파일 다운로드 받기<a class="headerlink" href="#devcenter-res" title="Permalink to this headline">#</a></h2>
+<p>Res 파일을 Local PC 에 다운 받으면, API 를 통해 증권서버의 데이터를 받을 수 있습니다.
+먼저 윈도우 검색창에서 DevCenter 검색 후, 앱을 실행 시킵니다.</p>
+<figure class="align-default" id="res">
+<a class="reference internal image-reference" href="chapter7/Old/images/Res_1.png"><img alt="chapter7/Old/images/Res_1.png" src="chapter7/Old/images/Res_1.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">윈도우 검색창에서 DevCenter 검색 및 실행</span><a class="headerlink" href="#res" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>다음으로 데이터베이스 아이콘을 클릭하여 Res 파일을 다운 받습니다.</p>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="chapter7/Old/images/Res_2.png"><img alt="chapter7/Old/images/Res_2.png" src="chapter7/Old/images/Res_2.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">[아이콘] 클릭</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>다운로드 팝업이 뜨면 예(Y) 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="chapter7/Old/images/Res_3.png"><img alt="chapter7/Old/images/Res_3.png" src="chapter7/Old/images/Res_3.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">Res 파일 다운로드 팝업 창 예(Y) 클릭</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>완료 팝업이 뜨면 [확인] 버튼을 클릭하여 Res 파일 다운로드를 완료 합니다.</p>
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="chapter7/Old/images/Res_4.png"><img alt="chapter7/Old/images/Res_4.png" src="chapter7/Old/images/Res_4.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">완료 팝업에서 [확인] 클릭</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id15">
+<h2>모의투자 서비스 가입하기<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h2>
+<p>모의투자 서비스에서 제공하는 가상 투자 환경으로 API 작동 방식을 익히고 알고리즘 백테스팅을 진행 할 수 있습니다.
+아래 Fig 14 와 같이 홈페이지(<a class="reference external" href="https://www.ebestsec.co.kr/">https://www.ebestsec.co.kr/</a>) 상단에 있는 [고객센터] → [모의투자] → [상시모의투자] 를 클릭해 주세요.</p>
+<figure class="align-default" id="id16">
+<a class="reference internal image-reference" href="chapter7/Old/images/mock_1.png"><img alt="chapter7/Old/images/mock_1.png" src="chapter7/Old/images/mock_1.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">[고객센터] → [모의투자] → [상시모의투자] 클릭</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>이어서 Fig 15 의 양식에 따라 참가신청을 하면 됩니다.</p>
+<figure class="align-default" id="id17">
+<a class="reference internal image-reference" href="chapter7/Old/images/mock_2.png"><img alt="chapter7/Old/images/mock_2.png" src="chapter7/Old/images/mock_2.png" style="width: 600px; height: 350px;" /></a>
+<figcaption>
+<p><span class="caption-text">양식 채우고 [참가신청] 클릭</span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter7\Old"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By KHS<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

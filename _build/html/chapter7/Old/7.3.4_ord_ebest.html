@@ -1,0 +1,1178 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>자동으로 주문넣기 &#8212; 나만의 추천 시스템</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">나만의 추천 시스템</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    나만의 추천 시스템
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter1/1.1.0_SOP.html">
+   <strong>
+    책을 시작하면서
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter1/1.2.0_Data_Science.html">
+   데이터분석 환경의 변화
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter3/3.1.0_Use_Case.html">
+   <strong>
+    데이터분석 활용사례
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.1_Use_Case.html">
+     보험사 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.2_Use_Case.html">
+     신용카드사 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.3_Use_Case.html">
+     소매업 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter3/3.1.4_Use_Case.html">
+     제조업 사례 (난이도 상)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter4/4.0.0_My_Strategy.html">
+   <strong>
+    데이터분석으로 나만의 전략 만들기
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter4/4.1.0_My_Strategy.html">
+   <strong>
+    문제점 파악
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter4/4.2.0_My_Strategy.html">
+   <strong>
+    정보 수집 및 전문가 인터뷰
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter4/4.3.0_My_Strategy.html">
+   <strong>
+    가설 설정
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter4/4.4.0_Data_Collection.html">
+   <strong>
+    데이터 수집 및 분석
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter4/4.4.1_Data_Collection.html">
+     일봉 데이터 가져오기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter4/4.4.2_Data_Collection.html">
+     코스닥 인덱스 데이터
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter4/4.4.3_Data_Collection.html">
+     종목별 일봉 데이터와 코스피 지수 데이터와 결합
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter4/4.4.4_Data_Processing.html">
+     가설 검증을 위한 데이터 처리
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter5/5.1.0_Hypothesis.html">
+   <strong>
+    가설 검정
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.1_Hypothesis_1.html">
+     가격 변동성이 크고 거래량이 몰린 종목이 주가가 상승한다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.2_Hypothesis_2.html">
+     5일 이동 평균선이 오늘 종가보다 위에 위치해 있다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.3_Hypothesis_3.html">
+     위 꼬리가 긴 양봉이 자주 발생한다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.4_Hypothesis_4.html">
+     거래량이 종종 터지며, 매집의 흔적을 보인다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.5_Hypothesis_5.html">
+     주가지수보다 더 좋은 수익율을 자주 보여준다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.1.6_Hypothesis_6.html">
+     동종업계 평균 수익률보다 더 좋은 수익률을 보여준다.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter5/5.2.0_Solution_Details.html">
+   <strong>
+    해결책 개발
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.1_Feature_Engineering.html">
+     피처 엔지니어링
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.2_Modeling_Library.html">
+     모델링 라이브러리 소개
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.3_GAM.html">
+     종목 선정 모델 개발
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter5/5.2.4_LM_Assumptions.html">
+     선형모델 가정에 대한 이해
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../chapter6/6.0.0_Effectiveness_Testing.html">
+   <strong>
+    해결책의 효과 측정
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.1_Stock_Selection.html">
+     종목 추천 프로세스
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.2_Stock_Selection_Function.html">
+     해결책 테스트
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../chapter6/6.1.3_Save_Stocks.html">
+     <strong>
+      추천 종목을 파일로 저장
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../7.0.0_Algo_trading.html">
+   자동매매를 해보자
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.0_env_setting.html">
+     개발환경
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.1_create_accnt_hanguk.html">
+     한국투자증권
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.2_connect_hanguk.html">
+     서비스 연결
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.3_functions_hanguk.html">
+     주요 함수 정의
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../7.2.4_main_hanguk.html">
+     자동매매 로직 이해하기
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter8/8.0.0_Web_Application.html">
+   <strong>
+    WebApp을 만들어보자
+   </strong>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../chapter9/9.0.0_POC.html">
+   <strong>
+    계좌인증
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/chapter7/Old/7.3.4_ord_ebest.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/occam-KHS/JupyterBook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter7/Old/7.3.4_ord_ebest.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapter7/Old/7.3.4_ord_ebest.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>자동으로 주문넣기</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="id1">
+<h1>자동으로 주문넣기<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p><img alt="GET_IMAGE" src="chapter7/Old/images/ebest_logic.png" /></p>
+<p>이번 절에는 매수와 매도 주문을 넣는 방법에 대해서 살펴 보겠습니다. 매수와 매도 모두 같은 요청 함수를 사용 합니다. 주문 요청 함수의 매개변수를 통해서 매수/매도를 구분하게 됩니다. 앞 절과 마찬가지로 다음과 같은 순서로 코드를 살펴 보겠습니다.</p>
+<ol>
+  <li>변수를 관리하는 MyObjects 클래스</li>
+  <li>데이터를 요청하는 Main 클래스</li>
+  <li>데이터를 수신하는 XQ_event_handler 클래스</li>
+</ol><p>MyObjects 클래스에서 추가된 변수는 1개 입니다.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>추가변수</p></th>
+<th class="text-align:left head"><p>정의</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>CSPAT00600_request</p></td>
+<td class="text-align:left"><p>신규 주문 요청함수 저장 변수</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. MyObjects: 변수관리 클래스 </span>
+
+<span class="k">class</span> <span class="nc">MyObjects</span><span class="p">:</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;demo&quot;</span> <span class="c1"># hts:실투자, demo: 모의투자</span>
+    <span class="n">tr_ok</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># TR요청</span>
+    <span class="n">real_ok</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># 실시간 요청</span>
+    <span class="n">acc_num</span> <span class="o">=</span> <span class="n">계좌번호</span> <span class="c1"># 계좌번호</span>
+    <span class="n">acc_pw</span> <span class="o">=</span> <span class="n">계좌비밀번호</span> <span class="c1"># 계좌비밀번호</span>
+
+    <span class="c1">########################################</span>
+    <span class="c1"># 추천종목 및 지정가</span>
+    <span class="n">t0424_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 잔고내역2 종목들 모아 놓은 딕셔너리</span>
+    <span class="n">K3_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 종목의 체결정보들 모아 놓은 딕셔너리</span>
+    <span class="n">HA_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 종목의 호가잔량을 모아 놓은 딕셔너리</span>
+
+    <span class="c1">####### 요청 함수 모음</span>
+    <span class="n">tr_event</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># TR요청에 대한 API 정보</span>
+    <span class="n">real_event</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 실시간 요청에 대한 API 정보</span>
+    <span class="n">real_event_ha</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 실시간 요청에 대한 API 정보</span>
+    
+    <span class="n">t0424_request</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 잔고내역2 조회 요청함수</span>
+    <span class="n">CSPAT00600_request</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#&lt; 신규주문 요청함수</span>
+    <span class="c1">##################</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Main 클래스에서는 주문 요청 결과를 수신 할 XQ_event_handler 클래스를 등록하고, 신규 주문을 넣는 “CSPAT00600” Res 파일을 등록합니다. CSPAT00600_request() 주문 함수는 계좌번호, 계좌비밀번호, 종목번호, 주문수량, 매수/매도 구분 그리고 호가유형코드를 SetFieldData() 함수를 통해 설정해야 합니다. 특별히 대출을 받아서 투자를 하거나 특정 조건으로 주문을 넣지 않는 경우에는 아래 코드와 같이 신용거래코드는 “000”, 대출일은 “”, 주문조건구분은 “0” 값을 지정합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Main: 실행용 클래스</span>
+
+
+<span class="k">class</span> <span class="nc">Main</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;실행용 클래스이다&quot;</span><span class="p">)</span>
+
+        <span class="c1"># ... 코드 생략 ...</span>
+        
+        <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+        
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">DispatchWithEvents</span><span class="p">(</span><span class="s2">&quot;XA_DataSet.XAQuery&quot;</span><span class="p">,</span> <span class="n">XQ_event_handler</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">ResFileName</span> <span class="o">=</span> <span class="s2">&quot;C:/eBEST/xingAPI/Res/CSPAT00600.res&quot;</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CSPAT00600_request</span>
+    
+        <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+        
+        <span class="c1"># ... 코드 생략 ...</span>
+        
+    <span class="c1"># ... 코드 생략 ...</span>
+    
+    <span class="k">def</span> <span class="nf">CSPAT00600_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">AcntNo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">InptPwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">IsuNo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">OrdQty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">BnsTpCode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;AcntNo&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">AcntNo</span><span class="p">)</span> <span class="c1"># 계좌번호</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;InptPwd&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">InptPwd</span><span class="p">)</span> <span class="c1"># 계좌번호 비밀번호</span>
+
+        <span class="k">if</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">server</span> <span class="o">==</span> <span class="s2">&quot;demo&quot;</span><span class="p">:</span>
+            <span class="n">IsuNo</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span><span class="o">+</span><span class="n">IsuNo</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;IsuNo&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">IsuNo</span><span class="p">)</span> <span class="c1"># 종목번호</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;OrdQty&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">OrdQty</span><span class="p">)</span> <span class="c1"># 주문수량</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;OrdPrc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># 주문가</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;BnsTpCode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">BnsTpCode</span><span class="p">)</span> <span class="c1"># 1:매도, 2:매수</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;OrdprcPtnCode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;03&quot;</span><span class="p">)</span> <span class="c1"># 호가유형코드, 03:시장가</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;MgntrnCode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;000&quot;</span><span class="p">)</span> <span class="c1"># 신용거래코드, 000:보통</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;LoanDt&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># 대출일</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;OrdCndiTpCode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="c1"># 주문조건구분 0:없음, 1:IOC, 2:FOK</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>XQ_event_handler 클래스는 주문 결과 메시지를 수신 받는 곳이기 때문에 CSPAT00600_request() 함수를 사용하지 않습니다. 주문 요청은 체결 및 호가 데이터를 조합한 조건식과 함께 사용되는 경우가 많습니다. 따라서, XR_event_handler 클래스에서 주문 요청을 진행 하겠습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. TR 요청 이후 수신결과 데이터를 다루는 구간</span>
+
+<span class="k">class</span> <span class="nc">XQ_event_handler</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">OnReceiveData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> 수신&quot;</span> <span class="o">%</span> <span class="n">code</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">OnReceiveMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">systemError</span><span class="p">,</span> <span class="n">messageCode</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;systemError: </span><span class="si">%s</span><span class="s2">, messageCode: </span><span class="si">%s</span><span class="s2">, message: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">systemError</span><span class="p">,</span> <span class="n">messageCode</span><span class="p">,</span> <span class="n">message</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. XR_event_handler: 실시간 데이터 수신 클래스</span>
+<span class="c1">## 실시간 정보를 활용한 주문 요청</span>
+
+<span class="k">class</span> <span class="nc">XR_event_handler</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">OnReceiveRealData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;K3_&quot;</span><span class="p">:</span>
+
+            <span class="n">shcode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;shcode&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">shcode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">K3_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">MyObjects</span><span class="o">.</span><span class="n">K3_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="n">tt</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">K3_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">]</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;체결시간&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;chetime&quot;</span><span class="p">)</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;등락율&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;drate&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;현재가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;시가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;고가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;저가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;low&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;누적거래량&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;volume&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매도호가&quot;</span><span class="p">]</span><span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;offerho&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매수호가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;bidho&quot;</span><span class="p">))</span>
+
+            <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+            <span class="k">if</span> <span class="n">shcode</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> \
+                    <span class="ow">and</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">][</span><span class="s2">&quot;매수호가1&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> \
+                        <span class="ow">and</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">][</span><span class="s2">&quot;매도호가1&quot;</span><span class="p">]</span> <span class="o">&gt;</span><span class="mi">0</span> \
+                            <span class="ow">and</span> <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;현재가&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10000</span> \
+                                <span class="ow">and</span> <span class="n">shcode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;매수 종목: </span><span class="si">{</span><span class="n">shcode</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_request</span><span class="p">(</span><span class="n">AcntNo</span><span class="o">=</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_num</span><span class="p">,</span> <span class="n">InptPwd</span><span class="o">=</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_pw</span><span class="p">,</span> <span class="n">IsuNo</span><span class="o">=</span><span class="n">shcode</span><span class="p">,</span> <span class="n">OrdQty</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>  <span class="n">BnsTpCode</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="n">OrdprcPtnCode</span><span class="o">=</span><span class="s2">&quot;03&quot;</span><span class="p">)</span>
+
+            <span class="c1"># 매도</span>
+            <span class="k">if</span> <span class="n">shcode</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">earning_rate</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">][</span><span class="s2">&quot;수익률&quot;</span><span class="p">]</span>
+                <span class="n">qty</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">][</span><span class="s2">&quot;매도가능수량&quot;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">earning_rate</span> <span class="o">&gt;</span> <span class="mf">5.0</span> <span class="ow">or</span> <span class="n">earning_rate</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">6.0</span><span class="p">:</span>
+                    <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_request</span><span class="p">(</span><span class="n">AcntNo</span><span class="o">=</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_num</span><span class="p">,</span> <span class="n">InptPwd</span><span class="o">=</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_pw</span><span class="p">,</span> <span class="n">IsuNo</span><span class="o">=</span><span class="n">medo_shcode</span><span class="p">,</span> <span class="n">OrdQty</span><span class="o">=</span><span class="n">qty</span><span class="p">,</span> <span class="n">BnsTpCode</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">OrdprcPtnCode</span><span class="o">=</span><span class="s2">&quot;03&quot;</span><span class="p">)</span>
+            
+            <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>아래 전체 코드를 실행 시키고 체결 및 호가 요청 결과를 확인 합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">매수/매도 주문 넣기</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">win32com.client</span>
+<span class="kn">import</span> <span class="nn">pythoncom</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># 앞으로 사용하게 될 변수들을 모아 놓는다.</span>
+<span class="k">class</span> <span class="nc">MyObjects</span><span class="p">:</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;demo&quot;</span> <span class="c1"># hts:실투자, demo: 모의투자</span>
+    <span class="n">tr_ok</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># TR요청</span>
+    <span class="n">real_ok</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># 실시간 요청</span>
+    <span class="n">acc_num</span> <span class="o">=</span> <span class="s2">&quot;55500489801&quot;</span> <span class="c1"># 계좌번호</span>
+    <span class="n">acc_pw</span> <span class="o">=</span> <span class="s2">&quot;E50330#&quot;</span> <span class="c1"># 계좌비밀번호</span>
+
+    <span class="n">code_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 추천종목 코드 리스트</span>
+    <span class="n">t0424_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 잔고내역2 종목들 모아 놓은 딕셔너리</span>
+    <span class="n">K3_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 종목의 체결정보들 모아 놓은 딕셔너리</span>
+    <span class="n">HA_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 종목의 호가잔량을 모아 놓은 딕셔너리</span>
+
+    <span class="c1">####### 요청 함수 모음</span>
+    <span class="n">tr_event</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># TR요청에 대한 API 정보</span>
+    <span class="n">real_event</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 실시간 요청에 대한 API 정보</span>
+    <span class="n">real_event_ha</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 실시간 요청에 대한 API 정보</span>
+
+    <span class="n">t0424_request</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 잔고내역2 조회 요청함수</span>
+    <span class="n">CSPAT00600_request</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 신규주문 요청함수</span>
+    <span class="c1">##################</span>
+
+
+<span class="c1"># 실시간으로 수신받는 데이터를 다루는 구간</span>
+<span class="k">class</span> <span class="nc">XR_event_handler</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">OnReceiveRealData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;K3_&quot;</span><span class="p">:</span>
+
+            <span class="n">shcode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;shcode&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">shcode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">K3_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">MyObjects</span><span class="o">.</span><span class="n">K3_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="n">tt</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">K3_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">]</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;체결시간&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;chetime&quot;</span><span class="p">)</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;등락율&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;drate&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;현재가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;시가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;고가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;저가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;low&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;누적거래량&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;volume&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매도호가&quot;</span><span class="p">]</span><span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;offerho&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매수호가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;bidho&quot;</span><span class="p">))</span>
+ 
+            <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+            
+            <span class="c1"># 매수</span>
+            <span class="k">if</span> <span class="n">shcode</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> \
+                    <span class="ow">and</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">][</span><span class="s2">&quot;매수호가1&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> \
+                        <span class="ow">and</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">][</span><span class="s2">&quot;매도호가1&quot;</span><span class="p">]</span> <span class="o">&gt;</span><span class="mi">0</span> \
+                            <span class="ow">and</span> <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;현재가&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100000</span> \
+                                <span class="ow">and</span> <span class="n">shcode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;매수 종목: </span><span class="si">{</span><span class="n">shcode</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_request</span><span class="p">(</span><span class="n">AcntNo</span><span class="o">=</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_num</span><span class="p">,</span> <span class="n">InptPwd</span><span class="o">=</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_pw</span><span class="p">,</span> <span class="n">IsuNo</span><span class="o">=</span><span class="n">shcode</span><span class="p">,</span> <span class="n">OrdQty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">BnsTpCode</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="n">OrdprcPtnCode</span><span class="o">=</span><span class="s2">&quot;03&quot;</span><span class="p">)</span>
+
+            <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+            
+        <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;HA_&quot;</span><span class="p">:</span>
+        
+            <span class="n">shcode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;shcode&quot;</span><span class="p">)</span>
+        
+            <span class="k">if</span> <span class="n">shcode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        
+            <span class="n">tt</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">HA_dict</span><span class="p">[</span><span class="n">shcode</span><span class="p">]</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매수호가1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;bidho1&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매수호가2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;bidho2&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매도호가1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;offerho1&quot;</span><span class="p">))</span>
+            <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매도호가2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;offerho2&quot;</span><span class="p">))</span>
+
+
+<span class="c1"># TR 요청 이후 수신결과 데이터를 다루는 구간</span>
+<span class="k">class</span> <span class="nc">XQ_event_handler</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">OnReceiveData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> 수신&quot;</span> <span class="o">%</span> <span class="n">code</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;t0424&quot;</span><span class="p">:</span>
+
+            <span class="n">cts_expcode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;cts_expcode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">occurs_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetBlockCount</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock1&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">occurs_count</span><span class="p">):</span>
+                <span class="n">expcode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;expcode&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">expcode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="p">[</span><span class="n">expcode</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+                <span class="n">tt</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="p">[</span><span class="n">expcode</span><span class="p">]</span>
+                <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;잔고수량&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;janqty&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+                <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;매도가능수량&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;mdposqt&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+                <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;평균단가&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;pamt&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+                <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;종목명&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;hname&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;종목구분&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;jonggb&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                <span class="n">tt</span><span class="p">[</span><span class="s2">&quot;수익률&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424OutBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;sunikrt&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;잔고내역 </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="c1"># 과거 데이터를 더 가져오고 싶을 때는 연속조회를 해야한다.</span>
+            <span class="c1"># if self.IsNext is True: # 과거 데이터가 더 존재한다.</span>
+                <span class="c1"># MyObjects.t0424_request(cts_expcode=cts_expcode, next=self.IsNext)</span>
+            <span class="c1"># elif self.IsNext is False:</span>
+
+            <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_ok</span> <span class="o">=</span> <span class="kc">True</span>
+            
+
+    <span class="k">def</span> <span class="nf">OnReceiveMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">systemError</span><span class="p">,</span> <span class="n">messageCode</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;systemError: </span><span class="si">%s</span><span class="s2">, messageCode: </span><span class="si">%s</span><span class="s2">, message: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">systemError</span><span class="p">,</span> <span class="n">messageCode</span><span class="p">,</span> <span class="n">message</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        
+<span class="c1"># 서버접속 및 로그인 요청 이후 수신결과 데이터를 다루는 구간</span>
+<span class="k">class</span> <span class="nc">XS_event_handler</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">OnLogin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">szCode</span><span class="p">,</span> <span class="n">szMsg</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">szCode</span><span class="p">,</span> <span class="n">szMsg</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">szCode</span> <span class="o">==</span> <span class="s2">&quot;0000&quot;</span><span class="p">:</span>
+            <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_ok</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_ok</span> <span class="o">=</span> <span class="kc">False</span>
+
+            
+<span class="c1"># 실행용 클래스</span>
+<span class="k">class</span> <span class="nc">Main</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
+        <span class="c1"># 임의의 추천종목 리스트</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">code_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;002680&#39;</span><span class="p">,</span><span class="s1">&#39;048530&#39;</span><span class="p">,</span><span class="s1">&#39;013720&#39;</span><span class="p">]</span>
+
+        <span class="n">session</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">DispatchWithEvents</span><span class="p">(</span><span class="s2">&quot;XA_Session.XASession&quot;</span><span class="p">,</span> <span class="n">XS_event_handler</span><span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">ConnectServer</span><span class="p">(</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">server</span> <span class="o">+</span> <span class="s2">&quot;.ebestsec.co.kr&quot;</span><span class="p">,</span> <span class="mi">20001</span><span class="p">)</span> <span class="c1"># 서버 연결</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">Login</span><span class="p">(</span><span class="s1">&#39;kwangjae&#39;</span><span class="p">,</span> <span class="s1">&#39;E50330#&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># session.Login(아이디, 비밀번호, 공인인증서, 0, False) # 서버 연결</span>
+
+        <span class="k">while</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_ok</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">pythoncom</span><span class="o">.</span><span class="n">PumpWaitingMessages</span><span class="p">()</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">DispatchWithEvents</span><span class="p">(</span><span class="s2">&quot;XA_DataSet.XAQuery&quot;</span><span class="p">,</span> <span class="n">XQ_event_handler</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">ResFileName</span> <span class="o">=</span> <span class="s2">&quot;C:/eBEST/xingAPI/Res/t0424.res&quot;</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0424_request</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_request</span><span class="p">(</span><span class="n">cts_expcode</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+        
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">DispatchWithEvents</span><span class="p">(</span><span class="s2">&quot;XA_DataSet.XAQuery&quot;</span><span class="p">,</span> <span class="n">XQ_event_handler</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">ResFileName</span> <span class="o">=</span> <span class="s2">&quot;C:/eBEST/xingAPI/Res/CSPAT00600.res&quot;</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CSPAT00600_request</span>
+
+        <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_event</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">DispatchWithEvents</span><span class="p">(</span><span class="s2">&quot;XA_DataSet.XAReal&quot;</span><span class="p">,</span> <span class="n">XR_event_handler</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_event</span><span class="o">.</span><span class="n">ResFileName</span> <span class="o">=</span> <span class="s2">&quot;C:/eBEST/xingAPI/Res/K3_.res&quot;</span>
+        <span class="k">for</span> <span class="n">shcode</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">code_list</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;체결정보 종목 등록 </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">shcode</span><span class="p">)</span>
+            <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;shcode&quot;</span><span class="p">,</span> <span class="n">shcode</span><span class="p">)</span>
+            <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_event</span><span class="o">.</span><span class="n">AdviseRealData</span><span class="p">()</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_event_ha</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">DispatchWithEvents</span><span class="p">(</span><span class="s2">&quot;XA_DataSet.XAReal&quot;</span><span class="p">,</span> <span class="n">XR_event_handler</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_event_ha</span><span class="o">.</span><span class="n">ResFileName</span> <span class="o">=</span> <span class="s2">&quot;C:/eBEST/xingAPI/Res/HA_.res&quot;</span>
+        <span class="k">for</span> <span class="n">shcode</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">code_list</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;호가잔량 종목 등록 </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">shcode</span><span class="p">)</span>
+            <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_event_ha</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;shcode&quot;</span><span class="p">,</span> <span class="n">shcode</span><span class="p">)</span>
+            <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_event_ha</span><span class="o">.</span><span class="n">AdviseRealData</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">t0424_loop</span><span class="p">()</span>
+
+        <span class="k">while</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">real_ok</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">pythoncom</span><span class="o">.</span><span class="n">PumpWaitingMessages</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">t0424_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cts_expcode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;accno&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_num</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;passwd&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_pw</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;prcgb&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;chegb&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;dangb&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;charge&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;t0424InBlock&quot;</span><span class="p">,</span> <span class="s2">&quot;cts_expcode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_event</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="nb">next</span><span class="p">)</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_ok</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">while</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">tr_ok</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">pythoncom</span><span class="o">.</span><span class="n">PumpWaitingMessages</span><span class="p">()</span>
+    
+    <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+    
+    <span class="k">def</span> <span class="nf">CSPAT00600_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">AcntNo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">InptPwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">IsuNo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">OrdQty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">OrdPrc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">OrdprcPtnCode</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">BnsTpCode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;AcntNo&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">AcntNo</span><span class="p">)</span> <span class="c1"># 계좌번호</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;InptPwd&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">InptPwd</span><span class="p">)</span> <span class="c1"># 비밀번호</span>
+
+        <span class="k">if</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">server</span> <span class="o">==</span> <span class="s2">&quot;demo&quot;</span><span class="p">:</span>
+            <span class="n">IsuNo</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span><span class="o">+</span><span class="n">IsuNo</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;IsuNo&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">IsuNo</span><span class="p">)</span> <span class="c1"># 종목번호</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;OrdQty&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">OrdQty</span><span class="p">)</span> <span class="c1"># 주문수량</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;OrdPrc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">OrdPrc</span><span class="p">)</span> <span class="c1"># 주문가</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;BnsTpCode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">BnsTpCode</span><span class="p">)</span> <span class="c1"># 1:매도, 2:매수</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;OrdprcPtnCode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">OrdprcPtnCode</span><span class="p">)</span> <span class="c1"># 호가유형코드, 00:지정가, 03:시장가</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;MgntrnCode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;000&quot;</span><span class="p">)</span> <span class="c1"># 신용거래코드, 000:보통</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;LoanDt&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># 대출일</span>
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">SetFieldData</span><span class="p">(</span><span class="s2">&quot;CSPAT00600InBlock1&quot;</span><span class="p">,</span> <span class="s2">&quot;OrdCndiTpCode&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="c1"># 주문조건구분 0:없음, 1:IOC, 2:FOK</span>
+
+        <span class="n">err</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_event</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">XXXXXXXXXXXXXXX &quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">CSPAT00600 주문에러&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">계좌번호: </span><span class="si">{0}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">종목코드: </span><span class="si">{1}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">주문수량: </span><span class="si">{2}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">매매구분: </span><span class="si">{3}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">주문에러: </span><span class="si">{4}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AcntNo</span><span class="p">,</span> <span class="n">IsuNo</span><span class="p">,</span> <span class="n">OrdQty</span><span class="p">,</span> <span class="n">BnsTpCode</span><span class="p">,</span> <span class="n">err</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=============&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">CSPAT00600 주문 실행&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">계좌번호: </span><span class="si">{0}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">종목코드: </span><span class="si">{1}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">주문수량: </span><span class="si">{2}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">매매구분: </span><span class="si">{3}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">주문에러: </span><span class="si">{4}</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AcntNo</span><span class="p">,</span> <span class="n">IsuNo</span><span class="p">,</span> <span class="n">OrdQty</span><span class="p">,</span> <span class="n">BnsTpCode</span><span class="p">,</span> <span class="n">err</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+    
+    <span class="k">def</span> <span class="nf">t0424_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_request</span><span class="p">(</span><span class="n">cts_expcode</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+        
+        <span class="c1"># 매도</span>
+        <span class="k">for</span> <span class="n">medo_shcode</span> <span class="ow">in</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">earning_rate</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="p">[</span><span class="n">medo_shcode</span><span class="p">][</span><span class="s2">&quot;수익률&quot;</span><span class="p">]</span>
+            <span class="n">qty</span> <span class="o">=</span> <span class="n">MyObjects</span><span class="o">.</span><span class="n">t0424_dict</span><span class="p">[</span><span class="n">medo_shcode</span><span class="p">][</span><span class="s2">&quot;매도가능수량&quot;</span><span class="p">]</span>
+                
+            <span class="k">if</span> <span class="n">earning_rate</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="n">earning_rate</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">:</span>
+                <span class="n">MyObjects</span><span class="o">.</span><span class="n">CSPAT00600_request</span><span class="p">(</span><span class="n">AcntNo</span><span class="o">=</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_num</span><span class="p">,</span> <span class="n">InptPwd</span><span class="o">=</span><span class="n">MyObjects</span><span class="o">.</span><span class="n">acc_pw</span><span class="p">,</span> <span class="n">IsuNo</span><span class="o">=</span><span class="n">medo_shcode</span><span class="p">,</span> <span class="n">OrdQty</span><span class="o">=</span><span class="n">qty</span><span class="p">,</span> <span class="n">BnsTpCode</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">OrdprcPtnCode</span><span class="o">=</span><span class="s2">&quot;03&quot;</span><span class="p">)</span>
+            
+        <span class="c1">#&lt;&lt;&lt;&lt;&lt;</span>
+        
+        <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0424_loop</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">Main</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0000 로그인 성공
+systemError: 0, messageCode: 00000, message: 조회가 완료되었습니다.
+t0424 수신
+잔고내역 {&#39;039860&#39;: {&#39;잔고수량&#39;: 5, &#39;매도가능수량&#39;: 5, &#39;평균단가&#39;: 4865, &#39;종목명&#39;: &#39;나노엔텍&#39;, &#39;종목구분&#39;: &#39;2&#39;, &#39;수익률&#39;: -0.25}, &#39;353490&#39;: {&#39;잔고수량&#39;: 35, &#39;매도가능수량&#39;: 35, &#39;평균단가&#39;: 2165, &#39;종목명&#39;: &#39;미래에셋대우스팩 5호&#39;, &#39;종목구분&#39;: &#39;2&#39;, &#39;수익률&#39;: -0.95}}
+체결정보 종목 등록 002680
+체결정보 종목 등록 048530
+체결정보 종목 등록 013720
+호가잔량 종목 등록 002680
+호가잔량 종목 등록 048530
+호가잔량 종목 등록 013720
+systemError: 0, messageCode: 00000, message: 조회가 완료되었습니다.
+t0424 수신
+잔고내역 {&#39;039860&#39;: {&#39;잔고수량&#39;: 5, &#39;매도가능수량&#39;: 5, &#39;평균단가&#39;: 4865, &#39;종목명&#39;: &#39;나노엔텍&#39;, &#39;종목구분&#39;: &#39;2&#39;, &#39;수익률&#39;: -0.25}, &#39;353490&#39;: {&#39;잔고수량&#39;: 35, &#39;매도가능수량&#39;: 35, &#39;평균단가&#39;: 2165, &#39;종목명&#39;: &#39;미래에셋대우스팩 5호&#39;, &#39;종목구분&#39;: &#39;2&#39;, &#39;수익률&#39;: -0.95}}
+매수 종목: 048530
+
+=============
+CSPAT00600 주문 실행
+계좌번호: 55500489801
+종목코드: A048530
+주문수량: 1
+매매구분: 2
+주문에러: 7
+
+
+systemError: 0, messageCode: 00040, message: 모의투자 매수주문이 완료 되었습니다.                                            
+CSPAT00600 수신
+systemError: 0, messageCode: 00000, message: 조회가 완료되었습니다.
+t0424 수신
+잔고내역 {&#39;039860&#39;: {&#39;잔고수량&#39;: 5, &#39;매도가능수량&#39;: 5, &#39;평균단가&#39;: 4865, &#39;종목명&#39;: &#39;나노엔텍&#39;, &#39;종목구분&#39;: &#39;2&#39;, &#39;수익률&#39;: -0.25}, &#39;353490&#39;: {&#39;잔고수량&#39;: 35, &#39;매도가능수량&#39;: 35, &#39;평균단가&#39;: 2165, &#39;종목명&#39;: &#39;미래에셋대우스팩 5호&#39;, &#39;종목구분&#39;: &#39;2&#39;, &#39;수익률&#39;: -0.95}}
+매수 종목: 048530
+
+=============
+CSPAT00600 주문 실행
+계좌번호: 55500489801
+종목코드: A048530
+주문수량: 1
+매매구분: 2
+주문에러: 9
+
+
+systemError: 0, messageCode: 00040, message: 모의투자 매수주문이 완료 되었습니다.                                            
+CSPAT00600 수신
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter7\Old"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By KHS<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

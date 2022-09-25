@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; 나만의 추천 시스템</title>
+    <title>자동매매 코드 &#8212; 나만의 추천 시스템</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -648,7 +648,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/api_key.ipynb"
+        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/auto_trade(khs).ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -708,7 +708,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fapi_key.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fauto_trade(khs).html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -736,7 +736,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/api_key.ipynb"
+        <a href="_sources/auto_trade(khs).ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -773,50 +773,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>자동매매 코드</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -826,30 +799,23 @@ title="Print to PDF"
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyring</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># keyring.set_password(&#39;real_app_key&#39;,&#39;occam123&#39;,&#39;PSFEvvteQEozUSIzNzkEaMJLI5u1UXidbEQr&#39;)</span>
+<span class="c1"># keyring.set_password(&#39;real_app_secret&#39;,&#39;occam123&#39;,&#39;4jDvcydJucYSSrrT+6khBsjyvLhONQfOQbQjGunP0tEB0QOiSKuU1aNRWGTiCa9dnHB+/Fusxmryx8xRFFMln1scV9GE3mRqbOAui/myt/Pr3gMi14DnkD58xBk4X1gePTVz1fLsU5DVJ7qWii3LfbRY6CMzB4znkGSiGceCk57+dIHpvXc=&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keyring</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="s1">&#39;real_app_key&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">,</span><span class="s1">&#39;PSFEvvteQEozUSIzNzkEaMJLI5u1UXidbEQr&#39;</span><span class="p">)</span>
-<span class="n">keyring</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="s1">&#39;real_app_secret&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">,</span><span class="s1">&#39;4jDvcydJucYSSrrT+6khBsjyvLhONQfOQbQjGunP0tEB0QOiSKuU1aNRWGTiCa9dnHB+/Fusxmryx8xRFFMln1scV9GE3mRqbOAui/myt/Pr3gMi14DnkD58xBk4X1gePTVz1fLsU5DVJ7qWii3LfbRY6CMzB4znkGSiGceCk57+dIHpvXc=&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># keyring.set_password(&#39;mock_app_key&#39;,&#39;occam123&#39;,&#39;PSyACQnZTx0YfBqE2Ocn3iSsOa4uWWjptWjW&#39;)</span>
+<span class="c1"># keyring.set_password(&#39;mock_app_secret&#39;,&#39;occam123&#39;,&#39;OfhLxJH9NEXeOG4fJwLSzxepeLl4FDDkG3n+1r03tRrYKgJ7fNbXOuQbA9sljT8qE0+We0jmkbwQs8DNkfcEIbyDlaRKeVdee/hjPKCZHBJFIOSGJrZAv63QIUulN1zbqIHe+nm6Uq35OkXurGgCm5rg6B5Ik1VY2E0LIGtElE7B/FQBDcw=&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keyring</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="s1">&#39;mock_app_key&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">,</span><span class="s1">&#39;PSyACQnZTx0YfBqE2Ocn3iSsOa4uWWjptWjW&#39;</span><span class="p">)</span>
-<span class="n">keyring</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="s1">&#39;mock_app_secret&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">,</span><span class="s1">&#39;OfhLxJH9NEXeOG4fJwLSzxepeLl4FDDkG3n+1r03tRrYKgJ7fNbXOuQbA9sljT8qE0+We0jmkbwQs8DNkfcEIbyDlaRKeVdee/hjPKCZHBJFIOSGJrZAv63QIUulN1zbqIHe+nm6Uq35OkXurGgCm5rg6B5Ik1VY2E0LIGtElE7B/FQBDcw=&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keyring</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="s1">&#39;mock_app_key&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># keyring.get_password(&#39;mock_app_key&#39;,&#39;occam123&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -861,349 +827,28 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DISCORD_WEBHOOK_URL</span> <span class="o">=</span> <span class="n">keyring</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="s1">&#39;discord_webhook&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DISCORD_WEBHOOK_URL = keyring.get_password(&#39;discord_webhook&#39;,&#39;occam123&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keyring</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="s1">&#39;discord_webhook&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">,</span><span class="s1">&#39;https://discord.com/api/webhooks/1020800210001199187/X2Deqar0nI_mu0EVLxiKiCQGGQB7fmQh-a6H_46GRhdxChKtnzk1VUoBVgUTdyLIyPIh&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;디스코드 메세지 전송&quot;&quot;&quot;</span>
-    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
-    <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">DISCORD_WEBHOOK_URL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># keyring.set_password(&#39;discord_webhook&#39;,&#39;occam123&#39;,&#39;https://discord.com/api/webhooks/1020800210001199187/X2Deqar0nI_mu0EVLxiKiCQGGQB7fmQh-a6H_46GRhdxChKtnzk1VUoBVgUTdyLIyPIh&#39;)</span>
+<span class="c1"># import datetime</span>
+<span class="c1"># import requests</span>
+<span class="c1"># def send_message(msg):</span>
+<span class="c1">#     &quot;&quot;&quot;디스코드 메세지 전송&quot;&quot;&quot;</span>
+<span class="c1">#     now = datetime.datetime.now()</span>
+<span class="c1">#     message = {&quot;content&quot;: f&quot;[{now.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)}] {str(msg)}&quot;}</span>
+<span class="c1">#     requests.post(DISCORD_WEBHOOK_URL, data=message)</span>
+<span class="c1">#     print(message)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="n">APP_KEY</span> <span class="o">=</span> <span class="n">keyring</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="s1">&#39;real_app_key&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">)</span>
-<span class="n">APP_SECRET</span> <span class="o">=</span>  <span class="n">keyring</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="s1">&#39;real_app_secret&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">)</span>
-<span class="c1"># APP_KEY = keyring.get_password(&#39;mock_app_key&#39;,&#39;occam123&#39;)</span>
-<span class="c1"># APP_SECRET =  keyring.get_password(&#39;mock_app_secret&#39;,&#39;occam123&#39;)</span>
-<span class="n">URL_BASE</span> <span class="o">=</span> <span class="s2">&quot;https://openapi.koreainvestment.com:9443&quot;</span> <span class="c1"># 실전 투자</span>
-<span class="c1"># URL_BASE = &quot;https://openapivts.koreainvestment.com:29443&quot; #모의투자서비스</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">APP_SECRET</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4jDvcydJucYSSrrT+6khBsjyvLhONQfOQbQjGunP0tEB0QOiSKuU1aNRWGTiCa9dnHB+/Fusxmryx8xRFFMln1scV9GE3mRqbOAui/myt/Pr3gMi14DnkD58xBk4X1gePTVz1fLsU5DVJ7qWii3LfbRY6CMzB4znkGSiGceCk57+dIHpvXc=
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> 
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="k">def</span> <span class="nf">hashkey</span><span class="p">(</span><span class="n">datas</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;암호화&quot;&quot;&quot;</span>
-    <span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;uapi/hashkey&quot;</span>
-    <span class="n">URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">URL_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;content-Type&#39;</span> <span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;appKey&#39;</span> <span class="p">:</span> <span class="n">APP_KEY</span><span class="p">,</span>
-    <span class="s1">&#39;appSecret&#39;</span> <span class="p">:</span> <span class="n">APP_SECRET</span><span class="p">,</span>
-    <span class="p">}</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">datas</span><span class="p">))</span>
-    <span class="n">hashkey</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;HASH&quot;</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">hashkey</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> 
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="k">def</span> <span class="nf">get_access_token</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;토큰 발급&quot;&quot;&quot;</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;content-type&quot;</span><span class="p">:</span><span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;grant_type&quot;</span><span class="p">:</span><span class="s2">&quot;client_credentials&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;appkey&quot;</span><span class="p">:</span><span class="n">APP_KEY</span><span class="p">,</span>
-    <span class="s2">&quot;appsecret&quot;</span><span class="p">:</span><span class="n">APP_SECRET</span><span class="p">}</span>
-    <span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;oauth2/tokenP&quot;</span>
-    <span class="n">URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">URL_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
-    <span class="n">ACCESS_TOKEN</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;access_token&quot;</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">ACCESS_TOKEN</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ACCESS_TOKEN</span> <span class="o">=</span> <span class="n">get_access_token</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CANO</span> <span class="o">=</span> <span class="s1">&#39;63566811&#39;</span>
-<span class="n">ACNT_PRDT_CD</span> <span class="o">=</span> <span class="s1">&#39;01&#39;</span>
-
-<span class="n">ACCESS_TOKEN</span> <span class="o">=</span> <span class="n">get_access_token</span><span class="p">()</span>
-
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">time</span>
-
-<span class="k">def</span> <span class="nf">get_stock_balance</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;주식 잔고조회&quot;&quot;&quot;</span>
-    <span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;uapi/domestic-stock/v1/trading/inquire-balance&quot;</span>
-    <span class="n">URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">URL_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;authorization&quot;</span><span class="p">:</span><span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">ACCESS_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;appKey&quot;</span><span class="p">:</span><span class="n">APP_KEY</span><span class="p">,</span>
-        <span class="s2">&quot;appSecret&quot;</span><span class="p">:</span><span class="n">APP_SECRET</span><span class="p">,</span>
-        <span class="s2">&quot;tr_id&quot;</span><span class="p">:</span><span class="s2">&quot;TTTC8434R&quot;</span><span class="p">,</span>  <span class="c1"># 실전 투자 &quot;TTTC8434R&quot; 모의투지 &quot;VTTC8434R&quot;</span>
-        <span class="s2">&quot;custtype&quot;</span><span class="p">:</span><span class="s2">&quot;P&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;CANO&quot;</span><span class="p">:</span> <span class="n">CANO</span><span class="p">,</span>
-        <span class="s2">&quot;ACNT_PRDT_CD&quot;</span><span class="p">:</span> <span class="n">ACNT_PRDT_CD</span><span class="p">,</span>
-        <span class="s2">&quot;AFHR_FLPR_YN&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;OFL_YN&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;INQR_DVSN&quot;</span><span class="p">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;UNPR_DVSN&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;FUND_STTL_ICLD_YN&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;FNCG_AMT_AUTO_RDPT_YN&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;PRCS_DVSN&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;CTX_AREA_FK100&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;CTX_AREA_NK100&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">}</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
-
-    <span class="n">stock_list</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output1&#39;</span><span class="p">]</span>
-    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output2&#39;</span><span class="p">]</span>
-    <span class="n">stock_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;====주식 보유잔고====&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stock_list</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;hldg_qty&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">stock_dict</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;pdno&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;hldg_qty&#39;</span><span class="p">],</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;evlu_erng_rt&#39;</span><span class="p">]]</span> <span class="c1"># 0: 보유 수량, 1: 평가수익율</span>
-            <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;prdt_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;pdno&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;hldg_qty&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">주&quot;</span><span class="p">)</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;주식 평가 금액: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;scts_evlu_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;평가 손익 합계: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;evlu_pfls_smtl_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;총 평가 금액: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;tot_evlu_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;=================&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">stock_dict</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="p">,</span> <span class="n">stock_dict</span> <span class="o">=</span> <span class="n">get_stock_balance</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;content&#39;: &#39;[2022-09-19 13:15:49] ====주식 보유잔고====&#39;}
-{&#39;content&#39;: &#39;[2022-09-19 13:15:50] 에스티큐브(052020): 1주&#39;}
-{&#39;content&#39;: &#39;[2022-09-19 13:15:50] 주식 평가 금액: 21600원&#39;}
-{&#39;content&#39;: &#39;[2022-09-19 13:15:50] 평가 손익 합계: 0원&#39;}
-{&#39;content&#39;: &#39;[2022-09-19 13:15:51] 총 평가 금액: 100000원&#39;}
-{&#39;content&#39;: &#39;[2022-09-19 13:15:52] =================&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ctx_area_fk100&#39;: &#39;63566811^01^N^N^02^01^N^                                                                            &#39;,
- &#39;ctx_area_nk100&#39;: &#39;                                                                                                    &#39;,
- &#39;output1&#39;: [{&#39;pdno&#39;: &#39;052020&#39;,
-   &#39;prdt_name&#39;: &#39;에스티큐브&#39;,
-   &#39;trad_dvsn_name&#39;: &#39;현금&#39;,
-   &#39;bfdy_buy_qty&#39;: &#39;0&#39;,
-   &#39;bfdy_sll_qty&#39;: &#39;0&#39;,
-   &#39;thdt_buyqty&#39;: &#39;1&#39;,
-   &#39;thdt_sll_qty&#39;: &#39;0&#39;,
-   &#39;hldg_qty&#39;: &#39;1&#39;,
-   &#39;ord_psbl_qty&#39;: &#39;1&#39;,
-   &#39;pchs_avg_pric&#39;: &#39;21600.0000&#39;,
-   &#39;pchs_amt&#39;: &#39;21600&#39;,
-   &#39;prpr&#39;: &#39;21600&#39;,
-   &#39;evlu_amt&#39;: &#39;21600&#39;,
-   &#39;evlu_pfls_amt&#39;: &#39;0&#39;,
-   &#39;evlu_pfls_rt&#39;: &#39;0.00&#39;,
-   &#39;evlu_erng_rt&#39;: &#39;0.00000000&#39;,
-   &#39;loan_dt&#39;: &#39;&#39;,
-   &#39;loan_amt&#39;: &#39;0&#39;,
-   &#39;stln_slng_chgs&#39;: &#39;0&#39;,
-   &#39;expd_dt&#39;: &#39;&#39;,
-   &#39;fltt_rt&#39;: &#39;11.05398458&#39;,
-   &#39;bfdy_cprs_icdc&#39;: &#39;2150&#39;,
-   &#39;item_mgna_rt_name&#39;: &#39;100%&#39;,
-   &#39;grta_rt_name&#39;: &#39;불가&#39;,
-   &#39;sbst_pric&#39;: &#39;0&#39;,
-   &#39;stck_loan_unpr&#39;: &#39;0.0000&#39;}],
- &#39;output2&#39;: [{&#39;dnca_tot_amt&#39;: &#39;100000&#39;,
-   &#39;nxdy_excc_amt&#39;: &#39;100000&#39;,
-   &#39;prvs_rcdl_excc_amt&#39;: &#39;78400&#39;,
-   &#39;cma_evlu_amt&#39;: &#39;0&#39;,
-   &#39;bfdy_buy_amt&#39;: &#39;0&#39;,
-   &#39;thdt_buy_amt&#39;: &#39;21600&#39;,
-   &#39;nxdy_auto_rdpt_amt&#39;: &#39;0&#39;,
-   &#39;bfdy_sll_amt&#39;: &#39;0&#39;,
-   &#39;thdt_sll_amt&#39;: &#39;0&#39;,
-   &#39;d2_auto_rdpt_amt&#39;: &#39;0&#39;,
-   &#39;bfdy_tlex_amt&#39;: &#39;0&#39;,
-   &#39;thdt_tlex_amt&#39;: &#39;0&#39;,
-   &#39;tot_loan_amt&#39;: &#39;0&#39;,
-   &#39;scts_evlu_amt&#39;: &#39;21600&#39;,
-   &#39;tot_evlu_amt&#39;: &#39;100000&#39;,
-   &#39;nass_amt&#39;: &#39;100000&#39;,
-   &#39;fncg_gld_auto_rdpt_yn&#39;: &#39;&#39;,
-   &#39;pchs_amt_smtl_amt&#39;: &#39;21600&#39;,
-   &#39;evlu_amt_smtl_amt&#39;: &#39;21600&#39;,
-   &#39;evlu_pfls_smtl_amt&#39;: &#39;0&#39;,
-   &#39;tot_stln_slng_chgs&#39;: &#39;0&#39;,
-   &#39;bfdy_tot_asst_evlu_amt&#39;: &#39;0&#39;,
-   &#39;asst_icdc_amt&#39;: &#39;100000&#39;,
-   &#39;asst_icdc_erng_rt&#39;: &#39;0.00000000&#39;}],
- &#39;rt_cd&#39;: &#39;0&#39;,
- &#39;msg_cd&#39;: &#39;KIOK0510&#39;,
- &#39;msg1&#39;: &#39;조회가 완료되었습니다                                                           &#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;주식 종목 현재가 조회&quot;&quot;&quot;</span>
-
-<span class="c1"># 다음 장에서 더 자세히 설명 드립니다. </span>
-<span class="c1"># requests.get() 함수의 구성 요소를 집중적으로 봐주세요 (e.g. URL, headers, params)</span>
-
-<span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;uapi/domestic-stock/v1/quotations/inquire-price&quot;</span> <span class="c1"># 현재가 조회를 위한 URL 경로</span>
-
-<span class="n">URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">URL_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;005930&quot;</span> <span class="c1"># 삼성전자 종목 코드</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">ACCESS_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="c1"># 보안인증키</span>
-    <span class="s2">&quot;appKey&quot;</span><span class="p">:</span><span class="n">APP_KEY</span><span class="p">,</span> <span class="c1"># API 신청으로 발금 받은 Key</span>
-    <span class="s2">&quot;appSecret&quot;</span><span class="p">:</span><span class="n">APP_SECRET</span><span class="p">,</span> <span class="c1"># API 신청으로 발금 받은 Secret</span>
-    <span class="s2">&quot;tr_id&quot;</span><span class="p">:</span><span class="s2">&quot;FHKST01010100&quot;</span> <span class="c1"># 현재가 조회를 위한 id</span>
-<span class="p">}</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;fid_cond_mrkt_div_code&quot;</span><span class="p">:</span><span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="c1"># J: 주식</span>
-    <span class="s2">&quot;fid_input_iscd&quot;</span><span class="p">:</span><span class="n">code</span><span class="p">,</span> <span class="c1"># 조회 하고 싶은 주식 종목의 코드 ex) 삼성전자: 005930</span>
-<span class="p">}</span>
-
-<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span> <span class="c1"># &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="s1">&#39;stck_prpr&#39;</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>56800
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_60928</span>\<span class="mf">1050407935.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">ACCESS_TOKEN</span> <span class="o">=</span> <span class="n">get_access_token</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-<span class="ne">AttributeError</span>: &#39;dict&#39; object has no attribute &#39;json&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CANO</span> <span class="o">=</span> <span class="s1">&#39;63566811&#39;</span>
-<span class="n">ACNT_PRDT_CD</span> <span class="o">=</span> <span class="s1">&#39;01&#39;</span>
- 
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="k">def</span> <span class="nf">buy</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s2">&quot;052020&quot;</span><span class="p">,</span> <span class="n">qty</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;주식 시장가 매수&quot;&quot;&quot;</span>
-    <span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;uapi/domestic-stock/v1/trading/order-cash&quot;</span>
-    <span class="n">URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">URL_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;CANO&quot;</span><span class="p">:</span> <span class="n">CANO</span><span class="p">,</span>
-        <span class="s2">&quot;ACNT_PRDT_CD&quot;</span><span class="p">:</span> <span class="n">ACNT_PRDT_CD</span><span class="p">,</span>
-        <span class="s2">&quot;PDNO&quot;</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
-        <span class="s2">&quot;ORD_DVSN&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ORD_QTY&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">qty</span><span class="p">)),</span>
-        <span class="s2">&quot;ORD_UNPR&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;authorization&quot;</span><span class="p">:</span><span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">ACCESS_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;appKey&quot;</span><span class="p">:</span><span class="n">APP_KEY</span><span class="p">,</span>
-        <span class="s2">&quot;appSecret&quot;</span><span class="p">:</span><span class="n">APP_SECRET</span><span class="p">,</span>
-        <span class="s2">&quot;tr_id&quot;</span><span class="p">:</span><span class="s2">&quot;TTTC0802U&quot;</span><span class="p">,</span>  <span class="c1"># 실전 투자 : &quot;TTTC0802U&quot; 모의투자 &quot;TTTC8434R&quot;</span>
-        <span class="s2">&quot;custtype&quot;</span><span class="p">:</span><span class="s2">&quot;P&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;hashkey&quot;</span> <span class="p">:</span> <span class="n">hashkey</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;rt_cd&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
-        <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매수 성공]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매수 실패]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    
-<span class="n">b</span> <span class="o">=</span> <span class="n">buy</span><span class="p">()</span>   
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;content&#39;: &quot;[2022-09-19 12:52:56] [매수 성공]{&#39;rt_cd&#39;: &#39;0&#39;, &#39;msg_cd&#39;: &#39;APBK0013&#39;, &#39;msg1&#39;: &#39;주문 전송 완료 되었습니다.&#39;, &#39;output&#39;: {&#39;KRX_FWDG_ORD_ORGNO&#39;: &#39;91251&#39;, &#39;ODNO&#39;: &#39;0000079686&#39;, &#39;ORD_TMD&#39;: &#39;125256&#39;}}&quot;}
-</pre></div>
-</div>
-</div>
-</div>
+<section id="id1">
+<h1>자동매매 코드<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -1212,7 +857,7 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
-
+<span class="kn">import</span> <span class="nn">keyring</span>
 
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="n">APP_KEY</span> <span class="o">=</span> <span class="n">keyring</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="s1">&#39;real_app_key&#39;</span><span class="p">,</span><span class="s1">&#39;occam123&#39;</span><span class="p">)</span>
@@ -1221,21 +866,20 @@ title="Print to PDF"
 <span class="n">CANO</span> <span class="o">=</span> <span class="s1">&#39;63566811&#39;</span>
 <span class="n">ACNT_PRDT_CD</span> <span class="o">=</span> <span class="s1">&#39;01&#39;</span>
 
+
+
 <span class="c1"># APP_KEY = keyring.get_password(&#39;mock_app_key&#39;,&#39;occam123&#39;)</span>
 <span class="c1"># APP_SECRET =  keyring.get_password(&#39;mock_app_secret&#39;,&#39;occam123&#39;)</span>
 <span class="c1"># URL_BASE = &quot;https://openapivts.koreainvestment.com:29443&quot; #모의투자서비스</span>
 <span class="c1"># CANO = &#39; 50070883&#39;</span>
 <span class="c1"># ACNT_PRDT_CD = &#39;01&#39;</span>
 
-
- 
-
-<span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;디스코드 메세지 전송&quot;&quot;&quot;</span>
-    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
-    <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">DISCORD_WEBHOOK_URL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="c1"># def print(msg):</span>
+<span class="c1">#     &quot;&quot;&quot;디스코드 메세지 전송&quot;&quot;&quot;</span>
+<span class="c1">#     now = datetime.datetime.now()</span>
+<span class="c1">#     message = {&quot;content&quot;: f&quot;[{now.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)}] {str(msg)}&quot;}</span>
+<span class="c1">#     requests.post(DISCORD_WEBHOOK_URL, data=message)</span>
+<span class="c1">#     print(message[&#39;content&#39;])</span>
 
 <span class="k">def</span> <span class="nf">get_access_token</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;토큰 발급&quot;&quot;&quot;</span>
@@ -1276,7 +920,7 @@ title="Print to PDF"
     <span class="s2">&quot;fid_input_iscd&quot;</span><span class="p">:</span><span class="n">code</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="s1">&#39;stck_prpr&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="s1">&#39;stck_prpr&#39;</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="s1">&#39;prdy_vrss_vol_rate&#39;</span><span class="p">])</span>
 
 <span class="k">def</span> <span class="nf">get_target_price</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s2">&quot;005930&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;전날 종가 조회&quot;&quot;&quot;</span>
@@ -1297,6 +941,52 @@ title="Print to PDF"
     <span class="n">stck_clpr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;stck_clpr&#39;</span><span class="p">])</span> <span class="c1">#전일 종가</span>
     <span class="n">target_price</span> <span class="o">=</span> <span class="n">stck_clpr</span>
     <span class="k">return</span> <span class="n">target_price</span>
+
+
+<span class="k">def</span> <span class="nf">get_stock_5d_before</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">get_stock_before</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+        <span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;uapi/domestic-stock/v1/trading/inquire-daily-ccld&quot;</span>
+        <span class="n">URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">URL_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;authorization&quot;</span><span class="p">:</span><span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">ACCESS_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;appKey&quot;</span><span class="p">:</span><span class="n">APP_KEY</span><span class="p">,</span>
+            <span class="s2">&quot;appSecret&quot;</span><span class="p">:</span><span class="n">APP_SECRET</span><span class="p">,</span>
+            <span class="s2">&quot;tr_id&quot;</span><span class="p">:</span><span class="s2">&quot;TTTC8001R&quot;</span><span class="p">,</span>  <span class="c1"># 실전 투자 &quot;TTTC8001R&quot;, 모의투자 &quot;VTTC8001R&quot;</span>
+            <span class="s2">&quot;custtype&quot;</span><span class="p">:</span><span class="s2">&quot;P&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;CANO&quot;</span><span class="p">:</span> <span class="n">CANO</span><span class="p">,</span>
+            <span class="s2">&quot;ACNT_PRDT_CD&quot;</span><span class="p">:</span> <span class="n">ACNT_PRDT_CD</span><span class="p">,</span>
+            <span class="s2">&quot;INQR_STRT_DT&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span>
+            <span class="s2">&quot;INQR_END_DT&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span>
+            <span class="s2">&quot;SLL_BUY_DVSN_CD&quot;</span><span class="p">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span> <span class="c1"># 00:전체, 01:매도, 02:매수</span>
+            <span class="s2">&quot;INQR_DVSN&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="c1"># 00: 역순</span>
+            <span class="s2">&quot;PDNO&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;CCLD_DVSN&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ORD_GNO_BRNO&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ODNO&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;INQR_DVSN_3&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;INQR_DVSN_1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CTX_AREA_FK100&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CTX_AREA_NK100&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">stock_dict</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output1&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">stock_dict</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="k">while</span> <span class="n">prev</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="n">t_previous_5d</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">prev</span><span class="p">)</span>
+        <span class="n">t_previous_5d</span> <span class="o">=</span> <span class="n">t_previous_5d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">bought_previous_5d_dict</span> <span class="o">=</span> <span class="n">get_stock_before</span><span class="p">(</span><span class="n">t_previous_5d</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bought_previous_5d_dict</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">prev</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">sell_list_5d_over</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">bought_previous_5d_dict</span><span class="p">:</span>
+        <span class="n">sell_list_5d_over</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;pdno&#39;</span><span class="p">])</span>
+    <span class="n">sell_list_5d_over</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sell_list_5d_over</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">sell_list_5d_over</span>
 
 <span class="k">def</span> <span class="nf">get_stock_balance</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;주식 잔고조회&quot;&quot;&quot;</span>
@@ -1326,19 +1016,19 @@ title="Print to PDF"
     <span class="n">stock_list</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output1&#39;</span><span class="p">]</span>
     <span class="n">evaluation</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output2&#39;</span><span class="p">]</span>
     <span class="n">stock_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;====주식 보유잔고====&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;====주식 보유잔고====&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">stock</span> <span class="ow">in</span> <span class="n">stock_list</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;hldg_qty&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">stock_dict</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;pdno&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;hldg_qty&#39;</span><span class="p">],</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;evlu_erng_rt&#39;</span><span class="p">]]</span> <span class="c1"># 0: 보유 수량, 1: 평가수익율</span>
-            <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;prdt_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;pdno&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;hldg_qty&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">주&quot;</span><span class="p">)</span>
+            <span class="n">stock_dict</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;pdno&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;hldg_qty&#39;</span><span class="p">],</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;evlu_pfls_rt&#39;</span><span class="p">]]</span> <span class="c1"># 0: 보유 수량, 1: 평가수익율</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;prdt_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;pdno&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;hldg_qty&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">주&quot;</span><span class="p">)</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;주식 평가 금액: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;scts_evlu_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;주식 평가 금액: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;scts_evlu_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;평가 손익 합계: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;evlu_pfls_smtl_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;평가 손익 합계: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;evlu_pfls_smtl_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;총 평가 금액: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;tot_evlu_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;총 평가 금액: </span><span class="si">{</span><span class="n">evaluation</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;tot_evlu_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;=================&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;=================&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">stock_dict</span>
 
 <span class="k">def</span> <span class="nf">get_balance</span><span class="p">():</span>
@@ -1363,7 +1053,7 @@ title="Print to PDF"
     <span class="p">}</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
     <span class="n">cash</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="s1">&#39;ord_psbl_cash&#39;</span><span class="p">]</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;주문 가능 현금 잔고: </span><span class="si">{</span><span class="n">cash</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;주문 가능 현금 잔고: </span><span class="si">{</span><span class="n">cash</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">cash</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">buy</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s2">&quot;005930&quot;</span><span class="p">,</span> <span class="n">qty</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">):</span>
@@ -1388,10 +1078,10 @@ title="Print to PDF"
     <span class="p">}</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;rt_cd&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
-        <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매수 성공]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매수 성공]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매수 실패]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매수 실패]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span>
 
 <span class="k">def</span> <span class="nf">sell</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s2">&quot;005930&quot;</span><span class="p">,</span> <span class="n">qty</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">):</span>
@@ -1416,27 +1106,34 @@ title="Print to PDF"
     <span class="p">}</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;rt_cd&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
-        <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매도 성공]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매도 성공]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매도 실패]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[매도 실패]</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span>
+
 
 <span class="c1"># 자동매매 시작</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">ACCESS_TOKEN</span> <span class="o">=</span> <span class="n">get_access_token</span><span class="p">()</span>
-    <span class="n">symbol_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;052020&quot;</span><span class="p">,</span><span class="s2">&quot;114630&quot;</span><span class="p">,</span><span class="s2">&quot;105330&quot;</span><span class="p">]</span> <span class="c1"># 매수 희망 종목 리스트</span>
+    <span class="n">symbol_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;068940&#39;</span><span class="p">,</span><span class="s1">&#39;042940&#39;</span><span class="p">,</span><span class="s1">&#39;117670&#39;</span><span class="p">,</span><span class="s1">&#39;239610&#39;</span><span class="p">,</span><span class="s1">&#39;013990&#39;</span><span class="p">]</span> <span class="c1"># 매수 희망 종목 리스트</span>
+
     <span class="n">bought_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 매수 완료된 종목 리스트</span>
     <span class="n">total_cash</span> <span class="o">=</span> <span class="n">get_balance</span><span class="p">()</span> <span class="c1"># 보유 현금 조회</span>
     <span class="n">stock_dict</span> <span class="o">=</span> <span class="n">get_stock_balance</span><span class="p">()</span> <span class="c1"># 보유 주식 조회</span>
+    
     <span class="k">for</span> <span class="n">sym</span> <span class="ow">in</span> <span class="n">stock_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="n">bought_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span>
-    <span class="n">target_buy_count</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># 매수할 종목 수</span>
+        <span class="n">bought_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span>        
+        
+    <span class="n">symbol_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">symbol_list</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">bought_list</span><span class="p">))</span> <span class="c1"># 기 매수 종목 제거</span>
+    
+    <span class="n">target_buy_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">symbol_list</span><span class="p">)</span> <span class="c1"># 매수할 종목 수</span>
     <span class="n">buy_percent</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">symbol_list</span><span class="p">)</span> <span class="c1"># 종목당 매수 금액 비율</span>
     <span class="n">buy_amount</span> <span class="o">=</span> <span class="n">total_cash</span><span class="o">*</span><span class="mf">0.5</span><span class="o">*</span><span class="n">buy_percent</span>  <span class="c1"># 종목별 주문 금액 계산</span>
     <span class="n">soldout</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;===국내 주식 자동매매 프로그램을 시작합니다===&quot;</span><span class="p">)</span>
+    
+   
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===국내 주식 자동매매 프로그램을 시작합니다===&quot;</span><span class="p">)</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">t_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
         <span class="n">t_9</span> <span class="o">=</span> <span class="n">t_now</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1446,34 +1143,46 @@ title="Print to PDF"
         <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">today</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">today</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>  <span class="c1"># 토요일이나 일요일이면 자동 종료</span>
-            <span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;주말이므로 프로그램을 종료합니다.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;주말이므로 프로그램을 종료합니다.&quot;</span><span class="p">)</span>
             <span class="k">break</span>
 
-        <span class="k">if</span> <span class="n">t_start</span> <span class="o">&lt;</span> <span class="n">t_now</span> <span class="o">&lt;</span> <span class="n">t_sell</span> <span class="p">:</span>  <span class="c1"># AM 09:05 ~ PM 03:15</span>
-            <span class="c1"># 매수 코드</span>
+        <span class="k">if</span> <span class="n">t_start</span> <span class="o">&lt;</span> <span class="n">t_now</span> <span class="o">&lt;</span> <span class="n">t_sell</span> <span class="p">:</span>  <span class="c1"># AM 09:00 ~ PM 03:15</span>
+            <span class="c1"># 매수 코드           </span>
+            
             <span class="k">for</span> <span class="n">sym</span> <span class="ow">in</span> <span class="n">symbol_list</span><span class="p">:</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bought_list</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">target_buy_count</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">sym</span> <span class="ow">in</span> <span class="n">bought_list</span><span class="p">:</span>
                         <span class="k">continue</span>
                     <span class="n">target_price</span> <span class="o">=</span> <span class="n">get_target_price</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span> <span class="c1"># 전날 종가, Get from Input dictionary</span>
-                    <span class="n">current_price</span> <span class="o">=</span> <span class="n">get_current_price</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">target_price</span> <span class="o">&lt;</span> <span class="n">current_price</span> <span class="o">&lt;</span> <span class="n">target_price</span> <span class="o">*</span> <span class="mf">1.01</span><span class="p">:</span> <span class="c1"># Max: 5% 상승 가격, Min: 전날 종가</span>
+                    <span class="n">current_price</span><span class="p">,</span> <span class="n">volume_rate</span> <span class="o">=</span> <span class="n">get_current_price</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span>
+                    
+                    <span class="n">t_progress</span><span class="o">=</span> <span class="p">(</span><span class="n">t_now</span> <span class="o">-</span> <span class="n">t_9</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t_exit</span> <span class="o">-</span> <span class="n">t_9</span><span class="p">)</span>
+                    <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="n">target_price</span> <span class="o">&lt;</span> <span class="n">current_price</span><span class="p">)</span>
+                    <span class="n">c2</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">volume_rate</span><span class="o">/</span><span class="n">t_progress</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;종목: </span><span class="si">{</span><span class="n">sym</span><span class="si">}</span><span class="s1">, 현재가: </span><span class="si">{</span><span class="n">current_price</span><span class="si">}</span><span class="s1">, 전일종가: </span><span class="si">{</span><span class="n">target_price</span><span class="si">}</span><span class="s1">, 거래량지표: </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">volume_rate</span><span class="o">/</span><span class="n">t_progress</span><span class="p">)</span><span class="si">:</span><span class="s1">5.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">c1</span> <span class="ow">and</span> <span class="n">c2</span><span class="p">:</span> <span class="c1"># Max: 5% 상승 가격, Min: 전날 종가</span>
                         
                         <span class="n">buy_qty</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 매수할 수량 초기화</span>
                         <span class="n">buy_qty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">buy_amount</span> <span class="o">//</span> <span class="n">current_price</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="n">buy_qty</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                            <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sym</span><span class="si">}</span><span class="s2"> 목표가 달성(</span><span class="si">{</span><span class="n">target_price</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">current_price</span><span class="si">}</span><span class="s2">) 매수를 시도합니다.&quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">buy_qty</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                            
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sym</span><span class="si">}</span><span class="s2"> 목표가 달성(</span><span class="si">{</span><span class="n">target_price</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">current_price</span><span class="si">}</span><span class="s2">) 매수를 시도합니다.&quot;</span><span class="p">)</span>
                             <span class="n">result</span> <span class="o">=</span> <span class="n">buy</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="n">buy_qty</span><span class="p">)</span>
                             <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
                                 <span class="n">soldout</span> <span class="o">=</span> <span class="kc">False</span>
-                                <span class="n">bought_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span>
+                                <span class="n">bought_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span> <span class="c1"># 매수 종목</span>
                                 <span class="n">get_stock_balance</span><span class="p">()</span>
+                                
                     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                     
+                    
             <span class="c1"># 매도 코드</span>
-            <span class="n">stock_dict</span> <span class="o">=</span> <span class="n">get_stock_balance</span><span class="p">()</span>
-            <span class="k">for</span> <span class="n">sym</span><span class="p">,</span> <span class="n">qty_rt</span> <span class="ow">in</span> <span class="n">stock_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1"># qty_rt / [0]: qty(보유수량), [1]: rt(평가수익율)</span>
-                <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">qty_rt</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mf">3.0</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">(</span><span class="n">qty_rt</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">:</span> <span class="c1"># 익절 라인은 dynamic 하게 바꿀 수 있다 (단위 %)</span>
+            <span class="n">balance_dict</span> <span class="o">=</span> <span class="n">get_stock_balance</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">sym</span><span class="p">,</span> <span class="n">qty_rt</span> <span class="ow">in</span> <span class="n">balance_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1"># qty_rt / [0]: qty(보유수량), [1]: rt(평가수익율)</span>
+                <span class="n">current_price</span><span class="p">,</span> <span class="n">volume_rate</span> <span class="o">=</span> <span class="n">get_current_price</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span>
+                
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">sym</span><span class="si">}</span><span class="s1"> 현재 수익율: </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">qty_rt</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s1"> 5.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">qty_rt</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mf">4.0</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">(</span><span class="n">qty_rt</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">:</span> <span class="c1"># 익절 라인은 dynamic 하게 바꿀 수 있다 (단위 %)</span>
                     <span class="n">sell</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="n">qty_rt</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1482,34 +1191,33 @@ title="Print to PDF"
                 <span class="n">get_stock_balance</span><span class="p">()</span>
                 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
+ 
         <span class="k">if</span> <span class="n">t_sell</span> <span class="o">&lt;</span> <span class="n">t_now</span> <span class="o">&lt;</span> <span class="n">t_exit</span><span class="p">:</span>  <span class="c1"># PM 03:15 ~ PM 03:20 : 5th Day 를 맞이한 종목들 일괄 매도</span>
-            <span class="k">if</span> <span class="n">soldout</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
-                <span class="n">stock_dict</span> <span class="o">=</span> <span class="n">get_stock_balance</span><span class="p">()</span>
-                <span class="k">for</span> <span class="n">sym</span><span class="p">,</span> <span class="n">qty_rt</span> <span class="ow">in</span> <span class="n">stock_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                    <span class="n">sell</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="n">qty_rt</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-                <span class="n">soldout</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="n">bought_list</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="c1">###############</span>
+            <span class="n">sell_list_5d_over</span> <span class="o">=</span> <span class="n">get_stock_5d_before</span><span class="p">()</span>            
+            <span class="n">stock_dict</span> <span class="o">=</span> <span class="n">get_stock_balance</span><span class="p">()</span>
+        
+            <span class="n">sell_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">stock_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">sell_list_5d_over</span><span class="p">))</span> <span class="c1"># 보유종목 중 5일이상 된 종목</span>
+            <span class="k">for</span> <span class="n">sym</span> <span class="ow">in</span> <span class="n">sell_list</span><span class="p">:</span>
+                <span class="n">sell</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="n">stock_dict</span><span class="p">[</span><span class="s1">&#39;sym&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 보유종목 중 5일이상 된 종목 전량 매도     </span>
+                   
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">t_exit</span> <span class="o">&lt;</span> <span class="n">t_now</span><span class="p">:</span>  <span class="c1"># PM 03:20 ~ :프로그램 종료</span>
-            <span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;프로그램을 종료합니다.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">t_exit</span> <span class="o">&lt;</span> <span class="n">t_now</span><span class="p">:</span>  <span class="c1"># PM 03:20 ~ :프로그램 종료            </span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램을 종료합니다.&quot;</span><span class="p">)</span>
             <span class="k">break</span>
 
         <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
             
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">send_message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[오류 발생]</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[오류 발생]</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;content&#39;: &#39;[2022-09-19 15:20:00] 프로그램을 종료합니다.&#39;}
-</pre></div>
 </div>
-</div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

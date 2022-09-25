@@ -83,7 +83,7 @@ parts:
 
   - caption: chapter 7
     chapters:
-    - file: chapter7/7.0.0_Algo_Intro
+    - file: chapter7/7.0.0_Auto_Overview
       sections:      
       - file: chapter7/7.2.0_env_setting
       - file: chapter7/7.2.1_create_accnt_hanguk

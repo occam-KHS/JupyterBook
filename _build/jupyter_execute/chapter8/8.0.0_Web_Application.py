@@ -160,17 +160,19 @@ stock_selection.select_stocks('2022-04-01').style.set_table_attributes('style="f
 
 # <br></br>이제 main.py 파이썬 파일을 만들겠습니다. main.py 에서는 종목을 추천하는 함수(select_stock)가 있는 stock_selection.py 를 import 하고, 웹앱을 만들어주는 streamlit 도 import 할 것입니다. stock_selection 모듈은 이미 만들었으므로 streamlit 를 설치 후 import 하면 됩니다. 아래와 같이 streamlit 을 설치합니다. (참고 링크 https://anaconda.org/conda-forge/streamlit). 설치를 위해서 먼저 아나콘다 Prompt 을 실행합니다. streamlit 은 pip install streamlit 로도 설치가 가능합니다만, 아나콘다에서 배포하는 패키지를 우선적으로 설치하는 것이 좋습니다. 아래 그림과 타이핑한 후 'Enter' 를 누르시면 자동으로 설치가 됩니다. 참고로 이 책에서는 가상환경에 대하여는 다루지 않도록 하겠습니다. 가상환경이란 프로젝트별로 필요한 파이썬 패키지를 간섭없이 쓸 수 있게 해 줍니다. 이 웹앱 프로젝트는 streamlit 가 필요하지만, 다른 프로젝트는 streamlit 이 필요하지 않을 수 있습니다. 따라서 가상환경을 만들고 가상환경에서 패키지를 설치함으로써 프로젝트 사이에 서로 간섭이 없도록 하는 것이 가장 큰 목적입니다. 
 
-# <img src="./images/Install_Streamlit.PNG" width="800" height="150"></img> 
+# <!-- <img src="./images/Install_Streamlit.PNG" width="800" height="150"></img>  -->
+# ![GET_IMAGE](./images/Install_Streamlit.PNG)
 
 # <br></br>
 # 이제는 웹앱을 만들 준비가 끝났습니다. 주피터노트북은 셀 단위 명령을 실행함으로써 결과를 빠르게 확인하고 다음 단계로 넘어가는 장점이 있었습니다. 따라서 데이터를 여러 관점으로 분석해야 하는 데이터분석가에게 안성맞춤입니다. 하지만, 큰 프로그램을 웹 브러우저 상에서 실행하는 것은 안정성 면에서 문제가 있습니다. 예를 들어 프로그램이 실행되고 있는 웹브라우저가 죽으면 프로그램도 따라서 정지하게 됩니다. 주피터노트북 상에서는 데이터분석과 모델링을 하고, 만들어진 프로그램의 실행은 PyCharm 이나 Vscode 등의 에디터를 이용을 추천드립니다. main.py 가 있는 폴더에 'gam.pkl', 'kosdaq_list.pkl', 'stock_selection.py' 파일을 저장합니다. 'gam..pkl' 은 예측모델이 저장된 파일이고, 'kosdaq_list.pkl' 은 코스닥 종목 리스트가 있는 파일이며 'stock_selection.py' 은 종목 추천 알고리즘이 저장되 파일입니다. main.py 를 PyCharm 에서 아래와 실행합니다. 참고로 requirements.txt 는 현재 로컬에서 작업하고 있는 환경을 다른 곳에 복사하기 위한 라이브러리 정보가 담긴 파일입니다. 로컬에서 웹앱을 테스트하는 데 필요하지는 않습니다. requirements.txt 파일의 용도에 대하여는 나중에 설명드리도록 하겠습니다. 
 
-# <img src="./images/Streamlit_Run.PNG" width="800" height="500"></img> 
+# ![GET_IMAGE](./images/Streamlit_Run.PNG)
 
 # <br></br>
 # 위 코드를 실행하면 새로운 브라우저가 뜨면서 아래와 같은 창이 생깁니다. 아래 박스에 'YYYY-MM-DD' 형식으로 날짜를 입력하고 엔터를 치면 프로그램을 실행합니다. 2022-04-01 를 넣어보겠습니다.
 
-# <img src="./images/Streamlit_Results.PNG" width="800" height="500"></img>
+# <!-- <img src="./images/Streamlit_Results.PNG" width="800" height="500"></img> -->
+# ![GET_IMAGE](./images/Streamlit_Results.PNG)
 
 # <br></br>
 # 약 15분 후에 아래와 같은 결과값을 볼 수 있습니다. 로컬 호스트에서 잘 작동하는 지 확인합니다. 아래 5 종목만 추천된 이유는 main.py 의 마지막 라인에서 
@@ -180,7 +182,8 @@ stock_selection.select_stocks('2022-04-01').style.set_table_attributes('style="f
 # ```
 # head(5) 로 스코어(yhat) 가 높은 5 개 종목만 제시하도록 했기 때문입니다.
 
-# <img src="./images/Streamlit_Results_Stocks.PNG" width="800" height="500"></img>
+# <!-- <img src="./images/Streamlit_Results_Stocks.PNG" width="800" height="500"></img> -->
+# ![GET_IMAGE](./images/Streamlit_Results_Stocks.PNG)
 
 # In[ ]:
 

@@ -94,6 +94,7 @@ parts:
   - caption: chapter 8
     chapters:
     - file: chapter8/8.0.0_Web_Application
+    - file: chapter8/8.1.0_Webapp_Deployment
 
   - caption: chapter 9
     chapters:

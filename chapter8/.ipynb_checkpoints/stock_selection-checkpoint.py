@@ -1,5 +1,4 @@
 import FinanceDataReader as fdr
-import yfinance as yf
 import pandas as pd
 import numpy as np
 import datetime
@@ -24,15 +23,12 @@ def select_stocks(today_dt):
     price_data.index.name = 'date'
     price_data.columns = price_data.columns.str.lower()  # 컬럼 이름 소문자로 변경
 
-    # DataReder 코스닥 인덱스 조회 실패시, 야후파이낸스로 추출    
-    # kosdaq_index = fdr.DataReader('KQ11', start = start_dt, end = today_dt) # 데이터 호출
-    # kosdaq_index.columns = ['close','open','high','low','volume','change'] # 컬럼명 변경
-    
-    kosdaq_index =  yf.download('^KQ11', start = start_dt)
-    kosdaq_index.columns = ['open','high','low','close','adj_close','volume'] # 컬럼명 변경
-    kosdaq_index.index.name='date' # 인덱스 이름 생성
-    kosdaq_index.sort_index(inplace=True) # 인덱스(날짜) 로 정렬 
-    kosdaq_index['kosdaq_return'] = kosdaq_index['close']/kosdaq_index['close'].shift(1) # 수익율 : 전 날 종가대비 당일 종가
+    time.sleep(1)
+    kosdaq_index = fdr.DataReader('KQ11', start=start_dt, end=today_dt)  # 데이터 호출
+    kosdaq_index.columns = ['close', 'open', 'high', 'low', 'volume', 'change']  # 컬럼명 변경
+    kosdaq_index.index.name = 'date'  # 인덱스 이름 생성
+    kosdaq_index.sort_index(inplace=True)  # 인덱스(날짜) 로 정렬
+    kosdaq_index['kosdaq_return'] = kosdaq_index['close'] / kosdaq_index['close'].shift(1)  # 수익율 : 전 날 종가대비 당일 종가
 
     merged = price_data.merge(kosdaq_index['kosdaq_return'], left_index=True, right_index=True, how='left')
 

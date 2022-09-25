@@ -7,18 +7,20 @@
 
 # 이 책에서 구현하고자 하는 웹앱은 장 마감 후, 당일 날짜를 'YYYY-MM-DD' 형식으로 입력하면 내일 매수 추천 종목이 뜨는 WebApp입니다. 먼저 만들어 놓은 종목 추천 함수를 테스트 해 봅니다. 추천함수에 필요한 데이터는 종목별로 Loop 를 돌리기 위한 'kosdaq_list.pkl' 파일과 모델 데이터 "gam.pkl" 입니다. 이 두 파일이 같은 폴더에 있어야 됩니다. 
 
-# In[3]:
+# In[5]:
 
 
 import FinanceDataReader as fdr
+import yfinance as yf
 import pandas as pd
 import numpy as np
 import datetime
 import pickle
 import time
+import datetime
 
 
-# In[4]:
+# In[1]:
 
 
 def select_stocks(today_dt):
@@ -39,13 +41,18 @@ def select_stocks(today_dt):
         price_data = pd.concat([price_data, daily_price], axis=0)   
 
     price_data.index.name = 'date'
-    price_data.columns= price_data.columns.str.lower() # 컬럼 이름 소문자로 변경
-
-    kosdaq_index = fdr.DataReader('KQ11', start = start_dt, end = today_dt) # 데이터 호출
-    kosdaq_index.columns = ['close','open','high','low','volume','change'] # 컬럼명 변경
+    price_data.columns= price_data.columns.str.lower() # 컬럼 이름 소문자로 변경  
+    
+    # DataReder 코스닥 인덱스 조회 실패시, 야후파이낸스로 추출    
+    # kosdaq_index = fdr.DataReader('KQ11', start = start_dt, end = today_dt) # 데이터 호출
+    # kosdaq_index.columns = ['close','open','high','low','volume','change'] # 컬럼명 변경
+    
+    kosdaq_index =  yf.download('^KQ11', start = start_dt)
+    kosdaq_index.columns = ['open','high','low','close','adj_close','volume'] # 컬럼명 변경
     kosdaq_index.index.name='date' # 인덱스 이름 생성
     kosdaq_index.sort_index(inplace=True) # 인덱스(날짜) 로 정렬 
     kosdaq_index['kosdaq_return'] = kosdaq_index['close']/kosdaq_index['close'].shift(1) # 수익율 : 전 날 종가대비 당일 종가
+    
 
     merged = price_data.merge(kosdaq_index['kosdaq_return'], left_index=True, right_index=True, how='left')
 
@@ -134,7 +141,7 @@ def select_stocks(today_dt):
 
 # 2022년 4월 1일을 테스트 한 결과 함수가 잘 작동하는 것을 확인할 수 있습니다.
 
-# In[5]:
+# In[6]:
 
 
 select_tops = select_stocks('2022-04-01')
@@ -142,9 +149,9 @@ select_tops.style.set_table_attributes('style="font-size: 12px"').format(precisi
 
 
 # <br></br>
-# 파이썬 파일 'stock_selection.py' 만들고 select_stocks() 함수를 복사해 넣습니다. 쥬피터랩을 쓰고 계신다면 File > New > Python File 에서 파일을 하나 만드시고 그 파일에 함수를 복사해서 넣으면 됩니다. stock_selection.py 파일을 동일한 폴더에 저장하신 후에, 아래와 같이 import 를 해 봅니다. 그리고 다시 함수를 호출해서 2022년 4월 1일 추천종목을 확인해 봅니다. 이상없이 함수가 호출되는 것을 확인했습니다.
+# 파이썬 파일 'stock_selection.py' 만들고 select_stocks() 함수를 복사해 넣습니다. 쥬피터랩을 쓰고 계신다면 File > New > Python File 에서 파일을 하나 만드시고 그 파일에 함수 select_stocks() 를 복사해서 넣으면 됩니다. stock_selection.py 파일을 동일한 폴더에 저장하신 후에, 아래와 같이 import 를 해 봅니다. 그리고 다시 함수를 호출해서 2022년 4월 1일 추천종목을 확인해 봅니다. 이상없이 함수가 호출되는 것을 확인했습니다.
 
-# In[6]:
+# In[7]:
 
 
 import stock_selection
@@ -153,27 +160,27 @@ stock_selection.select_stocks('2022-04-01').style.set_table_attributes('style="f
 
 # <br></br>이제 main.py 파이썬 파일을 만들겠습니다. main.py 에서는 종목을 추천하는 함수(select_stock)가 있는 stock_selection.py 를 import 하고, 웹앱을 만들어주는 streamlit 도 import 할 것입니다. stock_selection 모듈은 이미 만들었으므로 streamlit 를 설치 후 import 하면 됩니다. 아래와 같이 streamlit 을 설치합니다. (참고 링크 https://anaconda.org/conda-forge/streamlit). 설치를 위해서 먼저 아나콘다 Prompt 을 실행합니다. streamlit 은 pip install streamlit 로도 설치가 가능합니다만, 아나콘다에서 배포하는 패키지를 우선적으로 설치하는 것이 좋습니다. 아래 그림과 타이핑한 후 'Enter' 를 누르시면 자동으로 설치가 됩니다. 참고로 이 책에서는 가상환경에 대하여는 다루지 않도록 하겠습니다. 가상환경이란 프로젝트별로 필요한 파이썬 패키지를 간섭없이 쓸 수 있게 해 줍니다. 이 웹앱 프로젝트는 streamlit 가 필요하지만, 다른 프로젝트는 streamlit 이 필요하지 않을 수 있습니다. 따라서 가상환경을 만들고 가상환경에서 패키지를 설치함으로써 프로젝트 사이에 서로 간섭이 없도록 하는 것이 가장 큰 목적입니다. 
 
-# <img src="../_images/Install_Streamlit.PNG" width="800" height="150"></img> 
+# <img src="./images/Install_Streamlit.PNG" width="800" height="150"></img> 
 
 # <br></br>
-# 이제는 웹앱을 만들 준비가 끝났습니다. 주피터노트북은 셀 단위 명령을 실행함으로써 결과를 빠르게 확인하고 다음 단계로 넘어가는 장점이 있었습니다. 따라서 데이터를 여러 관점으로 분석해야 하는 데이터분석가에게 안성맞춤입니다. 하지만, 큰 프로그램을 웹 브러우저 상에서 실행하는 것은 안정성 면에서 문제가 많습니다. 예를 들어 웹브라우저가 죽으면 프로그램도 따라서 정지하게 됩니다. 주피터노트북 상에서는 데이터분석과 모델링을 하고, 만들어진 프로그램의 실행은 PyCharm 이나 Vscode 등의 에디터를 이용하는 것이 일반적입니다. main.py 가 있는 폴더에 'gam.pkl', 'kosdaq_list.pkl', 'stock_selection.py' 가 같이 있어야 모듈을 불러올 수 가 있습니다. main.py 를 PyCharm 에서 아래와 실행합니다. 참고로 requirements.txt 는 로컬에서 웹앱을 테스트하는 데 필요하지는 않습니다. requirements.txt 파일의 용도에 대하여는 나중에 설명드리도록 하겠습니다. 
+# 이제는 웹앱을 만들 준비가 끝났습니다. 주피터노트북은 셀 단위 명령을 실행함으로써 결과를 빠르게 확인하고 다음 단계로 넘어가는 장점이 있었습니다. 따라서 데이터를 여러 관점으로 분석해야 하는 데이터분석가에게 안성맞춤입니다. 하지만, 큰 프로그램을 웹 브러우저 상에서 실행하는 것은 안정성 면에서 문제가 있습니다. 예를 들어 프로그램이 실행되고 있는 웹브라우저가 죽으면 프로그램도 따라서 정지하게 됩니다. 주피터노트북 상에서는 데이터분석과 모델링을 하고, 만들어진 프로그램의 실행은 PyCharm 이나 Vscode 등의 에디터를 이용을 추천드립니다. main.py 가 있는 폴더에 'gam.pkl', 'kosdaq_list.pkl', 'stock_selection.py' 파일을 저장합니다. 'gam..pkl' 은 예측모델이 저장된 파일이고, 'kosdaq_list.pkl' 은 코스닥 종목 리스트가 있는 파일이며 'stock_selection.py' 은 종목 추천 알고리즘이 저장되 파일입니다. main.py 를 PyCharm 에서 아래와 실행합니다. 참고로 requirements.txt 는 현재 로컬에서 작업하고 있는 환경을 다른 곳에 복사하기 위한 라이브러리 정보가 담긴 파일입니다. 로컬에서 웹앱을 테스트하는 데 필요하지는 않습니다. requirements.txt 파일의 용도에 대하여는 나중에 설명드리도록 하겠습니다. 
 
-# <img src="../_images/Streamlit_Run.PNG" width="800" height="500"></img> 
+# <img src="./images/Streamlit_Run.PNG" width="800" height="500"></img> 
 
 # <br></br>
 # 위 코드를 실행하면 새로운 브라우저가 뜨면서 아래와 같은 창이 생깁니다. 아래 박스에 'YYYY-MM-DD' 형식으로 날짜를 입력하고 엔터를 치면 프로그램을 실행합니다. 2022-04-01 를 넣어보겠습니다.
 
-# <img src="../_images/Streamlit_Results.PNG" width="800" height="500"></img>
+# <img src="./images/Streamlit_Results.PNG" width="800" height="500"></img>
 
 # <br></br>
-# 약 15분 후에 아래와 같은 결과값을 볼 수 있습니다. 로컬 호스트에서 잘 작동하는 지 확인하고, https://share.streamlit.io 에서 제공하는 호스트에서 구현을 하면 됩니다. 아래 5 종목만 추천된 이유는 main.py 의 마지막 라인에서 
+# 약 15분 후에 아래와 같은 결과값을 볼 수 있습니다. 로컬 호스트에서 잘 작동하는 지 확인합니다. 아래 5 종목만 추천된 이유는 main.py 의 마지막 라인에서 
 # 
 # ```python
 #   st.write(results.sort_values(by='yhat', ascending=False).head(5))
 # ```
 # head(5) 로 스코어(yhat) 가 높은 5 개 종목만 제시하도록 했기 때문입니다.
 
-# <img src="../_images/Streamlit_Results_Stocks.PNG" width="800" height="500"></img>
+# <img src="./images/Streamlit_Results_Stocks.PNG" width="800" height="500"></img>
 
 # In[ ]:
 

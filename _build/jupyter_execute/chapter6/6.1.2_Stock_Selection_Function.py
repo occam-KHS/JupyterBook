@@ -26,7 +26,7 @@ import glob
 
 # <br> 추전 종목을 만드는 여러 개의 프로세스를 하나의 함수로 만들었습니다. 
 
-# In[56]:
+# In[2]:
 
 
 def select_stocks(today_dt):
@@ -135,7 +135,7 @@ def select_stocks(today_dt):
     tops = X[X['yhat'] >= 0.3].sort_values(by='yhat', ascending=False) # 스코어 0.3 이상 종목만 
     print(len(tops))    
      
-    select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)][['name','return','price_z','yhat','return', 'kosdaq_return','close']]  # 기본 필터링 조건   
+    select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)][['name','return','price_z','yhat', 'kosdaq_return','close']]  # 기본 필터링 조건   
       
     if len(select_tops) > 1: # 최소한 2개 종목 - 추천 리스크 분산        
         return select_tops    
@@ -146,7 +146,7 @@ def select_stocks(today_dt):
 
 # <br> 수익률 검정하는 프로세스도 하나의 함수로 구현합니다.
 
-# In[59]:
+# In[3]:
 
 
 def outcome_tops(select_tops, today_dt, end_dt):   
@@ -184,7 +184,7 @@ def outcome_tops(select_tops, today_dt, end_dt):
 # <br> **2022년 4월 1일 - 종목 선정 및 수익률 테스트**   
 # 상당이 고무적입니다. 모든 종목이 익절이 가능합니다. 단 CSA 코스믹은 전일 종가로 당일 매수가 불가능합니다. 2022년 4월 2일 갭상승으로 시작을 했습니다.
 
-# In[60]:
+# In[4]:
 
 
 select_tops = select_stocks('2022-04-01')
@@ -266,7 +266,7 @@ results.sort_values(by='buy').style.set_table_attributes('style="font-size: 12px
 # <br> **2022년 6월 16일 - 종목 선정 및 수익률 테스트**   
 # 2022년 6월 16일 추천종목은 20 종목이 넘습니다. 종목은 모델 스코어가 높은 5 종목만 선택하도록 하겠습니다. 한탑, 에이에프더블류, 베셀이 매수가 가능했습니다. 익절 가능할 것으로 예상됩니다.
 
-# In[66]:
+# In[6]:
 
 
 select_tops = select_stocks('2022-06-16')
@@ -275,4 +275,10 @@ if select_tops is not None:
     results = outcome_tops(select_tops, '2022-06-16', '2022-06-23') # 5 영업일 (6월 6일 현충일)
     
 results.sort_values(by=['buy','yhat'], ascending=False).head(5).style.set_table_attributes('style="font-size: 12px"').format(precision=3)
+
+
+# In[ ]:
+
+
+
 

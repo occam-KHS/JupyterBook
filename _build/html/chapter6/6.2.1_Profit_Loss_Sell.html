@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="자동매매를 해보자" href="../chapter7/7.0.0_Algo_Trading.html" />
+    <link rel="next" title="자동매매를 해보자" href="../chapter7/7.0.0_Algo_trading.html" />
     <link rel="prev" title="해결책 테스트" href="6.1.2_Stock_Selection_Function.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -515,10 +515,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../chapter7/7.0.0_Algo_Trading.html">
-   <strong>
-    자동매매를 해보자
-   </strong>
+  <a class="reference internal" href="../chapter7/7.0.0_Algo_trading.html">
+   자동매매를 해보자
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
   <label for="toctree-checkbox-10">
@@ -527,38 +525,28 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter7/7.1.0_Algo_trading.html">
-     자동매매를 해보자
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../chapter7/7.2.0_env_setting.html">
      개발환경
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter7/7.3.0_API_explain.html">
-     API 작동 방식
+    <a class="reference internal" href="../chapter7/7.2.1_create_accnt_hanguk.html">
+     한국투자증권
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter7/7.4.0_login.html">
-     자동 로그인
+    <a class="reference internal" href="../chapter7/7.2.2_connect_hanguk.html">
+     서비스 연결
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter7/7.5.0_accnt.html">
-     계좌 정보 조회
+    <a class="reference internal" href="../chapter7/7.2.3_functions_hanguk.html">
+     주요 함수 정의
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../chapter7/7.6.0_xr.html">
-     실시간 데이터 받아오기
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter7/7.7.0_ord.html">
-     자동으로 주문넣기
+    <a class="reference internal" href="../chapter7/7.2.4_main_hanguk.html">
+     자동매매 로직 이해하기
     </a>
    </li>
   </ul>
@@ -1025,7 +1013,7 @@ Name: min_close, dtype: float64
     <span class="n">tops</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;yhat&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.3</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;yhat&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># 스코어 0.3 이상 종목만 </span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tops</span><span class="p">))</span>    
   
-    <span class="n">select_tops</span> <span class="o">=</span> <span class="n">tops</span><span class="p">[(</span><span class="n">tops</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">1.03</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tops</span><span class="p">[</span><span class="s1">&#39;price_z&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)][[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;return&#39;</span><span class="p">,</span><span class="s1">&#39;price_z&#39;</span><span class="p">,</span><span class="s1">&#39;yhat&#39;</span><span class="p">,</span><span class="s1">&#39;return&#39;</span><span class="p">,</span> <span class="s1">&#39;kosdaq_return&#39;</span><span class="p">,</span><span class="s1">&#39;close&#39;</span><span class="p">]]</span>       
+    <span class="n">select_tops</span> <span class="o">=</span> <span class="n">tops</span><span class="p">[(</span><span class="n">tops</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">1.03</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tops</span><span class="p">[</span><span class="s1">&#39;price_z&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)][[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;return&#39;</span><span class="p">,</span><span class="s1">&#39;price_z&#39;</span><span class="p">,</span><span class="s1">&#39;yhat&#39;</span><span class="p">,</span><span class="s1">&#39;kosdaq_return&#39;</span><span class="p">,</span><span class="s1">&#39;close&#39;</span><span class="p">]]</span>       
     
     <span class="c1">#  코스닥 지수에 따라 익절/손절 라인 변경    </span>
     <span class="n">cuts</span> <span class="o">=</span> <span class="n">select_tops</span><span class="p">[</span><span class="s1">&#39;kosdaq_return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">profit_loss_cut</span><span class="p">)</span>
@@ -1651,10 +1639,10 @@ Name: min_close, dtype: float64
             <p class="prev-next-title">해결책 테스트</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../chapter7/7.0.0_Algo_Trading.html" title="next page">
+    <a class='right-next' id="next-link" href="../chapter7/7.0.0_Algo_trading.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>자동매매를 해보자</strong></p>
+        <p class="prev-next-title">자동매매를 해보자</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

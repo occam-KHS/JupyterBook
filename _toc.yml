@@ -78,20 +78,19 @@ parts:
       sections:
       - file: chapter6/6.1.1_Stock_Selection
       - file: chapter6/6.1.2_Stock_Selection_Function
-    - file: chapter6/6.2.1_Profit_Loss_Sell
+      - file: chapter6/6.1.3_Save_Stocks     
+
 
   - caption: chapter 7
     chapters:
-    - file: chapter7/7.0.0_Algo_Trading
+    - file: chapter7/7.0.0_Algo_trading
       sections:
-      - file: chapter7/7.1.0_Algo_trading
       - file: chapter7/7.2.0_env_setting
-      - file: chapter7/7.3.0_API_explain
-      - file: chapter7/7.4.0_login
-      - file: chapter7/7.5.0_accnt
-      - file: chapter7/7.6.0_xr
-      - file: chapter7/7.7.0_ord
-
+      - file: chapter7/7.2.1_create_accnt_hanguk
+      - file: chapter7/7.2.2_connect_hanguk
+      - file: chapter7/7.2.3_functions_hanguk
+      - file: chapter7/7.2.4_main_hanguk
+      
   - caption: chapter 8
     chapters:
     - file: chapter8/8.0.0_Web_Application

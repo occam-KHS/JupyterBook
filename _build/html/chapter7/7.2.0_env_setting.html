@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API 작동 방식" href="7.3.0_API_explain.html" />
-    <link rel="prev" title="자동매매를 해보자" href="7.1.0_Algo_trading.html" />
+    <link rel="next" title="한국투자증권" href="7.2.1_create_accnt_hanguk.html" />
+    <link rel="prev" title="자동매매를 해보자" href="7.0.0_Algo_trading.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -498,14 +498,14 @@ const thebe_selector_output = ".output, .cell_output"
      해결책 테스트
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter6/6.1.3_Save_Stocks.html">
+     <strong>
+      추천 종목을 파일로 저장
+     </strong>
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter6/6.2.1_Profit_Loss_Sell.html">
-   <strong>
-    익절/손절 라인
-   </strong>
-  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -515,10 +515,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="7.0.0_Algo_Trading.html">
-   <strong>
-    자동매매를 해보자
-   </strong>
+  <a class="reference internal" href="7.0.0_Algo_trading.html">
+   자동매매를 해보자
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
   <label for="toctree-checkbox-10">
@@ -526,39 +524,29 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="7.1.0_Algo_trading.html">
-     자동매매를 해보자
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      개발환경
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.3.0_API_explain.html">
-     API 작동 방식
+    <a class="reference internal" href="7.2.1_create_accnt_hanguk.html">
+     한국투자증권
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.4.0_login.html">
-     자동 로그인
+    <a class="reference internal" href="7.2.2_connect_hanguk.html">
+     서비스 연결
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.5.0_accnt.html">
-     계좌 정보 조회
+    <a class="reference internal" href="7.2.3_functions_hanguk.html">
+     주요 함수 정의
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.6.0_xr.html">
-     실시간 데이터 받아오기
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="7.7.0_ord.html">
-     자동으로 주문넣기
+    <a class="reference internal" href="7.2.4_main_hanguk.html">
+     자동매매 로직 이해하기
     </a>
    </li>
   </ul>
@@ -770,31 +758,11 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   계좌개설
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#xingapi">
-   xingAPI 패키지 설치
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#devcenter-res">
-   DevCenter 에서 Res 파일 다운로드 받기
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id15">
-   모의투자 서비스 가입하기
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id18">
    코딩 환경 설치
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id19">
+    <a class="reference internal nav-link" href="#id3">
      아나콘다 설치
     </a>
    </li>
@@ -804,6 +772,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id18">
+   디스코드 설정
+  </a>
  </li>
 </ul>
 
@@ -826,31 +799,11 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   계좌개설
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#xingapi">
-   xingAPI 패키지 설치
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#devcenter-res">
-   DevCenter 에서 Res 파일 다운로드 받기
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id15">
-   모의투자 서비스 가입하기
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id18">
    코딩 환경 설치
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id19">
+    <a class="reference internal nav-link" href="#id3">
      아나콘다 설치
     </a>
    </li>
@@ -860,6 +813,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id18">
+   디스코드 설정
+  </a>
  </li>
 </ul>
 
@@ -874,244 +832,167 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>개발환경<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <section id="id2">
-<h2>계좌개설<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>모바일 앱 스토에서 Fig 1. 에서 보이는 이베스트 온(eBEST ON) 애플리케이션을 설치 합니다.
-앱 설치 완료 후, 비대면 계좌 개설을 진행 합니다.
-신분증 촬영과 간단한 인증절차를 밟으면 어렵지 않게 계좌 개설을 완료 할 수 있습니다.</p>
-<figure class="align-default" id="id3">
-<a class="reference internal image-reference" href="../_images/ebeston.png"><img alt="../_images/ebeston.png" src="../_images/ebeston.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">이베스트 온(eBest ON) 애플리케이션 설치</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="xingapi">
-<h2>xingAPI 패키지 설치<a class="headerlink" href="#xingapi" title="Permalink to this headline">#</a></h2>
-<p>이어서 Window PC 에 xingAPI 패키지를 설치해야 합니다.
-이베스트투자증권 홈페이지 (<a class="reference external" href="http://www.ebestsec.co.kr">http://www.ebestsec.co.kr</a>)로 이동한 후, ID 등록을 진행 합니다.
-ID 등록을 마치면 로그인을 한 상태에서 웹 페이지 하단에 있는 [매매시스템] → [API] 메뉴를 클릭합니다.</p>
+<h2>코딩 환경 설치<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<section id="id3">
+<h3>아나콘다 설치<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>자동매매 코딩 환경 설치를 진행하겠습니다.
+먼저 수백 개의 파이썬 패키지를 한 번에 사용할 수 있는 아나콘다(Anaconda)를 설치하겠습니다. 아나콘다 홈페이지(<a class="reference external" href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a>) 하단에 있는 [Download]를 클릭합니다.</p>
 <figure class="align-default" id="id4">
-<a class="reference internal image-reference" href="../_images/xingAPI_1.png"><img alt="../_images/xingAPI_1.png" src="../_images/xingAPI_1.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">[매매시스템] → [API] 클릭</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>[API] 메뉴 클릭 후, Fig 3 에서 보이는 xingAPI 패키지 PC 버전을 다운 받습니다.</p>
-<figure class="align-default" id="id5">
-<a class="reference internal image-reference" href="../_images/xingAPI_2.png"><img alt="../_images/xingAPI_2.png" src="../_images/xingAPI_2.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">xingAPI 패키지 PC 버전 설치</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>다운로드한 설치 파일을 더블 클릭해서 설치를 시작합니다.
-Fig 4 와 같이 설치 마법사 화면이 나타나면 [다음] 버튼을 클릭하여 설치를 시작합니다.</p>
-<figure class="align-default" id="id6">
-<a class="reference internal image-reference" href="../_images/xingAPI_3.png"><img alt="../_images/xingAPI_3.png" src="../_images/xingAPI_3.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">설치 마법사 화면 [다음] 클릭</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>다음으로 기본 설치 경로를 수정하지 말고 [다음] 버튼을 클릭합니다.</p>
-<figure class="align-default" id="id7">
-<a class="reference internal image-reference" href="../_images/xingAPI_4.png"><img alt="../_images/xingAPI_4.png" src="../_images/xingAPI_4.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">경로 수정하지 않고 [다음] 클릭</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>설치가 완료되면 Fig 6 과 같은 화면이 나타납니다. [완료] 버튼을 눌러 설치 과정을
-종료합니다.</p>
-<figure class="align-default" id="id8">
-<a class="reference internal image-reference" href="../_images/xingAPI_5.png"><img alt="../_images/xingAPI_5.png" src="../_images/xingAPI_5.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">xingAPI 패키지 설치 [완료] 클릭</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>마지막으로 Fig 7 과 같이  [매매시스템] → [API] → [사용등록/해지] 버튼을 눌러서 인증서 로그인을 진행 합니다.</p>
-<figure class="align-default" id="id9">
-<a class="reference internal image-reference" href="../_images/xingAPI_6.png"><img alt="../_images/xingAPI_6.png" src="../_images/xingAPI_6.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">[매매시스템] → [API] → [사용등록/해지] 클릭</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>인증서 로그인을 마치면 Fig 8과 같이 약관에 동의하여 [사용등록] 버튼을 누릅니다.</p>
-<figure class="align-default" id="id10">
-<a class="reference internal image-reference" href="../_images/xingAPI_7.png"><img alt="../_images/xingAPI_7.png" src="../_images/xingAPI_7.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">약관 동의 체크 및 [사용등록] 클릭</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Fig 9와 같이 화면이 나오면 사용자 등록이 완료됩니다.</p>
-<figure class="align-default" id="id11">
-<a class="reference internal image-reference" href="../_images/xingAPI_8.png"><img alt="../_images/xingAPI_8.png" src="../_images/xingAPI_8.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">사용등록 완료 페이지</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="devcenter-res">
-<h2>DevCenter 에서 Res 파일 다운로드 받기<a class="headerlink" href="#devcenter-res" title="Permalink to this headline">#</a></h2>
-<p>Res 파일을 Local PC 에 다운 받으면, API 를 통해 증권서버의 데이터를 받을 수 있습니다.
-먼저 윈도우 검색창에서 DevCenter 검색 후, 앱을 실행 시킵니다.</p>
-<figure class="align-default" id="res">
-<a class="reference internal image-reference" href="../_images/Res_1.png"><img alt="../_images/Res_1.png" src="../_images/Res_1.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">윈도우 검색창에서 DevCenter 검색 및 실행</span><a class="headerlink" href="#res" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>다음으로 데이터베이스 아이콘을 클릭하여 Res 파일을 다운 받습니다.</p>
-<figure class="align-default" id="id12">
-<a class="reference internal image-reference" href="../_images/Res_2.png"><img alt="../_images/Res_2.png" src="../_images/Res_2.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">[아이콘] 클릭</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>다운로드 팝업이 뜨면 예(Y) 버튼을 클릭합니다.</p>
-<figure class="align-default" id="id13">
-<a class="reference internal image-reference" href="../_images/Res_3.png"><img alt="../_images/Res_3.png" src="../_images/Res_3.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Res 파일 다운로드 팝업 창 예(Y) 클릭</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>완료 팝업이 뜨면 [확인] 버튼을 클릭하여 Res 파일 다운로드를 완료 합니다.</p>
-<figure class="align-default" id="id14">
-<a class="reference internal image-reference" href="../_images/Res_4.png"><img alt="../_images/Res_4.png" src="../_images/Res_4.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">완료 팝업에서 [확인] 클릭</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id15">
-<h2>모의투자 서비스 가입하기<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h2>
-<p>모의투자 서비스에서 제공하는 가상 투자 환경으로 API 작동 방식을 익히고 알고리즘 백테스팅을 진행 할 수 있습니다.
-아래 Fig 14 와 같이 홈페이지(<a class="reference external" href="https://www.ebestsec.co.kr/">https://www.ebestsec.co.kr/</a>) 상단에 있는 [고객센터] → [모의투자] → [상시모의투자] 를 클릭해 주세요.</p>
-<figure class="align-default" id="id16">
-<a class="reference internal image-reference" href="../_images/mock_1.png"><img alt="../_images/mock_1.png" src="../_images/mock_1.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">[고객센터] → [모의투자] → [상시모의투자] 클릭</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>이어서 Fig 15 의 양식에 따라 참가신청을 하면 됩니다.</p>
-<figure class="align-default" id="id17">
-<a class="reference internal image-reference" href="../_images/mock_2.png"><img alt="../_images/mock_2.png" src="../_images/mock_2.png" style="width: 600px; height: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">양식 채우고 [참가신청] 클릭</span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id18">
-<h2>코딩 환경 설치<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h2>
-<section id="id19">
-<h3>아나콘다 설치<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
-<p>자동매매 코드 작성을 위해 필요한 환경들을 설치하는 시간을 갖겠습니다.
-먼저 수백 개의 파이썬 패키지를 한 번에 사용할 수 있는 아나콘다 Anaconda 를
-설치하겠습니다.
-아나콘다 홈페이지(<a class="reference external" href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a>) 하단에서
-Fig 16 과 같이 [Download] 를 클릭하고,</p>
-<figure class="align-default" id="id20">
 <a class="reference internal image-reference" href="../_images/anaconda_1.png"><img alt="../_images/anaconda_1.png" src="../_images/anaconda_1.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">[Download] 클릭</span><a class="headerlink" href="#id20" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">[Download] 클릭</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 17 에서 32-Bit 버전을 설치합니다.</p>
-<figure class="align-default" id="id21">
+<p>한국투자증권 API는 Bit 버전과 운영체제(윈도우, 맥, 리눅스)에 상관없이 전부 실행이 되는 서비스입니다. 만약 다른 증권사 API를 동일 PC에서 사용하고 싶으신 경우에는 호환성을 갖기 위해 windows 32-Bit 버전을 설치합니다.</p>
+<figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="../_images/anaconda_2.png"><img alt="../_images/anaconda_2.png" src="../_images/anaconda_2.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Windows 32-Bit 버전 다운받기</span><a class="headerlink" href="#id21" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Windows 32-Bit 버전 다운받기</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 18 와 같이 다운로드 받은 아나콘다 설치 파일을 마우스 우클릭하여 관리자 권한으로 실행 합니다.</p>
-<figure class="align-default" id="id22">
+<p>다운로드한 아나콘다 설치 파일을 마우스 우클릭하여 관리자 권한으로 실행합니다.</p>
+<figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../_images/anaconda_3.png"><img alt="../_images/anaconda_3.png" src="../_images/anaconda_3.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">아나콘다 설치 파일 관리자 권한으로 실행 (마우스 우클릭)</span><a class="headerlink" href="#id22" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">아나콘다 설치 파일 관리자 권한으로 실행 (마우스 우클릭)</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 19 에서 [Next] 를 클릭하여 아나콘다 설치를 시작합니다.</p>
-<figure class="align-default" id="id23">
+<p>[Next]를 클릭하여 아나콘다 설치를 시작합니다.</p>
+<figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="../_images/anaconda_4.png"><img alt="../_images/anaconda_4.png" src="../_images/anaconda_4.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">아나콘다 설치 시작 화면 [Next] 클릭</span><a class="headerlink" href="#id23" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">아나콘다 설치 시작 화면 [Next] 클릭</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 20 에서 [I Agree] 를 클릭하여 라이선스 동의서에 동의합니다.</p>
-<figure class="align-default" id="id24">
+<p>[I Agree]를 클릭하여 라이선스 동의서에 동의합니다.</p>
+<figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../_images/anaconda_5.png"><img alt="../_images/anaconda_5.png" src="../_images/anaconda_5.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">라이선스 동의서 [I Agree] 클릭</span><a class="headerlink" href="#id24" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">라이선스 동의서 [I Agree] 클릭</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 21 에서 [All Users] 체크 후, [Next] 를 클릭하여 설치 타입을 정합니다.</p>
-<figure class="align-default" id="id25">
+<p>[All Users] 체크 후, [Next]를 클릭하여 설치 타입을 정합니다.</p>
+<figure class="align-default" id="id9">
 <a class="reference internal image-reference" href="../_images/anaconda_6.png"><img alt="../_images/anaconda_6.png" src="../_images/anaconda_6.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">[All Users] 타입 체크 및 [Next] 클릭</span><a class="headerlink" href="#id25" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">[All Users] 타입 체크 및 [Next] 클릭</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 22 에서 [Next] 를 클릭하여 기본 설치 경로를 따릅니다.</p>
-<figure class="align-default" id="id26">
+<p>[Next]를 클릭하여 기본 설치 경로를 따릅니다.</p>
+<figure class="align-default" id="id10">
 <a class="reference internal image-reference" href="../_images/anaconda_7.png"><img alt="../_images/anaconda_7.png" src="../_images/anaconda_7.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">기본 설치 경로 변경하지 않고 [Next] 클릭</span><a class="headerlink" href="#id26" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">기본 설치 경로 변경하지 않고 [Next] 클릭</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 23 과 같이 [Register Anaconda3 as the system Python 3.9] 체크하여 Python IDE에서 인터프리터를 자동 인식 할 수 있도록 설정 합니다.
+<p>[Register Anaconda3 as the system Python 3.9] 체크하여 Python IDE에서 인터프리터를 자동 인식할 수 있도록 설정합니다.
 체크 후, [Install] 클릭하여 설치를 시작합니다.</p>
-<figure class="align-default" id="id27">
+<figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="../_images/anaconda_8.png"><img alt="../_images/anaconda_8.png" src="../_images/anaconda_8.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">[Register Anaconda3 as the system Python 3.9] 체크 및 [Install] 클릭</span><a class="headerlink" href="#id27" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">[Register Anaconda3 as the system Python 3.9] 체크 및 [Install] 클릭</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="pycharm">
 <h3>PyCharm 설치<a class="headerlink" href="#pycharm" title="Permalink to this headline">#</a></h3>
-<p>파이참 PyCharm 은 파이썬 코드를 실행하고 그 결과를 확인하는 IDE 입니다. (IDE 설명 추가)
-Fig 24 와 같이 PyCharm 파이참 홈페이지에서 (<a class="reference external" href="https://www.jetbrains.com/ko-kr/pycharm/download/#section=windows">https://www.jetbrains.com/ko-kr/pycharm/download/#section=windows</a>)
-Community 버전을 다운 받습니다.</p>
-<figure class="align-default" id="id28">
+<p>파이참(PyCharm) 은 파이썬 코드를 실행하고 그 결과를 확인하는 IDE 입니다. 파이참 홈페이지에서(<a class="reference external" href="https://www.jetbrains.com/ko-kr/pycharm/download/#section=windows">https://www.jetbrains.com/ko-kr/pycharm/download/#section=windows</a>) Community 버전을 다운로드합니다.</p>
+<figure class="align-default" id="id12">
 <a class="reference internal image-reference" href="../_images/PyCharm_1.png"><img alt="../_images/PyCharm_1.png" src="../_images/PyCharm_1.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Community 버전 [Download] 클릭</span><a class="headerlink" href="#id28" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Community 버전 [Download] 클릭</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>다운로드 받은 설치 파일을 실행 시키고
-Fig 25 와 같이 Welcome Page 가 뜨면 [Next] 버튼을 클릭 합니다.</p>
-<figure class="align-default" id="id29">
+<p>다운로드한 설치 파일을 실행시키고,
+Welcome Page 가 뜨면 [Next] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id13">
 <a class="reference internal image-reference" href="../_images/PyCharm_2.png"><img alt="../_images/PyCharm_2.png" src="../_images/PyCharm_2.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Welcome Page 에서 [Next] 클릭</span><a class="headerlink" href="#id29" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Welcome Page 에서 [Next] 클릭</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 26 에서는 설치 경로를 설정한 후, [Next] 버튼을 클릭 합니다.</p>
-<figure class="align-default" id="id30">
+<p>설치 경로를 설정한 후, [Next] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id14">
 <a class="reference internal image-reference" href="../_images/PyCharm_3.png"><img alt="../_images/PyCharm_3.png" src="../_images/PyCharm_3.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">설치 경로 설정 및 [Next] 클릭</span><a class="headerlink" href="#id30" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">설치 경로 설정 및 [Next] 클릭</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 27 와 같이 설치 옵션 화면에서 모든 옵션을 선택 후, [Next] 버튼을 클릭 합니다.</p>
-<figure class="align-default" id="id31">
+<p>설치 옵션 화면에서 모든 옵션을 선택 후, [Next] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id15">
 <a class="reference internal image-reference" href="../_images/PyCharm_4.png"><img alt="../_images/PyCharm_4.png" src="../_images/PyCharm_4.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 27 </span><span class="caption-text">모든 옵션 선택 및 [Next] 클릭</span><a class="headerlink" href="#id31" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">모든 옵션 선택 및 [Next] 클릭</span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Fig 28 에서는 시작 메뉴 이름 설정 후, [Install] 버튼을 클릭 합니다.</p>
-<figure class="align-default" id="id32">
+<p>시작 메뉴 이름 설정 후, [Install] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id16">
 <a class="reference internal image-reference" href="../_images/PyCharm_5.png"><img alt="../_images/PyCharm_5.png" src="../_images/PyCharm_5.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text">시작 메뉴 이름 설정 및 [Install] 클릭</span><a class="headerlink" href="#id32" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">시작 메뉴 이름 설정 및 [Install] 클릭</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>마지막으로 Fig 29 에서 재부팅을 바로 실행하거나 나중에 실행하기 선택 후 [Finish] 버튼을 클릭 합니다.</p>
-<figure class="align-default" id="id33">
+<p>마지막으로 재부팅을 바로 실행하거나 나중에 실행하기 선택 후 [Finish] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id17">
 <a class="reference internal image-reference" href="../_images/PyCharm_6.png"><img alt="../_images/PyCharm_6.png" src="../_images/PyCharm_6.png" style="width: 600px; height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">재부팅 옵션 선택 및 [Finish] 클릭</span><a class="headerlink" href="#id33" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">재부팅 옵션 선택 및 [Finish] 클릭</span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
+</section>
+<section id="id18">
+<h2>디스코드 설정<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h2>
+<p>자동매매 경과를 모니터링할 수 있는 디스코드 설정을 진행하겠습니다. 먼저 디스코드 홈페이지(<a class="reference external" href="https://discord.com/">https://discord.com/</a>)를 방문하여 회원가입을 진행합니다. 회원가입 완료 후, [웹브라우저에서 Discord 열기]를 클릭합니다. 디스코드 웹 APP 및 모바일 APP 을 다운로드하면 메시지를 더 편리하게 받아 볼 수 있습니다.</p>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="../_images/discord_1.png"><img alt="../_images/discord_1.png" src="../_images/discord_1.png" style="width: 600px; height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">회원가입 후, [웹브라우저에서 Discord 열기] 클릭</span><a class="headerlink" href="#id19" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>웹브라우저에서 디스코드가 열리면, 화면의 좌측 플러스(“+”) 아이콘을 클릭합니다.</p>
+<figure class="align-default" id="id20">
+<a class="reference internal image-reference" href="../_images/discord_2.png"><img alt="../_images/discord_2.png" src="../_images/discord_2.png" style="width: 600px; height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">화면 좌측 플러스 아이콘 클릭</span><a class="headerlink" href="#id20" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>“서버만들기” 팝업이 뜨면 [직접만들기] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id21">
+<a class="reference internal image-reference" href="../_images/discord_3.png"><img alt="../_images/discord_3.png" src="../_images/discord_3.png" style="width: 600px; height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">[직접만들기] 클릭</span><a class="headerlink" href="#id21" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>이어서 [나와친구들을 위한 서버] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id22">
+<a class="reference internal image-reference" href="../_images/discord_4.png"><img alt="../_images/discord_4.png" src="../_images/discord_4.png" style="width: 600px; height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">[나와친구들을 위한 서버] 클릭</span><a class="headerlink" href="#id22" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>서버 이름은 자유롭게 정하고 [만들기] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id23">
+<a class="reference internal image-reference" href="../_images/discord_5.png"><img alt="../_images/discord_5.png" src="../_images/discord_5.png" style="width: 600px; height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">서버이름 작성 및 [만들기] 클릭</span><a class="headerlink" href="#id23" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>서버가 만들어지면 채팅 채널 밑에 “# 일반” 혹은 “# general” 의 설정 아이콘(채널 편집) 을 클릭합니다.</p>
+<figure class="align-default" id="id24">
+<a class="reference internal image-reference" href="../_images/discord_6.png"><img alt="../_images/discord_6.png" src="../_images/discord_6.png" style="width: 600px; height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">화면 좌측 “# 일반” 설정 아이콘 클릭</span><a class="headerlink" href="#id24" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>이어서 왼쪽에 있는 [연동] 세션을 클릭하고 [웹후크 만들기] 버튼을 클릭합니다.</p>
+<figure class="align-default" id="id25">
+<a class="reference internal image-reference" href="../_images/discord_7.png"><img alt="../_images/discord_7.png" src="../_images/discord_7.png" style="width: 600px; height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">화면 좌측 [연동] 클릭 후, [웹후크 만들기] 클릭</span><a class="headerlink" href="#id25" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>마지막으로 [웹후크 URL 복사] 버튼을 클릭하고, 추후에 사용할 수 있도록 저장해둡니다.</p>
 </section>
 </section>
 
@@ -1142,17 +1023,17 @@ Fig 25 와 같이 Welcome Page 가 뜨면 [Next] 버튼을 클릭 합니다.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="7.1.0_Algo_trading.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="7.0.0_Algo_trading.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">자동매매를 해보자</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="7.3.0_API_explain.html" title="next page">
+    <a class='right-next' id="next-link" href="7.2.1_create_accnt_hanguk.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API 작동 방식</p>
+        <p class="prev-next-title">한국투자증권</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

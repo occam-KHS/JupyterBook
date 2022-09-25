@@ -194,7 +194,7 @@ def select_stocks_sell(today_dt):
     tops = X[X['yhat'] >= 0.3].sort_values(by='yhat', ascending=False) # 스코어 0.3 이상 종목만 
     print(len(tops))    
   
-    select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)][['name','return','price_z','yhat','return', 'kosdaq_return','close']]       
+    select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)][['name','return','price_z','yhat','kosdaq_return','close']]       
     
     #  코스닥 지수에 따라 익절/손절 라인 변경    
     cuts = select_tops['kosdaq_return'].apply(profit_loss_cut)

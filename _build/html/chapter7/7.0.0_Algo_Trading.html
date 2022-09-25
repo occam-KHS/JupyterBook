@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="자동매매를 해보자" href="7.1.0_Algo_trading.html" />
-    <link rel="prev" title="익절/손절 라인" href="../chapter6/6.2.1_Profit_Loss_Sell.html" />
+    <link rel="next" title="개발환경" href="7.2.0_env_setting.html" />
+    <link rel="prev" title="추천 종목을 파일로 저장" href="../chapter6/6.1.3_Save_Stocks.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -498,14 +498,14 @@ const thebe_selector_output = ".output, .cell_output"
      해결책 테스트
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter6/6.1.3_Save_Stocks.html">
+     <strong>
+      추천 종목을 파일로 저장
+     </strong>
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter6/6.2.1_Profit_Loss_Sell.html">
-   <strong>
-    익절/손절 라인
-   </strong>
-  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -516,9 +516,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   <strong>
-    자동매매를 해보자
-   </strong>
+   자동매매를 해보자
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
   <label for="toctree-checkbox-10">
@@ -527,38 +525,28 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.1.0_Algo_trading.html">
-     자동매매를 해보자
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="7.2.0_env_setting.html">
      개발환경
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.3.0_API_explain.html">
-     API 작동 방식
+    <a class="reference internal" href="7.2.1_create_accnt_hanguk.html">
+     한국투자증권
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.4.0_login.html">
-     자동 로그인
+    <a class="reference internal" href="7.2.2_connect_hanguk.html">
+     서비스 연결
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.5.0_accnt.html">
-     계좌 정보 조회
+    <a class="reference internal" href="7.2.3_functions_hanguk.html">
+     주요 함수 정의
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7.6.0_xr.html">
-     실시간 데이터 받아오기
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="7.7.0_ord.html">
-     자동으로 주문넣기
+    <a class="reference internal" href="7.2.4_main_hanguk.html">
+     자동매매 로직 이해하기
     </a>
    </li>
   </ul>
@@ -642,35 +630,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/chapter7/7.0.0_Algo_Trading.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -710,7 +669,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter7/7.0.0_Algo_Trading.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter7/7.0.0_Algo_trading.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -738,7 +697,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/chapter7/7.0.0_Algo_Trading.ipynb"
+        <a href="../_sources/chapter7/7.0.0_Algo_trading.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -749,7 +708,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="headerbtn__text-container">.md</span>
 </a>
 
       </li>
@@ -799,9 +758,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="id1">
-<h1><strong>자동매매를 해보자</strong><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>이베스트의 Xing API 를 이용하여 개발한 알고리즘에 따라 자동매매을 해 보겠습니다.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>자동매매를 해보자<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>앞장의 예측 모델로 추천 받은 종목으로 자동매매를 해보는 시간 입니다. 자동매매 프로그래밍은 증권사 API 를 활용하여 파이썬으로 구현할 수 있습니다. 한국투자증권 API 는 기존 증권사들의 것과 완전히 다른 형태로 서비스를 제공하고 있습니다. 구동방식이 기존의 COM, OCX, DLL 과 달리 Rest API(request) 및 Websocket(실시간) 방식 입니다. 따라서, HTS 접속없이 API 호출이 가능한 서비스 입니다. 이번 장에서는 한국투자증권 API 를 활용한 자동매매 방법을 집중적으로 알아보겠습니다. 한편, 한국투자증권 API 자동매매 코드는 유투버 조코딩님의 영상(https://www.youtube.com/watch?v=2Hxfb5HT4kE) 및 깃헙(https://github.com/youtube-jocoding/koreainvestment-autotrade)을 많이 참고 했습니다. 이베스트증권 API 자동매매 코드는 유투버 프로그램동산님의 영상(https://www.youtube.com/playlist?list=PLDtzZPtOGenYAnPT-vVam534Med-dNMDf) 및 카페(https://cafe.naver.com/programgarden/2857)를 많이 참고 했습니다. 두 분 모두 정말 감사드립니다.</p>
+<p>자동매매 프로그램의 경과를 모니터링 하기 위해서 Discord 라는 서비스를 함께 활용할 계획 입니다. Discord 는 서버를 통해 채널(채팅방)을 만들 수 있고, 해당 채널과 연동된 웹후크를 생성 할 수 있습니다. 생성된 웹후크를 활용해서 웹과 모바일 앱을 통해 간편하게 경과 메시지를 받아 볼 수 있습니다.</p>
+<a class="reference internal image-reference" href="../_images/autotrade_overview.png" id="autotrade-overview"><img alt="../_images/autotrade_overview.png" id="autotrade-overview" src="../_images/autotrade_overview.png" style="width: 600px; height: 400px;" /></a>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -833,17 +794,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../chapter6/6.2.1_Profit_Loss_Sell.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../chapter6/6.1.3_Save_Stocks.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><strong>익절/손절 라인</strong></p>
+            <p class="prev-next-title"><strong>추천 종목을 파일로 저장</strong></p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="7.1.0_Algo_trading.html" title="next page">
+    <a class='right-next' id="next-link" href="7.2.0_env_setting.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">자동매매를 해보자</p>
+        <p class="prev-next-title">개발환경</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

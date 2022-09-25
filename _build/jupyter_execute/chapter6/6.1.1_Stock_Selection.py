@@ -7,7 +7,7 @@
 # 오늘이 2022년 4월 1일라고 가정하고 어떤 종목들이 추천되는 지 보겠습니다. 4월1일 장 마감 후 프로그램을 돌려 추천 종목을 받고, 익일(4월 2일) 날 4월 1일의 종가에 매수를 하는 전략입니다.
 # 
 
-# In[1]:
+# In[2]:
 
 
 import FinanceDataReader as fdr
@@ -24,7 +24,7 @@ pd.options.display.float_format = '{:,.3f}'.format
 
 # <br> 오늘이 2022년 4월 1일라고 가정하고 어떤 종목들이 추천되는 지 보겠습니다. 먼저 오늘 기준으로 100 일전 날짜를 timedelta 를 이용해 찾습니다. 
 
-# In[2]:
+# In[4]:
 
 
 import datetime
@@ -271,19 +271,27 @@ select_outcome[['name','buy','buy_price', 'buy_low','buy_high','yhat','max_close
 # 2022년 4월 1일 추천받은 종목들의 일봉 차트를 보겠습니다. CSA 코스믹은 전일 종가로 당일 매수가 불가능합니다. 2022년 4월 2일 갭상승으로 시작을 했습니다.  에디슨 INNO 는 4월 2일 매수 후 익절할 기회를 제공하고 있습니다.
 
 # <br> **한일단조**           
-# <img src="../_images/Hanil.PNG" width="500" height="400"></img>
+# <!-- <img src="./images/Hanil.PNG" width="500" height="400"></img>} -->
+# 
+# ![GET_IMAGE](images/Hanil.PNG)
 
 # <br>**장원테크**            
-# <img src="../_images/JangWon.PNG" width="500" height="400"></img>
+# <!-- <img src="./images/JangWon.PNG" width="500" height="400"></img> -->
+# ![GET_IMAGE](images/JangWon.PNG)
 
 # <br>**에디슨INNO**             
-# <img src="../_images/Eddison.PNG" width="500" height="400"></img>
+# <!-- <img src="./images/Eddison.PNG" width="500" height="400"></img> -->
+# ![GET_IMAGE](images/Eddison.PNG)
+# 
 
 # <br>**서진오토모티브**             
-# <img src="../_images/SeoJin.PNG" width="500" height="400"></img>
+# <!-- <img src="./images/SeoJin.PNG" width="500" height="400"></img>
+#  -->
+# ![GET_IMAGE](images/SeoJin.PNG)
 
 # <br>**CSA 코스믹**           
-# <img src="../_images/CSA.PNG" width="500" height="400"></img>
+# <!-- <img src="./images/CSA.PNG" width="500" height="400"></img> -->
+# ![GET_IMAGE](images/CSA.PNG)
 
 # In[ ]:
 

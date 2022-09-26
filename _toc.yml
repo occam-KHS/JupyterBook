@@ -78,8 +78,7 @@ parts:
       sections:
       - file: chapter6/6.1.1_Stock_Selection
       - file: chapter6/6.1.2_Stock_Selection_Function
-      - file: chapter6/6.1.3_Save_Stocks     
-
+      - file: chapter6/6.1.3_Save_Stocks
 
   - caption: chapter 7
     chapters:
@@ -93,8 +92,10 @@ parts:
       
   - caption: chapter 8
     chapters:
-    - file: chapter8/8.0.0_Web_Application
-    - file: chapter8/8.1.0_Webapp_Deployment
+    - file: chapter8/8.0.0_Web_Intro
+      sections:
+      - file: chapter8/8.1.0_Web_Application
+      - file: chapter8/8.1.1_Webapp_Deployment
 
   - caption: chapter 9
     chapters:

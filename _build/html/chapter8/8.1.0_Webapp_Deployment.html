@@ -627,12 +627,53 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   <strong>
+    WebApp을 배포하자
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements-txt">
+   ‘requirements.txt’ 파일 만들기
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-push">
+   Github 에 Push 하기
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#https-share-streamlit-io">
+   https://share.streamlit.io 에서 배포하기
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -644,6 +685,36 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   <strong>
+    WebApp을 배포하자
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements-txt">
+   ‘requirements.txt’ 파일 만들기
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-push">
+   Github 에 Push 하기
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#https-share-streamlit-io">
+   https://share.streamlit.io 에서 배포하기
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -657,15 +728,35 @@ title="Print to PDF"
 <ol class="simple">
 <li><p>requirements.txt 파일을 추가합니다</p></li>
 <li><p>만들어진 WebApp 를 Github 에 Push 합니다.</p></li>
-<li><p><a class="reference external" href="https://share.streamlit.io">https://share.streamlit.io</a>  와 본인의 github repository 를 연결합니다.</p></li>
+<li><p><a class="reference external" href="https://share.streamlit.io">https://share.streamlit.io</a>  와 본인의 github repository 를 연결하고 배포합니다.</p></li>
 </ol>
 <ul class="simple">
-<li><p>‘requirements.txt’ 파일 만들기</p></li>
+<li></li>
 </ul>
 <p>아나콘다 프롬프트에서 아래와 같이 명령어를 주면 ‘requirements.txt’ 파일이 생성됩니다. ‘requirements.txt’ 는 Webapp 이 동작하기 위한 모든 라이브러리와 버전 정보가 있습니다.</p>
 <p><img alt="GET_IMAGE" src="../_images/requirements_Streamlit.PNG" /></p>
 <br>
 'requirements.txt' 을 열어서 보면 아래와 같습니다.  이 파일을 main.py 가 있는 폴더에 넣어줍니다. Streamlit 에 Webapp 를 배포하는 과정에 아래 버전이 존재하지 않아 에러가 나는 경우가 있습니다. 이때는 '== 버전' 제거하고 다시 진행을 합니다.<p><img alt="GET_IMAGE" src="../_images/requirements_file.PNG" /></p>
+<ul class="simple">
+<li></li>
+</ul>
+<p>아래와 같이 ‘requirements.txt’ 파일을 작업폴더에 복사하고 github 에 push 합니다.</p>
+<p><img alt="GET_IMAGE" src="../_images/git_push.PNG" /></p>
+<ul class="simple">
+<li></li>
+</ul>
+<p><a class="reference external" href="http://share.streamlit.io">share.streamlit.io</a> 에서 github Repository 와 연결한 후, 아래와 같이 Branch 이름과 파이썬 파일을 지정해줍니다. 그리고 Deploy 버튼을 누르면 Webapp 이 만들어 집니다.</p>
+<p><img alt="GET_IMAGE" src="../_images/deploy_app.PNG" /></p>
+<p><img alt="GET_IMAGE" src="../_images/webapp_launch.PNG" /></p>
+</section>
+<section id="requirements-txt">
+<h1>‘requirements.txt’ 파일 만들기<a class="headerlink" href="#requirements-txt" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="github-push">
+<h1>Github 에 Push 하기<a class="headerlink" href="#github-push" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="https-share-streamlit-io">
+<h1><a class="reference external" href="https://share.streamlit.io">https://share.streamlit.io</a> 에서 배포하기<a class="headerlink" href="#https-share-streamlit-io" title="Permalink to this headline">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">

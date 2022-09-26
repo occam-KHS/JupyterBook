@@ -352,7 +352,7 @@ try:
                     current_price, volume_rate = get_current_price(sym)
                     
                     t_progress= (t_now - t_9)/(t_exit - t_9)
-                    c1 = (target_price < current_price)
+                    c1 = (target_price < current_price < target_price*1.1)
                     c2 = (float(volume_rate/t_progress) > 100)
                     print(f'종목: {sym}, 현재가: {current_price}, 전일종가: {target_price}, 거래량지표: {float(volume_rate/t_progress):5.1f}')
                     if c1 and c2: # Max: 5% 상승 가격, Min: 전날 종가
@@ -377,7 +377,7 @@ try:
                 current_price, volume_rate = get_current_price(sym)
                 
                 print(f'{sym} 현재 수익율: {float(qty_rt[1]): 5.2f}')
-                if float(qty_rt[1]) > 4.0 or float(qty_rt[1]) < -2.0: # 익절 라인은 dynamic 하게 바꿀 수 있다 (단위 %)
+                if float(qty_rt[1]) > 5.0 or float(qty_rt[1]) < -3.0: # 익절 라인은 dynamic 하게 바꿀 수 있다 (단위 %)
                     sell(sym, qty_rt[0])
 
             time.sleep(1)

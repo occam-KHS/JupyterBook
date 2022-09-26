@@ -678,10 +678,35 @@ title="Print to PDF"
                 
   <section id="id1">
 <h1>파이썬 패키징<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>‘<a class="reference external" href="http://selection.py">selection.py</a>’ 와 ‘<a class="reference external" href="http://trading.py">trading.py</a>’ 파이썬 파일을 생성하고 두 모듈을 import 합니다. 아래와 같이 ‘<a class="reference external" href="http://main.py">main.py</a>’ 에 최근 영업일 입력한 후, 프로그램을 실행시킵니다. 프로그램이 추천종목을 받아, 자동매매를 시작하는 지 우선적으로 테스트 해 봅니다. 두 파일은 깃허브 chapter 9 에서 찾으실 수 있습니다. 깃허브 주소 - <a class="reference external" href="https://github.com/occam-KHS/JupyterBook/tree/master/chapter9">https://github.com/occam-KHS/JupyterBook/tree/master/chapter9</a></p>
+<p>‘<a class="reference external" href="http://selection.py">selection.py</a>’ 와 ‘<a class="reference external" href="http://trading.py">trading.py</a>’ 파이썬 파일을 생성하고 두 모듈을 import 합니다. 아래와 같이 ‘<a class="reference external" href="http://main.py">main.py</a>’ 에 최근 영업일 입력한 후, 프로그램을 실행시킵니다. 8장에서도 설명드린 바와 같이 ‘gam.pkl’ 는 예측모델이 저장된 파일이고 ‘kosdaq_list.pkl’ 은 코스닥 종목 리스트가 있는 파일입니다. 프로그램이 추천종목을 받아, 자동매매를 시작하는 지 우선적으로 테스트 해 봅니다. 두 파일은 깃허브 chapter 9 에서 찾으실 수 있습니다. 깃허브 주소 - <a class="reference external" href="https://github.com/occam-KHS/JupyterBook/tree/master/chapter9">https://github.com/occam-KHS/JupyterBook/tree/master/chapter9</a></p>
 <p><img alt="GET_IMAGE" src="../_images/main_py.PNG" /></p>
 <p>참고로 별도의 가상환경 설정없이 주피터노트북으로 알고리즘을 만들었으므로, 아나콘다 Base 에 라이브러리가 모두 설치되어 있습니다. 아나콘다 base 를 아래와 같이 인터프리터로 설정해서 필요한 라이브러리를 모두 활용할 수 있도록 합니다.</p>
 <p><img alt="GET_IMAGE" src="../_images/interpreter.PNG" /></p>
+<br>
+본서에서 구현된 알고리즘에서 자동매매를 실행하는 날과 추천 종목을 받은 날은 서로 다릅니다. 예를 들어 2022년 9월 26일(월요일) 자동매매를 실행하려면, 매매할 추천종목은 전 주 금요일(2022년 9월 23일) 로 조회를 해야 합니다. 또한 긴 연휴가 있을 수 있으므로 전 영업일을 알아내는 로직이 필요할 것으로 생각이 됩니다. 삼성전자의 일봉을 매매일까지 추출하면, 마지막에서 2 번 째 레코드가 전 영업일이 됩니다. 코드로 간단하게 구현해보겠습니다. 아래와 같이 오늘이 2022년 9월 26일이면 직전 영업일은 2022년 9월 23일이 됩니다. <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">today_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">prev_dt</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">today_dt</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 자동매매 일: </span><span class="si">{</span><span class="n">today_dt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 전 영업일: </span><span class="si">{</span><span class="n">prev_dt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 자동매매 일: 2022-09-26
+ 전 영업일: 2022-09-23
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

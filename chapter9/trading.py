@@ -2,15 +2,13 @@ import requests
 import json
 import datetime
 import time
-import yaml
-from IPython.display import clear_output
-import keyring  
+import keyring
+import os
     
-
 APP_KEY = keyring.get_password('real_app_key','occam123')
 APP_SECRET =  keyring.get_password('real_app_secret','occam123')
 URL_BASE = "https://openapi.koreainvestment.com:9443" # 실전 투자
-CANO = '6XXXXX'
+CANO = '63566811'
 ACNT_PRDT_CD = '01'
 
 
@@ -245,11 +243,12 @@ def sell(code="005930", qty="1"):
         print(f"[매도 실패]{str(res.json())}")
         return False
 
+ACCESS_TOKEN = get_access_token()
+
 def auto_trading(symbol_list):  # 매수 희망 종목 리스트
-    
+
     # 자동매매 시작
     try:
-        ACCESS_TOKEN = get_access_token()
 
         bought_list = [] # 매수 완료된 종목 리스트
         total_cash = get_balance() # 보유 현금 조회
@@ -267,6 +266,7 @@ def auto_trading(symbol_list):  # 매수 희망 종목 리스트
 
 
         print("===국내 주식 자동매매 프로그램을 시작합니다===")
+
         while True:
             t_now = datetime.datetime.now()
             t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
@@ -340,7 +340,7 @@ def auto_trading(symbol_list):  # 매수 희망 종목 리스트
                 print("프로그램을 종료합니다.")
                 break
 
-            clear_output(wait=True)
+            os.system("cls")
 
 
     except Exception as e:

@@ -100,5 +100,7 @@ parts:
   - caption: chapter 9
     chapters:
     - file: chapter9/9.0.0_POC
+      sections:
+      - file: chapter9/9.1.0_Packaging
 
 

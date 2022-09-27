@@ -19,33 +19,14 @@ kospi_index['kospi_return'] = kospi_index['Close']/kospi_index['Close'].shift(1)
 kospi_index.to_pickle('kospi_index.pkl')
 
 
-# <br>
-# 지수 데이터는 위에서서 같이 FinanceDataReader 로 획득이 가능하지만, 야후 파이낸스 라이브러리를 이용하여 다운로드도 가능합니다. 아나콘다 Prompt 에서 pip install yfinance 라고 적어서 설치할 수 도 있고, 쥬피터 노트북상에서는 !pip install yfinance 로 설치할 수 있습니다. 주피터 노트북 설치 코드에는 앞에 느낌표가 있는 것을 유의하세요. 저는 아나콘다 prompt 에서 설치를 선호합니다. 아나콘다 Prompt 에서는 설치 과정을 보여주기 때문에, 설치가 안 되면 어떤 문제가 있는 지도 알 수 있습니다.
-# 
-# ```python
-# (주피터노트북 상에 설치할 경우) !pip install yfinance
-# 그리고 yfinance 를 yf 이름으로 import 합니다.
-# ```
-
-# In[7]:
-
-
-import yfinance as yf
-import pandas as pd
-
-kospi_index =  yf.download('^KS11', start = '2021-01-03', end = '2021-12-31') # 코스피
-kosdaq_index =  yf.download('^KQ11', start = '2021-01-03', end = '2021-12-31') # 코스닥 
-
-kospi_index['kospi_return'] = kospi_index['Close']/kospi_index['Close'].shift(1)
-
-
 # 지수 데이터를 이용하면, 조건이 추가되므로 매수할 기회가 적어집니다. 지수데이터를 이용함으로써 예상수익율(일)이 0.3% 에서 1.6% 으로 올라갔습니다. 예상 최저수익율도 올라가서 리스크를 상당히 줄일 수 가 있습니다. 단, 매수 횟 수가 낮아 누적 수익율도 낮아졌습니다. 
 
-# In[9]:
+# In[21]:
 
 
 kospi_index = pd.read_pickle('kospi_index.pkl')
 kospi_list = pd.read_pickle('kospi_list.pkl')
+
 
 def avg_return(code, K, deci):
     

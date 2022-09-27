@@ -4,8 +4,7 @@ parts:
   - caption: chapter 1
     chapters:
     - file: chapter1/1.1.0_SOP
-    - file: chapter1/1.2.0_Data_Science 
-
+    - file: chapter1/1.2.0_Data_Science
   - caption: chapter 2
     chapters:
     - file: chapter2/2.1.0_Python_Basics
@@ -32,7 +31,6 @@ parts:
       sections:
       - file: chapter2/2.4.1_Volatility_Breakout
       - file: chapter2/2.4.2_Volatility_Breakout
-
   - caption: chapter 3
     chapters:
     - file: chapter3/3.1.0_Use_Case
@@ -41,7 +39,6 @@ parts:
       - file: chapter3/3.1.2_Use_Case
       - file: chapter3/3.1.3_Use_Case
       - file: chapter3/3.1.4_Use_Case      
-      
   - caption: chapter 4
     chapters:
     - file: chapter4/4.0.0_My_Strategy
@@ -54,7 +51,6 @@ parts:
       - file: chapter4/4.4.2_Data_Collection
       - file: chapter4/4.4.3_Data_Collection
       - file: chapter4/4.4.4_Data_Processing
-
   - caption: chapter 5
     chapters:
     - file: chapter5/5.1.0_Hypothesis
@@ -71,7 +67,6 @@ parts:
       - file: chapter5/5.2.2_Modeling_Library
       - file: chapter5/5.2.3_GAM
       - file: chapter5/5.2.4_LM_Assumptions
-
   - caption: chapter 6
     chapters:
     - file: chapter6/6.0.0_Effectiveness_Testing
@@ -79,7 +74,6 @@ parts:
       - file: chapter6/6.1.1_Stock_Selection
       - file: chapter6/6.1.2_Stock_Selection_Function
       - file: chapter6/6.1.3_Save_Stocks
-
   - caption: chapter 7
     chapters:
     - file: chapter7/7.0.0_Auto_Overview
@@ -88,15 +82,13 @@ parts:
       - file: chapter7/7.2.1_create_accnt_hanguk
       - file: chapter7/7.2.2_connect_hanguk
       - file: chapter7/7.2.3_functions_hanguk
-      - file: chapter7/7.2.4_main_hanguk
-      
+      - file: chapter7/7.2.4_main_hanguk      
   - caption: chapter 8
     chapters:
     - file: chapter8/8.0.0_Web_Intro
       sections:
       - file: chapter8/8.1.0_Web_Application
       - file: chapter8/8.1.1_Webapp_Deployment
-
   - caption: chapter 9
     chapters:
     - file: chapter9/9.0.0_POC

@@ -102,5 +102,6 @@ parts:
     - file: chapter9/9.0.0_POC
       sections:
       - file: chapter9/9.1.0_Packaging
+      - file: chapter9/9.1.1_Scheduling
 
 

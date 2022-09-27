@@ -19,7 +19,7 @@
 # ![GET_IMAGE](images/requirements_Streamlit.PNG)
 
 # <br>
-# 'requirements.txt' 을 열어서 보면 아래와 같습니다.  이 파일을 main.py 가 있는 폴더에 넣어줍니다. Streamlit 에 Webapp 를 배포하는 과정에 아래 버전이 존재하지 않아 에러가 나는 경우가 있습니다. 이때는 '== 버전' 제거하고 다시 진행을 합니다.
+# 'requirements.txt' 을 열어서 보면 아래와 같습니다.  이 파일을 main.py 가 있는 폴더에 넣어줍니다. Streamlit 에 Webapp 를 배포하는 과정에 아래 버전이 존재하지 않아 에러가 나는 경우가 있습니다. 이때는 '== 버전' 제거한 후 라이브러리 이름만을 적고 다시 진행을 합니다.
 
 # ![GET_IMAGE](images/requirements_file.PNG)
 

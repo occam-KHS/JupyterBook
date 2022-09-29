@@ -311,7 +311,7 @@ def sell(code="005930", qty="1"):
 # 자동매매 시작
 try:
     ACCESS_TOKEN = get_access_token()
-    symbol_list = ['068940','042940','117670','239610','013990'] # 매수 희망 종목 리스트
+    symbol_list = ['071460','300080','227610','217480','089530'] # 매수 희망 종목 리스트
 
     bought_list = [] # 매수 완료된 종목 리스트
     total_cash = get_balance() # 보유 현금 조회
@@ -352,7 +352,7 @@ try:
                     current_price, volume_rate = get_current_price(sym)
                     
                     t_progress= (t_now - t_9)/(t_exit - t_9)
-                    c1 = (target_price < current_price < target_price*1.1)
+                    c1 = (target_price < current_price < target_price*1.05)
                     c2 = (float(volume_rate/t_progress) > 100)
                     print(f'종목: {sym}, 현재가: {current_price}, 전일종가: {target_price}, 거래량지표: {float(volume_rate/t_progress):5.1f}')
                     if c1 and c2: # Max: 5% 상승 가격, Min: 전날 종가

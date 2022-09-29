@@ -7,8 +7,8 @@ import os
     
 APP_KEY = keyring.get_password('real_app_key','occam123')
 APP_SECRET =  keyring.get_password('real_app_secret','occam123')
+CANO = keyring.get_password('CANO','occam123')
 URL_BASE = "https://openapi.koreainvestment.com:9443" # 실전 투자
-CANO = 'XXXXXXX'
 ACNT_PRDT_CD = '01'
 
 

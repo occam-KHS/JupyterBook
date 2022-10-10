@@ -1,0 +1,1709 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; 나만의 추천 시스템</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">나만의 추천 시스템</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    나만의 추천 시스템
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter1/1.1.0_SOP.html">
+   <strong>
+    책을 시작하면서
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter1/1.2.0_Data_Science.html">
+   데이터분석 환경의 변화
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter2/2.1.0_Python_Basics.html">
+   <strong>
+    파이썬 데이터분석 기초
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.1.1_Python_Basics.html">
+     Data Type
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.1.2_Python_Basics.html">
+     Index
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.1.3_Python_Basics.html">
+     For Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.1.4_Python_Basics.html">
+     If Condition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.1.5_Python_Basics.html">
+     Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter2/2.2.0_Useful_Techniques.html">
+   <strong>
+    유용한 기능들
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.2.1_Useful_Techniques.html">
+     Append
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.2.2_Useful_Techniques.html">
+     Concat 과 Merge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.2.3_Useful_Techniques.html">
+     Groupby
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.2.4_Useful_Techniques.html">
+     Resample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.2.5_Useful_Techniques.html">
+     Pickle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.2.6_Useful_Techniques.html">
+     Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.2.7_Useful_Techniques.html">
+     Rolling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter2/2.3.0_Visualization.html">
+   <strong>
+    시각화
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.3.1_Visualization.html">
+     Pandas Plot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.3.2_Visualization.html">
+     Matplotlib
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter2/2.4.0_Volatility_Breakout.html">
+   <strong>
+    변동성 돌파전략 구현
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.4.1_Volatility_Breakout.html">
+     변동성 돌파전략 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/2.4.2_Volatility_Breakout.html">
+     변동성 돌파전략 2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter3/3.1.0_Use_Case.html">
+   <strong>
+    데이터분석 활용사례
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/3.1.1_Use_Case.html">
+     보험사 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/3.1.2_Use_Case.html">
+     신용카드사 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/3.1.3_Use_Case.html">
+     소매업 사례
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/3.1.4_Use_Case.html">
+     제조업 사례 (난이도 상)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.0.0_My_Strategy.html">
+   <strong>
+    데이터분석으로 나만의 전략 만들기
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.1.0_My_Strategy.html">
+   <strong>
+    문제점 파악
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.2.0_My_Strategy.html">
+   <strong>
+    정보 수집 및 전문가 인터뷰
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter4/4.3.0_My_Strategy.html">
+   <strong>
+    가설 설정
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter4/4.4.0_Data_Collection.html">
+   <strong>
+    데이터 수집 및 분석
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.1_Data_Collection.html">
+     일봉 데이터 가져오기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.2_Data_Collection.html">
+     코스닥 인덱스 데이터
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.3_Data_Collection.html">
+     종목별 일봉 데이터와 코스피 지수 데이터와 결합
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/4.4.4_Data_Processing.html">
+     가설 검증을 위한 데이터 처리
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter5/5.1.0_Hypothesis.html">
+   <strong>
+    가설 검정
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.1.1_Hypothesis_1.html">
+     가격 변동성이 크고 거래량이 몰린 종목이 주가가 상승한다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.1.2_Hypothesis_2.html">
+     5일 이동 평균선이 오늘 종가보다 위에 위치해 있다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.1.3_Hypothesis_3.html">
+     위 꼬리가 긴 양봉이 자주 발생한다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.1.4_Hypothesis_4.html">
+     거래량이 종종 터지며, 매집의 흔적을 보인다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.1.5_Hypothesis_5.html">
+     주가지수보다 더 좋은 수익율을 자주 보여준다.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.1.6_Hypothesis_6.html">
+     동종업계 평균 수익률보다 더 좋은 수익률을 보여준다.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter5/5.2.0_Solution_Details.html">
+   <strong>
+    해결책 개발
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.2.1_Feature_Engineering.html">
+     피처 엔지니어링
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.2.2_Modeling_Library.html">
+     모델링 라이브러리 소개
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.2.3_GAM.html">
+     종목 선정 모델 개발
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter5/5.2.4_LM_Assumptions.html">
+     선형모델 가정에 대한 이해
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter6/6.0.0_Effectiveness_Testing.html">
+   <strong>
+    해결책의 효과 측정
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter6/6.1.1_Stock_Selection.html">
+     종목 추천 프로세스
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter6/6.1.2_Stock_Selection_Function.html">
+     해결책 테스트
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter6/6.1.3_Save_Stocks.html">
+     <strong>
+      추천 종목을 파일로 저장
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter7/7.0.0_Auto_Overview.html">
+   자동매매를 해보자
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter7/7.2.0_env_setting.html">
+     개발환경
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter7/7.2.1_create_accnt_hanguk.html">
+     한국투자증권
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter7/7.2.2_connect_hanguk.html">
+     서비스 연결
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter7/7.2.3_functions_hanguk.html">
+     주요 함수 정의
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter7/7.2.4_main_hanguk.html">
+     자동매매 로직 이해하기
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter8/8.0.0_Web_Intro.html">
+   <strong>
+    WebApp을 만들어보자
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter8/8.1.0_Web_Application.html">
+     WebApp 로컬에서 구현하기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter8/8.1.1_Webapp_Deployment.html">
+     WebApp을 배포하자
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  chapter 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter9/9.0.0_POC.html">
+   <strong>
+    종목 추천과 자동매매를 하나로
+   </strong>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter9/9.1.0_Packaging.html">
+     파이썬 프로그램 패키징
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter9/9.1.1_Scheduling.html">
+     윈도우즈 스케줄러
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/chapter10/RL_Selling.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/occam-KHS/JupyterBook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter10/RL_Selling.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapter10/RL_Selling.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gym</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+
+<span class="c1">#Hyperparameters</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">gamma</span>         <span class="o">=</span> <span class="mf">0.98</span>
+<span class="n">buffer_limit</span>  <span class="o">=</span> <span class="mi">30000</span>
+<span class="n">batch_size</span>    <span class="o">=</span> <span class="mi">32</span>
+
+<span class="k">class</span> <span class="nc">ReplayBuffer</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">buffer_limit</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transition</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transition</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> <span class="c1"># 버퍼에서 샘플링</span>
+        <span class="n">mini_batch</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">s_lst</span><span class="p">,</span> <span class="n">a_lst</span><span class="p">,</span> <span class="n">r_lst</span><span class="p">,</span> <span class="n">s_prime_lst</span><span class="p">,</span> <span class="n">done_mask_lst</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">transition</span> <span class="ow">in</span> <span class="n">mini_batch</span><span class="p">:</span>
+            <span class="n">s</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s_prime</span><span class="p">,</span> <span class="n">done_mask</span> <span class="o">=</span> <span class="n">transition</span>
+            <span class="n">s_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">a_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">a</span><span class="p">])</span>
+            <span class="n">r_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">s_prime_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_prime</span><span class="p">)</span>
+            <span class="n">done_mask_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">done_mask</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">s_lst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">a_lst</span><span class="p">),</span> \
+               <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">r_lst</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">s_prime_lst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span> \
+               <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">done_mask_lst</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Qnet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Qnet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1"># Q Value 리턴 (음수가 될 수 도 있음)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+      
+    <span class="k">def</span> <span class="nf">sample_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+        <span class="n">coin</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="c1"># 0 ~ 1 </span>
+        <span class="k">if</span> <span class="n">coin</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span> 
+            <span class="k">return</span> <span class="n">out</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">q_target</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">s</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s_prime</span><span class="p">,</span> <span class="n">done_mask</span> <span class="o">=</span> <span class="n">memory</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+        <span class="n">q_out</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="c1"># input size (32,4) return size (32,2)</span>
+        <span class="n">q_a</span> <span class="o">=</span> <span class="n">q_out</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="c1"># 취한 액션의 큐값만 골라냄 (32,1)</span>
+        <span class="n">max_q_prime</span> <span class="o">=</span> <span class="n">q_target</span><span class="p">(</span><span class="n">s_prime</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">max_q_prime</span> <span class="o">*</span> <span class="n">done_mask</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">smooth_l1_loss</span><span class="p">(</span><span class="n">q_a</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;CartPole-v1&#39;</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">Qnet</span><span class="p">()</span>
+<span class="n">q_target</span> <span class="o">=</span> <span class="n">Qnet</span><span class="p">()</span>
+<span class="n">q_target</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span> <span class="c1"># Copy network weights</span>
+<span class="n">memory</span> <span class="o">=</span> <span class="n">ReplayBuffer</span><span class="p">()</span>
+
+<span class="n">print_interval</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">score</span> <span class="o">=</span> <span class="mf">0.0</span>  
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span> <span class="c1"># q_target 은 업데이트 안 함!</span>
+
+<span class="k">for</span> <span class="n">n_epi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.08</span> <span class="o">-</span> <span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">n_epi</span><span class="o">/</span><span class="mi">200</span><span class="p">))</span> <span class="c1">#Linear annealing from 8% to 1%. 에피소드 증가하면 입실로 작아짐</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">sample_action</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">epsilon</span><span class="p">)</span>      
+        <span class="n">s_prime</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="p">,</span><span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">done_mask</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">done</span> <span class="k">else</span> <span class="mf">1.0</span>
+        <span class="n">memory</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="o">/</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">s_prime</span><span class="p">,</span> <span class="n">done_mask</span><span class="p">))</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s_prime</span>
+
+        <span class="n">score</span> <span class="o">+=</span> <span class="n">r</span>
+        <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">memory</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">2000</span><span class="p">:</span>
+        <span class="n">train</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">q_target</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n_epi</span><span class="o">%</span><span class="k">print_interval</span>==0 and n_epi!=0:
+        <span class="n">q_target</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span> <span class="c1"># 타겟 네트워크 업데이트 (20 번 에피소드 마다)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n_episode :</span><span class="si">{}</span><span class="s2">, score : </span><span class="si">{:.1f}</span><span class="s2">, n_buffer : </span><span class="si">{}</span><span class="s2">, eps : </span><span class="si">{:.1f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_epi</span><span class="p">,</span> <span class="n">score</span><span class="o">/</span><span class="n">print_interval</span><span class="p">,</span> <span class="n">memory</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">epsilon</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>                
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">score</span><span class="o">/</span><span class="n">print_interval</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">300</span><span class="p">:</span>
+            <span class="k">break</span>
+            
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n_episode :50, score : 10.0, n_buffer : 500, eps : 7.8%
+n_episode :100, score : 9.4, n_buffer : 972, eps : 7.5%
+n_episode :150, score : 9.6, n_buffer : 1452, eps : 7.3%
+n_episode :200, score : 9.8, n_buffer : 1944, eps : 7.0%
+n_episode :250, score : 9.8, n_buffer : 2432, eps : 6.8%
+n_episode :300, score : 10.2, n_buffer : 2940, eps : 6.5%
+n_episode :350, score : 10.6, n_buffer : 3469, eps : 6.2%
+n_episode :400, score : 38.5, n_buffer : 5392, eps : 6.0%
+n_episode :450, score : 112.6, n_buffer : 11024, eps : 5.8%
+n_episode :500, score : 162.1, n_buffer : 19128, eps : 5.5%
+n_episode :550, score : 171.8, n_buffer : 27717, eps : 5.3%
+n_episode :600, score : 290.2, n_buffer : 30000, eps : 5.0%
+n_episode :650, score : 239.1, n_buffer : 30000, eps : 4.8%
+n_episode :700, score : 16022.0, n_buffer : 30000, eps : 4.5%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;CartPole-v1&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i_episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">observation</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">550</span><span class="p">):</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">q_target</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">observation</span><span class="p">))</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> 
+        <span class="n">observation</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Episode finished after </span><span class="si">{}</span><span class="s2"> timesteps&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">break</span>
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode finished after 324 timesteps
+Episode finished after 441 timesteps
+Episode finished after 428 timesteps
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;056090&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span>  <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+
+    <span class="n">buy_dt</span> <span class="o">=</span>  <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="o">-</span><span class="mi">21</span><span class="p">])</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 매수일</span>
+
+    <span class="k">def</span> <span class="nf">obs_data</span><span class="p">(</span><span class="n">buy_dt</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">s_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+
+            <span class="n">end_dt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">5</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1"># 관찰 6 일</span>
+            <span class="n">action_dt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">6</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 매도 일</span>
+
+            <span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">:</span><span class="n">end_dt</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">][</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+            <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># 관찰기간(6일) 수익율 평균</span>
+            <span class="n">s2</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>  <span class="c1"># 관찰기간(6일) 수익율 최대</span>
+            <span class="n">s3</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># 관찰기간(6일) 수익율 최소</span>
+            <span class="n">s4</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 관찰 기간 6일(매도 전날) 수익율</span>
+            <span class="n">s5</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">end_dt</span><span class="p">]</span> <span class="c1"># 매도 전일 거래량 변화</span>
+            <span class="n">s6</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">action_dt</span><span class="p">][</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">][</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="c1"># 매도 일 시가 수익율</span>
+
+            <span class="n">r</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">action_dt</span><span class="p">][</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">][</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="c1"># 종가 매도시 수익률</span>
+
+            <span class="n">s_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">,</span> <span class="n">s5</span><span class="p">,</span> <span class="n">s6</span><span class="p">,</span> <span class="n">r</span><span class="p">])</span>   
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">s_list</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">obs_data</span><span class="p">(</span><span class="s1">&#39;2022-02-22&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 (20, 7)
+1 (20, 7)
+2 (20, 7)
+3 (20, 7)
+4 (20, 7)
+5 (20, 7)
+6 (20, 7)
+7 (20, 7)
+8 (20, 7)
+9 (20, 7)
+10 (20, 7)
+11 (20, 7)
+12 (20, 7)
+13 (20, 7)
+14 (20, 7)
+15 (20, 7)
+16 (20, 7)
+17 (20, 7)
+18 (20, 7)
+19 (20, 7)
+20 (20, 7)
+21 (20, 7)
+22 (20, 7)
+23 (20, 7)
+24 (20, 7)
+25 (20, 7)
+26 (20, 7)
+27 (20, 7)
+28 (20, 7)
+29 (20, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs_data</span><span class="p">(</span><span class="s1">&#39;2022-02-22&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Stock</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_data</span> <span class="o">=</span> <span class="n">df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buy_dt</span> <span class="o">=</span> <span class="s1">&#39;2021-01-01&#39;</span>
+        
+    <span class="k">def</span> <span class="nf">collect_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buy_dt</span><span class="p">):</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">s_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+
+            <span class="n">end_dt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">5</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1"># 관찰 6 일</span>
+            <span class="n">action_dt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">6</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 매도 일</span>
+
+            <span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">:</span><span class="n">end_dt</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">][</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+            <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># 관찰기간(6일) 수익율 평균</span>
+            <span class="n">s2</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>  <span class="c1"># 관찰기간(6일) 수익율 최대</span>
+            <span class="n">s3</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># 관찰기간(6일) 수익율 최소</span>
+            <span class="n">s4</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 관찰 기간 6일(매도 전날) 수익율</span>
+            <span class="n">s5</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">end_dt</span><span class="p">]</span> <span class="c1"># 매도 전일 거래량 변화</span>
+            <span class="n">s6</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">action_dt</span><span class="p">][</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">][</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="c1"># 매도 일 시가 수익율</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">action_dt</span><span class="p">][</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">buy_dt</span><span class="p">][</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span> <span class="c1"># 종가 매도시 수익률</span>
+
+            <span class="n">s_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">,</span> <span class="n">s5</span><span class="p">,</span> <span class="n">s6</span><span class="p">,</span> <span class="n">r</span><span class="p">])</span>   
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">s_list</span><span class="p">)</span>     
+    
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>         
+        <span class="bp">self</span><span class="o">.</span><span class="n">buy_dt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">30</span><span class="p">])</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 관찰기간 매도 기간 확보</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">collect_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buy_dt</span><span class="p">)</span>        
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 마지막 컬럼은 수익율 (뺴고 리턴)    </span>
+
+    <span class="k">def</span> <span class="nf">random_action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>  
+        
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>         
+       
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># 매도시 수익율            </span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> 
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>                
+
+        <span class="k">if</span> <span class="n">action</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">19</span><span class="p">:</span>            
+                 
+            <span class="n">next_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">][:</span><span class="mi">6</span><span class="p">]</span>     
+            <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">return</span>  <span class="n">next_state</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">info</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">next_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">][:</span><span class="mi">6</span><span class="p">]</span>    
+            <span class="n">done</span> <span class="o">=</span> <span class="kc">True</span>                            
+            <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>       
+            <span class="n">info</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">return</span> <span class="n">next_state</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">info</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gym</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+
+<span class="c1">#Hyperparameters</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">gamma</span>         <span class="o">=</span> <span class="mf">0.98</span>
+<span class="n">buffer_limit</span>  <span class="o">=</span> <span class="mi">3000</span>
+<span class="n">batch_size</span>    <span class="o">=</span> <span class="mi">64</span>
+
+<span class="k">class</span> <span class="nc">ReplayBuffer</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">buffer_limit</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transition</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transition</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> <span class="c1"># 버퍼에서 샘플링</span>
+        <span class="n">mini_batch</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">s_lst</span><span class="p">,</span> <span class="n">a_lst</span><span class="p">,</span> <span class="n">r_lst</span><span class="p">,</span> <span class="n">s_prime_lst</span><span class="p">,</span> <span class="n">done_mask_lst</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">transition</span> <span class="ow">in</span> <span class="n">mini_batch</span><span class="p">:</span>
+            <span class="n">s</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s_prime</span><span class="p">,</span> <span class="n">done_mask</span> <span class="o">=</span> <span class="n">transition</span>
+            <span class="n">s_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">a_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">a</span><span class="p">])</span>
+            <span class="n">r_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">s_prime_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_prime</span><span class="p">)</span>
+            <span class="n">done_mask_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">done_mask</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">s_lst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">a_lst</span><span class="p">),</span> \
+               <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">r_lst</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">s_prime_lst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span> \
+               <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">done_mask_lst</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Qnet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Qnet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>   
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1"># Q Value 리턴 (음수가 될 수 도 있음)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>    
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+      
+    <span class="k">def</span> <span class="nf">sample_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+        <span class="n">coin</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="c1"># 0 ~ 1 </span>
+        <span class="k">if</span> <span class="n">coin</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span> 
+            <span class="k">return</span> <span class="n">out</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">q_target</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">s</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s_prime</span><span class="p">,</span> <span class="n">done_mask</span> <span class="o">=</span> <span class="n">memory</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+        <span class="n">q_out</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># input size (32,2) return size (32,2)</span>
+        <span class="n">q_a</span> <span class="o">=</span> <span class="n">q_out</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="c1"># 취한 액션의 큐값만 골라냄 (32,1)</span>
+        <span class="n">max_q_prime</span> <span class="o">=</span> <span class="n">q_target</span><span class="p">(</span><span class="n">s_prime</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">max_q_prime</span> <span class="o">*</span> <span class="n">done_mask</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">smooth_l1_loss</span><span class="p">(</span><span class="n">q_a</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">Qnet</span><span class="p">()</span>
+<span class="n">q_target</span> <span class="o">=</span> <span class="n">Qnet</span><span class="p">()</span>
+<span class="n">q_target</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span>
+<span class="n">memory</span> <span class="o">=</span> <span class="n">ReplayBuffer</span><span class="p">()</span>
+
+<span class="n">print_interval</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">score</span> <span class="o">=</span> <span class="mf">1.0</span>  
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span> <span class="c1"># q_target 은 업데이트 안 함!</span>
+
+<span class="n">stock_env</span> <span class="o">=</span> <span class="n">Stock</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n_epi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8000</span><span class="p">):</span>
+    
+
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.08</span> <span class="o">-</span> <span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">n_epi</span><span class="o">/</span><span class="mi">200</span><span class="p">))</span> <span class="c1">#Linear annealing from 8% to 1%    </span>
+    <span class="n">stock</span> <span class="o">=</span> <span class="n">stock_env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">sample_action</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">epsilon</span><span class="p">)</span>  
+        <span class="n">s_prime</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">stock_env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>      
+
+        <span class="n">done_mask</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">done</span> <span class="k">else</span> <span class="mf">1.0</span>
+        <span class="n">memory</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">s_prime</span><span class="p">,</span> <span class="n">done_mask</span><span class="p">))</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s_prime</span>   
+        
+        <span class="n">score</span> <span class="o">*=</span> <span class="n">r</span>
+
+        <span class="k">if</span> <span class="n">done</span><span class="p">:</span>       
+            <span class="k">break</span>
+            
+
+    <span class="k">if</span> <span class="n">memory</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">1000</span><span class="p">:</span>
+        <span class="n">train</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">q_target</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n_epi</span><span class="o">%</span><span class="k">print_interval</span>==0 and n_epi!=0:
+        <span class="n">q_target</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span> <span class="c1"># 타겟 네트워크 업데이트 (20 번 에피소드 마다)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n_episode :</span><span class="si">{}</span><span class="s2">, score : </span><span class="si">{:.3f}</span><span class="s2">, n_buffer : </span><span class="si">{}</span><span class="s2">, eps : </span><span class="si">{:.1f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_epi</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">memory</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">epsilon</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>                
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">score</span><span class="o">/</span><span class="n">print_interval</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n_episode :500, score : 0.000, n_buffer : 3000, eps : 5.5%
+n_episode :1000, score : 0.000, n_buffer : 3000, eps : 3.0%
+n_episode :1500, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :2000, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :2500, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :3000, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :3500, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :4000, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :4500, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :5000, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :5500, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :6000, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :6500, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :7000, score : 0.000, n_buffer : 3000, eps : 1.0%
+n_episode :7500, score : 0.000, n_buffer : 3000, eps : 1.0%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q_target</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])))</span>
+
+ <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Stock</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_data</span> <span class="o">=</span> <span class="n">df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buy_dt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="o">-</span><span class="mi">21</span><span class="p">])</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 매수일</span>
+        
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>         
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">collect_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buy_dt</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+
+<span class="n">stock</span> <span class="o">=</span> <span class="n">Stock</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">stock</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">stock</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Qnet(
+  (fc1): Linear(in_features=6, out_features=32, bias=True)
+  (fc2): Linear(in_features=32, out_features=32, bias=True)
+  (fc3): Linear(in_features=32, out_features=2, bias=True)
+)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">q_target</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_prime</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">info</span>  <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s_prime</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.24959025,  2.3447988 , -0.44196096, -3.9855685 ], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="o">.</span><span class="n">sample_action</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">epsilon</span><span class="p">)</span>     
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 0.20656453,  2.1512852 , -0.36978772, -3.6086626 ], dtype=float32),
+ 0.0,
+ True,
+ False,
+ {})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.02918431, -0.03201904, -0.02439259, -0.04370356], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gym</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">gym.envs.registration</span> <span class="kn">import</span> <span class="n">register</span>
+
+<span class="n">register</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;FrozenLake-v3&#39;</span><span class="p">,</span>
+    <span class="n">entry_point</span> <span class="o">=</span> <span class="s1">&#39;gym.envs.toy_text:FrozenLakeEnv&#39;</span><span class="p">,</span>
+    <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;map_name&#39;</span><span class="p">:</span><span class="s1">&#39;4x4&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;is_slippery&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;FrozenLake-v3&#39;</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="c1"># action = env.action_space.sample()</span>
+<span class="c1"># print(action)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">new_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reward</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 0.0, False, False, {&#39;prob&#39;: 1.0})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;prob&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="c1"># today_dt = datetime.datetime.today().strftime(&#39;%Y-%m-%d&#39;) # 오늘날짜를 &#39;YYYY-MM-DD&#39; 형태로 변경하여 저장</span>
+<span class="n">today_dt</span> <span class="o">=</span> <span class="s1">&#39;2022-09-26&#39;</span>
+<span class="n">prev_dt</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">today_dt</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># today_dt 의 전 영업일을 찾아 &#39;YYYY-MM-DD&#39; 로 저장</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today_dt</span><span class="p">,</span> <span class="n">prev_dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-26 2022-09-26
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">today_dt</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2022-09-23 00:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today_dt</span> <span class="o">=</span><span class="s1">&#39;2022-10-11&#39;</span>
+<span class="n">prev_dt</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">today_dt</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># today_dt 의 전 영업일을 찾아 &#39;YYYY-MM-DD&#39; 로 저장</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today_dt</span><span class="p">,</span> <span class="n">prev_dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-11 2022-10-06
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">today_dt</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Change</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-09-30</th>
+      <td>52300</td>
+      <td>53600</td>
+      <td>51800</td>
+      <td>53100</td>
+      <td>22503249</td>
+      <td>0.009506</td>
+    </tr>
+    <tr>
+      <th>2022-10-04</th>
+      <td>55300</td>
+      <td>55400</td>
+      <td>54500</td>
+      <td>55200</td>
+      <td>19148435</td>
+      <td>0.039548</td>
+    </tr>
+    <tr>
+      <th>2022-10-05</th>
+      <td>56900</td>
+      <td>57200</td>
+      <td>55400</td>
+      <td>56000</td>
+      <td>22458970</td>
+      <td>0.014493</td>
+    </tr>
+    <tr>
+      <th>2022-10-06</th>
+      <td>56700</td>
+      <td>57300</td>
+      <td>56300</td>
+      <td>56300</td>
+      <td>14944446</td>
+      <td>0.005357</td>
+    </tr>
+    <tr>
+      <th>2022-10-07</th>
+      <td>55900</td>
+      <td>56900</td>
+      <td>55200</td>
+      <td>56200</td>
+      <td>15907472</td>
+      <td>-0.001776</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By KHS<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

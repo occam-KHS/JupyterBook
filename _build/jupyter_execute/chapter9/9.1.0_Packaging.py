@@ -14,7 +14,7 @@
 # <br>
 # 본서에서 구현된 알고리즘은 자동매매를 실행하는 날과 추천 종목을 조회하는 날이 서로 다릅니다. 예를 들어 2022년 9월 26일(월요일) 자동매매를 실행하려면, 매매할 추천종목은 전 주 금요일(2022년 9월 23일) 로 조회를 해야 합니다. 또한 긴 연휴가 있을 수 있으므로 전 영업일을 알아내는 로직이 필요할 것으로 생각이 됩니다. 삼성전자의 일봉을 매매날짜까지 추출하면, 마지막에서 2번 째 레코드가 전 영업일이 될 것입니다. 코드로 간단하게 구현해보겠습니다. 아래와 같이 오늘이 2022년 9월 26일이면 직전 영업일은 2022년 9월 23일이 됩니다. 
 
-# In[29]:
+# In[1]:
 
 
 import FinanceDataReader as fdr
@@ -28,4 +28,13 @@ prev_dt = fdr.DataReader('005930', end = today_dt).index[-2].strftime('%Y-%m-%d'
 
 print(f' 자동매매 일: {today_dt}')
 print(f' 전 영업일: {prev_dt}')
+
+
+# 매수 당일 오전에는 당일의 일봉이 생성되기 전이므로 index[-2] 대신 index[-1] 로 해 줍니다. 자동매매에 사용할 코드는 아래와 같습니다. 
+
+# In[2]:
+
+
+today_dt = datetime.datetime.today().strftime('%Y-%m-%d') # 오늘날짜를 'YYYY-MM-DD' 형태로 변경하여 저장
+prev_dt = fdr.DataReader('005930', end = today_dt).index[-1].strftime('%Y-%m-%d') # today_dt 의 전 영업일을 찾아 'YYYY-MM-DD' 로 저장
 

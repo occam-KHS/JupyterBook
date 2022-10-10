@@ -10,7 +10,7 @@
 # 실전에서는 HTS 에서 제공하는 예약 매수기능과 매도 감시기능을 이용하는 것리 편리합니다. HTS 를 활용하여 자동으로 매수 매도가 가능합니다. 
 # 
 
-# In[1]:
+# In[3]:
 
 
 import FinanceDataReader as fdr
@@ -22,11 +22,12 @@ import numpy as np
 import datetime
 import pickle
 import glob
+import datetime
 
 
 # <br> 추전 종목을 만드는 여러 개의 프로세스를 하나의 함수로 만들었습니다. 
 
-# In[2]:
+# In[15]:
 
 
 def select_stocks(today_dt):
@@ -138,7 +139,7 @@ def select_stocks(today_dt):
     select_tops = tops[(tops['return'] > 1.03) & (tops['price_z'] < 0)][['name','return','price_z','yhat', 'kosdaq_return','close']]  # 기본 필터링 조건   
       
     if len(select_tops) > 1: # 최소한 2개 종목 - 추천 리스크 분산        
-        return select_tops    
+        return select_tops
     
     else:
         return None
@@ -275,10 +276,4 @@ if select_tops is not None:
     results = outcome_tops(select_tops, '2022-06-16', '2022-06-23') # 5 영업일 (6월 6일 현충일)
     
 results.sort_values(by=['buy','yhat'], ascending=False).head(5).style.set_table_attributes('style="font-size: 12px"').format(precision=3)
-
-
-# In[ ]:
-
-
-
 

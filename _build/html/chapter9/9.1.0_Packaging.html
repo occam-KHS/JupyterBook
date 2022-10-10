@@ -852,6 +852,15 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>매수 당일 오전에는 당일의 일봉이 생성되기 전이므로 index[-2] 대신 index[-1] 로 해 줍니다. 자동매매에 사용할 코드는 아래와 같습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 오늘날짜를 &#39;YYYY-MM-DD&#39; 형태로 변경하여 저장</span>
+<span class="n">prev_dt</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">today_dt</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># today_dt 의 전 영업일을 찾아 &#39;YYYY-MM-DD&#39; 로 저장</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

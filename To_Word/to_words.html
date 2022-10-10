@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>파이썬 프로그램 패키징 &#8212; 나만의 추천 시스템</title>
+    <title>&lt;no title&gt; &#8212; 나만의 추천 시스템</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="윈도우즈 스케줄러" href="9.1.1_Scheduling.html" />
-    <link rel="prev" title="종목 추천과 자동매매를 하나로" href="9.0.0_POC.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -588,26 +586,26 @@ const thebe_selector_output = ".output, .cell_output"
   chapter 9
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="9.0.0_POC.html">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter9/9.0.0_POC.html">
    <strong>
     종목 추천과 자동매매를 하나로
    </strong>
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
   <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter9/9.1.0_Packaging.html">
      파이썬 프로그램 패키징
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="9.1.1_Scheduling.html">
+    <a class="reference internal" href="../chapter9/9.1.1_Scheduling.html">
      윈도우즈 스케줄러
     </a>
    </li>
@@ -672,7 +670,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/chapter9/9.1.0_Packaging.ipynb"
+        <a href="https://mybinder.org/v2/gh/occam-KHS/JupyterBook.git/master?urlpath=tree/docs/To_Word/to_words.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -732,7 +730,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2Fchapter9/9.1.0_Packaging.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/occam-KHS/JupyterBook.git/issues/new?title=Issue%20on%20page%20%2FTo_Word/to_words.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -760,7 +758,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/chapter9/9.1.0_Packaging.ipynb"
+        <a href="../_sources/To_Word/to_words.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -797,23 +795,50 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>파이썬 프로그램 패키징</h1>
+                <h1><no title></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -821,47 +846,246 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="id1">
-<h1>파이썬 프로그램 패키징<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>PyCharm 에디터를 이용해 파이썬 프로그램 패키징을 진행하겠습니다. ‘<a class="reference external" href="http://selection.py">selection.py</a>’ 와 ‘<a class="reference external" href="http://trading.py">trading.py</a>’ 파이썬 파일로 된 모듈을 import 합니다. 아래와 같이 ‘<a class="reference external" href="http://main.py">main.py</a>’ 에 임의의 영업일 입력한 후, 프로그램을 실행시킵니다. 8장에서도 설명드린 바와 같이 ‘gam.pkl’ 는 예측모델이 저장된 파일이고 ‘kosdaq_list.pkl’ 은 코스닥 종목 리스트가 있는 파일입니다. 프로그램이 추천종목을 받아, 자동매매가 되는지 테스트 해 봅니다.</p>
-<p><img alt="GET_IMAGE" src="../_images/main_py.PNG" /></p>
-<p>별도의 가상환경 설정없이 주피터노트북으로 알고리즘을 만들었으므로, 아나콘다 Base 에 라이브러리가 모두 설치되어 있습니다. 아나콘다 base 를 아래와 같이 인터프리터로 설정해서 필요한 라이브러리를 모두 활용할 수 있도록 합니다.</p>
-<p><img alt="GET_IMAGE" src="../_images/interpreter.PNG" /></p>
-<br>
-본서에서 구현된 알고리즘은 자동매매를 실행하는 날과 추천 종목을 조회하는 날이 서로 다릅니다. 예를 들어 2022년 9월 26일(월요일) 자동매매를 실행하려면, 매매할 추천종목은 전 주 금요일(2022년 9월 23일) 로 조회를 해야 합니다. 또한 긴 연휴가 있을 수 있으므로 전 영업일을 알아내는 로직이 필요할 것으로 생각이 됩니다. 삼성전자의 일봉을 매매날짜까지 추출하면, 마지막에서 2번 째 레코드가 전 영업일이 될 것입니다. 코드로 간단하게 구현해보겠습니다. 아래와 같이 오늘이 2022년 9월 26일이면 직전 영업일은 2022년 9월 23일이 됩니다. <div class="cell docutils container">
+  <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">FinanceDataReader</span> <span class="k">as</span> <span class="nn">fdr</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="n">today_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 오늘날짜를 &#39;YYYY-MM-DD&#39; 형태로 변경하여 저장</span>
-<span class="n">prev_dt</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">today_dt</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># today_dt 의 전 영업일을 찾아 &#39;YYYY-MM-DD&#39; 로 저장</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 자동매매 일: </span><span class="si">{</span><span class="n">today_dt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 전 영업일: </span><span class="si">{</span><span class="n">prev_dt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">shinki</span><span class="se">\\</span><span class="s1">Hanbit_Media</span><span class="se">\\</span><span class="s1">To_Word</span><span class="se">\\</span><span class="s1">&#39;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;pdf&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">)]</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 자동매매 일: 2022-09-26
- 전 영업일: 2022-09-23
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;chapter1_01.pdf&#39;,
+ &#39;chapter1_02.pdf&#39;,
+ &#39;chapter2_01.pdf&#39;,
+ &#39;chapter2_02.pdf&#39;,
+ &#39;chapter2_03.pdf&#39;,
+ &#39;chapter2_04.pdf&#39;,
+ &#39;chapter2_05.pdf&#39;,
+ &#39;chapter2_06.pdf&#39;,
+ &#39;chapter2_07.pdf&#39;,
+ &#39;chapter2_08.pdf&#39;,
+ &#39;chapter2_09.pdf&#39;,
+ &#39;chapter2_10.pdf&#39;,
+ &#39;chapter2_11.pdf&#39;,
+ &#39;chapter2_12.pdf&#39;,
+ &#39;chapter2_13.pdf&#39;,
+ &#39;chapter2_14.pdf&#39;,
+ &#39;chapter2_15.pdf&#39;,
+ &#39;chapter2_16.pdf&#39;,
+ &#39;chapter2_17.pdf&#39;,
+ &#39;chapter2_18.pdf&#39;,
+ &#39;chapter2_19.pdf&#39;,
+ &#39;chapter2_20.pdf&#39;,
+ &#39;chapter3_01.pdf&#39;,
+ &#39;chapter3_02.pdf&#39;,
+ &#39;chapter3_03.pdf&#39;,
+ &#39;chapter3_04.pdf&#39;,
+ &#39;chapter3_05.pdf&#39;,
+ &#39;chapter4_01.pdf&#39;,
+ &#39;chapter4_02.pdf&#39;,
+ &#39;chapter4_03.pdf&#39;,
+ &#39;chapter4_04.pdf&#39;,
+ &#39;chapter4_05.pdf&#39;,
+ &#39;chapter4_06.pdf&#39;,
+ &#39;chapter4_07.pdf&#39;,
+ &#39;chapter4_08.pdf&#39;,
+ &#39;chapter4_09.pdf&#39;,
+ &#39;chapter5_01.pdf&#39;,
+ &#39;chapter5_02.pdf&#39;,
+ &#39;chapter5_03.pdf&#39;,
+ &#39;chapter5_04.pdf&#39;,
+ &#39;chapter5_05.pdf&#39;,
+ &#39;chapter5_06.pdf&#39;,
+ &#39;chapter5_07.pdf&#39;,
+ &#39;chapter5_08.pdf&#39;,
+ &#39;chapter5_09.pdf&#39;,
+ &#39;chapter5_10.pdf&#39;,
+ &#39;chapter5_11.pdf&#39;,
+ &#39;chapter5_12.pdf&#39;,
+ &#39;chapter6_01.pdf&#39;,
+ &#39;chapter6_02.pdf&#39;,
+ &#39;chapter6_03.pdf&#39;,
+ &#39;chapter6_04.pdf&#39;,
+ &#39;chapter7_01.pdf&#39;,
+ &#39;chapter7_02.pdf&#39;,
+ &#39;chapter7_03.pdf&#39;,
+ &#39;chapter7_04.pdf&#39;,
+ &#39;chapter7_05.pdf&#39;,
+ &#39;chapter7_06.pdf&#39;,
+ &#39;chapter8_01.pdf&#39;,
+ &#39;chapter8_02.pdf&#39;,
+ &#39;chapter8_03.pdf&#39;,
+ &#39;chapter9_01.pdf&#39;,
+ &#39;chapter9_02.pdf&#39;,
+ &#39;chapter9_03.pdf&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>매수 당일 오전에는 당일의 일봉이 생성되기 전이므로 index[-2] 대신 index[-1] 로 해 줍니다. 자동매매에 사용할 코드는 아래와 같습니다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 오늘날짜를 &#39;YYYY-MM-DD&#39; 형태로 변경하여 저장</span>
-<span class="n">prev_dt</span> <span class="o">=</span> <span class="n">fdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;005930&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">today_dt</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># today_dt 의 전 영업일을 찾아 &#39;YYYY-MM-DD&#39; 로 저장</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">file</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span><span class="s1">&#39;_0&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyPDF2</span> <span class="kn">import</span> <span class="n">PdfMerger</span>
+
+<span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">shinki</span><span class="se">\\</span><span class="s1">Hanbit_Media</span><span class="se">\\</span><span class="s1">To_Word</span><span class="se">\\</span><span class="s1">&#39;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;pdf&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">)]</span>
+
+<span class="n">merger</span> <span class="o">=</span> <span class="n">PdfMerger</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">pdf</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">merger</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
+
+<span class="n">merger</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;chapter_all.pdf&quot;</span><span class="p">)</span>
+<span class="n">merger</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">aspose.words</span> <span class="k">as</span> <span class="nn">aw</span>
+
+<span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">shinki</span><span class="se">\\</span><span class="s1">Hanbit_Media</span><span class="se">\\</span><span class="s1">To_Word</span><span class="se">\\</span><span class="s1">&#39;</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">aw</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="n">loc</span> <span class="o">+</span> <span class="s1">&#39;chapter_all.pdf&#39;</span><span class="p">)</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">loc</span> <span class="o">+</span> <span class="s2">&quot;chapter_all.docx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;aspose.words.saving.SaveOutputParameters object at 0x00000168A943FEB0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;chapter1_1.pdf&#39;, &#39;chapter1_2.pdf&#39;, &#39;chapter2_1.pdf&#39;, &#39;chapter2_10.pdf&#39;, &#39;chapter2_11.pdf&#39;, &#39;chapter2_12.pdf&#39;, &#39;chapter2_13.pdf&#39;, &#39;chapter2_14.pdf&#39;, &#39;chapter2_15.pdf&#39;, &#39;chapter2_16.pdf&#39;, &#39;chapter2_17.pdf&#39;, &#39;chapter2_18.pdf&#39;, &#39;chapter2_19.pdf&#39;, &#39;chapter2_2.pdf&#39;, &#39;chapter2_20.pdf&#39;, &#39;chapter2_3.pdf&#39;, &#39;chapter2_4.pdf&#39;, &#39;chapter2_5.pdf&#39;, &#39;chapter2_6.pdf&#39;, &#39;chapter2_7.pdf&#39;, &#39;chapter2_8.pdf&#39;, &#39;chapter2_9.pdf&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import aspose.words as aw</span>
+
+<span class="c1"># # Load source and destination documents</span>
+<span class="c1"># dstDoc = aw.Document(&quot;chapter1_1.docx&quot;)</span>
+<span class="c1"># srcDoc = aw.Document(&quot;chapter1_2.docx&quot;)</span>
+
+<span class="c1"># # Append the source document to the destination document.</span>
+<span class="c1"># # Pass format mode to retain the original formatting of the source document when importing it.</span>
+<span class="c1"># dstDoc.append_document(srcDoc, aw.ImportFormatMode.KEEP_SOURCE_FORMATTING)</span>
+
+<span class="c1"># # Combine Word documents</span>
+<span class="c1"># dstDoc.save(&quot;chapter2.docx&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;aspose.words.saving.SaveOutputParameters object at 0x00000168AA142850&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from docx import Document</span>
+<span class="c1"># files = os.listdir(out_loc)</span>
+<span class="c1"># files = [f for f in files if &#39;docx&#39; in f]</span>
+<span class="c1"># files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;chapter1_1.docx&#39;, &#39;chapter1_2.docx&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># document = Document()</span>
+<span class="c1"># document.add_paragraph(&#39;chapter2_1.docx&#39;)</span>
+<span class="c1"># document.add_paragraph(&quot;chapter2_2.docx&quot;)</span>
+<span class="c1"># document.save(&quot;chapter2.docx&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from docx import Document</span>
+<span class="c1"># from docxcompose.composer import Composer</span>
+    
+<span class="c1"># master = Document(&quot;chapter2_1.docx&quot;)</span>
+<span class="c1"># composer = Composer(master)</span>
+<span class="c1"># doc1 = Document(&quot;chapter2_2.docx&quot;)</span>
+<span class="c1"># composer.append(doc1)</span>
+<span class="c1"># master.save(&#39;chapter2.docx&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install docxcompose
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting docxcompose
+  Downloading docxcompose-1.3.5.tar.gz (19 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status &#39;done&#39;
+Requirement already satisfied: lxml in c:\users\shinki\anaconda3\lib\site-packages (from docxcompose) (4.9.1)
+Requirement already satisfied: python-docx&gt;=0.8.8 in c:\users\shinki\anaconda3\lib\site-packages (from docxcompose) (0.8.11)
+Requirement already satisfied: setuptools in c:\users\shinki\anaconda3\lib\site-packages (from docxcompose) (58.3.0)
+Requirement already satisfied: six in c:\users\shinki\anaconda3\lib\site-packages (from docxcompose) (1.16.0)
+Building wheels for collected packages: docxcompose
+  Building wheel for docxcompose (setup.py): started
+  Building wheel for docxcompose (setup.py): finished with status &#39;done&#39;
+  Created wheel for docxcompose: filename=docxcompose-1.3.5-py3-none-any.whl size=22161 sha256=5b57b0eff67809555da015530c14e8c59473066996b7894e1248036f1a0c943c
+  Stored in directory: c:\users\shinki\appdata\local\pip\cache\wheels\bf\d7\2d\32e69329b140941ff5e94b128663fc05098349f9372316e322
+Successfully built docxcompose
+Installing collected packages: docxcompose
+Successfully installed docxcompose-1.3.5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: Ignoring invalid distribution -illow (c:\users\shinki\anaconda3\lib\site-packages)
+WARNING: Ignoring invalid distribution -illow (c:\users\shinki\anaconda3\lib\site-packages)
+WARNING: Ignoring invalid distribution -illow (c:\users\shinki\anaconda3\lib\site-packages)
+WARNING: Ignoring invalid distribution -illow (c:\users\shinki\anaconda3\lib\site-packages)
+WARNING: Ignoring invalid distribution -illow (c:\users\shinki\anaconda3\lib\site-packages)
+WARNING: Ignoring invalid distribution -illow (c:\users\shinki\anaconda3\lib\site-packages)
+WARNING: Ignoring invalid distribution -illow (c:\users\shinki\anaconda3\lib\site-packages)
+</pre></div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -876,7 +1100,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapter9"
+            path: "./To_Word"
         },
         predefinedOutput: true
     }
@@ -890,20 +1114,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="9.0.0_POC.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><strong>종목 추천과 자동매매를 하나로</strong></p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="9.1.1_Scheduling.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">윈도우즈 스케줄러</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
